@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>cloud.xcan.comp</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0.0</version>
+  </parent>
+
+  <groupId>cloud.xcan.comp.jmock</groupId>
+  <artifactId>xcan-jmock</artifactId>
+  <name>XCan JMock</name>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+  <description>Data and service mock framework.</description>
+  <inceptionYear>2021</inceptionYear>
+  <url>http://gitlab.xcan.work/xcan-framework/xcan-jmock</url>
+
+  <organization>
+    <name>XCan Company</name>
+    <url>http://www.xcan.company</url>
+  </organization>
+
+  <licenses>
+    <license>
+      <name>XCBL License, Version 1.0</name>
+      <url>http://www.xcan.company/licenses/XCBL-1.0</url>
+    </license>
+  </licenses>
+
+  <scm>
+    <url>scm:git:http://gitlab.xcan.work/xcan-framework/xcan-jmock</url>
+    <connection>scm:git:git@gitlab.xcan.work/xcan-framework/xcan-jmock.git</connection>
+    <developerConnection>scm:git:http://gitlab.xcan.work/xcan-framework/xcan-jmock.git
+    </developerConnection>
+    <tag>v1.0.0</tag>
+  </scm>
+
+  <issueManagement>
+    <system>gitlab</system>
+    <url>http://gitlab.xcan.work/xcan-framework/xcan-jmock/-/issues</url>
+  </issueManagement>
+
+  <developers>
+    <developer>
+      <id>xiaolong.liu</id>
+      <name>XiaoLong Liu</name>
+      <email>xiaolong.liu@xcan.company</email>
+      <organization>XCan Company</organization>
+      <organizationUrl>http://www.xcan.company</organizationUrl>
+      <roles>
+        <role>Developer</role>
+        <role>Project Manager</role>
+        <role>Architect</role>
+      </roles>
+    </developer>
+  </developers>
+
+  <mailingLists>
+    <mailingList>
+      <name>Dev Mailing List</name>
+      <post>dev@xcan.company</post>
+      <subscribe>dev-subscribe@xcan.company</subscribe>
+      <unsubscribe>dev-unsubscribe@xcan.company</unsubscribe>
+    </mailingList>
+
+    <mailingList>
+      <name>User Mailing List</name>
+      <post>user@xcan.company</post>
+      <subscribe>user-subscribe@xcan.company</subscribe>
+      <unsubscribe>user-unsubscribe@xcan.company</unsubscribe>
+    </mailingList>
+
+    <mailingList>
+      <name>Commits Mailing List</name>
+      <post>commits@xcan.company</post>
+      <subscribe>commits-subscribe@xcan.company</subscribe>
+      <unsubscribe>commits-unsubscribe@xcan.company</unsubscribe>
+    </mailingList>
+  </mailingLists>
+
+  <contributors/>
+
+  <modules>
+    <module>api</module>
+    <module>plugins</module>
+    <module>core</module>
+    <module>benchmark</module>
+    <module>bom</module>
+    <module>assembly</module>
+  </modules>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <java.version>11</java.version>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+
+    <spring-boot-maven-plugin.version>2.5.1</spring-boot-maven-plugin.version>
+
+    <xcan-sdf.bom.version>1.0.0</xcan-sdf.bom.version>
+
+    <reflections.version>0.9.12</reflections.version>
+    <hamcrest-all.version>1.3</hamcrest-all.version>
+    <junit-jupiter-engine.version>5.7.1</junit-jupiter-engine.version>
+
+    <!-- The path to your local xcan-config repository -->
+    <xcan-config.path>/Volumes/workspace/workspace_xcan/xcan-source/xcan-framework/xcan-config
+    </xcan-config.path>
+    <!-- Protocol header template file, such as XCAN-APACHE_V2.0-header.template,XCBL_V1.0-header.template -->
+    <xcan-config.license.headerTemplate>XCBL_V1.0-header.template
+    </xcan-config.license.headerTemplate>
+    <!-- The path to your docs in project, eg. ${project.basedir}-->
+    <xcan-docs.path>${project.basedir}</xcan-docs.path>
+
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>cloud.xcan.sdf</groupId>
+        <artifactId>xcan-sdf.bom</artifactId>
+        <version>${xcan-sdf.bom.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
+
+    <!-- Reflections - a Java runtime metadata analysis -->
+    <dependency>
+      <groupId>org.reflections</groupId>
+      <artifactId>reflections</artifactId>
+      <version>${reflections.version}</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>${junit-jupiter-engine.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>${junit-jupiter-engine.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-all</artifactId>
+      <version>${hamcrest-all.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- TestNG is a unit testing framework. -->
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.beanshell</groupId>
+          <artifactId>bsh</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <!-- JUnit is a unit testing framework for Java. -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <!-- Rich and fluent assertions for testing for Java. -->
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <!-- Mockito mock objects library core API and implementation. -->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <!-- Core API and libraries of hamcrest matcher framework (for Test). -->
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <!-- Building configuration -->
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+        <includes>
+          <include>**/*</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+        <includes>
+          <include>banner.txt</include>
+          <include>logback.xml</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/scripts</directory>
+        <includes>
+          <include>Dockerfile</include>
+          <include>startenv.sh</include>
+        </includes>
+        <filtering>true</filtering>
+        <targetPath>${project.basedir}/target</targetPath>
+      </resource>
+    </resources>
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+          <version>${spring-boot-maven-plugin.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <configuration>
+          <encoding>UTF-8</encoding>
+          <nonFilteredFileExtensions>
+            <nonFilteredFileExtension>lic</nonFilteredFileExtension>
+            <nonFilteredFileExtension>cer</nonFilteredFileExtension>
+            <nonFilteredFileExtension>key</nonFilteredFileExtension>
+            <nonFilteredFileExtension>keystore</nonFilteredFileExtension>
+            <nonFilteredFileExtension>p12</nonFilteredFileExtension>
+            <nonFilteredFileExtension>pem</nonFilteredFileExtension>
+          </nonFilteredFileExtensions>
+          <delimiters>
+            <encoding>UTF-8</encoding>
+            <delimiter>@</delimiter>
+          </delimiters>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-site-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-descriptor</id>
+            <goals>
+              <goal>attach-descriptor</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
