@@ -7,11 +7,11 @@
 
   <parent>
     <groupId>cloud.xcan.comp.jmock</groupId>
-    <artifactId>xcan-jmock</artifactId>
+    <artifactId>JMock</artifactId>
     <version>1.0.0</version>
   </parent>
 
-  <artifactId>xcan-jmock.bom</artifactId>
+  <artifactId>bom</artifactId>
   <name>JMock :: BOM</name>
   <packaging>pom</packaging>
   <description>Bill of Materials for jmock</description>
@@ -20,28 +20,21 @@
     <dependencies>
       <dependency>
         <groupId>cloud.xcan.comp.jmock</groupId>
-        <artifactId>xcan-jmock.api</artifactId>
+        <artifactId>api</artifactId>
         <version>${project.version}</version>
         <scope>compile</scope>
       </dependency>
 
       <dependency>
         <groupId>cloud.xcan.comp.jmock</groupId>
-        <artifactId>xcan-jmock.core</artifactId>
+        <artifactId>core</artifactId>
         <version>${project.version}</version>
         <scope>compile</scope>
       </dependency>
 
       <dependency>
         <groupId>cloud.xcan.comp.jmock</groupId>
-        <artifactId>xcan-jmock.plugins</artifactId>
-        <version>${project.version}</version>
-        <scope>compile</scope>
-      </dependency>
-
-      <dependency>
-        <groupId>cloud.xcan.comp.jmock</groupId>
-        <artifactId>xcan-jmock.integration</artifactId>
+        <artifactId>plugins</artifactId>
         <version>${project.version}</version>
         <scope>compile</scope>
       </dependency>

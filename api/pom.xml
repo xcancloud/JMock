@@ -7,11 +7,11 @@
 
   <parent>
     <groupId>cloud.xcan.comp.jmock</groupId>
-    <artifactId>xcan-jmock</artifactId>
+    <artifactId>JMock</artifactId>
     <version>1.0.0</version>
   </parent>
 
-  <artifactId>xcan-jmock.api</artifactId>
+  <artifactId>api</artifactId>
   <name>JMock :: Api</name>
   <packaging>jar</packaging>
 
@@ -19,7 +19,7 @@
     <dependencies>
       <dependency>
         <groupId>cloud.xcan.comp.jmock</groupId>
-        <artifactId>xcan-jmock.bom</artifactId>
+        <artifactId>bom</artifactId>
         <version>${project.version}</version>
         <type>pom</type>
         <scope>import</scope>

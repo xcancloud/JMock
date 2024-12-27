@@ -6,12 +6,12 @@
 
   <parent>
     <groupId>cloud.xcan.comp.jmock</groupId>
-    <artifactId>xcan-jmock</artifactId>
+    <artifactId>JMock</artifactId>
     <version>1.0.0</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
-  <artifactId>xcan-jmock.assembly</artifactId>
+  <artifactId>assembly</artifactId>
   <name>JMock :: Assembly</name>
   <packaging>pom</packaging>
   <description/>

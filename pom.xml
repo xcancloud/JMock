@@ -12,8 +12,8 @@
   </parent>
 
   <groupId>cloud.xcan.comp.jmock</groupId>
-  <artifactId>xcan-jmock</artifactId>
-  <name>XCan JMock</name>
+  <artifactId>JMock</artifactId>
+  <name>JMock :: Parent</name>
   <version>1.0.0</version>
   <packaging>pom</packaging>
   <description>Data and service mock framework.</description>
