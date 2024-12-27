@@ -11,7 +11,7 @@
     <version>1.0.0</version>
   </parent>
 
-  <artifactId>api</artifactId>
+  <artifactId>xcan-jmock.api</artifactId>
   <name>JMock :: Api</name>
   <packaging>jar</packaging>
 

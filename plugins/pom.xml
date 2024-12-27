@@ -11,7 +11,7 @@
     <version>1.0.0</version>
   </parent>
 
-  <artifactId>plugins</artifactId>
+  <artifactId>xcan-jmock.plugins</artifactId>
   <name>JMock :: Plugins</name>
   <packaging>pom</packaging>
 

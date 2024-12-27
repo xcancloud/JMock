@@ -20,21 +20,21 @@
     <dependencies>
       <dependency>
         <groupId>cloud.xcan.comp.jmock</groupId>
-        <artifactId>api</artifactId>
+        <artifactId>xcan-jmock.api</artifactId>
         <version>${project.version}</version>
         <scope>compile</scope>
       </dependency>
 
       <dependency>
         <groupId>cloud.xcan.comp.jmock</groupId>
-        <artifactId>core</artifactId>
+        <artifactId>xcan-jmock.core</artifactId>
         <version>${project.version}</version>
         <scope>compile</scope>
       </dependency>
 
       <dependency>
         <groupId>cloud.xcan.comp.jmock</groupId>
-        <artifactId>plugins</artifactId>
+        <artifactId>xcan-jmock.plugins</artifactId>
         <version>${project.version}</version>
         <scope>compile</scope>
       </dependency>

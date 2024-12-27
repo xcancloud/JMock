@@ -11,7 +11,7 @@
     <relativePath>../pom.xml</relativePath>
   </parent>
 
-  <artifactId>assembly</artifactId>
+  <artifactId>xcan-jmock.assembly</artifactId>
   <name>JMock :: Assembly</name>
   <packaging>pom</packaging>
   <description/>
