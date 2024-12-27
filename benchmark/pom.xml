@@ -18,7 +18,7 @@
   <dependencies>
     <dependency>
       <groupId>cloud.xcan.comp.jmock</groupId>
-      <artifactId>core</artifactId>
+      <artifactId>xcan-jmock.core</artifactId>
       <version>${project.version}</version>
       <scope>compile</scope>
     </dependency>

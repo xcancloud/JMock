@@ -19,7 +19,7 @@
 
     <dependency>
       <groupId>cloud.xcan.comp.jmock</groupId>
-      <artifactId>api</artifactId>
+      <artifactId>xcan-jmock.api</artifactId>
       <version>${project.version}</version>
     </dependency>
 
