@@ -1,6 +1,9 @@
 JMock
 ===
 
+- [English Version](README.md)
+- [中文版](README_zh.md)
+
 ## Introduction
 
 JMock is a high-performance data generation and simulation component library implemented in Java. It generates data that more closely resembles business data characteristics compared to random data.
