@@ -15,6 +15,18 @@
   <name>JMock :: Plugins</name>
   <packaging>pom</packaging>
 
+  <modules>
+    <module>car</module>
+    <module>code</module>
+    <module>commerce</module>
+    <module>company</module>
+    <module>crypto</module>
+    <module>financial</module>
+    <module>math</module>
+    <module>news</module>
+<!--    <module>web</module>-->
+  </modules>
+
   <dependencies>
 
   </dependencies>

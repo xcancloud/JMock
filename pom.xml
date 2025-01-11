@@ -87,8 +87,8 @@
 
   <modules>
     <module>api</module>
-    <module>plugins</module>
     <module>core</module>
+    <module>plugins</module>
     <module>benchmark</module>
     <module>bom</module>
     <module>assembly</module>
