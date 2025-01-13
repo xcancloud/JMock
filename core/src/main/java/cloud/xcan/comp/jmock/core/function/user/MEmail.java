@@ -57,8 +57,8 @@ public class MEmail extends AbstractMockFunction {
   }
 
   @JMockConstructor(descI18nKey = DOC_MEMAIL_C2,
-      example = "@Email(@xcan.company)",
-      exampleValues = {"WF8W5NFeMyrMKAx@xcan.company", "CcbZYdmDEtWGEY1@xcan.company"})
+      example = "@Email(@xcan.cloud)",
+      exampleValues = {"WF8W5NFeMyrMKAx@xcan.cloud", "CcbZYdmDEtWGEY1@xcan.cloud"})
   public MEmail(String suffix) {
     this(DEFAULT_MIN_VALUE, DEFAULT_MAX_VALUE, suffix);
   }
@@ -71,8 +71,8 @@ public class MEmail extends AbstractMockFunction {
   }
 
   @JMockConstructor(descI18nKey = DOC_MEMAIL_C4,
-      example = "@Email(5,5,@xcan.company)",
-      exampleValues = {"4g4Fv@xcan.company", "Hv8jh@xcan.company"})
+      example = "@Email(5,5,@xcan.cloud)",
+      exampleValues = {"4g4Fv@xcan.cloud", "Hv8jh@xcan.cloud"})
   public MEmail(int min, int max, String suffix) {
     if (StringUtils.isBlank(suffix)) {
       String appName = MessageResources.getString(JMockMessage.FDATA_EMAIL);

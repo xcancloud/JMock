@@ -1020,13 +1020,13 @@
 
     - min：邮箱最小长度，默认 6 个字符，最小 1 个字符。
     - max：邮箱最大长度，默认 20 个字符，最大 65535 个字符。
-    - suffix：邮箱后缀，多个值以“|”分割，默认值： @xcan.company |@hotmail.com |@126.com |@yahoo.com.cn |@yahoo.com |@live.com |@153.com |@qq.com
+    - suffix：邮箱后缀，多个值以“|”分割，默认值： @xcan.cloud |@hotmail.com |@126.com |@yahoo.com.cn |@yahoo.com |@live.com |@153.com |@qq.com
 
 - 使用示例：
 
     1. 调用 @Email() 1 次结果：shh6r2@qq.com。
     2. 调用 @Email(5,10) 3 次结果：zjs7cb@hotmail.com 98gsHnC@126.com jsGH6sc@yahoo.com。
-    3. 调用 @Email(5,5,@xcan.company) 3 次结果：4g4Fv@xcan.company Hv8jh@xcan.company MrGv1@xcan.company。
+    3. 调用 @Email(5,5,@xcan.cloud) 3 次结果：4g4Fv@xcan.cloud Hv8jh@xcan.cloud MrGv1@xcan.cloud。
 
 ### Education()
 

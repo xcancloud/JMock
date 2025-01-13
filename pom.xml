@@ -22,13 +22,13 @@
 
   <organization>
     <name>XCan Company</name>
-    <url>http://www.xcan.company</url>
+    <url>http://www.xcan.cloud</url>
   </organization>
 
   <licenses>
     <license>
       <name>XCBL License, Version 1.0</name>
-      <url>http://www.xcan.company/licenses/XCBL-1.0</url>
+      <url>http://www.xcan.cloud/licenses/XCBL-1.0</url>
     </license>
   </licenses>
 
@@ -49,9 +49,9 @@
     <developer>
       <id>xiaolong.liu</id>
       <name>XiaoLong Liu</name>
-      <email>xiaolong.liu@xcan.company</email>
+      <email>lxl@xcan.cloud</email>
       <organization>XCan Company</organization>
-      <organizationUrl>http://www.xcan.company</organizationUrl>
+      <organizationUrl>http://www.xcan.cloud</organizationUrl>
       <roles>
         <role>Developer</role>
         <role>Project Manager</role>
@@ -63,23 +63,23 @@
   <mailingLists>
     <mailingList>
       <name>Dev Mailing List</name>
-      <post>dev@xcan.company</post>
-      <subscribe>dev-subscribe@xcan.company</subscribe>
-      <unsubscribe>dev-unsubscribe@xcan.company</unsubscribe>
+      <post>dev@xcan.cloud</post>
+      <subscribe>dev-subscribe@xcan.cloud</subscribe>
+      <unsubscribe>dev-unsubscribe@xcan.cloud</unsubscribe>
     </mailingList>
 
     <mailingList>
       <name>User Mailing List</name>
-      <post>user@xcan.company</post>
-      <subscribe>user-subscribe@xcan.company</subscribe>
-      <unsubscribe>user-unsubscribe@xcan.company</unsubscribe>
+      <post>user@xcan.cloud</post>
+      <subscribe>user-subscribe@xcan.cloud</subscribe>
+      <unsubscribe>user-unsubscribe@xcan.cloud</unsubscribe>
     </mailingList>
 
     <mailingList>
       <name>Commits Mailing List</name>
-      <post>commits@xcan.company</post>
-      <subscribe>commits-subscribe@xcan.company</subscribe>
-      <unsubscribe>commits-unsubscribe@xcan.company</unsubscribe>
+      <post>commits@xcan.cloud</post>
+      <subscribe>commits-subscribe@xcan.cloud</subscribe>
+      <unsubscribe>commits-unsubscribe@xcan.cloud</unsubscribe>
     </mailingList>
   </mailingLists>
 

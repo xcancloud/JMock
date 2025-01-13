@@ -942,7 +942,7 @@
 
     - min: Minimum email length, default is 6 characters, minimum is 1 character.
     - max: Maximum email length, default is 20 characters, maximum is 65535 characters.
-    - suffix: Email suffix, multiple values separated by "|", default values: @xcan.company |@hotmail.com |@126.com |@yahoo.com.cn |@yahoo.com |@live.com |@153.com |@qq.com
+    - suffix: Email suffix, multiple values separated by "|", default values: @xcan.cloud |@hotmail.com |@126.com |@yahoo.com.cn |@yahoo.com |@live.com |@153.com |@qq.com
 
 - Usage Examples:
 
