@@ -6,7 +6,6 @@ cloud.xcan.comp.jmock.core.function.basic.MFloat
 cloud.xcan.comp.jmock.core.function.basic.MDouble
 cloud.xcan.comp.jmock.core.function.basic.MBool
 cloud.xcan.comp.jmock.core.function.basic.MEnum
-cloud.xcan.comp.jmock.core.function.basic.MArray
 cloud.xcan.comp.jmock.core.function.basic.MRegExp
 
 cloud.xcan.comp.jmock.core.function.date.MTimestamp
