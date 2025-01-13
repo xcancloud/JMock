@@ -5,6 +5,7 @@ LOG_HOME_IS_UNDEFINED
 CATALINA_BASE_IS_UNDEFINED
 log.dir_IS_UNDEFINED
 temp
+.DS_Store
 
 ### STS ###
 .apt_generated
