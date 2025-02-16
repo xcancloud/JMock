@@ -6,9 +6,9 @@ import static cloud.xcan.comp.jmock.api.i18n.JMockMessage.FPARAM_WEIGHT_T;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+import cloud.xcan.comp.jmock.api.FunctionToken;
 import cloud.xcan.comp.jmock.api.exception.ParamParseException;
 import cloud.xcan.comp.jmock.core.exception.ConstructorMismatchException;
-import cloud.xcan.comp.jmock.api.FunctionToken;
 import cloud.xcan.comp.jmock.core.parser.SimpleMockFunctionTokenParser;
 import org.junit.jupiter.api.Test;
 

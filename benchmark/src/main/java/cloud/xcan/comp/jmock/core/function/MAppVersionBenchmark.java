@@ -2,8 +2,8 @@
 package cloud.xcan.comp.jmock.core.function;
 
 import cloud.xcan.comp.jmock.AbstractBenchmark;
-import cloud.xcan.comp.jmock.core.function.network.MAppVersion;
 import cloud.xcan.comp.jmock.api.FunctionToken;
+import cloud.xcan.comp.jmock.core.function.network.MAppVersion;
 import cloud.xcan.comp.jmock.core.parser.SimpleMockFunctionTokenParser;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Setup;

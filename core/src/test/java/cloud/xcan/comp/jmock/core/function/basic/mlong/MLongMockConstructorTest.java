@@ -1,7 +1,7 @@
 package cloud.xcan.comp.jmock.core.function.basic.mlong;
 
-import cloud.xcan.comp.jmock.core.function.basic.MLong;
 import cloud.xcan.comp.jmock.api.FunctionToken;
+import cloud.xcan.comp.jmock.core.function.basic.MLong;
 import cloud.xcan.comp.jmock.core.parser.SimpleMockFunctionTokenParser;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;

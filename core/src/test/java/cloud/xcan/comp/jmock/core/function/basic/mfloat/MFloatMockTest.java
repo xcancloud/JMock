@@ -1,7 +1,7 @@
 package cloud.xcan.comp.jmock.core.function.basic.mfloat;
 
-import cloud.xcan.comp.jmock.core.function.basic.MFloat;
 import cloud.xcan.comp.jmock.api.FunctionToken;
+import cloud.xcan.comp.jmock.core.function.basic.MFloat;
 import cloud.xcan.comp.jmock.core.parser.SimpleMockFunctionTokenParser;
 import java.text.DecimalFormat;
 import org.junit.Assert;
