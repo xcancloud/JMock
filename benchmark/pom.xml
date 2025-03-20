@@ -6,7 +6,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>cloud.xcan.comp.jmock</groupId>
+    <groupId>cloud.xcan.jmock</groupId>
     <artifactId>JMock</artifactId>
     <version>1.0.0</version>
   </parent>
@@ -17,10 +17,9 @@
 
   <dependencies>
     <dependency>
-      <groupId>cloud.xcan.comp.jmock</groupId>
+      <groupId>cloud.xcan.jmock</groupId>
       <artifactId>xcan-jmock.core</artifactId>
       <version>${project.version}</version>
-      <scope>compile</scope>
     </dependency>
 
     <dependency>

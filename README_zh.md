@@ -1,8 +1,7 @@
 JMock
 ===
 
-- [English Version](README.md)
-- [中文版](README_zh.md)
+[English](README.md) | [中文](README_zh.md)
 
 ## 介绍
 

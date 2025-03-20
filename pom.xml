@@ -6,19 +6,18 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>cloud.xcan.comp</groupId>
-    <artifactId>parent</artifactId>
+    <groupId>cloud.xcan.angus</groupId>
+    <artifactId>xcan-infra.parent</artifactId>
     <version>1.0.0</version>
   </parent>
 
-  <groupId>cloud.xcan.comp.jmock</groupId>
+  <groupId>cloud.xcan.jmock</groupId>
   <artifactId>JMock</artifactId>
   <name>JMock :: Parent</name>
   <version>1.0.0</version>
   <packaging>pom</packaging>
-  <description>Data and service mock framework.</description>
-  <inceptionYear>2021</inceptionYear>
-  <url>http://gitlab.xcan.work/xcan-framework/xcan-jmock</url>
+  <description>Data Mock Framework.</description>
+  <url>https://github.com/xcancloud/xcan-jmock</url>
 
   <organization>
     <name>XCan Company</name>
@@ -27,22 +26,22 @@
 
   <licenses>
     <license>
-      <name>XCBL License, Version 1.0</name>
-      <url>http://www.xcan.cloud/licenses/XCBL-1.0</url>
+      <name>GPLv3</name>
+      <url>https://www.gnu.org/licenses/gpl-3.0.html</url>
     </license>
   </licenses>
 
   <scm>
-    <url>scm:git:http://gitlab.xcan.work/xcan-framework/xcan-jmock</url>
-    <connection>scm:git:git@gitlab.xcan.work/xcan-framework/xcan-jmock.git</connection>
-    <developerConnection>scm:git:http://gitlab.xcan.work/xcan-framework/xcan-jmock.git
+    <url>scm:git:https://github.com/xcancloud/JMock</url>
+    <connection>scm:git:git@gitlab.xcan.work/xcan-framework/JMock.git</connection>
+    <developerConnection>scm:git:https://github.com/xcancloud/JMock.git
     </developerConnection>
     <tag>v1.0.0</tag>
   </scm>
 
   <issueManagement>
-    <system>gitlab</system>
-    <url>http://gitlab.xcan.work/xcan-framework/xcan-jmock/-/issues</url>
+    <system>github</system>
+    <url>https://github.com/xcancloud/JMock/-/issues</url>
   </issueManagement>
 
   <developers>
@@ -67,20 +66,6 @@
       <subscribe>dev-subscribe@xcan.cloud</subscribe>
       <unsubscribe>dev-unsubscribe@xcan.cloud</unsubscribe>
     </mailingList>
-
-    <mailingList>
-      <name>User Mailing List</name>
-      <post>user@xcan.cloud</post>
-      <subscribe>user-subscribe@xcan.cloud</subscribe>
-      <unsubscribe>user-unsubscribe@xcan.cloud</unsubscribe>
-    </mailingList>
-
-    <mailingList>
-      <name>Commits Mailing List</name>
-      <post>commits@xcan.cloud</post>
-      <subscribe>commits-subscribe@xcan.cloud</subscribe>
-      <unsubscribe>commits-unsubscribe@xcan.cloud</unsubscribe>
-    </mailingList>
   </mailingLists>
 
   <contributors/>
@@ -98,35 +83,24 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <java.version>11</java.version>
+    <java.version>17</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
 
-    <spring-boot-maven-plugin.version>2.5.1</spring-boot-maven-plugin.version>
-
-    <xcan-sdf.bom.version>1.0.0</xcan-sdf.bom.version>
+    <xcan-infra.bom.version>1.0.0</xcan-infra.bom.version>
 
     <reflections.version>0.9.12</reflections.version>
     <hamcrest-all.version>1.3</hamcrest-all.version>
     <junit-jupiter-engine.version>5.7.1</junit-jupiter-engine.version>
-
-    <!-- The path to your local xcan-config repository -->
-    <xcan-config.path>/Volumes/workspace/workspace_xcan/xcan-source/xcan-framework/xcan-config
-    </xcan-config.path>
-    <!-- Protocol header template file, such as XCAN-APACHE_V2.0-header.template,XCBL_V1.0-header.template -->
-    <xcan-config.license.headerTemplate>XCBL_V1.0-header.template
-    </xcan-config.license.headerTemplate>
-    <!-- The path to your docs in project, eg. ${project.basedir}-->
-    <xcan-docs.path>${project.basedir}</xcan-docs.path>
 
   </properties>
 
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>cloud.xcan.sdf</groupId>
-        <artifactId>xcan-sdf.bom</artifactId>
-        <version>${xcan-sdf.bom.version}</version>
+        <groupId>cloud.xcan.angus</groupId>
+        <artifactId>xcan-infra.bom</artifactId>
+        <version>${xcan-infra.bom.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>

@@ -6,6 +6,7 @@ CATALINA_BASE_IS_UNDEFINED
 log.dir_IS_UNDEFINED
 temp
 .DS_Store
+REF.md
 
 ### STS ###
 .apt_generated

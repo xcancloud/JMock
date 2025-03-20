@@ -16,7 +16,6 @@ import cloud.xcan.comp.jmock.core.parser.docs.model.MockParameter;
 import cloud.xcan.sdf.spec.experimental.Assert;
 import cloud.xcan.sdf.spec.locale.SupportedLanguage;
 import cloud.xcan.sdf.spec.utils.JsonUtils;
-import cloud.xcan.sdf.spec.utils.ObjectUtils;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import java.io.File;
@@ -24,7 +23,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Parameter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -33,9 +34,6 @@ import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import org.checkerframework.checker.index.qual.NonNegative;
-import org.checkerframework.checker.nullness.qual.NonNull;
-import org.springframework.core.LocalVariableTableParameterNameDiscoverer;
 
 public class MockFunctionDocParser {
 
@@ -55,8 +53,7 @@ public class MockFunctionDocParser {
     this(new DefaultEvalEnvironment(), DEFAULT_CASE_DAY, TimeUnit.DAYS);
   }
 
-  public MockFunctionDocParser(Environment environment, @NonNegative long duration,
-      @NonNull TimeUnit unit) {
+  public MockFunctionDocParser(Environment environment, long duration, TimeUnit unit) {
     this.environment = environment;
     this.caches = Caffeine.newBuilder()
         .expireAfterWrite(duration, unit).maximumSize(SupportedLanguage.values().length)
@@ -107,24 +104,24 @@ public class MockFunctionDocParser {
         List<MockConstructor> mockConstructors = new ArrayList<>();
         java.lang.reflect.Constructor<?>[] constructors = entry.getValue().getConstructors();
         Assert.assertNotEmpty(constructors, "Mock function constructor is required");
-        LocalVariableTableParameterNameDiscoverer parameterNameDiscoverer = new LocalVariableTableParameterNameDiscoverer();
         for (Constructor<?> constructor : constructors) {
           constructor.setAccessible(false);
           JMockConstructor constructAnnotation = constructor.getAnnotation(JMockConstructor.class);
           // Ignore constructors that have not been annotated by @JMockConstructor
           if (Objects.nonNull(constructAnnotation)) {
             MockConstructor funcConstructor = new MockConstructor();
-            String[] parameterNames = parameterNameDiscoverer.getParameterNames(constructor);
-            if (ObjectUtils.isNotEmpty(parameterNames)) {
+            Parameter[] constructorParameters = constructor.getParameters();
+            List<String> parameterNames = Arrays.stream(constructorParameters)
+                .map(Parameter::getName).collect(Collectors.toList());
+            if (isNotEmpty(parameterNames)) {
               String parameterNameStr = String.join(",", parameterNames);
               String funcConstructorInstance = mockFunction.getName()
                   .replace("(", "").replace(")", "")
                   .concat("(" + parameterNameStr + ")");
-              List<String> parameterNameList = List.of(parameterNames);
               funcConstructor.setInstance(funcConstructorInstance)
                   .setDescription(getString(constructAnnotation.descI18nKey(), language.toLocale()))
                   .setParameters(mockParameters.stream()
-                      .filter(x -> parameterNameList.contains(x.getName()))
+                      .filter(x -> parameterNames.contains(x.getName()))
                       .collect(Collectors.toList()))
                   .setExample(constructAnnotation.example())
                   .setExampleValues(constructAnnotation.exampleValues());

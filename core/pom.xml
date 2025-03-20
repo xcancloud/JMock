@@ -6,7 +6,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>cloud.xcan.comp.jmock</groupId>
+    <groupId>cloud.xcan.jmock</groupId>
     <artifactId>JMock</artifactId>
     <version>1.0.0</version>
   </parent>
@@ -18,7 +18,7 @@
   <dependencies>
 
     <dependency>
-      <groupId>cloud.xcan.comp.jmock</groupId>
+      <groupId>cloud.xcan.jmock</groupId>
       <artifactId>xcan-jmock.api</artifactId>
       <version>${project.version}</version>
     </dependency>
@@ -29,15 +29,25 @@
     </dependency>
 
     <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-core</artifactId>
-    </dependency>
-
-    <dependency>
       <groupId>com.google.code.gson</groupId>
       <artifactId>gson</artifactId>
       <scope>test</scope>
     </dependency>
 
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <compilerArgs>
+            <!-- Get the parameter name of the construction method to avoid the problem of invalid parameter names for arg0 and arg1 -->
+            <arg>-parameters</arg>
+          </compilerArgs>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
