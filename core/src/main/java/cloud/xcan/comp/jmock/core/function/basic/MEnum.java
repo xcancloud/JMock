@@ -29,7 +29,7 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * @author bao.zhang
- * @author xiaolong.liu
+ * @author XiaoLong Liu
 */
 @Setter
 @Getter

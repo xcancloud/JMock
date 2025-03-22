@@ -2,7 +2,7 @@
 package cloud.xcan.comp.jmock.api;
 
 /**
- * @author xiaolong.liu
+ * @author XiaoLong Liu
  */
 @FunctionalInterface
 public interface MockFunction {

@@ -2,7 +2,7 @@ package cloud.xcan.comp.jmock.core.support.utils;
 
 /**
  * @author bao.zhang
- * @author xiaolong.liu
+ * @author XiaoLong Liu
 */
 public class RandomEmailUtils {
 

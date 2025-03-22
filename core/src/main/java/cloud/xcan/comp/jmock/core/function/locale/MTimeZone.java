@@ -19,7 +19,7 @@ import lombok.Setter;
 
 /**
  * @author bao.zhang
- * @author xiaolong.liu
+ * @author XiaoLong Liu
 */
 @Setter
 @Getter

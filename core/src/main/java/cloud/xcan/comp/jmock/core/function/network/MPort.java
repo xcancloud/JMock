@@ -22,7 +22,7 @@ import org.apache.commons.lang3.ObjectUtils;
 
 /**
  * @author hao.guo
- * @author xiaolong.liu
+ * @author XiaoLong Liu
  */
 @Setter
 @Getter

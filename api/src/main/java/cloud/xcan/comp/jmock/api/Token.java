@@ -3,7 +3,7 @@ package cloud.xcan.comp.jmock.api;
 /**
  * A extractor is an abstraction of a function or method call expression.
  *
- * @author xiaolong.liu
+ * @author XiaoLong Liu
  */
 public interface Token {
 

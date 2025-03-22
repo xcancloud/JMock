@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * The default expression tokenizer, only parses the text containing a valid expression.
  *
- * @author xiaolong.liu
+ * @author XiaoLong Liu
  */
 public final class DefaultMockExpressionExtractor extends DefaultMockTextExtractor {
 

@@ -6,7 +6,7 @@ import static org.apache.commons.lang3.ObjectUtils.isEmpty;
 import cloud.xcan.comp.jmock.core.parser.extractor.DefaultMockTextExtractor;
 
 /**
- * @author xiaolong.liu
+ * @author XiaoLong Liu
  */
 public final class DefaultMockTextReplacer extends DefaultMockExpressionReplacer {
 

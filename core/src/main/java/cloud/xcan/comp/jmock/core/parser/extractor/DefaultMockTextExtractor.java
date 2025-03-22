@@ -25,7 +25,7 @@ import java.util.Map;
  * The default text tokenizer, the content of text can contain one or more function and method call
  * expressions, and the format can be xml, json, txt, etc.
  *
- * @author xiaolong.liu
+ * @author XiaoLong Liu
  */
 public class DefaultMockTextExtractor implements MockExtractor<FunctionToken> {
 

@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * The basic implementation of a {@link Token}.
  *
- * @author xiaolong.liu
+ * @author XiaoLong Liu
  */
 public abstract class AbstractToken implements Token {
 

@@ -14,7 +14,7 @@ import org.openjdk.jmh.runner.options.OptionsBuilder;
 
 /**
  * @author bao.zhang
- * @author xiaolong.liu
+ * @author XiaoLong Liu
 */
 public class MLocaleDateBenchmark extends AbstractBenchmark {
 

@@ -19,7 +19,7 @@ import lombok.Setter;
 import org.apache.commons.lang3.ObjectUtils;
 
 /**
- * @author xiaolong.liu
+ * @author XiaoLong Liu
  */
 @Setter
 @Getter

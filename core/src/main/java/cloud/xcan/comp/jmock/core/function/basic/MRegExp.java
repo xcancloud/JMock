@@ -23,7 +23,7 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * @author bao.zhang
- * @author xiaolong.liu
+ * @author XiaoLong Liu
  * @see `https://github.com/stuartwdouglasmidstream/github--mifmif--Generex`
  * @see `/workspace/workspace_3rd/mock/github--mifmif--Generex`
  */

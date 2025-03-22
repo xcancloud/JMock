@@ -13,7 +13,7 @@ import org.apache.commons.lang3.reflect.ConstructorUtils;
 /**
  * Parse {@link FunctionToken} into MockFunction function.
  *
- * @author xiaolong.liu
+ * @author XiaoLong Liu
  */
 public class SimpleMockFunctionTokenParser implements MockFunctionTokenParser {
 

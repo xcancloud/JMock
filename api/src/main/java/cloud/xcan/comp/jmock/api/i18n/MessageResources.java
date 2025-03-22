@@ -8,7 +8,7 @@ import java.util.ResourceBundle;
 /**
  * Get locale messages from Resource Bundle.
  *
- * @author xiaolong.liu
+ * @author XiaoLong Liu
  */
 public class MessageResources {
 

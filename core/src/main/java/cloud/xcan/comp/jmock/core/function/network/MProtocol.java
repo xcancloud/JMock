@@ -19,7 +19,7 @@ import org.apache.commons.lang3.ObjectUtils;
 
 /**
  * @author bao.zhang
- * @author xiaolong.liu
+ * @author XiaoLong Liu
  */
 @Setter
 @Getter
