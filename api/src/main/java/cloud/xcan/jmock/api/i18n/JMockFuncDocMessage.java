@@ -239,17 +239,17 @@ public interface JMockFuncDocMessage {
   String DOC_MEMAIL_C3 = "jmock.func.MEmail.C3";
   String DOC_MEMAIL_C4 = "jmock.func.MEmail.C4";
 
-  String DOC_MPASSD_DESC = "jmock.func.MPassd.description";
-  String DOC_MPASSD_PARAMETER_MIN = "jmock.func.MPassd.parameter.min";
-  String DOC_MPASSD_PARAMETER_MAX = "jmock.func.MPassd.parameter.max";
-  String DOC_MPASSD_PARAMETER_ALLOW_UPPERCASE = "jmock.func.MPassd.parameter.allowUpperCase";
-  String DOC_MPASSD_PARAMETER_ALLOW_LOWERCASE = "jmock.func.MPassd.parameter.allowLowerCase";
-  String DOC_MPASSD_PARAMETER_ALLOW_DIGITS = "jmock.func.MPassd.parameter.allowDigits";
-  String DOC_MPASSD_PARAMETER_ALLOW_SPECIALCHAR = "jmock.func.MPassd.parameter.allowSpecialChar";
-  String DOC_MPASSD_C1 = "jmock.func.MPassd.C1";
-  String DOC_MPASSD_C2 = "jmock.func.MPassd.C2";
-  String DOC_MPASSD_C3 = "jmock.func.MPassd.C3";
-  String DOC_MPASSD_C4 = "jmock.func.MPassd.C4";
+  String DOC_MPASSWORD_DESC = "jmock.func.MPassd.description";
+  String DOC_MPASSWORD_PARAMETER_MIN = "jmock.func.MPassd.parameter.min";
+  String DOC_MPASSWORD_PARAMETER_MAX = "jmock.func.MPassd.parameter.max";
+  String DOC_MPASSWORD_PARAMETER_ALLOW_UPPERCASE = "jmock.func.MPassd.parameter.allowUpperCase";
+  String DOC_MPASSWORD_PARAMETER_ALLOW_LOWERCASE = "jmock.func.MPassd.parameter.allowLowerCase";
+  String DOC_MPASSWORD_PARAMETER_ALLOW_DIGITS = "jmock.func.MPassd.parameter.allowDigits";
+  String DOC_MPASSWORD_PARAMETER_ALLOW_SPECIALCHAR = "jmock.func.MPassd.parameter.allowSpecialChar";
+  String DOC_MPASSWORD_C1 = "jmock.func.MPassd.C1";
+  String DOC_MPASSWORD_C2 = "jmock.func.MPassd.C2";
+  String DOC_MPASSWORD_C3 = "jmock.func.MPassd.C3";
+  String DOC_MPASSWORD_C4 = "jmock.func.MPassd.C4";
 
   String DOC_MEDUCATION_DESC = "jmock.func.MEducation.description";
   String DOC_MEDUCATION_PARAMETER_DICT = "jmock.func.MEducation.parameter.dict";

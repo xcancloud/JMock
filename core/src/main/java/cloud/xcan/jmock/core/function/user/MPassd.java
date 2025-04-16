@@ -1,17 +1,17 @@
 package cloud.xcan.jmock.core.function.user;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_USER;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPASSD_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPASSD_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPASSD_C3;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPASSD_C4;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPASSD_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPASSD_PARAMETER_ALLOW_DIGITS;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPASSD_PARAMETER_ALLOW_LOWERCASE;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPASSD_PARAMETER_ALLOW_SPECIALCHAR;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPASSD_PARAMETER_ALLOW_UPPERCASE;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPASSD_PARAMETER_MAX;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPASSD_PARAMETER_MIN;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPASSWORD_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPASSWORD_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPASSWORD_C3;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPASSWORD_C4;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPASSWORD_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPASSWORD_PARAMETER_ALLOW_DIGITS;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPASSWORD_PARAMETER_ALLOW_LOWERCASE;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPASSWORD_PARAMETER_ALLOW_SPECIALCHAR;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPASSWORD_PARAMETER_ALLOW_UPPERCASE;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPASSWORD_PARAMETER_MAX;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPASSWORD_PARAMETER_MIN;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MAX_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MIN_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARSER_FUNC_PARAM_ILLEGAL;
@@ -31,26 +31,26 @@ import lombok.Setter;
  */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MPASSD_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_MPASSWORD_DESC,
     categoryI18nKey = {DOC_CATEGORY_USER}, order = 802)
 public class MPassd extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_MPASSD_PARAMETER_MIN)
+  @JMockParameter(descI18nKey = DOC_MPASSWORD_PARAMETER_MIN)
   private int min;
 
-  @JMockParameter(descI18nKey = DOC_MPASSD_PARAMETER_MAX)
+  @JMockParameter(descI18nKey = DOC_MPASSWORD_PARAMETER_MAX)
   private int max;
 
-  @JMockParameter(descI18nKey = DOC_MPASSD_PARAMETER_ALLOW_UPPERCASE)
+  @JMockParameter(descI18nKey = DOC_MPASSWORD_PARAMETER_ALLOW_UPPERCASE)
   private boolean allowUpperCase;
 
-  @JMockParameter(descI18nKey = DOC_MPASSD_PARAMETER_ALLOW_LOWERCASE)
+  @JMockParameter(descI18nKey = DOC_MPASSWORD_PARAMETER_ALLOW_LOWERCASE)
   private boolean allowLowerCase;
 
-  @JMockParameter(descI18nKey = DOC_MPASSD_PARAMETER_ALLOW_DIGITS)
+  @JMockParameter(descI18nKey = DOC_MPASSWORD_PARAMETER_ALLOW_DIGITS)
   private boolean allowDigits;
 
-  @JMockParameter(descI18nKey = DOC_MPASSD_PARAMETER_ALLOW_SPECIALCHAR)
+  @JMockParameter(descI18nKey = DOC_MPASSWORD_PARAMETER_ALLOW_SPECIALCHAR)
   private boolean allowSpecialChar;
 
   private transient char[] chars;
@@ -67,21 +67,21 @@ public class MPassd extends AbstractMockFunction {
 
   final static char[] DEFAULT_SPECIAL_CHARS = "`-=[];',./~!@#$%^&\\*()\\_+{}:\"<>?".toCharArray();
 
-  @JMockConstructor(descI18nKey = DOC_MPASSD_C1,
+  @JMockConstructor(descI18nKey = DOC_MPASSWORD_C1,
       example = "@Passd()",
       exampleValues = {"PKA1BGmN", "iD5p27p2w"})
   public MPassd() {
     this(DEFAULT_MIN_VALUE, DEFAULT_MAX_VALUE, true, true, true, false);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MPASSD_C2,
+  @JMockConstructor(descI18nKey = DOC_MPASSWORD_C2,
       example = "@Passd(5,8)",
       exampleValues = {"llbxB6Z", "qLQlgRz"})
   public MPassd(int min, int max) {
     this(min, max, true, true, true, false);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MPASSD_C3,
+  @JMockConstructor(descI18nKey = DOC_MPASSWORD_C3,
       example = "@Passd(true,true,true,true)",
       exampleValues = {"H/70~{E:nmB%e", "'KIJbW2DP`\\<s3b+ze"})
   public MPassd(boolean allowUpperCase, boolean allowLowerCase,
@@ -90,7 +90,7 @@ public class MPassd extends AbstractMockFunction {
         allowSpecialChar);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MPASSD_C4,
+  @JMockConstructor(descI18nKey = DOC_MPASSWORD_C4,
       example = "@Passd(5,8,true,true,true,true)",
       exampleValues = {"H-+:6", "@7^KQf8"})
   public MPassd(int min, int max, boolean allowUpperCase, boolean allowLowerCase,
