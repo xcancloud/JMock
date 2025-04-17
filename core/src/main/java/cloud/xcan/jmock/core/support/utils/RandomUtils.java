@@ -323,12 +323,10 @@ public class RandomUtils {
       }
     }
     StringBuilder pattern = new StringBuilder("0.");
-    for (int i = 0; i < scale; i++) {
-      pattern.append("0");
-    }
+    pattern.append("0".repeat(Math.max(0, scale)));
     float val = startInclusive + ((endExclusive - startInclusive) * RANDOM.nextFloat());
     String formatVal = new DecimalFormat(pattern.toString()).format(val);
-    return new Float(formatVal);
+    return Float.parseFloat(formatVal);
   }
 
   /**
