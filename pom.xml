@@ -36,7 +36,7 @@
     <connection>scm:git:git@gitlab.xcan.work/xcan-framework/JMock.git</connection>
     <developerConnection>scm:git:https://github.com/xcancloud/JMock.git
     </developerConnection>
-    <tag>v1.0.0</tag>
+    <tag>${project.version}</tag>
   </scm>
 
   <issueManagement>
