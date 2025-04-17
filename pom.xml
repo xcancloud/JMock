@@ -17,7 +17,6 @@
   <version>1.0.0</version>
   <packaging>pom</packaging>
   <description>Data Mock Framework.</description>
-  <url>https://github.com/xcancloud/xcan-jmock</url>
 
   <organization>
     <name>XCan Cloud</name>
