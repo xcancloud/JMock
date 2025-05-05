@@ -199,23 +199,6 @@
           <include>**/*</include>
         </includes>
       </resource>
-      <resource>
-        <directory>src/main/resources</directory>
-        <filtering>true</filtering>
-        <includes>
-          <include>banner.txt</include>
-          <include>logback.xml</include>
-        </includes>
-      </resource>
-      <resource>
-        <directory>src/main/scripts</directory>
-        <includes>
-          <include>Dockerfile</include>
-          <include>startenv.sh</include>
-        </includes>
-        <filtering>true</filtering>
-        <targetPath>${project.basedir}/target</targetPath>
-      </resource>
     </resources>
 
     <pluginManagement>
