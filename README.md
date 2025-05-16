@@ -1,35 +1,36 @@
 JMock
 ===
 
-[English](README_en.md) | [中文](README.md)
+[English](README.md) | [中文](README_zh.md)
 
-## 介绍
+## Introduction
 
-JMock是基于 Java 语言实现的高性能数据生成和模拟的组件库，生成的数据相比随机数据更加接近业务数据特征。
+JMock is a high-performance data generation and simulation component library implemented in Java. It generates data that more closely resembles business data characteristics compared to random data.
 
-## 特性
+## Features
 
-- 高性能数据生成，单线程每秒可以生成 200W+ 用户信息（每个用户信息包括 10 个属性字段，总大小 200+ 字节）
-- 灵活的数据规则以及国际化支持，数据更加接近业务数据特征。
-- 支持注解和函数两种方式定义数据生成规则及控制数据生成。其中“注解方式”应用在类属性字段上，“函数方式“应用在脚本文件里（如：txt、json、yml 等）。
-- 对于批量数据支持 JDBC、内存、本地文件系统等持久化存储方式。
-- 支持插件方式扩展 Mock 数据函数。
+- High-performance data generation: capable of generating 2 million+ user profiles per second on a single thread (each user profile includes 10 attribute fields, totaling 200+ bytes)
+- Flexible data rules and internationalization support, producing data that more closely mimics business data characteristics
+- Supports two methods for defining data generation rules and controlling data generation: annotations and functions. The "annotation method" is applied to class property fields, while the "function method" is used in script files (e.g., txt, json, yml)
+- For batch data, supports persistent storage options including JDBC, memory, and local file systems
+- Supports plugin-based extensions for Mock data functions
 
-## 函数
+## Functions
 
-### 表达式
+### Expressions
 
-- 注解方式：`@注解类型名` 或 `@注解类型名(参数1=值1,参数2=值2)`
-- 函数方式：`@数据函数名()` 或 `@数据函数名(参数1,参数2)`或 `@数据函数名(参数1,参数2,,参数4,,参数6)`
+- Annotation method: `@AnnotationTypeName` or `@AnnotationTypeName(param1=value1,param2=value2)`
+- Function method: `@DataFunctionName()` or `@DataFunctionName(param1,param2)` or `@DataFunctionName(param1,param2,,param4,,param6)`
 
-***说明：***
+***Note:***
 
-- 生成表达式中符号“@”用来标识表达式，“()”用于接收参数，“,”用于分割参数，当参数为数组时，“|”用于分割数组元素。
-- “数据函数名”和“注解类型名”必须由字母和数字构成，并且函数名和注解类名均以大驼峰命名方式来命名（即单词首字母大写，首字母之外字符全部小写），参数名以小驼峰来命名（即一个单词时全部小写，多个词时除第一个单词之外，其他单词首字母大写）。
-- `@注解类型名` 和 `@数据函数名()` 表示无参构造，即使用内置默认参数控制数据生成；`@注解类型名(参数1=值1,参数2=值2)` 和 `@数据函数名(参数1,参数2)` 为有参类型构造器，多个参数需要以 “,” 分割；`@数据函数名(参数1,参数2,,参数4,,参数6)`为全参构造，参数可省略，省略后参数分割符 “,” 需要保留。
-- 对于“数据函数”方式，如果参数中字符也存在以上关键字符，避免解析错误可使用“\”转意，如：`@String(tom\@xcan.cloud|nick\@xcan.cloud)`。
-- 两种调用方式中“函数方式”相比“注解方式”支持生成更多场景化数据生成规则。
+- In generation expressions, the "@" symbol identifies the expression, "()" is used to receive parameters, "," separates parameters, and "|" separates array elements when a parameter is an array.
+- "DataFunctionName" and "AnnotationTypeName" must consist of letters and numbers. Both function names and annotation class names use PascalCase naming convention (i.e., first letter of each word capitalized), while parameter names use camelCase (i.e., first word all lowercase, subsequent words with first letter capitalized).
+- `@AnnotationTypeName` and `@DataFunctionName()` represent no-argument constructors, using built-in default parameters to control data generation. `@AnnotationTypeName(param1=value1,param2=value2)` and `@DataFunctionName(param1,param2)` are parameterized constructors, with multiple parameters separated by ",". `@DataFunctionName(param1,param2,,param4,,param6)` is a full-parameter constructor where parameters can be omitted, but the separator "," must be retained.
+- For the "data function" method, if the parameter string contains the above key characters, use "\" to escape them to avoid parsing errors, e.g., `@String(tom\@xcan.cloud|nick\@xcan.cloud)`.
+- Compared to the "annotation method", the "function method" supports generating data for more scenario-based rules.
 
-### 实现
+### Implementations
 
-- 具体实现函数及介绍请查看：[函数说明](docs/FUNCTION_zh.md)。
+For detailed function implementations and descriptions, please refer to: [Function Documentation](docs/FUNCTION.md).
+
