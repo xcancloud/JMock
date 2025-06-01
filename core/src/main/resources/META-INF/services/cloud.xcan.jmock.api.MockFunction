@@ -23,7 +23,7 @@ cloud.xcan.jmock.core.function.id.MUuid
 cloud.xcan.jmock.core.function.user.MAge
 cloud.xcan.jmock.core.function.user.MMobile
 cloud.xcan.jmock.core.function.user.MName
-cloud.xcan.jmock.core.function.user.MPassd
+cloud.xcan.jmock.core.function.user.MPassword
 cloud.xcan.jmock.core.function.user.MEducation
 cloud.xcan.jmock.core.function.user.MLandline
 cloud.xcan.jmock.core.function.user.MLastname

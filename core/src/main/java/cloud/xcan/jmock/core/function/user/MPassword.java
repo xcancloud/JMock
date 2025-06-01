@@ -33,7 +33,7 @@ import lombok.Setter;
 @Getter
 @JMockFunctionRegister(descI18nKey = DOC_MPASSWORD_DESC,
     categoryI18nKey = {DOC_CATEGORY_USER}, order = 802)
-public class MPassd extends AbstractMockFunction {
+public class MPassword extends AbstractMockFunction {
 
   @JMockParameter(descI18nKey = DOC_MPASSWORD_PARAMETER_MIN)
   private int min;
@@ -70,21 +70,21 @@ public class MPassd extends AbstractMockFunction {
   @JMockConstructor(descI18nKey = DOC_MPASSWORD_C1,
       example = "@Passd()",
       exampleValues = {"PKA1BGmN", "iD5p27p2w"})
-  public MPassd() {
+  public MPassword() {
     this(DEFAULT_MIN_VALUE, DEFAULT_MAX_VALUE, true, true, true, false);
   }
 
   @JMockConstructor(descI18nKey = DOC_MPASSWORD_C2,
       example = "@Passd(5,8)",
       exampleValues = {"llbxB6Z", "qLQlgRz"})
-  public MPassd(int min, int max) {
+  public MPassword(int min, int max) {
     this(min, max, true, true, true, false);
   }
 
   @JMockConstructor(descI18nKey = DOC_MPASSWORD_C3,
       example = "@Passd(true,true,true,true)",
       exampleValues = {"H/70~{E:nmB%e", "'KIJbW2DP`\\<s3b+ze"})
-  public MPassd(boolean allowUpperCase, boolean allowLowerCase,
+  public MPassword(boolean allowUpperCase, boolean allowLowerCase,
       boolean allowDigits, boolean allowSpecialChar) {
     this(DEFAULT_MIN_VALUE, DEFAULT_MAX_VALUE, allowUpperCase, allowLowerCase, allowDigits,
         allowSpecialChar);
@@ -93,7 +93,7 @@ public class MPassd extends AbstractMockFunction {
   @JMockConstructor(descI18nKey = DOC_MPASSWORD_C4,
       example = "@Passd(5,8,true,true,true,true)",
       exampleValues = {"H-+:6", "@7^KQf8"})
-  public MPassd(int min, int max, boolean allowUpperCase, boolean allowLowerCase,
+  public MPassword(int min, int max, boolean allowUpperCase, boolean allowLowerCase,
       boolean allowDigits, boolean allowSpecialChar) {
     this.min = min;
     this.max = max;
