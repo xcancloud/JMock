@@ -5,7 +5,7 @@ import cloud.xcan.jmock.api.FunctionToken;
 import cloud.xcan.jmock.core.function.basic.MBool;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
 import java.util.Arrays;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MBoolMockConstructorTest {
@@ -18,9 +18,9 @@ public class MBoolMockConstructorTest {
     FunctionToken token = new FunctionToken("MBool", new String[]{});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MBool mock = (MBool) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(0.0, mock.getTrueWeight(), 1);
-    Assert.assertEquals(0.0, mock.getNullWeight(), 1);
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(0.0, mock.getTrueWeight(), 1);
+    Assertions.assertEquals(0.0, mock.getNullWeight(), 1);
   }
 
   /**
@@ -31,8 +31,8 @@ public class MBoolMockConstructorTest {
     FunctionToken token = new FunctionToken("MBool", new String[]{"1:1"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MBool mock = (MBool) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(0.5, mock.getTrueWeight(), 1);
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(0.5, mock.getTrueWeight(), 1);
   }
 
   /**
@@ -43,9 +43,9 @@ public class MBoolMockConstructorTest {
     FunctionToken token = new FunctionToken("MBool", new String[]{"1:1", "1:1"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MBool mock = (MBool) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(0.5, mock.getTrueWeight(), 1);
-    Assert.assertEquals(0.5, mock.getNullWeight(), 1);
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(0.5, mock.getTrueWeight(), 1);
+    Assertions.assertEquals(0.5, mock.getNullWeight(), 1);
   }
 
   /**
@@ -56,10 +56,10 @@ public class MBoolMockConstructorTest {
     FunctionToken token = new FunctionToken("MBool", new String[]{"1:1", "1:4", "是|否"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MBool mock = (MBool) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(0.5, mock.getTrueWeight(), 1);
-    Assert.assertEquals(0.2, mock.getNullWeight(), 1);
-    Assert.assertEquals(Arrays.asList("是", "否"), mock.getDictArray());
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(0.5, mock.getTrueWeight(), 1);
+    Assertions.assertEquals(0.2, mock.getNullWeight(), 1);
+    Assertions.assertEquals(Arrays.asList("是", "否"), mock.getDictArray());
   }
 
 

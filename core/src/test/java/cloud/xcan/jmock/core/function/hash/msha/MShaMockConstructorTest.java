@@ -5,7 +5,7 @@ import cloud.xcan.jmock.api.FunctionToken;
 import cloud.xcan.jmock.core.function.hash.MSha;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
 import cloud.xcan.jmock.core.support.utils.EncryptionUtils;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MShaMockConstructorTest {
@@ -15,9 +15,9 @@ public class MShaMockConstructorTest {
     FunctionToken token = new FunctionToken("MSha", new String[]{});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MSha mock = (MSha) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(EncryptionUtils.SHA512_VERSION, mock.getVersion());
-    Assert.assertEquals(128, mock.mock().length());
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(EncryptionUtils.SHA512_VERSION, mock.getVersion());
+    Assertions.assertEquals(128, mock.mock().length());
   }
 
   @Test
@@ -25,9 +25,9 @@ public class MShaMockConstructorTest {
     FunctionToken token = new FunctionToken("MSha", new String[]{EncryptionUtils.SHA1_VERSION});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MSha mock = (MSha) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(EncryptionUtils.SHA1_VERSION, mock.getVersion());
-    Assert.assertEquals(40, mock.mock().length());
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(EncryptionUtils.SHA1_VERSION, mock.getVersion());
+    Assertions.assertEquals(40, mock.mock().length());
   }
 
   @Test
@@ -35,9 +35,9 @@ public class MShaMockConstructorTest {
     FunctionToken token = new FunctionToken("MSha", new String[]{"SHA-224"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MSha mock = (MSha) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(EncryptionUtils.SHA224_VERSION, mock.getVersion());
-    Assert.assertEquals(56, mock.mock().length());
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(EncryptionUtils.SHA224_VERSION, mock.getVersion());
+    Assertions.assertEquals(56, mock.mock().length());
   }
 
 
@@ -46,9 +46,9 @@ public class MShaMockConstructorTest {
     FunctionToken token = new FunctionToken("MSha", new String[]{EncryptionUtils.SHA256_VERSION});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MSha mock = (MSha) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(EncryptionUtils.SHA256_VERSION, mock.getVersion());
-    Assert.assertEquals(64, mock.mock().length());
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(EncryptionUtils.SHA256_VERSION, mock.getVersion());
+    Assertions.assertEquals(64, mock.mock().length());
   }
 
 
@@ -57,8 +57,8 @@ public class MShaMockConstructorTest {
     FunctionToken token = new FunctionToken("MSha", new String[]{EncryptionUtils.SHA384_VERSION});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MSha mock = (MSha) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(EncryptionUtils.SHA384_VERSION, mock.getVersion());
-    Assert.assertEquals(96, mock.mock().length());
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(EncryptionUtils.SHA384_VERSION, mock.getVersion());
+    Assertions.assertEquals(96, mock.mock().length());
   }
 }

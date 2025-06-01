@@ -1,55 +1,27 @@
 package cloud.xcan.jmock.core.support.revreg;
 
-import cloud.xcan.jmock.core.support.revreg.exception.RegexpIllegalException;
-import cloud.xcan.jmock.core.support.revreg.exception.TypeNotMatchException;
-import cloud.xcan.jmock.core.support.revreg.exception.UninitializedException;
-import java.util.List;
+import com.mifmif.common.regex.Generex;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * @see `https://github.com/stuartwdouglasmidstream/github--mifmif--Generex`
- * @see `/workspace/workspace_3rd/mock/github--mifmif--Generex`
- */
-public class RegRandom extends BaseNode {
+public class RegRandom {
 
-  private Node proxyNode;
+  private static final Map<String, Generex> GENEREX_MAP = new ConcurrentHashMap<>();
 
-  public RegRandom(String expression) throws RegexpIllegalException, TypeNotMatchException {
-    super(expression);
+  public static String random(String expression) {
+    Generex generex = getGenerex(expression);
+    return generex.random();
   }
 
-  protected RegRandom(List<String> expressionFragments)
-      throws RegexpIllegalException, TypeNotMatchException {
-    super(expressionFragments);
-  }
-
-  @Override
-  protected void init(String expression, List<String> expressionFragments)
-      throws RegexpIllegalException, TypeNotMatchException {
-    if (expressionFragments.isEmpty()) {
-      return;
+  private static Generex getGenerex(String expression) {
+    Generex generex;
+    if (GENEREX_MAP.containsKey(expression)) {
+      generex = GENEREX_MAP.get(expression);
+    } else {
+      generex = new Generex(expression);
+      GENEREX_MAP.put(expression, generex);
     }
-    Node[] nodes = new Node[]{
-        new OptionalNode(expressionFragments, false),
-        new SingleNode(expressionFragments, false),
-        new RepeatNode(expressionFragments, false),
-        new LinkNode(expressionFragments, false)
-    };
-    for (Node node : nodes) {
-      if (node.test()) {
-        proxyNode = node;
-        proxyNode.init();
-        break;
-      }
-    }
-  }
-
-  @Override
-  protected String random(String expression, List<String> expressionFragments)
-      throws UninitializedException, RegexpIllegalException {
-    if (proxyNode == null) {
-      return "";
-    }
-    return proxyNode.random();
+    return generex;
   }
 
 }

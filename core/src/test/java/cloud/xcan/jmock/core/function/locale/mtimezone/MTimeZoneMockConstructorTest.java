@@ -10,7 +10,6 @@ import cloud.xcan.jmock.core.function.locale.MTimeZone;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
 import java.util.ArrayList;
 import org.assertj.core.util.Lists;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -28,8 +27,8 @@ public class MTimeZoneMockConstructorTest {
     FunctionToken token = new FunctionToken("MTimeZone", new String[]{});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MTimeZone mock = (MTimeZone) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertTrue(china.contains(mock.mock()));
+    Assertions.assertNotNull(mock);
+    Assertions.assertTrue(china.contains(mock.mock()));
   }
 
   @Test
@@ -37,7 +36,7 @@ public class MTimeZoneMockConstructorTest {
     FunctionToken token = new FunctionToken("MTimeZone", new String[]{str});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MTimeZone mock = (MTimeZone) parser.parse(token);
-    Assert.assertNotNull(mock);
+    Assertions.assertNotNull(mock);
     Assertions.assertTrue(dist.contains(mock.mock()));
   }
 

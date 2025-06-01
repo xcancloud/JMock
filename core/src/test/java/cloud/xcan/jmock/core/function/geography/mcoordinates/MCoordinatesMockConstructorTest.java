@@ -5,7 +5,6 @@ package cloud.xcan.jmock.core.function.geography.mcoordinates;
 import cloud.xcan.jmock.api.FunctionToken;
 import cloud.xcan.jmock.core.function.geography.MCoordinates;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +18,7 @@ public class MCoordinatesMockConstructorTest {
     FunctionToken token = new FunctionToken("Coordinates",
         new String[]{});
     MCoordinates mock = (MCoordinates)parser.parse(token);
-    Assert.assertNotNull(mock);
+    Assertions.assertNotNull(mock);
     Assertions.assertEquals(-180, mock.getMinLng());
     Assertions.assertEquals(180, mock.getMaxLng());
     Assertions.assertEquals(-90, mock.getMinLat());

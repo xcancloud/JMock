@@ -5,32 +5,95 @@ JMock
 
 ## Introduction
 
-JMock is a high-performance data generation and simulation component library implemented in Java. It generates data that more closely resembles business data characteristics compared to random data.
+JMock is a high-performance data generation and simulation library implemented in Java. It generates data that more closely resembles real business data characteristics compared to random data generation.
 
-## Features
+## Core Features
 
-- High-performance data generation: capable of generating 2 million+ user profiles per second on a single thread (each user profile includes 10 attribute fields, totaling 200+ bytes)
-- Flexible data rules and internationalization support, producing data that more closely mimics business data characteristics
-- Supports two methods for defining data generation rules and controlling data generation: annotations and functions. The "annotation method" is applied to class property fields, while the "function method" is used in script files (e.g., txt, json, yml)
-- For batch data, supports persistent storage options including JDBC, memory, and local file systems
-- Supports plugin-based extensions for Mock data functions
+- **High-performance data generation**:  
+  Generates 2M+ user records per second (single thread). Each record contains 10+ attributes totaling 200+ bytes.
+- **Business-realistic data with i18n support**:  
+  Produces data that accurately simulates real-world business scenarios with internationalization capabilities.
+- **Dual definition approaches**:
+    - *Annotation-based*: Applied to class fields
+    - *Function-based*: Used in script files (txt, json, yml, etc.)
+- **Multiple storage options**:  
+  Supports JDBC, in-memory, and local filesystem persistence for batch data.
+- **Extensible architecture**:  
+  Plugin-based system for custom mock data functions.
 
-## Functions
+## Function Expressions
 
-### Expressions
+### Expression Formats
 
-- Annotation method: `@AnnotationTypeName` or `@AnnotationTypeName(param1=value1,param2=value2)`
-- Function method: `@DataFunctionName()` or `@DataFunctionName(param1,param2)` or `@DataFunctionName(param1,param2,,param4,,param6)`
+| Type              | Parameterless Form | Parameterized Form                     |
+|-------------------|-------------------|----------------------------------------|
+| **Annotation**    | `@Annotation`     | `@Annotation(param1=value1, param2=value2)` |
+| **Function**      | `@Function()`     | `@Function(param1, param2)` or `@Function(param1,,param3)` |
 
-***Note:***
+### Syntax Rules
 
-- In generation expressions, the "@" symbol identifies the expression, "()" is used to receive parameters, "," separates parameters, and "|" separates array elements when a parameter is an array.
-- "DataFunctionName" and "AnnotationTypeName" must consist of letters and numbers. Both function names and annotation class names use PascalCase naming convention (i.e., first letter of each word capitalized), while parameter names use camelCase (i.e., first word all lowercase, subsequent words with first letter capitalized).
-- `@AnnotationTypeName` and `@DataFunctionName()` represent no-argument constructors, using built-in default parameters to control data generation. `@AnnotationTypeName(param1=value1,param2=value2)` and `@DataFunctionName(param1,param2)` are parameterized constructors, with multiple parameters separated by ",". `@DataFunctionName(param1,param2,,param4,,param6)` is a full-parameter constructor where parameters can be omitted, but the separator "," must be retained.
-- For the "data function" method, if the parameter string contains the above key characters, use "\" to escape them to avoid parsing errors, e.g., `@String(tom\@xcan.cloud|nick\@xcan.cloud)`.
-- Compared to the "annotation method", the "function method" supports generating data for more scenario-based rules.
+1. **Core Symbols**
+    - `@` - Marks expression start
+    - `()` - Encloses parameters
+    - `,` - Separates parameters
+    - `|` - Delimits array elements (array parameters only)
+    - `\` - Escapes special characters (`@`, `,`, `|`)
 
-### Implementations
+2. **Naming Conventions**
+    - **Annotation/Function Names**: UpperCamelCase  
+      *Example: `EmailValidator`, `RandomNumber`*
+    - **Parameter Names**: lowerCamelCase  
+      *Example: `minValue`, `maxLength`*
 
-For detailed function implementations and descriptions, please refer to: [Function Documentation](docs/FUNCTION.md).
+3. **Parameter Rules**
+    - Parameterless calls: Omit parentheses (annotations) or use empty `()` (functions)
+    - Parameterized calls:
+        - Annotation: `param=value` key-value pairs
+        - Function: Positional values
+    - Omitted parameters: Preserve commas  
+      *Example: `@Generate(1,,3)` indicates empty second parameter*
 
+4. **Special Character Handling**  
+   Escape `@`, `,`, `|` in parameter values:  
+   *Example: `@String("tom\@domain.com\|nick\@domain.com")`*
+
+## Usage Example
+
+1. **Add Maven Dependency**
+```xml
+<dependency>
+   <groupId>cloud.xcan.jmock</groupId>
+   <artifactId>xcan-jmock.core</artifactId>
+   <version>1.0.0</version>
+</dependency>
+```
+
+2. **Generate Sample Data**
+```java
+// Define template
+String content = """
+    {
+      "name": "@Name()",
+      "email": "@Email()",
+      "phone": "@Mobile()",
+      "address": "@Address()",
+      "hobbies": [ "reading", "hiking",  "cooking" ]
+    }""";
+    
+// Process mock functions
+String result = new DefaultMockTextReplacer().replace(content);
+
+// Output result
+System.out.println(result);
+```
+
+***Output:***
+```json
+{
+  "name": "Durfee Jacob",
+  "email": "9alJWYsUGJuJZtGuXT@yahoo.com.cn",
+  "phone": "15292153757",
+  "address": "ul. Akademika Pavlova, 12к3, Moskva",
+  "hobbies": [ "reading", "hiking",  "cooking" ]
+}
+```

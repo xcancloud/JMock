@@ -5,7 +5,7 @@ package cloud.xcan.jmock.core.function.date.mlocaleTime;
 import cloud.xcan.jmock.api.FunctionToken;
 import cloud.xcan.jmock.core.function.date.MLocaleTime;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MLocaleTimeMockConstructorTest {
@@ -18,7 +18,7 @@ public class MLocaleTimeMockConstructorTest {
     FunctionToken token = new FunctionToken("MLocaleTime", new String[]{});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MLocaleTime mock = (MLocaleTime) parser.parse(token);
-    Assert.assertNotNull(mock);
+    Assertions.assertNotNull(mock);
   }
 
   @Test
@@ -26,15 +26,15 @@ public class MLocaleTimeMockConstructorTest {
     FunctionToken token = new FunctionToken("MLocaleTime", new String[]{"yy-MM-dd"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MLocaleTime mock = (MLocaleTime) parser.parse(token);
-    Assert.assertNotNull(mock);
+    Assertions.assertNotNull(mock);
   }
 
   @Test
   public void MLocaleTime3() throws Exception {
-    FunctionToken token = new FunctionToken("MLocaleTime", new String[]{"HH:mm:ss","Asia/Tokyo"});
+    FunctionToken token = new FunctionToken("MLocaleTime", new String[]{"HH:mm:ss","Asia/Tokyo","true"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MLocaleTime mock = (MLocaleTime) parser.parse(token);
-    Assert.assertNotNull(mock);
+    Assertions.assertNotNull(mock);
   }
 
 

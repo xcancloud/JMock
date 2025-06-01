@@ -6,7 +6,7 @@ import cloud.xcan.jmock.api.i18n.JMockMessage;
 import cloud.xcan.jmock.api.i18n.MessageResources;
 import cloud.xcan.jmock.core.function.user.MEmail;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MEmailMockConstructorTest {
@@ -19,10 +19,10 @@ public class MEmailMockConstructorTest {
     FunctionToken token = new FunctionToken("MEmail", new String[]{});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MEmail mock = (MEmail) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(20, mock.getMax());
-    Assert.assertEquals(6, mock.getMin());
-    Assert.assertArrayEquals(appName.split("\\|"), mock.getSuffixArray());
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(20, mock.getMax());
+    Assertions.assertEquals(6, mock.getMin());
+    Assertions.assertArrayEquals(appName.split("\\|"), mock.getSuffixArray());
   }
 
   @Test
@@ -30,9 +30,9 @@ public class MEmailMockConstructorTest {
     FunctionToken token = new FunctionToken("MEmail", new String[]{"1", "10"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MEmail mock = (MEmail) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(10, mock.getMax());
-    Assert.assertEquals(1, mock.getMin());
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(10, mock.getMax());
+    Assertions.assertEquals(1, mock.getMin());
   }
 
   @Test
@@ -40,9 +40,9 @@ public class MEmailMockConstructorTest {
     FunctionToken token = new FunctionToken("MEmail", new String[]{"wx|qw"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MEmail mock = (MEmail) parser.parse(token);
-    Assert.assertNotNull(mock);
+    Assertions.assertNotNull(mock);
     System.out.println("mock = " + mock.mock());
-    Assert.assertArrayEquals(new String[]{"wx", "qw"}, mock.getSuffixArray());
+    Assertions.assertArrayEquals(new String[]{"wx", "qw"}, mock.getSuffixArray());
   }
 
 
@@ -51,10 +51,10 @@ public class MEmailMockConstructorTest {
     FunctionToken token = new FunctionToken("MEmail", new String[]{"1", "10", "wx|qw"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MEmail mock = (MEmail) parser.parse(token);
-    Assert.assertNotNull(mock);
+    Assertions.assertNotNull(mock);
     System.out.println("mock = " + mock.mock());
-    Assert.assertEquals(10, mock.getMax());
-    Assert.assertEquals(1, mock.getMin());
-    Assert.assertArrayEquals(new String[]{"wx", "qw"}, mock.getSuffixArray());
+    Assertions.assertEquals(10, mock.getMax());
+    Assertions.assertEquals(1, mock.getMin());
+    Assertions.assertArrayEquals(new String[]{"wx", "qw"}, mock.getSuffixArray());
   }
 }

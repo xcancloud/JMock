@@ -15,7 +15,7 @@ import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPASSWORD_PARAME
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MAX_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MIN_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARSER_FUNC_PARAM_ILLEGAL;
-import static cloud.xcan.jmock.core.support.utils.RandomStringUtils.randomPassd;
+import static cloud.xcan.jmock.core.support.utils.RandomStringUtils.randomPassword;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
@@ -130,6 +130,6 @@ public class MPassd extends AbstractMockFunction {
 
   @Override
   public String mock() {
-    return randomPassd(min, max, chars);
+    return randomPassword(min, max, chars);
   }
 }

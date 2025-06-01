@@ -88,6 +88,8 @@
 
     <xcan-infra.bom.version>1.0.0</xcan-infra.bom.version>
 
+    <generex.version>1.0.2</generex.version>
+
     <reflections.version>0.9.12</reflections.version>
     <hamcrest-all.version>1.3</hamcrest-all.version>
     <junit-jupiter-engine.version>5.7.1</junit-jupiter-engine.version>
@@ -132,16 +134,28 @@
 
     <dependency>
       <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <version>${junit-jupiter-engine.version}</version>
+      <artifactId>junit-jupiter-params</artifactId>
       <scope>test</scope>
     </dependency>
-
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <scope>test</scope>
+    </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
-      <version>${junit-jupiter-engine.version}</version>
       <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>junit-platform-engine</artifactId>
+          <groupId>org.junit.platform</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>apiguardian-api</artifactId>
+          <groupId>org.apiguardian</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <dependency>
@@ -162,12 +176,6 @@
           <artifactId>bsh</artifactId>
         </exclusion>
       </exclusions>
-    </dependency>
-    <!-- JUnit is a unit testing framework for Java. -->
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <scope>test</scope>
     </dependency>
     <!-- Rich and fluent assertions for testing for Java. -->
     <dependency>
@@ -242,6 +250,17 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <includes>
+            <include>**/*Tests.java</include>
+            <include>**/*Test.java</include>
+          </includes>
+        </configuration>
       </plugin>
     </plugins>
   </build>

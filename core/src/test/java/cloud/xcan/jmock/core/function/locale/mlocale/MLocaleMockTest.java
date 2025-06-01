@@ -3,7 +3,7 @@ package cloud.xcan.jmock.core.function.locale.mlocale;
 import cloud.xcan.jmock.api.FunctionToken;
 import cloud.xcan.jmock.core.function.locale.MLocale;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MLocaleMockTest {
@@ -16,9 +16,9 @@ public class MLocaleMockTest {
     for (int i = 0; i < 10; i++) {
       String locale = mock.mock();
       System.out.println("value: " + locale);
-      Assert.assertTrue(locale.startsWith("zh") ? locale.contains(MLocale.DEFAULT_JOINER)
+      Assertions.assertTrue(locale.startsWith("zh") ? locale.contains(MLocale.DEFAULT_JOINER)
           : !locale.contains(MLocale.DEFAULT_JOINER));
-      Assert.assertTrue(locale.equals("zh_CN") || locale.equals("en"));
+      Assertions.assertTrue(locale.equals("zh_CN") || locale.equals("en"));
     }
   }
 
@@ -31,9 +31,9 @@ public class MLocaleMockTest {
     for (int i = 0; i < 10; i++) {
       String locale = mock.mock();
       System.out.println("value: " + locale);
-      Assert.assertTrue(locale.startsWith("zh") ? locale.contains("-")
+      Assertions.assertTrue(locale.startsWith("zh") ? locale.contains("-")
           : !locale.contains("-"));
-      Assert.assertTrue(locale.equals("zh-CN") || locale.equals("en"));
+      Assertions.assertTrue(locale.equals("zh-CN") || locale.equals("en"));
     }
   }
 }

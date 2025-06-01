@@ -3,7 +3,7 @@ package cloud.xcan.jmock.core.function.user.mlandline;
 import cloud.xcan.jmock.api.FunctionToken;
 import cloud.xcan.jmock.core.function.user.MLandline;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MLandlineMockTest {
@@ -17,7 +17,7 @@ public class MLandlineMockTest {
     for (int i = 0; i < 10; i++) {
       String str = mock.mock();
       System.out.println("str = " + str);
-      Assert.assertNotNull(str);
+      Assertions.assertNotNull(str);
     }
   }
 
@@ -29,7 +29,7 @@ public class MLandlineMockTest {
     for (int i = 0; i < 10; i++) {
       String str = mock.mock();
       System.out.println("str = " + str);
-      Assert.assertNotNull(str);
+      Assertions.assertNotNull(str);
     }
   }
 

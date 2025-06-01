@@ -4,7 +4,7 @@ import cloud.xcan.jmock.api.FunctionToken;
 import cloud.xcan.jmock.core.function.basic.MFloat;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
 import java.text.DecimalFormat;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MFloatMockTest {
@@ -17,10 +17,10 @@ public class MFloatMockTest {
     for (int i = 0; i < 10; i++) {
       Float value = mock.mock();
       System.out.println(value);
-      Assert.assertNotNull(value);
+      Assertions.assertNotNull(value);
       String str = new DecimalFormat("#.##").format(value);
       if (str.indexOf(".") > 0) {
-        Assert.assertTrue(str.length() - str.indexOf(".") - 1 <= 2);
+        Assertions.assertTrue(str.length() - str.indexOf(".") - 1 <= 2);
       }
     }
   }
@@ -34,9 +34,9 @@ public class MFloatMockTest {
     MFloat mock = (MFloat) parser.parse(token);
     for (int i = 0; i < 10; i++) {
       Float value = mock.mock();
-      Assert.assertNotNull(value);
+      Assertions.assertNotNull(value);
       System.out.println(value);
-      Assert.assertTrue(value >= -10000000F && value <= 10000000F);
+      Assertions.assertTrue(value >= -10000000F && value <= 10000000F);
     }
   }
 
@@ -48,11 +48,11 @@ public class MFloatMockTest {
     boolean hasNull = false;
     for (int i = 0; i < 1000; i++) {
       Float value = mock.mock();
-      Assert.assertNotNull(value);
+      Assertions.assertNotNull(value);
       System.out.println(value);
       String str = new DecimalFormat("#.#####").format(value);
       if (str.indexOf(".") > 0) {
-        Assert.assertTrue(str.length() - str.indexOf(".") - 1 <= 5);
+        Assertions.assertTrue(str.length() - str.indexOf(".") - 1 <= 5);
       }
     }
   }
@@ -64,13 +64,13 @@ public class MFloatMockTest {
     MFloat mock = (MFloat) parser.parse(token);
     for (int i = 0; i < 10; i++) {
       Float value = mock.mock();
-      Assert.assertNotNull(value);
+      Assertions.assertNotNull(value);
       System.out.println(value);
       String str = new DecimalFormat("#.###").format(value);
       if (str.indexOf(".") > 0) {
-        Assert.assertTrue(str.length() - str.indexOf(".") - 1 <= 3);
+        Assertions.assertTrue(str.length() - str.indexOf(".") - 1 <= 3);
       }
-      Assert.assertTrue(value >= 100F && value <= 1000F);
+      Assertions.assertTrue(value >= 100F && value <= 1000F);
     }
   }
 
@@ -87,7 +87,7 @@ public class MFloatMockTest {
         hasNull = true;
       }
     }
-    Assert.assertTrue(hasNull);
+    Assertions.assertTrue(hasNull);
   }
 
   @Test
@@ -105,11 +105,11 @@ public class MFloatMockTest {
       } else {
         String str = new DecimalFormat("#.###").format(value);
         if (str.indexOf(".") > 0) {
-          Assert.assertTrue(str.length() - str.indexOf(".") - 1 <= 3);
+          Assertions.assertTrue(str.length() - str.indexOf(".") - 1 <= 3);
         }
-        Assert.assertTrue(value >= 100.900F && value <= 10000000.456F);
+        Assertions.assertTrue(value >= 100.900F && value <= 10000000.456F);
       }
     }
-    Assert.assertTrue(hasNull);
+    Assertions.assertTrue(hasNull);
   }
 }

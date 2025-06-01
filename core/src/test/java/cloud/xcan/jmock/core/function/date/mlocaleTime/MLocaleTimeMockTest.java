@@ -46,7 +46,7 @@ public class MLocaleTimeMockTest {
   @Test
   public void case3_rangeLengthAndCustomCharsTest() throws Exception {
     FunctionToken token = new FunctionToken("MLocaleTime",
-        new String[]{"HH:mm:ss","Asia/Ho_Chi_Minh"});
+        new String[]{"HH:mm:ss","Asia/Ho_Chi_Minh", "true"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MLocaleTime mock = (MLocaleTime) parser.parse(token);
     for (int i = 0; i < 10; i++) {

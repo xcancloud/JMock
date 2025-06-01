@@ -11,7 +11,6 @@ import cloud.xcan.jmock.core.function.geography.MZip;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
 import java.util.ArrayList;
 import org.assertj.core.util.Lists;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -31,8 +30,8 @@ public class MZipMockConstructorTest {
     FunctionToken token = new FunctionToken("MZip", new String[]{});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MZip mock = (MZip) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertTrue(china.contains(mock.mock()));
+    Assertions.assertNotNull(mock);
+    Assertions.assertTrue(china.contains(mock.mock()));
   }
 
   @Test
@@ -40,8 +39,8 @@ public class MZipMockConstructorTest {
     FunctionToken token = new FunctionToken("MZip", new String[]{"en"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MZip mock = (MZip) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertTrue(english.contains(mock.mock()));
+    Assertions.assertNotNull(mock);
+    Assertions.assertTrue(english.contains(mock.mock()));
   }
 
   @Test
@@ -49,7 +48,7 @@ public class MZipMockConstructorTest {
     FunctionToken token = new FunctionToken("MZip", new String[]{str});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MZip mock = (MZip) parser.parse(token);
-    Assert.assertNotNull(mock);
+    Assertions.assertNotNull(mock);
     Assertions.assertTrue(dist.contains(mock.mock()));
   }
 

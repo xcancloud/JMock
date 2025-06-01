@@ -4,7 +4,7 @@ package cloud.xcan.jmock.core.function.user.mlandline;
 import cloud.xcan.jmock.api.FunctionToken;
 import cloud.xcan.jmock.core.function.user.MLandline;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MLandlineMockConstructorTest {
@@ -15,7 +15,7 @@ public class MLandlineMockConstructorTest {
     FunctionToken token = new FunctionToken("MLandline", new String[]{});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MLandline mock = (MLandline) parser.parse(token);
-    Assert.assertNotNull(mock);
+    Assertions.assertNotNull(mock);
   }
 
   @Test
@@ -23,7 +23,7 @@ public class MLandlineMockConstructorTest {
     FunctionToken token = new FunctionToken("MLandline", new String[]{"en"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MLandline mock = (MLandline) parser.parse(token);
-    Assert.assertNotNull(mock);
+    Assertions.assertNotNull(mock);
   }
 
 }

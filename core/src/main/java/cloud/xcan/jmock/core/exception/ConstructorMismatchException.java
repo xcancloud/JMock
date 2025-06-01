@@ -25,8 +25,7 @@ public class ConstructorMismatchException extends AbstractParseException {
 
   @Override
   public String getMessage() {
-    return MessageResources
-        .getString(PARSER_CONSTRUCTOR_MISMATCH_T, new Object[]{name}, getLocale());
+    return MessageResources.getString(PARSER_CONSTRUCTOR_MISMATCH_T, new Object[]{name}, getLocale());
   }
 
   public String getName() {

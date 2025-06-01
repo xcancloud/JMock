@@ -24,6 +24,12 @@
     </dependency>
 
     <dependency>
+      <groupId>com.github.mifmif</groupId>
+      <artifactId>generex</artifactId>
+      <version>${generex.version}</version>
+    </dependency>
+
+    <dependency>
       <groupId>com.github.ben-manes.caffeine</groupId>
       <artifactId>caffeine</artifactId>
     </dependency>
@@ -33,7 +39,6 @@
       <artifactId>gson</artifactId>
       <scope>test</scope>
     </dependency>
-
   </dependencies>
 
   <build>

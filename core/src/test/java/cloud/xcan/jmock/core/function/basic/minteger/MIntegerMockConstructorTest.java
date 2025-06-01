@@ -3,7 +3,7 @@ package cloud.xcan.jmock.core.function.basic.minteger;
 import cloud.xcan.jmock.api.FunctionToken;
 import cloud.xcan.jmock.core.function.basic.MInteger;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MIntegerMockConstructorTest {
@@ -16,9 +16,9 @@ public class MIntegerMockConstructorTest {
     FunctionToken token = new FunctionToken("Integer", new String[]{});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MInteger mock = (MInteger) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(0L, mock.getMin());
-    Assert.assertEquals(Integer.MAX_VALUE, mock.getMax());
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(0L, mock.getMin());
+    Assertions.assertEquals(Integer.MAX_VALUE, mock.getMax());
   }
 
   /**
@@ -29,9 +29,9 @@ public class MIntegerMockConstructorTest {
     FunctionToken token = new FunctionToken("Integer", new String[]{"1", "10000000"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MInteger mock = (MInteger) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(1L, mock.getMin());
-    Assert.assertEquals(10000000L, mock.getMax());
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(1L, mock.getMin());
+    Assertions.assertEquals(10000000L, mock.getMax());
   }
 
 
@@ -43,8 +43,8 @@ public class MIntegerMockConstructorTest {
     FunctionToken token = new FunctionToken("Integer", new String[]{"1:1"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MInteger mock = (MInteger) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(0.5, mock.getNullWeight(), 1);
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(0.5, mock.getNullWeight(), 1);
   }
 
   /**
@@ -55,9 +55,9 @@ public class MIntegerMockConstructorTest {
     FunctionToken token = new FunctionToken("Integer", new String[]{"-1000", "100000", "1:1"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MInteger mock = (MInteger) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(-1000, mock.getMin());
-    Assert.assertEquals(100000, mock.getMax());
-    Assert.assertEquals(0.5, mock.getNullWeight(), 1);
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(-1000, mock.getMin());
+    Assertions.assertEquals(100000, mock.getMax());
+    Assertions.assertEquals(0.5, mock.getNullWeight(), 1);
   }
 }

@@ -4,7 +4,7 @@ package cloud.xcan.jmock.core.function.basic.mdouble;
 import cloud.xcan.jmock.api.FunctionToken;
 import cloud.xcan.jmock.core.function.basic.MDouble;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MDoubleMockConstructorTest {
@@ -17,11 +17,11 @@ public class MDoubleMockConstructorTest {
     FunctionToken token = new FunctionToken("Double", new String[]{});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MDouble mock = (MDouble) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(MDouble.DEFAULT_SCALE_VALUE, mock.getScale());
-    Assert.assertEquals(MDouble.DEFAULT_MAX_VALUE, mock.getMax(), 1);
-    Assert.assertEquals(0D, mock.getMin(), 1);
-    Assert.assertEquals(0.0D, mock.getNullWeight(), 1);
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(MDouble.DEFAULT_SCALE_VALUE, mock.getScale());
+    Assertions.assertEquals(MDouble.DEFAULT_MAX_VALUE, mock.getMax(), 1);
+    Assertions.assertEquals(0D, mock.getMin(), 1);
+    Assertions.assertEquals(0.0D, mock.getNullWeight(), 1);
   }
 
   /**
@@ -32,11 +32,11 @@ public class MDoubleMockConstructorTest {
     FunctionToken token = new FunctionToken("Double", new String[]{"3"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MDouble mock = (MDouble) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(3, mock.getScale());
-    Assert.assertEquals(MDouble.DEFAULT_MAX_VALUE, mock.getMax(), 1);
-    Assert.assertEquals(0D, mock.getMin(), 1);
-    Assert.assertEquals(0.0D, mock.getNullWeight(), 1);
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(3, mock.getScale());
+    Assertions.assertEquals(MDouble.DEFAULT_MAX_VALUE, mock.getMax(), 1);
+    Assertions.assertEquals(0D, mock.getMin(), 1);
+    Assertions.assertEquals(0.0D, mock.getNullWeight(), 1);
   }
 
 
@@ -48,11 +48,11 @@ public class MDoubleMockConstructorTest {
     FunctionToken token = new FunctionToken("Double", new String[]{"1:9"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MDouble mock = (MDouble) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(MDouble.DEFAULT_SCALE_VALUE, mock.getScale());
-    Assert.assertEquals(MDouble.DEFAULT_MAX_VALUE, mock.getMax(), 1);
-    Assert.assertEquals(0, mock.getMin(), 1);
-    Assert.assertEquals(0.1D, mock.getNullWeight(), 1);
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(MDouble.DEFAULT_SCALE_VALUE, mock.getScale());
+    Assertions.assertEquals(MDouble.DEFAULT_MAX_VALUE, mock.getMax(), 1);
+    Assertions.assertEquals(0, mock.getMin(), 1);
+    Assertions.assertEquals(0.1D, mock.getNullWeight(), 1);
   }
 
   /**
@@ -63,11 +63,11 @@ public class MDoubleMockConstructorTest {
     FunctionToken token = new FunctionToken("Double", new String[]{"200D", "300D"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MDouble mock = (MDouble) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(MDouble.DEFAULT_SCALE_VALUE, mock.getScale());
-    Assert.assertEquals(300D, mock.getMax(), 1);
-    Assert.assertEquals(200D, mock.getMin(), 1);
-    Assert.assertEquals(0.0D, mock.getNullWeight(), 1);
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(MDouble.DEFAULT_SCALE_VALUE, mock.getScale());
+    Assertions.assertEquals(300D, mock.getMax(), 1);
+    Assertions.assertEquals(200D, mock.getMin(), 1);
+    Assertions.assertEquals(0.0D, mock.getNullWeight(), 1);
   }
 
   /**
@@ -78,11 +78,11 @@ public class MDoubleMockConstructorTest {
     FunctionToken token = new FunctionToken("Double", new String[]{"100D", "200D", "5"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MDouble mock = (MDouble) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(5, mock.getScale());
-    Assert.assertEquals(200D, mock.getMax(), 1);
-    Assert.assertEquals(100D, mock.getMin(), 1);
-    Assert.assertEquals(0.0D, mock.getNullWeight(), 1);
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(5, mock.getScale());
+    Assertions.assertEquals(200D, mock.getMax(), 1);
+    Assertions.assertEquals(100D, mock.getMin(), 1);
+    Assertions.assertEquals(0.0D, mock.getNullWeight(), 1);
   }
 
 
@@ -94,10 +94,10 @@ public class MDoubleMockConstructorTest {
     FunctionToken token = new FunctionToken("Double", new String[]{"100D", "200D", "5", "1:9"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MDouble mock = (MDouble) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(5, mock.getScale());
-    Assert.assertEquals(200D, mock.getMax(), 1);
-    Assert.assertEquals(100D, mock.getMin(), 1);
-    Assert.assertEquals(0.1D, mock.getNullWeight(), 1);
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(5, mock.getScale());
+    Assertions.assertEquals(200D, mock.getMax(), 1);
+    Assertions.assertEquals(100D, mock.getMin(), 1);
+    Assertions.assertEquals(0.1D, mock.getNullWeight(), 1);
   }
 }

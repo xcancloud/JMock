@@ -1,11 +1,11 @@
 package cloud.xcan.jmock.core.function.web;
 
+import static cloud.xcan.angus.spec.utils.ObjectUtils.nullSafe;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_WEB;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MCOLOR_C1;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MCOLOR_C2;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MCOLOR_DESC;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MCOLOR_PARAMETER_FORMAT;
-import static cloud.xcan.angus.spec.utils.ObjectUtils.nullSafe;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;

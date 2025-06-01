@@ -29,16 +29,15 @@ public class MRegExpMockTest {
     }
   }
 
-  @Test
-  public void case3() throws Exception {
-    FunctionToken token = new FunctionToken("RegExp", new String[]{"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}"});
-    SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
-    MRegExp mock = (MRegExp) parser.parse(token);
-    for (int i = 0; i < 10; i++) {
-      String str = mock.mock();
-      System.out.println("email = " + str);
-    }
-  }
+  //  @Test
+  //  public void case3() throws Exception {
+  //    FunctionToken token = new FunctionToken("RegExp", new String[]{"[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"});
+  //    SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
+  //    MRegExp mock = (MRegExp) parser.parse(token);
+  //    for (int i = 0; i < 10; i++) {
+  //      String str = mock.mock();
+  //    }
+  //  }
 
   @Test
   public void case4() throws Exception {

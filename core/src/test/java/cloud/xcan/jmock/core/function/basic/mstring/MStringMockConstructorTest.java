@@ -4,7 +4,7 @@ package cloud.xcan.jmock.core.function.basic.mstring;
 import cloud.xcan.jmock.api.FunctionToken;
 import cloud.xcan.jmock.core.function.basic.MString;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MStringMockConstructorTest {
@@ -17,9 +17,9 @@ public class MStringMockConstructorTest {
     FunctionToken token = new FunctionToken("String", new String[]{});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MString mock = (MString) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(Integer.valueOf(MString.DEFAULT_LENGTH), mock.getLength());
-    Assert.assertEquals(MString.DEFAULT_LENGTH, mock.getFixedLength());
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(Integer.valueOf(MString.DEFAULT_LENGTH), mock.getLength());
+    Assertions.assertEquals(MString.DEFAULT_LENGTH, mock.getFixedLength());
   }
 
   /**
@@ -30,9 +30,9 @@ public class MStringMockConstructorTest {
     FunctionToken token = new FunctionToken("String", new String[]{"8"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MString mock = (MString) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(Integer.valueOf(8), mock.getLength());
-    Assert.assertEquals(8, mock.getFixedLength());
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(Integer.valueOf(8), mock.getLength());
+    Assertions.assertEquals(8, mock.getFixedLength());
   }
 
   /**
@@ -43,10 +43,10 @@ public class MStringMockConstructorTest {
     FunctionToken token = new FunctionToken("String", new String[]{"10", "1:9"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MString mock = (MString) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(Integer.valueOf(10), mock.getLength());
-    Assert.assertEquals(10, mock.getFixedLength());
-    Assert.assertEquals(0.1d, mock.getNullWeight(), 2);
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(Integer.valueOf(10), mock.getLength());
+    Assertions.assertEquals(10, mock.getFixedLength());
+    Assertions.assertEquals(0.1d, mock.getNullWeight(), 2);
   }
 
   /**
@@ -57,11 +57,11 @@ public class MStringMockConstructorTest {
     FunctionToken token = new FunctionToken("String", new String[]{"10", "1:9", "中英法德美"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MString mock = (MString) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(Integer.valueOf(10), mock.getLength());
-    Assert.assertEquals(10, mock.getFixedLength());
-    Assert.assertEquals(0.1d, mock.getNullWeight(), 2);
-    Assert.assertEquals("中英法德美", new String(mock.getChars()));
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(Integer.valueOf(10), mock.getLength());
+    Assertions.assertEquals(10, mock.getFixedLength());
+    Assertions.assertEquals(0.1d, mock.getNullWeight(), 2);
+    Assertions.assertEquals("中英法德美", new String(mock.getChars()));
   }
 
   /**
@@ -72,11 +72,11 @@ public class MStringMockConstructorTest {
     FunctionToken token = new FunctionToken("String", new String[]{"0", "10"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MString mock = (MString) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertNull(mock.getLength());
-    Assert.assertEquals(0, mock.getFixedLength());
-    Assert.assertEquals(Integer.valueOf(0), mock.getMin());
-    Assert.assertEquals(Integer.valueOf(10), mock.getMax());
+    Assertions.assertNotNull(mock);
+    Assertions.assertNull(mock.getLength());
+    Assertions.assertEquals(0, mock.getFixedLength());
+    Assertions.assertEquals(Integer.valueOf(0), mock.getMin());
+    Assertions.assertEquals(Integer.valueOf(10), mock.getMax());
   }
 
   /**
@@ -89,34 +89,34 @@ public class MStringMockConstructorTest {
     FunctionToken token = new FunctionToken("String",
         new String[]{null, null, null, null, null});
     MString mock = (MString) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(Integer.valueOf(MString.DEFAULT_LENGTH), mock.getLength());
-    Assert.assertEquals(MString.DEFAULT_LENGTH, mock.getFixedLength());
-    Assert.assertNull(mock.getMin());
-    Assert.assertNull(mock.getMax());
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(Integer.valueOf(MString.DEFAULT_LENGTH), mock.getLength());
+    Assertions.assertEquals(MString.DEFAULT_LENGTH, mock.getFixedLength());
+    Assertions.assertNull(mock.getMin());
+    Assertions.assertNull(mock.getMax());
 
     token = new FunctionToken("String", new String[]{"8", null, null, "", "1:9"});
     mock = (MString) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(Integer.valueOf(8), mock.getLength());
-    Assert.assertEquals(8, mock.getFixedLength());
-    Assert.assertNull(mock.getMin());
-    Assert.assertNull(mock.getMax());
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(Integer.valueOf(8), mock.getLength());
+    Assertions.assertEquals(8, mock.getFixedLength());
+    Assertions.assertNull(mock.getMin());
+    Assertions.assertNull(mock.getMax());
 
     token = new FunctionToken("String", new String[]{"8", "11", "12", "", "1:9"});
     mock = (MString) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(Integer.valueOf(8), mock.getLength());
-    Assert.assertEquals(8, mock.getFixedLength());
-    Assert.assertNull(mock.getMin());
-    Assert.assertNull(mock.getMax());
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(Integer.valueOf(8), mock.getLength());
+    Assertions.assertEquals(8, mock.getFixedLength());
+    Assertions.assertNull(mock.getMin());
+    Assertions.assertNull(mock.getMax());
 
     token = new FunctionToken("String", new String[]{null, null, null, "", "1:9"});
     mock = (MString) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(Integer.valueOf(MString.DEFAULT_LENGTH), mock.getLength());
-    Assert.assertEquals(MString.DEFAULT_LENGTH, mock.getFixedLength());
-    Assert.assertNull(mock.getMin());
-    Assert.assertNull(mock.getMax());
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(Integer.valueOf(MString.DEFAULT_LENGTH), mock.getLength());
+    Assertions.assertEquals(MString.DEFAULT_LENGTH, mock.getFixedLength());
+    Assertions.assertNull(mock.getMin());
+    Assertions.assertNull(mock.getMax());
   }
 }

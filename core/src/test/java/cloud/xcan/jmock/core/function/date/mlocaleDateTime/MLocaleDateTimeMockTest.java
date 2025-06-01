@@ -46,7 +46,7 @@ public class MLocaleDateTimeMockTest {
   @Test
   public void case3_rangeLengthAndCustomCharsTest() throws Exception {
     FunctionToken token = new FunctionToken("MLocaleDateTime",
-        new String[]{"yy-MM-dd HH:mm:ss", "Asia/Shanghai"});
+        new String[]{"yy-MM-dd HH:mm:ss", "Asia/Shanghai", "true"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MLocaleDateTime mock = (MLocaleDateTime) parser.parse(token);
     for (int i = 0; i < 10; i++) {
@@ -58,7 +58,7 @@ public class MLocaleDateTimeMockTest {
   @Test
   public void case5() throws Exception {
     FunctionToken token = new FunctionToken("MLocaleDateTime",
-        new String[]{"yy-MM-dd HH:mm:ss", "America/Argentina/Buenos_Aires"});
+        new String[]{"yy-MM-dd HH:mm:ss", "America/Argentina/Buenos_Aires", "true"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MLocaleDateTime mock = (MLocaleDateTime) parser.parse(token);
     for (int i = 0; i < 10; i++) {

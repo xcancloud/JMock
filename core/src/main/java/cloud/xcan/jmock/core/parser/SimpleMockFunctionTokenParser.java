@@ -40,20 +40,20 @@ public class SimpleMockFunctionTokenParser implements MockFunctionTokenParser {
     return invokeConstructor(environment.mockClass(token.name()), token.name());
   }
 
-  public MockFunction invokeConstructor(final Class<? extends MockFunction> cls, String name,
-      Object... args) throws Exception {
+  public MockFunction invokeConstructor(
+      final Class<? extends MockFunction> cls, String name, Object... args) {
     try {
       return ConstructorUtils.invokeConstructor(cls, args);
-    } catch (NoSuchMethodException e) {
+    } catch (Exception e) {
       throw ConstructorMismatchException.of(name);
     }
   }
 
-  public MockFunction invokeConstructor(final Class<? extends MockFunction> cls, String name,
-      Object[] args, Class<?>[] parameterTypes) throws Exception {
+  public MockFunction invokeConstructor(final Class<? extends MockFunction> cls,
+      String name, Object[] args, Class<?>[] parameterTypes) {
     try {
       return ConstructorUtils.invokeConstructor(cls, args, parameterTypes);
-    } catch (NoSuchMethodException e) {
+    } catch (Exception e) {
       throw ConstructorMismatchException.of(name);
     }
   }

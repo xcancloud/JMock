@@ -8,9 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CountDownLatch;
-import org.junit.Assert;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class DefaultMockExpressionReplacerTest {
 
@@ -25,7 +24,7 @@ public class DefaultMockExpressionReplacerTest {
     String content = "@String(10) bb";
     String result = new DefaultMockExpressionReplacer().replace(content);
     System.out.println(result);
-    Assert.assertEquals(13, result.length());
+    Assertions.assertEquals(13, result.length());
   }
 
   @Test
@@ -70,11 +69,11 @@ public class DefaultMockExpressionReplacerTest {
     try {
       result = new DefaultMockTextReplacer().replace("aa @GetVariable(v1)");
     } catch (Exception e) {
-      Assert.assertEquals("Function expression must start with identifier(@) , error position 1",
+      Assertions.assertEquals("Function expression must start with identifier(@) , error position 1",
           e.getMessage());
     }
 
-    Assert.assertEquals("aa @GetVariable(v1)", result);
+    Assertions.assertEquals("aa @GetVariable(v1)", result);
   }
 
 }

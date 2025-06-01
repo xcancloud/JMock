@@ -53,13 +53,12 @@ public class FunctionToken extends AbstractToken {
     if (this == o) {
       return true;
     }
-    if (!(o instanceof FunctionToken)) {
+    if (!(o instanceof FunctionToken that)) {
       return false;
     }
     if (!super.equals(o)) {
       return false;
     }
-    FunctionToken that = (FunctionToken) o;
     return identifier == that.identifier && mapEquals(params, that.params);
   }
 

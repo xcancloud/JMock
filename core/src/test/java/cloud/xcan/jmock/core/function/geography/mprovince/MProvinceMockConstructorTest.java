@@ -11,7 +11,7 @@ import cloud.xcan.jmock.core.function.geography.MProvince;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
 import java.util.ArrayList;
 import org.assertj.core.util.Lists;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MProvinceMockConstructorTest {
@@ -31,8 +31,8 @@ public class MProvinceMockConstructorTest {
     FunctionToken token = new FunctionToken("MProvince", new String[]{});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MProvince mock = (MProvince) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertTrue(china.contains(mock.mock()));
+    Assertions.assertNotNull(mock);
+    Assertions.assertTrue(china.contains(mock.mock()));
   }
 
   @Test
@@ -40,8 +40,8 @@ public class MProvinceMockConstructorTest {
     FunctionToken token = new FunctionToken("MProvince", new String[]{"en"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MProvince mock = (MProvince) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertTrue(english.contains(mock.mock()));
+    Assertions.assertNotNull(mock);
+    Assertions.assertTrue(english.contains(mock.mock()));
   }
 
   @Test
@@ -49,7 +49,7 @@ public class MProvinceMockConstructorTest {
     FunctionToken token = new FunctionToken("MProvince", new String[]{str});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MProvince mock = (MProvince) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertTrue(dist.contains(mock.mock()));
+    Assertions.assertNotNull(mock);
+    Assertions.assertTrue(dist.contains(mock.mock()));
   }
 }

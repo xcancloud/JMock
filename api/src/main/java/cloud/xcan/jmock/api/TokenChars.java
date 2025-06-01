@@ -4,10 +4,6 @@ public interface TokenChars {
 
   String FUNC_NAME_PREFIX = "M";
 
-  String FUNC_NAME_ARRAY = "Array";
-
-  String FUNC_NAME_SQL = "Sql";
-
   char DEFAULT_ESCAPE_CHAR = '\\';
 
   /**

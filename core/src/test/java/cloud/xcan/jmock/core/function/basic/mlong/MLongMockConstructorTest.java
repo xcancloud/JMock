@@ -3,7 +3,7 @@ package cloud.xcan.jmock.core.function.basic.mlong;
 import cloud.xcan.jmock.api.FunctionToken;
 import cloud.xcan.jmock.core.function.basic.MLong;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MLongMockConstructorTest {
@@ -16,9 +16,9 @@ public class MLongMockConstructorTest {
     FunctionToken token = new FunctionToken("Long", new String[]{});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MLong mock = (MLong) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(0L, mock.getMin());
-    Assert.assertEquals(Long.MAX_VALUE, mock.getMax());
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(0L, mock.getMin());
+    Assertions.assertEquals(Long.MAX_VALUE, mock.getMax());
   }
 
 
@@ -30,9 +30,9 @@ public class MLongMockConstructorTest {
     FunctionToken token = new FunctionToken("Long", new String[]{"1L", "10000000L"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MLong mock = (MLong) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(1L, mock.getMin());
-    Assert.assertEquals(10000000L, mock.getMax());
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(1L, mock.getMin());
+    Assertions.assertEquals(10000000L, mock.getMax());
   }
 
 
@@ -44,8 +44,8 @@ public class MLongMockConstructorTest {
     FunctionToken token = new FunctionToken("Long", new String[]{"1:1"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MLong mock = (MLong) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(0.5, mock.getNullWeight(), 1);
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(0.5, mock.getNullWeight(), 1);
   }
 
   /**
@@ -56,9 +56,9 @@ public class MLongMockConstructorTest {
     FunctionToken token = new FunctionToken("Long", new String[]{"-1000L", "100000L", "1:1"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MLong mock = (MLong) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(-1000L, mock.getMin());
-    Assert.assertEquals(100000L, mock.getMax());
-    Assert.assertEquals(0.5, mock.getNullWeight(), 1);
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(-1000L, mock.getMin());
+    Assertions.assertEquals(100000L, mock.getMax());
+    Assertions.assertEquals(0.5, mock.getNullWeight(), 1);
   }
 }

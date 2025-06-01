@@ -10,7 +10,7 @@ import cloud.xcan.jmock.core.function.network.MProtocol;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
 import java.util.ArrayList;
 import org.assertj.core.util.Lists;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MProtocolMockConstructorTest {
@@ -26,8 +26,8 @@ public class MProtocolMockConstructorTest {
     FunctionToken token = new FunctionToken("MProtocol", new String[]{});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MProtocol mock = (MProtocol) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertTrue(china.contains(mock.mock()));
+    Assertions.assertNotNull(mock);
+    Assertions.assertTrue(china.contains(mock.mock()));
   }
 
   @Test
@@ -35,8 +35,8 @@ public class MProtocolMockConstructorTest {
     FunctionToken token = new FunctionToken("MProtocol", new String[]{str});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MProtocol mock = (MProtocol) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertTrue(dist.contains(mock.mock()));
+    Assertions.assertNotNull(mock);
+    Assertions.assertTrue(dist.contains(mock.mock()));
   }
 
 }

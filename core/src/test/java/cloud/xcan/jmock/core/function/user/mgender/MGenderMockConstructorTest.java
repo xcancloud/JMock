@@ -9,7 +9,7 @@ import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
 import java.util.ArrayList;
 import java.util.Locale;
 import org.assertj.core.util.Lists;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -31,8 +31,8 @@ public class MGenderMockConstructorTest {
     FunctionToken token = new FunctionToken("MGender", new String[]{});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MGender mock = (MGender) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertTrue(china.contains(mock.mock()));
+    Assertions.assertNotNull(mock);
+    Assertions.assertTrue(china.contains(mock.mock()));
   }
 
   @Test
@@ -40,8 +40,8 @@ public class MGenderMockConstructorTest {
     FunctionToken token = new FunctionToken("MGender", new String[]{"F|M"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MGender mock = (MGender) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(new String[]{"F", "M"}, mock.getDictArray());
+    Assertions.assertNotNull(mock);
+    Assertions.assertArrayEquals(new String[]{"F", "M"}, mock.getDictArray());
   }
 
   @Test
@@ -49,9 +49,9 @@ public class MGenderMockConstructorTest {
     FunctionToken token = new FunctionToken("MGender", new String[]{"en"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MGender mock = (MGender) parser.parse(token);
-    Assert.assertNotNull(mock);
+    Assertions.assertNotNull(mock);
     System.out.println("mock = " + mock.mock());
-    Assert.assertTrue(en.contains(mock.mock()));
+    Assertions.assertTrue(en.contains(mock.mock()));
   }
 
 }

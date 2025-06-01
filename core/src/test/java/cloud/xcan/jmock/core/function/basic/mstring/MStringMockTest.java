@@ -3,7 +3,7 @@ package cloud.xcan.jmock.core.function.basic.mstring;
 import cloud.xcan.jmock.api.FunctionToken;
 import cloud.xcan.jmock.core.function.basic.MString;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MStringMockTest {
@@ -15,7 +15,7 @@ public class MStringMockTest {
     MString mock = (MString) parser.parse(token);
     for (int i = 0; i < 10; i++) {
       String str = mock.mock();
-      Assert.assertEquals(6, str.length());
+      Assertions.assertEquals(6, str.length());
     }
   }
 
@@ -29,7 +29,7 @@ public class MStringMockTest {
     for (int i = 0; i < 10; i++) {
       String str = mock.mock();
       System.out.println("value:\t" + str);
-      Assert.assertTrue(str.length() >= 5 && str.length() <= 10);
+      Assertions.assertTrue(str.length() >= 5 && str.length() <= 10);
     }
   }
 
@@ -44,10 +44,10 @@ public class MStringMockTest {
       if (null == str) {
         hasNull = true;
       } else {
-        Assert.assertTrue(str.length() >= 5 && str.length() <= 10);
+        Assertions.assertTrue(str.length() >= 5 && str.length() <= 10);
       }
     }
-    Assert.assertTrue(hasNull);
+    Assertions.assertTrue(hasNull);
   }
 
   @Test
@@ -57,7 +57,7 @@ public class MStringMockTest {
     MString mock = (MString) parser.parse(token);
     for (int i = 0; i < 10; i++) {
       String str = mock.mock();
-      Assert.assertEquals(5, str.length());
+      Assertions.assertEquals(5, str.length());
     }
   }
 
@@ -72,10 +72,10 @@ public class MStringMockTest {
       if (null == str) {
         hasNull = true;
       } else {
-        Assert.assertEquals(5, str.length());
+        Assertions.assertEquals(5, str.length());
       }
     }
-    Assert.assertTrue(hasNull);
+    Assertions.assertTrue(hasNull);
   }
 
   @Test
@@ -92,16 +92,16 @@ public class MStringMockTest {
       if (null == str) {
         hasNull = true;
       } else {
-        Assert.assertEquals("AAAAA", str);
+        Assertions.assertEquals("AAAAA", str);
       }
     }
-    Assert.assertTrue(hasNull);
+    Assertions.assertTrue(hasNull);
     token = new FunctionToken("String", new String[]{null, "1", "5", "AAA", "1:9"});
     mock = (MString) parser.parse(token);
     for (int i = 0; i < 1000; i++) {
       String str = mock.mock();
       if (null != str) {
-        Assert.assertTrue(str.length() >= 1 && str.length() <= 5);
+        Assertions.assertTrue(str.length() >= 1 && str.length() <= 5);
       }
     }
   }
@@ -113,13 +113,13 @@ public class MStringMockTest {
     MString mock = (MString) parser.parse(token);
     for (int i = 0; i < 1000; i++) {
       String str = mock.mock();
-      Assert.assertTrue(str.length() >= 5 && str.length() <= 10);
+      Assertions.assertTrue(str.length() >= 5 && str.length() <= 10);
     }
     token = new FunctionToken("String", new String[]{"null", "10"});
     mock = (MString) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals(Integer.valueOf(0), mock.getMin());
-    Assert.assertEquals(Integer.valueOf(10), mock.getMax());
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals(Integer.valueOf(0), mock.getMin());
+    Assertions.assertEquals(Integer.valueOf(10), mock.getMax());
   }
 
   @Test
@@ -133,9 +133,9 @@ public class MStringMockTest {
       if (null == str) {
         hasNull = true;
       } else {
-        Assert.assertEquals("AAAAA", str);
+        Assertions.assertEquals("AAAAA", str);
       }
     }
-    Assert.assertTrue(hasNull);
+    Assertions.assertTrue(hasNull);
   }
 }

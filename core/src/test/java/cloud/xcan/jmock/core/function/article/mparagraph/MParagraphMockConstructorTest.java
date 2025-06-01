@@ -12,7 +12,6 @@ import cloud.xcan.jmock.core.function.article.MParagraph;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
 import java.util.ArrayList;
 import org.assertj.core.util.Lists;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -32,8 +31,8 @@ public class MParagraphMockConstructorTest {
     FunctionToken token = new FunctionToken("MParagraph", new String[]{});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MParagraph mock = (MParagraph) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertTrue(china.contains(mock.mock()));
+    Assertions.assertNotNull(mock);
+    Assertions.assertTrue(china.contains(mock.mock()));
   }
 
   @Test
@@ -41,8 +40,8 @@ public class MParagraphMockConstructorTest {
     FunctionToken token = new FunctionToken("MParagraph", new String[]{"en"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MParagraph mock = (MParagraph) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertTrue(english.contains(mock.mock()));
+    Assertions.assertNotNull(mock);
+    Assertions.assertTrue(english.contains(mock.mock()));
   }
 
   @Test
@@ -50,7 +49,7 @@ public class MParagraphMockConstructorTest {
     FunctionToken token = new FunctionToken("MParagraph", new String[]{str});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MParagraph mock = (MParagraph) parser.parse(token);
-    Assert.assertNotNull(mock);
+    Assertions.assertNotNull(mock);
     Assertions.assertTrue(dist.contains(mock.mock()));
   }
 

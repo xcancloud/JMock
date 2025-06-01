@@ -1,7 +1,5 @@
 package cloud.xcan.jmock.core.support.utils;
 
-import static cloud.xcan.jmock.core.support.utils.RandomStringUtils.random;
-
 import org.apache.commons.lang3.StringUtils;
 
 /**

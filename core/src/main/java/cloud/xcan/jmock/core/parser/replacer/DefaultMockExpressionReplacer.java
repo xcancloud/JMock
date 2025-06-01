@@ -61,8 +61,8 @@ public class DefaultMockExpressionReplacer implements MockReplacer {
       String value = isNull(function) ? token.token() // Set to src content
           : function.mock().toString(); // Set mock value
       result.append(content, 0, token.startPos() + offset).append(value);
-      if (content.length() > token.endPos() + offset + 1) {
-        result.append(content, token.endPos() + offset + 1, content.length());
+      if (content.length() > token.endPos() + offset) {
+        result.append(content, token.endPos() + offset, content.length());
       }
       content = result.toString();
       result = new StringBuilder();

@@ -1,6 +1,6 @@
 package cloud.xcan.jmock.core.support.utils;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class ColorUtilTest {
 

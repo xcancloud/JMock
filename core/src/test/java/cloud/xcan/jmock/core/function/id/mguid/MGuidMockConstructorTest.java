@@ -4,7 +4,7 @@ package cloud.xcan.jmock.core.function.id.mguid;
 import cloud.xcan.jmock.api.FunctionToken;
 import cloud.xcan.jmock.core.function.id.MGuid;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MGuidMockConstructorTest {
@@ -17,7 +17,7 @@ public class MGuidMockConstructorTest {
     FunctionToken token = new FunctionToken("Guid",
         new String[]{});
     MGuid mock = (MGuid) parser.parse(token);
-    Assert.assertNotNull(mock);
+    Assertions.assertNotNull(mock);
   }
 
   /**
@@ -30,6 +30,6 @@ public class MGuidMockConstructorTest {
     FunctionToken token = new FunctionToken("Guid",
         new String[]{"true"});
     MGuid mock = (MGuid) parser.parse(token);
-    Assert.assertNotNull(mock);
+    Assertions.assertNotNull(mock);
   }
 }

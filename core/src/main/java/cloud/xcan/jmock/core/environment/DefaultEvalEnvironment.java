@@ -1,9 +1,9 @@
 package cloud.xcan.jmock.core.environment;
 
 
+import static cloud.xcan.angus.spec.utils.ReflectionUtils.isAbstractClass;
 import static cloud.xcan.jmock.api.TokenChars.FUNC_NAME_PREFIX;
 import static cloud.xcan.jmock.api.i18n.ThreadLocaleHolder.removeLocale;
-import static cloud.xcan.angus.spec.utils.ReflectionUtils.isAbstractClass;
 import static java.util.Objects.nonNull;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;

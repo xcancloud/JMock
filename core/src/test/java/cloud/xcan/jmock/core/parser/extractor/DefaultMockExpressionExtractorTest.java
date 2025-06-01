@@ -5,11 +5,12 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import cloud.xcan.jmock.api.AbstractToken;
 import cloud.xcan.jmock.api.FunctionToken;
-import cloud.xcan.jmock.core.exception.FunctionNameException;
 import cloud.xcan.jmock.core.exception.FunctionStartException;
+import cloud.xcan.jmock.core.exception.InvalidNameException;
 import java.util.List;
-import org.junit.Assert;
-import org.junit.Test;
+import java.util.Map;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class DefaultMockExpressionExtractorTest {
 
@@ -30,14 +31,14 @@ public class DefaultMockExpressionExtractorTest {
     String expression = "@String()";
     DefaultMockExpressionExtractor tokenizer = new DefaultMockExpressionExtractor(expression);
     List<FunctionToken> tokens = tokenizer.extract();
-    Assert.assertNotNull(tokens);
-    Assert.assertEquals(1, tokens.size());
+    Assertions.assertNotNull(tokens);
+    Assertions.assertEquals(1, tokens.size());
     AbstractToken token = tokens.get(0);
-    Assert.assertEquals("String", token.name());
-    Assert.assertEquals(0, token.startPos());
-    Assert.assertEquals(expression.indexOf(")"), token.endPos());
-    if (token instanceof FunctionToken) {
-      Assert.assertNull(((FunctionToken) token).getParams());
+    Assertions.assertEquals("String", token.name());
+    Assertions.assertEquals(0, token.startPos());
+    Assertions.assertEquals(expression.indexOf(")"), token.endPos() - 1);
+    if (token instanceof FunctionToken ft) {
+      Assertions.assertTrue(ft.getParams().isEmpty());
     }
   }
 
@@ -46,15 +47,14 @@ public class DefaultMockExpressionExtractorTest {
     String expression = "@String()boy";
     DefaultMockExpressionExtractor tokenizer = new DefaultMockExpressionExtractor(expression);
     List<FunctionToken> tokens = tokenizer.extract();
-    Assert.assertNotNull(tokens);
-    Assert.assertEquals(1, tokens.size());
+    Assertions.assertNotNull(tokens);
+    Assertions.assertEquals(1, tokens.size());
     AbstractToken token = tokens.get(0);
-    Assert.assertEquals("String", token.name());
-    Assert.assertEquals(expression.indexOf("@"), token.startPos());
-    Assert.assertEquals(expression.indexOf(")"), token.endPos());
-    Assert.assertEquals(expression.indexOf(")"), tokenizer.getPos());
-    if (token instanceof FunctionToken) {
-      Assert.assertNull(((FunctionToken) token).getParams());
+    Assertions.assertEquals("String", token.name());
+    Assertions.assertEquals(expression.indexOf("@"), token.startPos());
+    Assertions.assertEquals(expression.indexOf(")"), token.endPos() - 1);
+    if (token instanceof FunctionToken ft) {
+      Assertions.assertTrue(ft.getParams().isEmpty());
     }
   }
 
@@ -63,28 +63,28 @@ public class DefaultMockExpressionExtractorTest {
     // Empty characters are not allowed in @ and function names
     String expression = "@ String ( )";
     DefaultMockExpressionExtractor tokenizer = new DefaultMockExpressionExtractor(expression);
-    Assert.assertThrows(FunctionNameException.class, tokenizer::extract);
+    Assertions.assertThrows(InvalidNameException.class, tokenizer::extract);
 
     String expression2 = "@\n\tString() boy  !!!";
     DefaultMockExpressionExtractor tokenizer2 = new DefaultMockExpressionExtractor(expression2);
-    Assert.assertThrows(FunctionNameException.class, tokenizer2::extract);
+    Assertions.assertThrows(InvalidNameException.class, tokenizer2::extract);
 
     // There can be empty characters between the function name and '('
     String expression3 = "@String\n () boy  !!!";
     DefaultMockExpressionExtractor tokenizer3 = new DefaultMockExpressionExtractor(expression3);
     List<FunctionToken> tokens = tokenizer3.extract();
-    Assert.assertEquals(1, tokens.size());
+    Assertions.assertEquals(1, tokens.size());
     AbstractToken token = tokens.get(0);
-    Assert.assertEquals("String", token.name());
+    Assertions.assertEquals("String", token.name());
     String expression4 = "@String\t ( , , \r \t , aaa) boy  !!!";
     DefaultMockExpressionExtractor tokenizer4 = new DefaultMockExpressionExtractor(expression4);
     tokens = tokenizer4.extract();
-    Assert.assertEquals(1, tokens.size());
+    Assertions.assertEquals(1, tokens.size());
     token = tokens.get(0);
-    Assert.assertEquals("String", token.name());
-    if (token instanceof FunctionToken) {
-      Assert.assertNotNull(((FunctionToken) token).getParams());
-      Assert.assertEquals(4, ((FunctionToken) token).getParams().size());
+    Assertions.assertEquals("String", token.name());
+    if (token instanceof FunctionToken ft) {
+      Assertions.assertFalse(ft.getParams().isEmpty());
+      Assertions.assertEquals(4, ft.getParams().size());
     }
   }
 
@@ -93,11 +93,11 @@ public class DefaultMockExpressionExtractorTest {
     String text = "@String(1,2,sss\\,s)";
     DefaultMockExpressionExtractor tokenizer = new DefaultMockExpressionExtractor(text);
     List<FunctionToken> tokens = tokenizer.extract();
-    Assert.assertEquals(1, tokens.size());
+    Assertions.assertEquals(1, tokens.size());
     AbstractToken token = tokens.get(0);
-    if (token instanceof FunctionToken) {
-      Assert.assertNotNull(((FunctionToken) token).getParams());
-      Assert.assertEquals(3, ((FunctionToken) token).getParams().size());
+    if (token instanceof FunctionToken ft) {
+      Assertions.assertFalse(ft.getParams().isEmpty());
+      Assertions.assertEquals(3, ft.getParams().size());
     }
   }
 
@@ -106,13 +106,13 @@ public class DefaultMockExpressionExtractorTest {
     String text = "@String(1,null,)";
     DefaultMockExpressionExtractor tokenizer = new DefaultMockExpressionExtractor(text);
     List<FunctionToken> tokens = tokenizer.extract();
-    Assert.assertEquals(1, tokens.size());
+    Assertions.assertEquals(1, tokens.size());
     AbstractToken token = tokens.get(0);
-    if (token instanceof FunctionToken) {
-      Assert.assertNotNull(((FunctionToken) token).getParams());
-      Assert.assertEquals(3, ((FunctionToken) token).getParams().size());
-      Assert.assertEquals("null", ((FunctionToken) token).getParams().get("2"));
-      Assert.assertEquals("", ((FunctionToken) token).getParams().get("3"));
+    if (token instanceof FunctionToken ft) {
+      Assertions.assertFalse(ft.getParams().isEmpty());
+      Assertions.assertEquals(2, ft.getParams().size());
+      Assertions.assertEquals("null", ft.getParams().get("1"));
+      Assertions.assertEquals(null, ft.getParams().get("2"));
     }
   }
 
@@ -121,7 +121,7 @@ public class DefaultMockExpressionExtractorTest {
     String text = "@String(1,null,)";
     DefaultMockExpressionExtractor tokenizer = new DefaultMockExpressionExtractor(text);
     List<FunctionToken> tokens = tokenizer.extract();
-    Assert.assertEquals("@String(1,null,)", tokens.get(0).token());
+    Assertions.assertEquals("@String(1,null,)", tokens.get(0).token());
   }
 
   @Test
@@ -130,7 +130,7 @@ public class DefaultMockExpressionExtractorTest {
     DefaultMockExpressionExtractor tokenizer = new DefaultMockExpressionExtractor(text);
     List<FunctionToken> tokens = tokenizer.extract();
     // Note: Nested functions not supported
-    Assert.assertNotEquals(2, tokens.size());
+    Assertions.assertNotEquals(2, tokens.size());
   }
 
   @Test
@@ -139,6 +139,58 @@ public class DefaultMockExpressionExtractorTest {
     DefaultMockExpressionExtractor tokenizer = new DefaultMockExpressionExtractor(text);
     List<FunctionToken> tokens = tokenizer.extract();
     // Note: Nested functions not supported
-    Assert.assertNotEquals(2, tokens.size());
+    Assertions.assertNotEquals(2, tokens.size());
+  }
+
+  @Test
+  public void shouldRequireFunctionAtStart() {
+    DefaultMockExpressionExtractor extractor = new DefaultMockExpressionExtractor("  @Test()");
+    try {
+      extractor.extract();
+    } catch (Exception e) {
+      Assertions.fail("Unexpected exception: " + e.getMessage());
+    }
+
+    extractor = new DefaultMockExpressionExtractor("Test()");
+    try {
+      extractor.extract();
+      Assertions.fail("Expected FunctionStartException but no exception was thrown");
+    } catch (Exception e) {
+      if (!(e instanceof FunctionStartException)) {
+        Assertions.fail("Unexpected exception type: " + e.getClass().getName());
+      }
+    }
+  }
+
+  @Test
+  public void shouldExtractSingleFunction() {
+    DefaultMockExpressionExtractor extractor = new DefaultMockExpressionExtractor(
+        "@Generate(1,2,3)");
+
+    List<FunctionToken> tokens = extractor.extract();
+    Assertions.assertEquals(1, tokens.size());
+
+    FunctionToken token = tokens.get(0);
+    Assertions.assertEquals("Generate", token.name());
+    Assertions.assertEquals(Map.of("0", "1", "1", "2", "2", "3"), token.getParams());
+  }
+
+  @Test
+  public void shouldHandleWhitespaceAroundExpression() {
+    DefaultMockExpressionExtractor extractor = new DefaultMockExpressionExtractor(
+        "  \t@Name()\n  ");
+
+    List<FunctionToken> tokens = extractor.extract();
+    Assertions.assertEquals(1, tokens.size());
+    Assertions.assertEquals("Name", tokens.get(0).name());
+  }
+
+  @Test
+  public void shouldRejectMultipleFunctions() {
+    DefaultMockExpressionExtractor extractor = new DefaultMockExpressionExtractor(
+        "@First() @Second()");
+    List<FunctionToken> tokens =  extractor.extract();
+    Assertions.assertEquals(1, tokens.size());
+    Assertions.assertEquals("@First()", tokens.get(0).token());
   }
 }

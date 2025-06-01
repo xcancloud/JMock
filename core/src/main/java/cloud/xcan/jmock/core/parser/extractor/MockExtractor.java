@@ -1,14 +1,9 @@
 package cloud.xcan.jmock.core.parser.extractor;
 
-import cloud.xcan.jmock.api.AbstractToken;
+import cloud.xcan.jmock.api.FunctionToken;
 import java.util.List;
 
-/**
- * Extract function or method call expressions from text (including: xml, json, txt).
- *
- * @param <T> A function expression or method call expression
- */
-public interface MockExtractor<T extends AbstractToken> {
+public interface MockExtractor {
 
-  List<T> extract();
+  List<FunctionToken> extract();
 }

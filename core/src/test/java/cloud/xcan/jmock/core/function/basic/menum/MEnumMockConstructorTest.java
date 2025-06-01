@@ -4,7 +4,7 @@ package cloud.xcan.jmock.core.function.basic.menum;
 import cloud.xcan.jmock.api.FunctionToken;
 import cloud.xcan.jmock.core.function.basic.MEnum;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MEnumMockConstructorTest {
@@ -15,7 +15,7 @@ public class MEnumMockConstructorTest {
     FunctionToken token = new FunctionToken("MEnum", new String[]{});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MEnum mock = (MEnum) parser.parse(token);
-    Assert.assertNotNull(mock);
+    Assertions.assertNotNull(mock);
   }
 
   @Test
@@ -23,7 +23,7 @@ public class MEnumMockConstructorTest {
     FunctionToken token = new FunctionToken("MEnum", new String[]{"DocGenerator|B"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MEnum mock = (MEnum) parser.parse(token);
-    Assert.assertNotNull(mock);
+    Assertions.assertNotNull(mock);
   }
 
 
@@ -32,6 +32,6 @@ public class MEnumMockConstructorTest {
     FunctionToken token = new FunctionToken("MEnum", new String[]{"DocGenerator|B", "1:2"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MEnum mock = (MEnum) parser.parse(token);
-    Assert.assertNotNull(mock);
+    Assertions.assertNotNull(mock);
   }
 }

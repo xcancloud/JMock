@@ -83,10 +83,9 @@ public abstract class AbstractToken implements Token {
     if (this == o) {
       return true;
     }
-    if (!(o instanceof AbstractToken)) {
+    if (!(o instanceof AbstractToken that)) {
       return false;
     }
-    AbstractToken that = (AbstractToken) o;
     return startPos == that.startPos
         && endPos == that.endPos
         && Objects.equals(name, that.name)

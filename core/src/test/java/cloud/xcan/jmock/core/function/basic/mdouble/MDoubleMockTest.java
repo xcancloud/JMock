@@ -4,7 +4,7 @@ import cloud.xcan.jmock.api.FunctionToken;
 import cloud.xcan.jmock.core.function.basic.MDouble;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
 import java.math.BigDecimal;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MDoubleMockTest {
@@ -22,7 +22,7 @@ public class MDoubleMockTest {
         hasNull = true;
       }
     }
-//    Assert.assertTrue(hasNull);
+//    Assertions.assertTrue(hasNull);
   }
 
   // * Basic MockConstructor: @Double(min,max,scale)
@@ -34,7 +34,7 @@ public class MDoubleMockTest {
     MDouble mock = (MDouble) parser.parse(token);
     for (int i = 0; i < 10; i++) {
       Double num = mock.mock();
-      Assert.assertTrue(BigDecimal.valueOf(num).scale() <= 3 && num < 10D && num > 5D);
+      Assertions.assertTrue(BigDecimal.valueOf(num).scale() <= 3 && num < 10D && num > 5D);
     }
   }
 
@@ -49,10 +49,10 @@ public class MDoubleMockTest {
       if (null == num) {
         hasNull = true;
       } else {
-        Assert.assertTrue(num < 10D && num > 5D);
+        Assertions.assertTrue(num < 10D && num > 5D);
       }
     }
 
-    Assert.assertTrue(hasNull);
+    Assertions.assertTrue(hasNull);
   }
 }

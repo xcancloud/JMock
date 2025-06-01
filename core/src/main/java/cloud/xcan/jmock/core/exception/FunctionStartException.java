@@ -29,12 +29,9 @@ public class FunctionStartException extends ExpressionTokenException {
   @Override
   public String getMessage() {
     if (messageKey.equals(FPARAM_START_NOT_FOUND_T)) {
-      return MessageResources.getString(messageKey, new Object[]{
-          name, position
-      }, getLocale());
+      return MessageResources.getString(messageKey, new Object[]{name, position}, getLocale());
     } else {
-      return MessageResources.getString(messageKey, new Object[]{
-          functionIdentifier, position
+      return MessageResources.getString(messageKey, new Object[]{functionIdentifier, position
       }, getLocale());
     }
   }

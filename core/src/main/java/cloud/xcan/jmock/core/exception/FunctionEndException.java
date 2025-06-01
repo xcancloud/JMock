@@ -17,7 +17,7 @@ public class FunctionEndException extends ExpressionTokenException {
 
   @Override
   public String getMessage() {
-    return MessageResources
-        .getString(FPARAM_END_ERROR_T, new Object[]{name, position}, getLocale());
+    return MessageResources.getString(FPARAM_END_ERROR_T, new Object[]{name, position},
+        getLocale());
   }
 }

@@ -2,9 +2,6 @@ package cloud.xcan.jmock.core.support.utils;
 
 import cloud.xcan.jmock.core.function.basic.MString;
 import cloud.xcan.jmock.core.support.revreg.RegRandom;
-import cloud.xcan.jmock.core.support.revreg.exception.RegexpIllegalException;
-import cloud.xcan.jmock.core.support.revreg.exception.TypeNotMatchException;
-import cloud.xcan.jmock.core.support.revreg.exception.UninitializedException;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -22,8 +19,7 @@ public class RandomStringUtils {
   static char[] DEFAULT_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
       .toCharArray();
 
-  static char[] DEFAULT_NUM_CHARS = "1234567890"
-      .toCharArray();
+  static char[] DEFAULT_NUM_CHARS = "1234567890".toCharArray();
 
   /**
    * <p>This constructor is public to permit tools that require a JavaBean instance
@@ -164,29 +160,15 @@ public class RandomStringUtils {
     return 0;
   }
 
-  /**
-   * @param current
-   * @param min
-   * @param max
-   * @return
-   */
   private static boolean rangeInDefined(int current, int min, int max) {
     return current >= min && current < max;
   }
 
-
-  /**
-   *
-   */
-  public static String randomPassd(int min, int max, char[] chars) {
+  public static String randomPassword(int min, int max, char[] chars) {
     Integer length = RandomUtils.nextInt(min, max);
     return RandomStringUtils.random(length, chars);
   }
 
-
-  /**
-   *
-   */
   public static String randomRegexp(final String regexp, final double nullWeight) {
     // Handle random null value
     if (nullWeight > 0) {
@@ -195,12 +177,6 @@ public class RandomStringUtils {
         return null;
       }
     }
-    try {
-      RegRandom node = new RegRandom(regexp);
-      return node.random();
-    } catch (RegexpIllegalException | TypeNotMatchException | UninitializedException e) {
-      e.printStackTrace();
-    }
-    return null;
+    return RegRandom.random(regexp);
   }
 }

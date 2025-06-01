@@ -3,7 +3,7 @@ package cloud.xcan.jmock.core.function.locale.mlocale;
 import cloud.xcan.jmock.api.FunctionToken;
 import cloud.xcan.jmock.core.function.locale.MLocale;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MLocaleMockConstructorTest {
@@ -16,8 +16,8 @@ public class MLocaleMockConstructorTest {
     FunctionToken token = new FunctionToken("Locale", new String[]{});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MLocale mock = (MLocale) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals("_", mock.getJoiner());
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals("_", mock.getJoiner());
   }
 
 
@@ -29,8 +29,8 @@ public class MLocaleMockConstructorTest {
     FunctionToken token = new FunctionToken("Locale", new String[]{"-"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MLocale mock = (MLocale) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals("-", mock.getJoiner());
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals("-", mock.getJoiner());
   }
 
   /**
@@ -41,7 +41,7 @@ public class MLocaleMockConstructorTest {
     FunctionToken token = new FunctionToken("Locale", new String[]{"null"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MLocale mock = (MLocale) parser.parse(token);
-    Assert.assertNotNull(mock);
-    Assert.assertEquals("_", mock.getJoiner());
+    Assertions.assertNotNull(mock);
+    Assertions.assertEquals("_", mock.getJoiner());
   }
 }

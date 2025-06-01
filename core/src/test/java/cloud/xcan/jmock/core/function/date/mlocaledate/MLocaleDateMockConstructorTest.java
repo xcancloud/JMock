@@ -5,7 +5,7 @@ package cloud.xcan.jmock.core.function.date.mlocaledate;
 import cloud.xcan.jmock.api.FunctionToken;
 import cloud.xcan.jmock.core.function.date.MLocaleDate;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MLocaleDateMockConstructorTest {
@@ -18,7 +18,7 @@ public class MLocaleDateMockConstructorTest {
     FunctionToken token = new FunctionToken("MLocaleDate", new String[]{});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MLocaleDate mock = (MLocaleDate) parser.parse(token);
-    Assert.assertNotNull(mock);
+    Assertions.assertNotNull(mock);
   }
 
   /**
@@ -29,16 +29,16 @@ public class MLocaleDateMockConstructorTest {
     FunctionToken token = new FunctionToken("MLocaleDate", new String[]{"yy-MM-dd"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MLocaleDate mock = (MLocaleDate) parser.parse(token);
-    Assert.assertNotNull(mock);
+    Assertions.assertNotNull(mock);
   }
 
   @Test
   public void MLocaleDate3() throws Exception {
     FunctionToken token = new FunctionToken("MLocaleDate",
-        new String[]{"yy-MM-dd", "America/Argentina/Buenos_Aires"});
+        new String[]{"yy-MM-dd", "America/Argentina/Buenos_Aires", "true"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MLocaleDate mock = (MLocaleDate) parser.parse(token);
-    Assert.assertNotNull(mock);
+    Assertions.assertNotNull(mock);
     System.out.println(mock.mock());
   }
 
