@@ -30,14 +30,19 @@ cloud.xcan.jmock.core.function.user.MLastname
 cloud.xcan.jmock.core.function.user.MEmail
 cloud.xcan.jmock.core.function.user.MFirstname
 cloud.xcan.jmock.core.function.user.MGender
+
 cloud.xcan.jmock.core.function.geography.MProvince
 cloud.xcan.jmock.core.function.geography.MAddress
 cloud.xcan.jmock.core.function.geography.MLatitude
 cloud.xcan.jmock.core.function.geography.MLongitude
 cloud.xcan.jmock.core.function.geography.MCoordinates
 cloud.xcan.jmock.core.function.geography.MCountry
+cloud.xcan.jmock.core.function.geography.MCity
+cloud.xcan.jmock.core.function.geography.MZip
+
 cloud.xcan.jmock.core.function.locale.MTimeZone
 cloud.xcan.jmock.core.function.locale.MLocale
+
 cloud.xcan.jmock.core.function.network.MPort
 cloud.xcan.jmock.core.function.network.MMac
 cloud.xcan.jmock.core.function.network.MUrl
@@ -46,13 +51,14 @@ cloud.xcan.jmock.core.function.network.MIPv4
 cloud.xcan.jmock.core.function.network.MIPv6
 cloud.xcan.jmock.core.function.network.MAppName
 cloud.xcan.jmock.core.function.network.MProtocol
+
+cloud.xcan.jmock.core.function.article.MArticle
 cloud.xcan.jmock.core.function.article.MTitle
 cloud.xcan.jmock.core.function.article.MSentence
 cloud.xcan.jmock.core.function.article.MParagraph
 cloud.xcan.jmock.core.function.article.MTangPoetry
 cloud.xcan.jmock.core.function.article.MWord
-cloud.xcan.jmock.core.function.geography.MCity
-cloud.xcan.jmock.core.function.geography.MZip
+
 cloud.xcan.jmock.core.function.hash.MSha
 cloud.xcan.jmock.core.function.hash.MMd5
 
