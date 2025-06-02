@@ -75,7 +75,6 @@
     <module>plugins</module>
     <module>benchmark</module>
     <module>bom</module>
-    <module>assembly</module>
   </modules>
 
   <properties>
