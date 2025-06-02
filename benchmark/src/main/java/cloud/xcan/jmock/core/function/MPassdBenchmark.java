@@ -3,7 +3,7 @@ package cloud.xcan.jmock.core.function;
 
 import cloud.xcan.jmock.AbstractBenchmark;
 import cloud.xcan.jmock.api.FunctionToken;
-import cloud.xcan.jmock.core.function.user.MPassd;
+import cloud.xcan.jmock.core.function.user.MPassword;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Setup;
@@ -14,11 +14,11 @@ import org.openjdk.jmh.runner.options.OptionsBuilder;
 
 public class MPassdBenchmark extends AbstractBenchmark {
 
-  MPassd mockNoArgConstructor;
-  MPassd mockLocale;
-  MPassd mockCase3;
-  MPassd mockCase4;
-  MPassd mockDict;
+  MPassword mockNoArgConstructor;
+  MPassword mockLocale;
+  MPassword mockCase3;
+  MPassword mockCase4;
+  MPassword mockDict;
 
   /**
    * <pre>
@@ -79,20 +79,20 @@ public class MPassdBenchmark extends AbstractBenchmark {
   public void setUp() throws Exception {
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
 
-    FunctionToken token = new FunctionToken("MPassd", new String[]{});
-    mockNoArgConstructor = (MPassd) parser.parse(token);
+    FunctionToken token = new FunctionToken("MPassword", new String[]{});
+    mockNoArgConstructor = (MPassword) parser.parse(token);
 
-    token = new FunctionToken("MPassd", new String[]{"1","200"});
-    mockLocale = (MPassd) parser.parse(token);
+    token = new FunctionToken("MPassword", new String[]{"1","200"});
+    mockLocale = (MPassword) parser.parse(token);
 
-    token = new FunctionToken("MPassd", new String[]{"true","true","true","true"});
-    mockCase3 = (MPassd) parser.parse(token);
+    token = new FunctionToken("MPassword", new String[]{"true","true","true","true"});
+    mockCase3 = (MPassword) parser.parse(token);
 
-    token = new FunctionToken("MPassd", new String[]{"true","false","false","true"});
-    mockCase4 = (MPassd) parser.parse(token);
+    token = new FunctionToken("MPassword", new String[]{"true","false","false","true"});
+    mockCase4 = (MPassword) parser.parse(token);
 
-    token = new FunctionToken("MPassd", new String[]{"1","200","true","true","true","true"});
-    mockDict = (MPassd) parser.parse(token);
+    token = new FunctionToken("MPassword", new String[]{"1","200","true","true","true","true"});
+    mockDict = (MPassword) parser.parse(token);
   }
 
 }

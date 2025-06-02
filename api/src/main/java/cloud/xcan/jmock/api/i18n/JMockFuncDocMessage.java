@@ -239,17 +239,17 @@ public interface JMockFuncDocMessage {
   String DOC_MEMAIL_C3 = "jmock.func.MEmail.C3";
   String DOC_MEMAIL_C4 = "jmock.func.MEmail.C4";
 
-  String DOC_MPASSWORD_DESC = "jmock.func.MPassd.description";
-  String DOC_MPASSWORD_PARAMETER_MIN = "jmock.func.MPassd.parameter.min";
-  String DOC_MPASSWORD_PARAMETER_MAX = "jmock.func.MPassd.parameter.max";
-  String DOC_MPASSWORD_PARAMETER_ALLOW_UPPERCASE = "jmock.func.MPassd.parameter.allowUpperCase";
-  String DOC_MPASSWORD_PARAMETER_ALLOW_LOWERCASE = "jmock.func.MPassd.parameter.allowLowerCase";
-  String DOC_MPASSWORD_PARAMETER_ALLOW_DIGITS = "jmock.func.MPassd.parameter.allowDigits";
-  String DOC_MPASSWORD_PARAMETER_ALLOW_SPECIALCHAR = "jmock.func.MPassd.parameter.allowSpecialChar";
-  String DOC_MPASSWORD_C1 = "jmock.func.MPassd.C1";
-  String DOC_MPASSWORD_C2 = "jmock.func.MPassd.C2";
-  String DOC_MPASSWORD_C3 = "jmock.func.MPassd.C3";
-  String DOC_MPASSWORD_C4 = "jmock.func.MPassd.C4";
+  String DOC_MPASSWORD_DESC = "jmock.func.MPassword.description";
+  String DOC_MPASSWORD_PARAMETER_MIN = "jmock.func.MPassword.parameter.min";
+  String DOC_MPASSWORD_PARAMETER_MAX = "jmock.func.MPassword.parameter.max";
+  String DOC_MPASSWORD_PARAMETER_ALLOW_UPPERCASE = "jmock.func.MPassword.parameter.allowUpperCase";
+  String DOC_MPASSWORD_PARAMETER_ALLOW_LOWERCASE = "jmock.func.MPassword.parameter.allowLowerCase";
+  String DOC_MPASSWORD_PARAMETER_ALLOW_DIGITS = "jmock.func.MPassword.parameter.allowDigits";
+  String DOC_MPASSWORD_PARAMETER_ALLOW_SPECIALCHAR = "jmock.func.MPassword.parameter.allowSpecialChar";
+  String DOC_MPASSWORD_C1 = "jmock.func.MPassword.C1";
+  String DOC_MPASSWORD_C2 = "jmock.func.MPassword.C2";
+  String DOC_MPASSWORD_C3 = "jmock.func.MPassword.C3";
+  String DOC_MPASSWORD_C4 = "jmock.func.MPassword.C4";
 
   String DOC_MEDUCATION_DESC = "jmock.func.MEducation.description";
   String DOC_MEDUCATION_PARAMETER_DICT = "jmock.func.MEducation.parameter.dict";
@@ -298,6 +298,13 @@ public interface JMockFuncDocMessage {
   String DOC_MAPP_VERSION_C2 = "jmock.func.MAppVersion.C2";
   String DOC_MAPP_VERSION_C3 = "jmock.func.MAppVersion.C3";
   String DOC_MAPP_VERSION_C4 = "jmock.func.MAppVersion.C4";
+
+  String DOC_MARTICLE_DESC = "jmock.func.MArticle.description";
+  String DOC_MARTICLE_PARAMETER_PARAGRAPH_COUNT = "jmock.func.MArticle.parameter.paragraphCount";
+  String DOC_MARTICLE_PARAMETER_WORD_COUNT = "jmock.func.MArticle.parameter.wordCount";
+  String DOC_MARTICLE_C1 = "jmock.func.MArticle.C1";
+  String DOC_MARTICLE_C2 = "jmock.func.MArticle.C2";
+  String DOC_MARTICLE_C3 = "jmock.func.MArticle.C3";
 
   String DOC_MPARAGRAPH_DESC = "jmock.func.MParagraph.description";
   String DOC_MPARAGRAPH_C1 = "jmock.func.MParagraph.C1";

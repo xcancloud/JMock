@@ -1,0 +1,5 @@
+cloud.xcan.jmock.plugin.MBase64
+cloud.xcan.jmock.plugin.MHash
+cloud.xcan.jmock.plugin.MHex
+cloud.xcan.jmock.plugin.MKeyPair
+cloud.xcan.jmock.plugin.MSymmetricKey

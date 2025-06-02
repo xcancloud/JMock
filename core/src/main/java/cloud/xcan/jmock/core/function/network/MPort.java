@@ -30,8 +30,6 @@ import org.apache.commons.lang3.ObjectUtils;
     categoryI18nKey = {DOC_CATEGORY_NETWORK}, order = 906)
 public class MPort extends AbstractMockFunction {
 
-  // http://it-tools.xcan.work/random-port-generator
-
   @JMockParameter(descI18nKey = DOC_MPORT_PARAMETER_MIN)
   private int min;
 

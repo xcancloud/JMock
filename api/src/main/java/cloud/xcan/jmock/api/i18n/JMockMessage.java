@@ -28,6 +28,7 @@ public interface JMockMessage {
   String FDATA_LASTNAME = "jmock.func.data.lastname";
   String FDATA_FIRSTNAME = "jmock.func.data.firstname";
   String FDATA_TITLE = "jmock.func.data.title";
+  String FDATA_ARTICLE = "jmock.func.data.article";
   String FDATA_PARAGRAPH = "jmock.func.data.paragraph";
   String FDATA_PROVINCE = "jmock.func.data.province";
   String FDATA_ADDRESS = "jmock.func.data.address";

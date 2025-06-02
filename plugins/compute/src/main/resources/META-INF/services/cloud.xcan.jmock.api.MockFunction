@@ -1,0 +1,13 @@
+cloud.xcan.jmock.plugin.MBrowser
+cloud.xcan.jmock.plugin.MCloudService
+cloud.xcan.jmock.plugin.MCpuModel
+cloud.xcan.jmock.plugin.MDatabase
+cloud.xcan.jmock.plugin.MDevice
+cloud.xcan.jmock.plugin.MFileName
+cloud.xcan.jmock.plugin.MFilePath
+cloud.xcan.jmock.plugin.MFramework
+cloud.xcan.jmock.plugin.MGpuModel
+cloud.xcan.jmock.plugin.MHttpStatus
+cloud.xcan.jmock.plugin.MOs
+cloud.xcan.jmock.plugin.MRam
+cloud.xcan.jmock.plugin.MVulnerability

@@ -18,17 +18,18 @@
   <modules>
     <module>car</module>
     <module>code</module>
-    <module>commerce</module>
     <module>company</module>
     <module>crypto</module>
     <module>financial</module>
-    <module>math</module>
-    <module>news</module>
-    <!--    <module>web</module>-->
+    <module>compute</module>
   </modules>
 
   <dependencies>
-
+    <dependency>
+      <groupId>cloud.xcan.jmock</groupId>
+      <artifactId>xcan-jmock.api</artifactId>
+      <version>1.0.0</version>
+    </dependency>
   </dependencies>
 
 </project>

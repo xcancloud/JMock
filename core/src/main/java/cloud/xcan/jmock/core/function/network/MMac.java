@@ -21,8 +21,6 @@ import lombok.Setter;
     categoryI18nKey = {DOC_CATEGORY_NETWORK}, order = 905)
 public class MMac extends AbstractMockFunction {
 
-  // TODO http://it-tools.xcan.work/mac-address-generator
-
   @JMockConstructor(descI18nKey = DOC_MMAC_C1,
       example = "@Mac()",
       exampleValues = {"d8:01:8f:96:b1:f4", "65:d2:65:a5:6c:81", "2b:3d:70:76:69:f0"})

@@ -1,0 +1,6 @@
+cloud.xcan.jmock.plugin.MBrand
+cloud.xcan.jmock.plugin.MDrivetrain
+cloud.xcan.jmock.plugin.MEngine
+cloud.xcan.jmock.plugin.MHorsepower
+cloud.xcan.jmock.plugin.MPlate
+cloud.xcan.jmock.plugin.MVehicle

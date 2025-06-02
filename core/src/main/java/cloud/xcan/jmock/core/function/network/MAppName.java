@@ -29,9 +29,6 @@ public class MAppName extends AbstractMockFunction {
   @JMockParameter(descI18nKey = DOC_PARAMETER_DICT)
   private String dict;
 
-  //  @JMockFunctionRegister
-  //  private String locale;
-
   private transient String[] dictArray;
 
   @JMockConstructor(descI18nKey = DOC_MAPP_NAME_C1,
@@ -40,14 +37,6 @@ public class MAppName extends AbstractMockFunction {
   public MAppName() {
     this(MessageResources.getString(JMockMessage.FDATA_APP_NAME));
   }
-
-  //  @JMockFunctionRegister(nameKey = "",
-  //      example = "@AppName(en)",
-  //      exampleValues = {"Cash App", "TikTok"})
-  //  public MAppName(Locale locale) {
-  //    String province = MessageResources.getString(JMockMessage.FDATA_APP_NAME, locale);
-  //    this.dictArray = province.split("\\|");
-  //  }
 
   @JMockConstructor(descI18nKey = DOC_MAPP_NAME_C2,
       example = "@AppName(星链|360|ie))",

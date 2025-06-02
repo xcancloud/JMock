@@ -1,0 +1,5 @@
+cloud.xcan.jmock.plugin.MAmount
+cloud.xcan.jmock.plugin.MBudgetCategory
+cloud.xcan.jmock.plugin.MCurrency
+cloud.xcan.jmock.plugin.MInvoiceNumber
+cloud.xcan.jmock.plugin.MTaxCode
