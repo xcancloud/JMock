@@ -19,12 +19,12 @@ public class MessageResourcesTest {
 
   @Test
   public void changeLocaleTest() {
-    ResourceBundle RESOURCES = ResourceBundle.getBundle(RESOURCE_BUNDLE, Locale.US);
+    ResourceBundle RESOURCES = ResourceBundle.getBundle("i18n/jmock-messages", Locale.US);
     Assertions.assertEquals("en", RESOURCES.getLocale().getLanguage());
     Assertions.assertEquals(enMessageTemplate, RESOURCES.getString(messageKey));
 
     Locale.setDefault(new Locale("zh", "CN"));
-    RESOURCES = ResourceBundle.getBundle(RESOURCE_BUNDLE);
+    RESOURCES = ResourceBundle.getBundle("i18n/jmock-messages");
     Assertions.assertEquals("", RESOURCES.getLocale().getLanguage());
     Assertions.assertEquals(chMessageTemplate, RESOURCES.getString(messageKey));
 

@@ -2,8 +2,10 @@
 package cloud.xcan.jmock.api.i18n;
 
 import java.text.MessageFormat;
+import java.util.HashSet;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 /**
  * Get locale messages from Resource Bundle.
@@ -12,7 +14,11 @@ import java.util.ResourceBundle;
  */
 public class MessageResources {
 
-  public static final String RESOURCE_BUNDLE = "i18n/jmock-messages";
+  public static final Set<String> RESOURCE_BUNDLE = new HashSet<>();
+
+  static {
+    RESOURCE_BUNDLE.add("i18n/jmock-messages");
+  }
 
   /**
    * You cannot instantiate this class.
@@ -21,21 +27,33 @@ public class MessageResources {
   }
 
   /**
-   * Looks up a mstring resource identified by {@code key} in {@code resources}.
+   * Looks up a string resource identified by {@code key} in {@code resources}.
    */
   public static String getString(String key) {
-    return ResourceBundle.getBundle(RESOURCE_BUNDLE).getString(key);
+    for (String res : RESOURCE_BUNDLE) {
+      ResourceBundle bundle = ResourceBundle.getBundle(res);
+      if (bundle.containsKey(key)) {
+        return bundle.getString(key);
+      }
+    }
+    return "";
   }
 
   /**
-   * Looks up a mstring resource identified by {@code key} in {@code resources}.
+   * Looks up a string resource identified by {@code key} in {@code resources}.
    */
   public static String getString(String key, Locale locale) {
-    return ResourceBundle.getBundle(RESOURCE_BUNDLE, locale).getString(key);
+    for (String res : RESOURCE_BUNDLE) {
+      ResourceBundle bundle = ResourceBundle.getBundle(res, locale);
+      if (bundle.containsKey(key)) {
+        return bundle.getString(key);
+      }
+    }
+    return "";
   }
 
   /**
-   * Looks up a mstring resource identified by {@code key} in {@code resources} and formats it as a
+   * Looks up a string resource identified by {@code key} in {@code resources} and formats it as a
    * message using {@code MessageFormat.format} with the given {@code arguments}.
    */
   public static String getString(String key, Object[] arguments) {
@@ -43,7 +61,7 @@ public class MessageResources {
   }
 
   /**
-   * Looks up a mstring resource identified by {@code key} in {@code resources} and formats it as a
+   * Looks up a string resource identified by {@code key} in {@code resources} and formats it as a
    * message using {@code MessageFormat.format} with the given {@code arguments}.
    */
   public static String getString(String key, Object[] arguments, Locale locale) {
