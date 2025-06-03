@@ -1,12 +1,19 @@
 package cloud.xcan.jmock.plugin;
 
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_CAR;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_MPLATE_C1;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_MPLATE_DESC;
 import static cloud.xcan.jmock.plugin.MBrand.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
+import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
+@JMockFunctionRegister(descI18nKey = DOC_MPLATE_DESC, categoryI18nKey = {
+    DOC_CATEGORY_CAR}, order = 2005)
 public class MPlate extends AbstractMockFunction {
 
   // License plate generation constants
@@ -28,6 +35,9 @@ public class MPlate extends AbstractMockFunction {
       LETTERS_NO_CONFUSION + LETTERS_NO_CONFUSION + "#" + LETTERS_NO_CONFUSION
   );
 
+  @JMockConstructor(descI18nKey = DOC_MPLATE_C1,
+      example = "@Plate()",
+      exampleValues = {"渝G ZKK97", "甘J FKH92", "ABCDEFGHJKLMNPQRSTUVWXYZ0123456789773"})
   public MPlate() {
   }
 
