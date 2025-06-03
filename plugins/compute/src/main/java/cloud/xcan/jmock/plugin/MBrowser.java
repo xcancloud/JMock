@@ -1,10 +1,18 @@
 package cloud.xcan.jmock.plugin;
 
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_BROWSER_C1;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_BROWSER_DESC;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_COMPUTE;
+
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
+import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.List;
 
+@JMockFunctionRegister(descI18nKey = DOC_BROWSER_DESC,
+    categoryI18nKey = {DOC_CATEGORY_COMPUTE}, order = 5001)
 public class MBrowser extends AbstractMockFunction {
 
   public static final SecureRandom random = new SecureRandom();
@@ -18,6 +26,9 @@ public class MBrowser extends AbstractMockFunction {
       "100", "101", "102", "103", "104", "105"
   );
 
+  @JMockConstructor(descI18nKey = DOC_BROWSER_C1,
+      example = "@Browser()",
+      exampleValues = {"Firefox 119", "Opera 119"})
   public MBrowser() {
   }
 

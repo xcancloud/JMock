@@ -1,11 +1,20 @@
 package cloud.xcan.jmock.plugin;
 
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_COMPUTE;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_HTTP_STATUS_C1;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_HTTP_STATUS_DESC;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_OS_C1;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_OS_DESC;
 import static cloud.xcan.jmock.plugin.MBrowser.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
+import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.Arrays;
 import java.util.List;
 
+@JMockFunctionRegister(descI18nKey = DOC_OS_DESC,
+    categoryI18nKey = {DOC_CATEGORY_COMPUTE}, order = 5003)
 public class MOs extends AbstractMockFunction {
 
   public static final List<String> DESKTOP_OS = Arrays.asList(
@@ -25,6 +34,9 @@ public class MOs extends AbstractMockFunction {
       "Android 13", "Android 12", "iOS 16", "iOS 15", "iPadOS 16"
   );
 
+  @JMockConstructor(descI18nKey = DOC_OS_C1,
+      example = "@Os()",
+      exampleValues = {"iOS 16", "Windows Server 2022"})
   public MOs() {
   }
 

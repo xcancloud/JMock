@@ -1,11 +1,20 @@
 package cloud.xcan.jmock.plugin;
 
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_COMPUTE;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_DEVICE_C1;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_DEVICE_DESC;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_FILENAME_C1;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_FILENAME_DESC;
 import static cloud.xcan.jmock.plugin.MBrowser.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
+import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.Arrays;
 import java.util.List;
 
+@JMockFunctionRegister(descI18nKey = DOC_FILENAME_DESC,
+    categoryI18nKey = {DOC_CATEGORY_COMPUTE}, order = 5008)
 public class MFileName extends AbstractMockFunction {
 
   public static final List<String> FILE_PREFIXES = Arrays.asList(
@@ -22,6 +31,9 @@ public class MFileName extends AbstractMockFunction {
       "zip", "rar", "exe", "js", "java", "py", "html", "css", "json", "xml"
   );
 
+  @JMockConstructor(descI18nKey = DOC_FILENAME_C1,
+      example = "@FileName()",
+      exampleValues = {"presentation_jan.xml", "report.pptx"})
   public MFileName() {
   }
 

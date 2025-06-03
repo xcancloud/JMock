@@ -1,11 +1,20 @@
 package cloud.xcan.jmock.plugin;
 
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_COMPUTE;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_FILE_PATH_C1;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_FILE_PATH_DESC;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_FRAMEWORK_C1;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_FRAMEWORK_DESC;
 import static cloud.xcan.jmock.plugin.MBrowser.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
+import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.Arrays;
 import java.util.List;
 
+@JMockFunctionRegister(descI18nKey = DOC_FRAMEWORK_DESC,
+    categoryI18nKey = {DOC_CATEGORY_COMPUTE}, order = 5010)
 public class MFramework extends AbstractMockFunction {
 
   public static final List<String> FRONTEND_FRAMEWORKS = Arrays.asList(
@@ -21,6 +30,9 @@ public class MFramework extends AbstractMockFunction {
       "React Native", "Flutter", "Xamarin", "Ionic", "SwiftUI", "Jetpack Compose"
   );
 
+  @JMockConstructor(descI18nKey = DOC_FRAMEWORK_C1,
+      example = "@Framework()",
+      exampleValues = {"React Native", "Ruby on Rails"})
   public MFramework() {
   }
 

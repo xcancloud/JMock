@@ -1,11 +1,18 @@
 package cloud.xcan.jmock.plugin;
 
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_COMPUTE;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_DATABASE_C1;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_DATABASE_DESC;
 import static cloud.xcan.jmock.plugin.MBrowser.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
+import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.Arrays;
 import java.util.List;
 
+@JMockFunctionRegister(descI18nKey = DOC_DATABASE_DESC,
+    categoryI18nKey = {DOC_CATEGORY_COMPUTE}, order = 5006)
 public class MDatabase extends AbstractMockFunction {
 
   public static final List<String> SQL_DATABASES = Arrays.asList(
@@ -22,6 +29,9 @@ public class MDatabase extends AbstractMockFunction {
       "Google Spanner", "TiDB", "YugabyteDB", "CockroachDB"
   );
 
+  @JMockConstructor(descI18nKey = DOC_DATABASE_C1,
+      example = "@Database()",
+      exampleValues = {"MariaDB", "Amazon DynamoDB"})
   public MDatabase() {
   }
 

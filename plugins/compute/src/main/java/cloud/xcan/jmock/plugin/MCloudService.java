@@ -1,11 +1,19 @@
 package cloud.xcan.jmock.plugin;
 
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_BROWSER_C1;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_COMPUTE;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_CLOUD_SERVICE_C1;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_CLOUD_SERVICE_DESC;
 import static cloud.xcan.jmock.plugin.MBrowser.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
+import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.Arrays;
 import java.util.List;
 
+@JMockFunctionRegister(descI18nKey = DOC_CLOUD_SERVICE_DESC,
+    categoryI18nKey = {DOC_CATEGORY_COMPUTE}, order = 5002)
 public class MCloudService extends AbstractMockFunction {
 
   public static final List<String> AWS_SERVICES = Arrays.asList(
@@ -28,6 +36,9 @@ public class MCloudService extends AbstractMockFunction {
       "Alibaba Cloud ECS", "DigitalOcean Droplets", "Cloudflare Workers"
   );
 
+  @JMockConstructor(descI18nKey = DOC_CLOUD_SERVICE_C1,
+      example = "@MCloudService()",
+      exampleValues = {"Google Kubernetes Engine", "IBM Cloud Object Storage"})
   public MCloudService() {
   }
 

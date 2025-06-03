@@ -1,11 +1,18 @@
 package cloud.xcan.jmock.plugin;
 
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_COMPUTE;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_CPU_MODEL_C1;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_CPU_MODEL_DESC;
 import static cloud.xcan.jmock.plugin.MBrowser.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
+import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.Arrays;
 import java.util.List;
 
+@JMockFunctionRegister(descI18nKey = DOC_CPU_MODEL_DESC,
+    categoryI18nKey = {DOC_CATEGORY_COMPUTE}, order = 5005)
 public class MCpuModel extends AbstractMockFunction {
 
   public static final List<String> INTEL_CPUS = Arrays.asList(
@@ -23,6 +30,9 @@ public class MCpuModel extends AbstractMockFunction {
       "Apple M2", "Apple M2 Pro", "Apple M2 Max", "Apple M2 Ultra"
   );
 
+  @JMockConstructor(descI18nKey = DOC_CPU_MODEL_C1,
+      example = "@MCloudService()",
+      exampleValues = {"Intel Xeon W-1390P", "Intel Core i9-13900K"})
   public MCpuModel() {
   }
 

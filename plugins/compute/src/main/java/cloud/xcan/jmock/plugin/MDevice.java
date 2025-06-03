@@ -1,11 +1,20 @@
 package cloud.xcan.jmock.plugin;
 
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_COMPUTE;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_DATABASE_C1;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_DATABASE_DESC;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_DEVICE_C1;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_DEVICE_DESC;
 import static cloud.xcan.jmock.plugin.MBrowser.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
+import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.Arrays;
 import java.util.List;
 
+@JMockFunctionRegister(descI18nKey = DOC_DEVICE_DESC,
+    categoryI18nKey = {DOC_CATEGORY_COMPUTE}, order = 5007)
 public class MDevice extends AbstractMockFunction {
 
   public static final List<String> COMPUTER_NAMES = Arrays.asList(
@@ -25,6 +34,9 @@ public class MDevice extends AbstractMockFunction {
       "Pro", "Max", "Lite", "Ultra", "Mini", "Plus", "SE", "X", "Z"
   );
 
+  @JMockConstructor(descI18nKey = DOC_DEVICE_C1,
+      example = "@Device()",
+      exampleValues = {"Mainframe", "Server"})
   public MDevice() {
   }
 
