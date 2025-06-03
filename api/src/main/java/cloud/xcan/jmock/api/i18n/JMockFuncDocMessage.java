@@ -305,6 +305,7 @@ public interface JMockFuncDocMessage {
   String DOC_MARTICLE_C1 = "jmock.func.MArticle.C1";
   String DOC_MARTICLE_C2 = "jmock.func.MArticle.C2";
   String DOC_MARTICLE_C3 = "jmock.func.MArticle.C3";
+  String DOC_MARTICLE_C4 = "jmock.func.MArticle.C4";
 
   String DOC_MPARAGRAPH_DESC = "jmock.func.MParagraph.description";
   String DOC_MPARAGRAPH_C1 = "jmock.func.MParagraph.C1";
