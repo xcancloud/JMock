@@ -1,9 +1,17 @@
 package cloud.xcan.jmock.plugin;
 
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_CODE;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_ERROR_TYPE_C1;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_HTML_C1;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_HTML_DESC;
 import static cloud.xcan.jmock.plugin.MCodeSnippet.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
+import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 
+@JMockFunctionRegister(descI18nKey = DOC_HTML_DESC, categoryI18nKey = {
+    DOC_CATEGORY_CODE}, order = 3003)
 public class MHtml extends AbstractMockFunction {
 
   public static final String[] HEADING_TAGS = {"h1", "h2", "h3", "h4", "h5", "h6"};
@@ -25,17 +33,184 @@ public class MHtml extends AbstractMockFunction {
   public static final String[] TABLE_HEADERS = {
       "ID", "Name", "Price", "Quantity", "Date", "Status", "Category"
   };
-  public static final String[] CSS_CLASSES = {
-      "container", "wrapper", "card", "header", "footer", "sidebar", "content",
-      "nav", "menu", "btn", "form", "table", "grid", "row", "col"
-  };
-
   public static final String[] COLORS = {
       "#3498db", "#2ecc71", "#e74c3c", "#f39c12", "#9b59b6",
       "#1abc9c", "#d35400", "#c0392b", "#16a085", "#8e44ad"
   };
 
   public static final String IMAGE_SERVICE = "https://picsum.photos";
+
+  @JMockConstructor(descI18nKey = DOC_HTML_C1,
+      example = "@Html()",
+      exampleValues = {"""
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Blog Hub</title>
+            <style>
+              body {
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                line-height: 1.6;
+                color: #333;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #f9f9f9;
+              }
+
+              .container {
+                background-color: white;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                padding: 20px;
+                margin-bottom: 30px;
+              }
+
+              h1, h2, h3 {
+                color: #f39c12;
+                margin-top: 0;
+              }
+
+              .btn {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #d35400;
+                color: white;
+                text-decoration: none;
+                border-radius: 4px;
+                border: none;
+                cursor: pointer;
+                font-weight: bold;
+                transition: background-color 0.3s;
+              }
+
+              .btn:hover {
+                background-color: #c0392b;
+              }
+
+              table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+              }
+
+              th, td {
+                border: 1px solid #ddd;
+                padding: 12px;
+                text-align: left;
+              }
+
+              th {
+                background-color: #f2f2f2;
+              }
+
+              .form-group {
+                margin-bottom: 15px;
+              }
+
+              label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+              }
+
+              input, textarea, select {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+              }
+            </style>
+          </head>
+          <body>
+          <div class="container">
+            <h1>Introduction to Company Mission</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua<code></code>.</p>
+            <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua<strong></strong>. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit<strong></strong>.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris<u></u>. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+            <ol>
+              <li>Key element that saves time</li>
+              <li>Important benefit that saves time</li>
+              <li>Critical aspect that saves time</li>
+              <li>Critical benefit that enhances security</li>
+              <li>Primary element that reduces costs</li>
+            </ol>
+            <img src="https://picsum.photos/533/425" alt="Landscape" class="responsive-img">
+            <table>
+              <thead>
+                <tr>
+                  <th>Price</th>
+                  <th>Date</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>26</td>
+                  <td>16</td>
+                  <td>Product A</td>
+                </tr>
+                <tr>
+                  <td>56</td>
+                  <td>100</td>
+                  <td>Component D</td>
+                </tr>
+                <tr>
+                  <td>44</td>
+                  <td>27</td>
+                  <td>Component D</td>
+                </tr>
+                <tr>
+                  <td>70</td>
+                  <td>Service B</td>
+                  <td>Component D</td>
+                </tr>
+                <tr>
+                  <td>26</td>
+                  <td>89</td>
+                  <td>Service B</td>
+                </tr>
+                <tr>
+                  <td>42</td>
+                  <td>Feature E</td>
+                  <td>Product A</td>
+                </tr>
+              </tbody>
+            </table>
+            <form>
+              <div class="form-group">
+                <label for="field0">Phone</label>
+                <input type="password" id="field0">
+              </div>
+              <div class="form-group">
+                <label for="field1">Message</label>
+                <input type="text" id="field1">
+              </div>
+              <div class="form-group">
+                <label for="field2">Message</label>
+                <textarea id="field2" rows="4"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="field3">Message</label>
+                <input type="email" id="field3">
+              </div>
+              <div class="form-group">
+                <label for="field4">Message</label>
+                <textarea id="field4" rows="4"></textarea>
+              </div>
+              <button type="submit" class="btn">Save</button>
+            </form>
+          </div>
+          </body>
+          </html>"""})
+  public MHtml() {
+  }
+
+  public static void main(String[] args) {
+    System.out.println(new MHtml().mock());
+  }
 
   @Override
   public String mock() {

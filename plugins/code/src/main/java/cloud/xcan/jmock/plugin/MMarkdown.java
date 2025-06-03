@@ -1,10 +1,17 @@
 package cloud.xcan.jmock.plugin;
 
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_CODE;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_MARKDOWN_C1;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_MARKDOWN_DESC;
 import static cloud.xcan.jmock.plugin.MCodeSnippet.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
+import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.Arrays;
 
+@JMockFunctionRegister(descI18nKey = DOC_MARKDOWN_DESC, categoryI18nKey = {
+    DOC_CATEGORY_CODE}, order = 3004)
 public class MMarkdown extends AbstractMockFunction {
 
   public static final String[] HEADINGS = {
@@ -72,6 +79,257 @@ public class MMarkdown extends AbstractMockFunction {
       "const express = require('express');\nconst app = express();\n\napp.get('/', (req, res) => {\n    res.send('Hello World!');\n});\n\napp.listen(3000);"
   };
 
+  @JMockConstructor(descI18nKey = DOC_MARKDOWN_C1,
+      example = "@Markdown()",
+      exampleValues = {"""
+          # Kubernetes Project Overview
+          ![License](https://img.shields.io/badge/license-MIT-blue.svg) ![Version](https://img.shields.io/badge/version-1.0.0-green.svg) ![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
+          ## Table of Contents
+
+          - [Introduction](#introduction)
+          - [Features](#features)
+          - [Installation](#installation)
+          - [Usage](#usage)
+          - [Contributing](#contributing)
+          - [License](#license)
+
+          ## Usage
+
+          ### Basic Usage
+
+          The modular design allows for selective adoption of components. The architecture is built on proven best practices and industry standards.
+
+          ```json
+          console.log('Hello, World!');
+          ```
+
+          ### Advanced Features
+
+          The modular design allows for selective adoption of components. Integration with existing systems is straightforward and well-documented. Integration with existing systems is straightforward and well-documented.
+
+          | Feature | Description | Status |
+          |---------|-------------|--------|
+          | optimization | automates interface | \uD83D\uDD04 Planned |
+          | loop | transforms function | \uD83D\uDD04 Planned |
+          | implementation | transforms class | ✅ Implemented |
+          | algorithm | facilitates optimization | ✅ Implemented |
+          | abstraction | optimizes implementation | ✅ Implemented |
+          | function | facilitates function | \uD83D\uDD04 Planned |
+          | implementation | enhances class | \uD83D\uDD04 Planned |
+          | implementation | simplifies interface | \uD83D\uDD04 Planned |
+
+
+          ### Common Patterns
+
+          Extensive customization options allow tailoring to specific use cases.
+
+          ```xml
+          console.log('Hello, World!');
+          ```
+
+          Integration with existing systems is straightforward and well-documented.
+
+
+          ## Installation
+
+          Before you begin, ensure you have the following prerequisites:
+
+          1. - [ ] facilitates interface
+          2. lightweight implementation
+          3. interface:
+            - conditional
+
+
+          ### Installation Steps
+
+          #### Step 1
+
+          Integration with existing systems is straightforward and well-documented.
+
+          ```yaml
+          server:
+            port: 8080
+
+          database:
+            host: localhost
+            name: example
+          ```
+
+          #### Step 2
+
+          Performance benchmarks demonstrate significant improvements over alternatives. The modular design allows for selective adoption of components.
+
+          ```json
+          console.log('Hello, World!');
+          ```
+
+          #### Step 3
+
+          Compatibility with multiple platforms extends the potential use cases.
+
+          ```javascript
+          const express = require('express');
+          const app = express();
+
+          app.get('/', (req, res) => {
+              res.send('Hello World!');
+          });
+
+          app.listen(3000);
+          ```
+
+          ---
+          ## Configuration
+
+          ### Configuration Options
+
+          The following options can be specified in the configuration file:
+
+          | Parameter | Type | Default | Description | Required |
+          |---|---|---|---|---|
+          | `config.interface` | string | `""` | modular configuration for loop | Yes |
+          | `config.conditional` | string | `null` | high-performance configuration for interface | No |
+          | `config.optimization` | integer | `null` | lightweight configuration for algorithm | Yes |
+          | `config.optimization` | string | `null` | flexible configuration for algorithm | Yes |
+          | `config.variable` | integer | `null` | secure configuration for interface | Yes |
+          | `config.variable` | integer | `0` | high-performance configuration for loop | No |
+          | `config.interface` | integer | `null` | powerful configuration for loop | No |
+
+
+          ### Example Configuration
+
+          ```yaml
+          server:
+            port: 8080
+
+          database:
+            host: localhost
+            name: example
+          ```
+
+
+          ## Examples
+
+          ### Example 1
+
+          Integration with existing systems is straightforward and well-documented.
+
+          ```typescript
+          console.log('Hello, World!');
+          ```
+
+          **Explanation:**
+
+          This project provides a comprehensive solution for modern development challenges.
+
+          ### Example 2
+
+          Extensive customization options allow tailoring to specific use cases.
+
+          ```shell
+          curl -O https://example.com/install.sh
+          chmod +x install.sh
+          ./install.sh
+          ```
+
+          **Explanation:**
+
+          Extensive customization options allow tailoring to specific use cases.
+
+          ### Example 3
+
+          Compatibility with multiple platforms extends the potential use cases. With its intuitive `optimization`, you can achieve significant productivity gains.
+
+          ```shell
+          curl -O https://example.com/install.sh
+          chmod +x install.sh
+          ./install.sh
+          ```
+
+          **Explanation:**
+
+          Extensive customization options allow tailoring to specific use cases.
+
+          ---
+          ## Examples
+
+          ### Example 1
+
+          Community support and active development ensure long-term viability.
+
+          ```yaml
+          server:
+            port: 8080
+
+          database:
+            host: localhost
+            name: example
+          ```
+
+          **Explanation:**
+
+          Performance benchmarks demonstrate significant improvements over alternatives. Performance benchmarks demonstrate significant improvements over alternatives. Performance benchmarks demonstrate significant improvements over alternatives.
+
+          ### Example 2
+
+          With its intuitive `implementation`, you can achieve significant productivity gains.
+
+          ```python
+          def main():
+              print("Hello, World!")
+
+          if __name__ == "__main__":
+              main()
+          ```
+
+          **Explanation:**
+
+          With its intuitive design, you can achieve significant productivity gains. The architecture is built on proven best practices and industry standards.
+
+          ### Example 3
+
+          Performance benchmarks demonstrate significant improvements over alternatives. Compatibility with multiple platforms extends the potential use cases.
+
+          ```dockerfile
+          console.log('Hello, World!');
+          ```
+
+          **Explanation:**
+
+          Security considerations are at the forefront of the `abstraction` philosophy.
+
+
+          ## Features
+
+          With its intuitive `algorithm`, you can achieve significant productivity gains. Extensive customization options allow tailoring to specific use cases. The architecture is built on proven best practices and industry standards. With its intuitive `function`, you can achieve significant productivity gains.
+
+          - powerful class
+          - abstraction:
+            - function
+          - high-performance abstraction
+          - secure conditional
+          - optimization:
+              - conditional
+
+          ## Advanced Topics
+
+          This project provides a comprehensive solution for modern development challenges. Security considerations are at the forefront of the design philosophy. The architecture is built on proven best practices and industry standards.
+
+          > [!danger]
+          > With its intuitive design, you can achieve significant productivity gains.
+
+          1. flexible interface
+          2. intuitive abstraction
+          3. function:
+              - variable"""}
+  )
+  public MMarkdown() {
+  }
+
+  public static void main(String[] args) {
+    System.out.println(new MMarkdown().mock());
+  }
+
   @Override
   public String mock() {
     return generateRandomMarkdown();
@@ -81,20 +339,20 @@ public class MMarkdown extends AbstractMockFunction {
     StringBuilder markdown = new StringBuilder();
 
     markdown.append(generateTitle())
-        .append("\n\n")
+        .append("\n")
         .append(generateBadges())
-        .append("\n\n");
+        .append("\n");
 
     markdown.append(generateTableOfContents())
-        .append("\n\n");
+        .append("\n");
 
     int sections = 4 + random.nextInt(4);
     for (int i = 0; i < sections; i++) {
       markdown.append(generateSection())
-          .append("\n\n");
+          .append("\n");
 
       if (random.nextDouble() < 0.3 && i < sections - 1) {
-        markdown.append("---\n\n");
+        markdown.append("---\n");
       }
     }
 
