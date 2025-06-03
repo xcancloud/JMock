@@ -1,10 +1,10 @@
 package cloud.xcan.jmock.core.function.article;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_ARTICLE;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MTANGPOETRY_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MTANGPOETRY_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MTANGPOETRY_C3;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MTANGPOETRY_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_TANGPOETRY_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_TANGPOETRY_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_TANGPOETRY_C3;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_TANGPOETRY_DESC;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_DICT;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
 import static java.util.Locale.CHINA;
@@ -26,7 +26,7 @@ import lombok.Setter;
 */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MTANGPOETRY_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_TANGPOETRY_DESC,
     categoryI18nKey = {DOC_CATEGORY_ARTICLE}, order = 404)
 public class MTangPoetry extends AbstractMockFunction {
 
@@ -38,7 +38,7 @@ public class MTangPoetry extends AbstractMockFunction {
 
   private transient String[] dictArray;
 
-  @JMockConstructor(descI18nKey = DOC_MTANGPOETRY_C1,
+  @JMockConstructor(descI18nKey = DOC_TANGPOETRY_C1,
       example = "@TangPoetry()",
       exampleValues = {
           "柳宗元\n"
@@ -65,7 +65,7 @@ public class MTangPoetry extends AbstractMockFunction {
     this(CHINA);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MTANGPOETRY_C2,
+  @JMockConstructor(descI18nKey = DOC_TANGPOETRY_C2,
       example = "@TangPoetry(en)",
       exampleValues = {
           "Qiu Wei\n"
@@ -100,7 +100,7 @@ public class MTangPoetry extends AbstractMockFunction {
     this.dictArray = title.split("\\|");
   }
 
-  @JMockConstructor(descI18nKey = DOC_MTANGPOETRY_C3,
+  @JMockConstructor(descI18nKey = DOC_TANGPOETRY_C3,
       example = "@TangPoetry(唐诗1|唐诗2)",
       exampleValues = {"唐诗1", "唐诗2"})
   public MTangPoetry(String dict) {

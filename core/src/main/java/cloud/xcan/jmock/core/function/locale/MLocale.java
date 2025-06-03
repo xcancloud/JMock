@@ -1,10 +1,10 @@
 package cloud.xcan.jmock.core.function.locale;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_LOCALE;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLOCALE_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLOCALE_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLOCALE_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLOCALE_PARAMETER_JOINER;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LOCALE_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LOCALE_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LOCALE_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LOCALE_PARAMETER_JOINER;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_LENGTH_T;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
@@ -20,11 +20,11 @@ import org.apache.commons.lang3.StringUtils;
 
 @Getter
 @Setter
-@JMockFunctionRegister(descI18nKey = DOC_MLOCALE_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_LOCALE_DESC,
     categoryI18nKey = {DOC_CATEGORY_LOCALE}, order = 701)
 public class MLocale extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_MLOCALE_PARAMETER_JOINER)
+  @JMockParameter(descI18nKey = DOC_LOCALE_PARAMETER_JOINER)
   private String joiner;
 
   /**
@@ -37,7 +37,7 @@ public class MLocale extends AbstractMockFunction {
    */
   static Locale[] locales = {Locale.SIMPLIFIED_CHINESE, Locale.ENGLISH};
 
-  @JMockConstructor(descI18nKey = DOC_MLOCALE_C1,
+  @JMockConstructor(descI18nKey = DOC_LOCALE_C1,
       example = "@Locale()",
       exampleValues = {"zh_CN"})
   public MLocale() {
@@ -50,7 +50,7 @@ public class MLocale extends AbstractMockFunction {
    * @param joiner Country and language connector. One character is supported, "_" is used by
    *               default
    */
-  @JMockConstructor(descI18nKey = DOC_MLOCALE_C2,
+  @JMockConstructor(descI18nKey = DOC_LOCALE_C2,
       example = "@Locale(-)",
       exampleValues = {"zh-CN"})
   public MLocale(String joiner) {

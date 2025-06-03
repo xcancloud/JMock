@@ -1,11 +1,11 @@
 package cloud.xcan.jmock.core.function.geography;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_GEOGRAPHY;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MZIP_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MZIP_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MZIP_C3;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MZIP_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MZIP_PARAMETER_DICT;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ZIP_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ZIP_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ZIP_C3;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ZIP_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ZIP_PARAMETER_DICT;
 import static java.util.Locale.CHINA;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
@@ -25,23 +25,23 @@ import lombok.Setter;
 */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MZIP_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_ZIP_DESC,
     categoryI18nKey = {DOC_CATEGORY_GEOGRAPHY}, order = 520)
 public class MZip extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_MZIP_PARAMETER_DICT)
+  @JMockParameter(descI18nKey = DOC_ZIP_PARAMETER_DICT)
   private String dict;
 
   private transient String[] dictArray;
 
-  @JMockConstructor(descI18nKey = DOC_MZIP_C1,
+  @JMockConstructor(descI18nKey = DOC_ZIP_C1,
       example = "@Zip()",
       exampleValues = {"252863", "252665", "1252866"})
   public MZip() {
     this(CHINA);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MZIP_C2,
+  @JMockConstructor(descI18nKey = DOC_ZIP_C2,
       example = "@Zip(en)",
       exampleValues = {"EC1A 1HQ", "1ASA 9AA", "1BSA 4AB"})
   public MZip(Locale locale) {
@@ -49,7 +49,7 @@ public class MZip extends AbstractMockFunction {
     this.dictArray = title.split("\\|");
   }
 
-  @JMockConstructor(descI18nKey = DOC_MZIP_C3,
+  @JMockConstructor(descI18nKey = DOC_ZIP_C3,
       example = "@Zip(101407|101406|101405)",
       exampleValues = {"101407", "101405", "101406"})
   public MZip(String dict) {

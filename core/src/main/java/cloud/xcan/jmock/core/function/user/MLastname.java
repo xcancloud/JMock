@@ -2,11 +2,11 @@ package cloud.xcan.jmock.core.function.user;
 
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_USER;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLASTNAME_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLASTNAME_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLASTNAME_C3;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLASTNAME_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLASTNAME_PARAMETER_DICT;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LASTNAME_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LASTNAME_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LASTNAME_C3;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LASTNAME_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LASTNAME_PARAMETER_DICT;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_NOT_BLANK_T;
 import static java.util.Locale.CHINA;
@@ -30,11 +30,11 @@ import lombok.Setter;
 */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MLASTNAME_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_LASTNAME_DESC,
     categoryI18nKey = {DOC_CATEGORY_USER}, order = 804)
 public class MLastname extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_MLASTNAME_PARAMETER_DICT)
+  @JMockParameter(descI18nKey = DOC_LASTNAME_PARAMETER_DICT)
   private String dict;
 
   @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE)
@@ -42,20 +42,20 @@ public class MLastname extends AbstractMockFunction {
 
   private String[] dictArray;
 
-  @JMockConstructor(descI18nKey = DOC_MLASTNAME_C1,
+  @JMockConstructor(descI18nKey = DOC_LASTNAME_C1,
       example = "@Lastname()", exampleValues = {"孙", "林", "梁"})
   public MLastname() {
     this(CHINA);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MLASTNAME_C2,
+  @JMockConstructor(descI18nKey = DOC_LASTNAME_C2,
       example = "@Lastname(en)", exampleValues = {"Sun", "Zhang"})
   public MLastname(Locale locale) {
     String lastName = MessageResources.getString(JMockMessage.FDATA_LASTNAME, locale);
     this.dictArray = lastName.split("\\|");
   }
 
-  @JMockConstructor(descI18nKey = DOC_MLASTNAME_C3,
+  @JMockConstructor(descI18nKey = DOC_LASTNAME_C3,
       example = "@Lastname(李|王|张|刘|陈)", exampleValues = {"张", "王"})
   public MLastname(String dict) {
     if (isEmpty(dict)) {

@@ -2,10 +2,10 @@ package cloud.xcan.jmock.core.function.web;
 
 import static cloud.xcan.angus.spec.utils.ObjectUtils.nullSafe;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_WEB;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MCOLOR_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MCOLOR_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MCOLOR_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MCOLOR_PARAMETER_FORMAT;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_COLOR_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_COLOR_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_COLOR_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_COLOR_PARAMETER_FORMAT;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
@@ -20,23 +20,23 @@ import lombok.Setter;
  */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MCOLOR_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_COLOR_DESC,
     categoryI18nKey = {DOC_CATEGORY_WEB}, order = 1002)
 public class MColor extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_MCOLOR_PARAMETER_FORMAT)
+  @JMockParameter(descI18nKey = DOC_COLOR_PARAMETER_FORMAT)
   private String format;
 
   private static final String[] FORMAT = {"rgb", "hsl", "hwb", "lch", "cmyk"};
 
-  @JMockConstructor(descI18nKey = DOC_MCOLOR_C1,
+  @JMockConstructor(descI18nKey = DOC_COLOR_C1,
       example = "@Color()",
       exampleValues = {"rgb(88, 245, 14)", "rgb(97, 69, 216)"})
   public MColor() {
     this(FORMAT[0]);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MCOLOR_C2,
+  @JMockConstructor(descI18nKey = DOC_COLOR_C2,
       example = "@Color(hwb)",
       exampleValues = {"hwb(108, 67%, 45%)", "hwb(133, 2%, 93%)"})
   public MColor(String format) {

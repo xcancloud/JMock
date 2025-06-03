@@ -2,11 +2,11 @@ package cloud.xcan.jmock.core.function.user;
 
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_USER;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MNAME_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MNAME_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MNAME_C3;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MNAME_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MNAME_PARAMETER_DICT;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_NAME_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_NAME_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_NAME_C3;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_NAME_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_NAME_PARAMETER_DICT;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_DICT;
 import static java.util.Locale.CHINA;
 
@@ -28,11 +28,11 @@ import lombok.Setter;
 */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MNAME_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_NAME_DESC,
     categoryI18nKey = {DOC_CATEGORY_USER}, order = 801)
 public class MName extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_MNAME_PARAMETER_DICT)
+  @JMockParameter(descI18nKey = DOC_NAME_PARAMETER_DICT)
   private String dict;
 
   @JMockParameter(descI18nKey = DOC_PARAMETER_DICT)
@@ -43,14 +43,14 @@ public class MName extends AbstractMockFunction {
   private transient String[] lastnameArray;
   private transient String[] firstnameArray;
 
-  @JMockConstructor(descI18nKey = DOC_MNAME_C1,
+  @JMockConstructor(descI18nKey = DOC_NAME_C1,
       example = "@Name()",
       exampleValues = {"郑倾宇", "何政贤"})
   public MName() {
     this(CHINA);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MNAME_C2,
+  @JMockConstructor(descI18nKey = DOC_NAME_C2,
       example = "@Name(en)",
       exampleValues = {"Chris Jack", "Abra Abel"})
   public MName(Locale locale) {
@@ -60,7 +60,7 @@ public class MName extends AbstractMockFunction {
     this.firstnameArray = firstname.split("\\|");
   }
 
-  @JMockConstructor(descI18nKey = DOC_MNAME_C3,
+  @JMockConstructor(descI18nKey = DOC_NAME_C3,
       example = "@Name(欧阳娜娜|贾玲)",
       exampleValues = {"欧阳娜娜", "贾玲"})
   public MName(String dict) {

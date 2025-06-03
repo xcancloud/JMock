@@ -1,9 +1,9 @@
 package cloud.xcan.jmock.core.function.date;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_DATE;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MMONTH_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MMONTH_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MMONTH_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MONTH_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MONTH_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MONTH_DESC;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
@@ -23,7 +23,7 @@ import org.apache.commons.lang3.ObjectUtils;
  */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MMONTH_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_MONTH_DESC,
     categoryI18nKey = {DOC_CATEGORY_DATE}, order = 272)
 public class MMonth extends AbstractMockFunction {
 
@@ -34,14 +34,14 @@ public class MMonth extends AbstractMockFunction {
 
   final static Locale DEFAULT_LOCALE_VALUE = Locale.CHINA;
 
-  @JMockConstructor(descI18nKey = DOC_MMONTH_C1,
+  @JMockConstructor(descI18nKey = DOC_MONTH_C1,
       example = "@Month()",
       exampleValues = {"一月"})
   public MMonth() {
     this(DEFAULT_LOCALE_VALUE);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MMONTH_C2,
+  @JMockConstructor(descI18nKey = DOC_MONTH_C2,
       example = "@Month()",
       exampleValues = {"January"})
   public MMonth(Locale locale) {

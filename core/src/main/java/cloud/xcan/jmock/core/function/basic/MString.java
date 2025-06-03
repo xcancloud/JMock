@@ -1,16 +1,16 @@
 package cloud.xcan.jmock.core.function.basic;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_BASIC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MSTRING_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MSTRING_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MSTRING_C3;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MSTRING_C4;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MSTRING_C5;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MSTRING_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MSTRING_PARAMETER_CHARS;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MSTRING_PARAMETER_LENGTH;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MSTRING_PARAMETER_MAX;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MSTRING_PARAMETER_MIN;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_STRING_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_STRING_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_STRING_C3;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_STRING_C4;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_STRING_C5;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_STRING_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_STRING_PARAMETER_CHARS;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_STRING_PARAMETER_LENGTH;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_STRING_PARAMETER_MAX;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_STRING_PARAMETER_MIN;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_NULL_WEIGHT;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MAX_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MIN_T;
@@ -35,20 +35,20 @@ import lombok.Setter;
  */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MSTRING_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_STRING_DESC,
     categoryI18nKey = {DOC_CATEGORY_BASIC}, order = 101)
 public class MString extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_MSTRING_PARAMETER_LENGTH)
+  @JMockParameter(descI18nKey = DOC_STRING_PARAMETER_LENGTH)
   private Integer length;
 
-  @JMockParameter(descI18nKey = DOC_MSTRING_PARAMETER_MIN)
+  @JMockParameter(descI18nKey = DOC_STRING_PARAMETER_MIN)
   private Integer min;
 
-  @JMockParameter(descI18nKey = DOC_MSTRING_PARAMETER_MAX)
+  @JMockParameter(descI18nKey = DOC_STRING_PARAMETER_MAX)
   private Integer max;
 
-  @JMockParameter(descI18nKey = DOC_MSTRING_PARAMETER_CHARS)
+  @JMockParameter(descI18nKey = DOC_STRING_PARAMETER_CHARS)
   private char[] chars;
 
   @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT)
@@ -66,7 +66,7 @@ public class MString extends AbstractMockFunction {
    */
   public final static int DEFAULT_LENGTH = 6;
   /**
-   * Maximum length of mstring allowed
+   * Maximum length of string allowed
    */
   final static int DEFAULT_MAX_LENGTH = Integer.MAX_VALUE;
   /**
@@ -78,35 +78,35 @@ public class MString extends AbstractMockFunction {
    */
   final static double DEFAULT_NULL_WEIGHT = 0.1;
 
-  @JMockConstructor(descI18nKey = DOC_MSTRING_C1,
+  @JMockConstructor(descI18nKey = DOC_STRING_C1,
       example = "@String()", exampleValues = {"ceja7d"}
   )
   public MString() {
     this(DEFAULT_LENGTH);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MSTRING_C2,
+  @JMockConstructor(descI18nKey = DOC_STRING_C2,
       example = "@String(2)", exampleValues = {"uy", "h8"}
   )
   public MString(Integer length) {
     this(length, 0, 0, null, null);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MSTRING_C3,
+  @JMockConstructor(descI18nKey = DOC_STRING_C3,
       example = "@String(3,\"1:2\")", exampleValues = {"ec2", "null", "c3a"}
   )
   public MString(Integer length, String nullWeight) {
     this(length, 0, 0, null, nullWeight);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MSTRING_C4,
+  @JMockConstructor(descI18nKey = DOC_STRING_C4,
       example = "@String(3,\"1:2\",abcdef123456)", exampleValues = {"ec2", "f36", "c3a"}
   )
   public MString(Integer length, String nullWeight, String chars) {
     this(length, 0, 0, chars, nullWeight);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MSTRING_C5,
+  @JMockConstructor(descI18nKey = DOC_STRING_C5,
       example = "@String(2,6)", exampleValues = {"ht8ut", "cy"}
   )
   public MString(Integer min, Integer max) {
@@ -132,7 +132,7 @@ public class MString extends AbstractMockFunction {
    * @param nullWeight empty ratio, valid when allowNull=true, the default is 1:9, which means that
    *                   10 times are generated and 1 time is empty
    */
-  @JMockConstructor(descI18nKey = JMockFuncDocMessage.DOC_MSTRING_C6,
+  @JMockConstructor(descI18nKey = JMockFuncDocMessage.DOC_STRING_C6,
       example = "@String(1,,,ABCDE,\"1:2\")", exampleValues = {"A", "null", "B", "C",
       "null"}
   )

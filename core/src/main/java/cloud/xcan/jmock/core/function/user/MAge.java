@@ -1,11 +1,11 @@
 package cloud.xcan.jmock.core.function.user;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_USER;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MAGE_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MAGE_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MAGE_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MAGE_PARAMETER_MAX;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MAGE_PARAMETER_MIN;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_AGE_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_AGE_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_AGE_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_AGE_PARAMETER_MAX;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_AGE_PARAMETER_MIN;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MAX_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MIN_T;
 
@@ -25,14 +25,14 @@ import org.apache.commons.lang3.ObjectUtils;
  */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MAGE_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_AGE_DESC,
     categoryI18nKey = {DOC_CATEGORY_USER}, order = 800)
 public class MAge extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_MAGE_PARAMETER_MIN)
+  @JMockParameter(descI18nKey = DOC_AGE_PARAMETER_MIN)
   private int min;
 
-  @JMockParameter(descI18nKey = DOC_MAGE_PARAMETER_MAX)
+  @JMockParameter(descI18nKey = DOC_AGE_PARAMETER_MAX)
   private int max;
 
   /**
@@ -42,14 +42,14 @@ public class MAge extends AbstractMockFunction {
 
   final static int DEFAULT_MAX_VALUE = 100;
 
-  @JMockConstructor(descI18nKey = DOC_MAGE_C1,
+  @JMockConstructor(descI18nKey = DOC_AGE_C1,
       example = "@String()", exampleValues = {"60"}
   )
   public MAge() {
     this(DEFAULT_MIN_VALUE, DEFAULT_MAX_VALUE);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MAGE_C2,
+  @JMockConstructor(descI18nKey = DOC_AGE_C2,
       example = "@String(1,50)", exampleValues = {"25"}
   )
   public MAge(Integer min, Integer max) {

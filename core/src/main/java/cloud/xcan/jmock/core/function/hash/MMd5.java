@@ -1,10 +1,10 @@
 package cloud.xcan.jmock.core.function.hash;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_HASH;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MMD5_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MMD5_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MMD5_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MMD5_PARAMETER_LENGTH;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MD5_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MD5_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MD5_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MD5_PARAMETER_LENGTH;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_UNACCEPTABLE_T;
 import static cloud.xcan.jmock.core.support.utils.EncryptionUtils.DEFAULT_MD5_LENGTH_LIST;
 import static cloud.xcan.jmock.core.support.utils.EncryptionUtils.MD5_32_LENGTH;
@@ -24,21 +24,21 @@ import lombok.Setter;
 */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MMD5_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_MD5_DESC,
     categoryI18nKey = {DOC_CATEGORY_HASH}, order = 601)
 public class MMd5 extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_MMD5_PARAMETER_LENGTH)
+  @JMockParameter(descI18nKey = DOC_MD5_PARAMETER_LENGTH)
   private int length;
 
-  @JMockConstructor(descI18nKey = DOC_MMD5_C1,
+  @JMockConstructor(descI18nKey = DOC_MD5_C1,
       example = "@Md5()",
       exampleValues = {"E2FC714C4727EE9395F324CD2E7F331F"})
   public MMd5() {
     this(MD5_32_LENGTH);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MMD5_C2,
+  @JMockConstructor(descI18nKey = DOC_MD5_C2,
       example = "@Md5(16)",
       exampleValues = {"4727EE9395F324CD"})
   public MMd5(int length) {

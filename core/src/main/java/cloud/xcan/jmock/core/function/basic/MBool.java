@@ -1,13 +1,13 @@
 package cloud.xcan.jmock.core.function.basic;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_BASIC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MBOOL_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MBOOL_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MBOOL_C3;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MBOOL_C4;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MBOOL_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MBOOL_PARAMETER_DICT;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MBOOL_PARAMETER_TRUE_WEIGHT;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_BOOL_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_BOOL_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_BOOL_C3;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_BOOL_C4;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_BOOL_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_BOOL_PARAMETER_DICT;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_BOOL_PARAMETER_TRUE_WEIGHT;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_NULL_WEIGHT;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_UNACCEPTABLE_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_WEIGHT_T;
@@ -32,17 +32,17 @@ import lombok.Setter;
 */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MBOOL_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_BOOL_DESC,
     categoryI18nKey = {DOC_CATEGORY_BASIC}, order = 105)
 public class MBool extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_MBOOL_PARAMETER_TRUE_WEIGHT)
+  @JMockParameter(descI18nKey = DOC_BOOL_PARAMETER_TRUE_WEIGHT)
   private double trueWeight;
 
   @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT)
   private double nullWeight;
 
-  @JMockParameter(descI18nKey = DOC_MBOOL_PARAMETER_DICT)
+  @JMockParameter(descI18nKey = DOC_BOOL_PARAMETER_DICT)
   private String dict;
 
   private int count;
@@ -54,28 +54,28 @@ public class MBool extends AbstractMockFunction {
 
   final static String DEFAULT_DICT_VALUE = "true|false";
 
-  @JMockConstructor(descI18nKey = DOC_MBOOL_C1,
+  @JMockConstructor(descI18nKey = DOC_BOOL_C1,
       example = "@Bool()",
       exampleValues = {"true", "false"})
   public MBool() {
     this(DEFAULT_TRUE_WEIGHT_VALUE, null, DEFAULT_DICT_VALUE);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MBOOL_C2,
+  @JMockConstructor(descI18nKey = DOC_BOOL_C2,
       example = "@Bool(2:1)",
       exampleValues = {"true", "true", "false"})
   public MBool(String trueWeight) {
     this(trueWeight, null, DEFAULT_DICT_VALUE);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MBOOL_C3,
+  @JMockConstructor(descI18nKey = DOC_BOOL_C3,
       example = "@Bool(2:1,1:5)",
       exampleValues = {"true", "null", "false"})
   public MBool(String trueWeight, String nullWeight) {
     this(trueWeight, nullWeight, DEFAULT_DICT_VALUE);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MBOOL_C4,
+  @JMockConstructor(descI18nKey = DOC_BOOL_C4,
       example = "@Bool(2:1,1:5,1|0)",
       exampleValues = {"1", "null", "0"})
   public MBool(String trueWeight, String nullWeight, String dict) {

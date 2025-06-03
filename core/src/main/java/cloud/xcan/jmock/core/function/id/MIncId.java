@@ -1,11 +1,11 @@
 package cloud.xcan.jmock.core.function.id;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_ID;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MINCID_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MINCID_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MINCID_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MINCID_PARAMETER_INIT;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MINCID_PARAMETER_STEP;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_INCID_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_INCID_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_INCID_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_INCID_PARAMETER_INIT;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_INCID_PARAMETER_STEP;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MIN_T;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
@@ -23,14 +23,14 @@ import lombok.Setter;
 */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MINCID_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_INCID_DESC,
     categoryI18nKey = {DOC_CATEGORY_ID}, order = 303)
 public class MIncId extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_MINCID_PARAMETER_INIT)
+  @JMockParameter(descI18nKey = DOC_INCID_PARAMETER_INIT)
   private Integer init;
 
-  @JMockParameter(descI18nKey = DOC_MINCID_PARAMETER_STEP)
+  @JMockParameter(descI18nKey = DOC_INCID_PARAMETER_STEP)
   private int step;
 
   private LongAdder longAdder = new LongAdder();
@@ -39,14 +39,14 @@ public class MIncId extends AbstractMockFunction {
 
   final static int DEFAULT_STEP_VALUE = 1;
 
-  @JMockConstructor(descI18nKey = DOC_MINCID_C1,
+  @JMockConstructor(descI18nKey = DOC_INCID_C1,
       example = "@IncId()",
       exampleValues = {"1"})
   public MIncId() {
     this(DEFAULT_INIT_VALUE, DEFAULT_STEP_VALUE);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MINCID_C2,
+  @JMockConstructor(descI18nKey = DOC_INCID_C2,
       example = "@IncId(5,2)",
       exampleValues = {"5"})
   public MIncId(Integer init, Integer step) {

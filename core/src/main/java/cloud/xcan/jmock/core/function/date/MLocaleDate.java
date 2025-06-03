@@ -2,14 +2,14 @@ package cloud.xcan.jmock.core.function.date;
 
 import static cloud.xcan.angus.spec.utils.ObjectUtils.nullSafe;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_DATE;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLOCALE_DATE_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLOCALE_DATE_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLOCALE_DATE_C3;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLOCALE_DATE_C4;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLOCALE_DATE_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLOCALE_DATE_PARAMETER_FORMAT;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLOCALE_DATE_PARAMETER_RANDOM;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLOCALE_DATE_PARAMETER_ZONEID;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LOCALE_DATE_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LOCALE_DATE_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LOCALE_DATE_C3;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LOCALE_DATE_C4;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LOCALE_DATE_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LOCALE_DATE_PARAMETER_FORMAT;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LOCALE_DATE_PARAMETER_RANDOM;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LOCALE_DATE_PARAMETER_ZONEID;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
@@ -29,7 +29,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MLOCALE_DATE_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_LOCALE_DATE_DESC,
     categoryI18nKey = {DOC_CATEGORY_DATE}, order = 203)
 public class MLocaleDate extends AbstractMockFunction {
 
@@ -39,39 +39,39 @@ public class MLocaleDate extends AbstractMockFunction {
   public static final DateTimeFormatter DEFAULT_DATE_FORMAT = DateTimeFormatter.ofPattern(
       DEFAULT_FORMAT);
 
-  @JMockParameter(descI18nKey = DOC_MLOCALE_DATE_PARAMETER_FORMAT)
+  @JMockParameter(descI18nKey = DOC_LOCALE_DATE_PARAMETER_FORMAT)
   private String format;
 
-  @JMockParameter(descI18nKey = DOC_MLOCALE_DATE_PARAMETER_ZONEID)
+  @JMockParameter(descI18nKey = DOC_LOCALE_DATE_PARAMETER_ZONEID)
   private ZoneId zoneId;
 
-  @JMockParameter(descI18nKey = DOC_MLOCALE_DATE_PARAMETER_RANDOM)
+  @JMockParameter(descI18nKey = DOC_LOCALE_DATE_PARAMETER_RANDOM)
   private Boolean random;
 
   private DateTimeFormatter df = DEFAULT_DATE_FORMAT;
 
-  @JMockConstructor(descI18nKey = DOC_MLOCALE_DATE_C1,
+  @JMockConstructor(descI18nKey = DOC_LOCALE_DATE_C1,
       example = "@LocaleDate()",
       exampleValues = {"2022-01-01", "2022-01-01"})
   public MLocaleDate() {
     this(DEFAULT_FORMAT, DEFAULT_ZONE_ID, false);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MLOCALE_DATE_C2,
+  @JMockConstructor(descI18nKey = DOC_LOCALE_DATE_C2,
       example = "@LocaleDate(yyyy yy y MM M dd d)",
       exampleValues = {"2022 22 2022 05 5 12 12", "2022 22 2022 05 5 12 12"})
   public MLocaleDate(String format) {
     this(format, DEFAULT_ZONE_ID, false);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MLOCALE_DATE_C3,
+  @JMockConstructor(descI18nKey = DOC_LOCALE_DATE_C3,
       example = "@LocaleDate(yyyy yy y MM M dd d)",
       exampleValues = {"2022 22 2022 05 5 12 12", "2022 22 2022 05 5 12 12"})
   public MLocaleDate(String format, Boolean random) {
     this(format, DEFAULT_ZONE_ID, random);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MLOCALE_DATE_C4,
+  @JMockConstructor(descI18nKey = DOC_LOCALE_DATE_C4,
       example = "@LocaleDate(yyyy-MM-dd,Asia/Shanghai)",
       exampleValues = {"2022-01-01", "2022-01-01"})
   public MLocaleDate(String format, String zoneId, Boolean random) {

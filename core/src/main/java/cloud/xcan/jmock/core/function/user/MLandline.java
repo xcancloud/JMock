@@ -1,9 +1,9 @@
 package cloud.xcan.jmock.core.function.user;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_USER;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLANDINE_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLANDINE_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLANDINE_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LANDINE_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LANDINE_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LANDINE_DESC;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
 import static cloud.xcan.jmock.core.support.utils.RandomStringUtils.randomNum;
 import static java.util.Locale.CHINA;
@@ -27,7 +27,7 @@ import org.apache.commons.lang3.StringUtils;
 */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MLANDINE_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_LANDINE_DESC,
     categoryI18nKey = {DOC_CATEGORY_USER}, order = 805)
 public class MLandline extends AbstractMockFunction {
 
@@ -48,13 +48,13 @@ public class MLandline extends AbstractMockFunction {
 
   private String[] dictArray;
 
-  @JMockConstructor(descI18nKey = DOC_MLANDINE_C1,
+  @JMockConstructor(descI18nKey = DOC_LANDINE_C1,
       example = "@MLandline()", exampleValues = {"", ""})
   public MLandline() {
     this(CHINA);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MLANDINE_C2,
+  @JMockConstructor(descI18nKey = DOC_LANDINE_C2,
       example = "@MLandline(en)", exampleValues = {"", ""})
   public MLandline(Locale locale) {
     if (CHINA.equals(locale)) {

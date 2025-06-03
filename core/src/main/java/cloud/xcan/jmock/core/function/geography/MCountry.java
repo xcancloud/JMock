@@ -1,10 +1,10 @@
 package cloud.xcan.jmock.core.function.geography;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_GEOGRAPHY;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MCOUNTRY_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MCOUNTRY_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MCOUNTRY_C3;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MCOUNTRY_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_COUNTRY_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_COUNTRY_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_COUNTRY_C3;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_COUNTRY_DESC;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_DICT;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
 
@@ -27,7 +27,7 @@ import org.apache.commons.lang3.ObjectUtils;
 */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MCOUNTRY_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_COUNTRY_DESC,
     categoryI18nKey = {DOC_CATEGORY_GEOGRAPHY}, order = 501)
 public class MCountry extends AbstractMockFunction {
 
@@ -39,21 +39,21 @@ public class MCountry extends AbstractMockFunction {
 
   final static Locale DEFAULT_LOCALE_VALUE = Locale.CHINA;
 
-  @JMockConstructor(descI18nKey = DOC_MCOUNTRY_C1,
+  @JMockConstructor(descI18nKey = DOC_COUNTRY_C1,
       example = "@Country()",
       exampleValues = {"中国"})
   public MCountry() {
     this(DEFAULT_LOCALE_VALUE);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MCOUNTRY_C2,
+  @JMockConstructor(descI18nKey = DOC_COUNTRY_C2,
       example = "@Country(zh_CN)",
       exampleValues = {"中国"})
   public MCountry(Locale locale) {
     this(locale, null);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MCOUNTRY_C3,
+  @JMockConstructor(descI18nKey = DOC_COUNTRY_C3,
       example = "@Country(中国,俄罗斯)",
       exampleValues = {"中国"})
   public MCountry(String dict) {

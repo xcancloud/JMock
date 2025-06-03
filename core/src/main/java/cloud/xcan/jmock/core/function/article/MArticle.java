@@ -3,13 +3,13 @@ package cloud.xcan.jmock.core.function.article;
 import static cloud.xcan.angus.spec.utils.ObjectUtils.nullSafe;
 import static cloud.xcan.angus.spec.utils.ObjectUtils.stringSafe;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_ARTICLE;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MARTICLE_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MARTICLE_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MARTICLE_C3;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MARTICLE_C4;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MARTICLE_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MARTICLE_PARAMETER_PARAGRAPH_COUNT;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MARTICLE_PARAMETER_WORD_COUNT;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ARTICLE_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ARTICLE_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ARTICLE_C3;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ARTICLE_C4;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ARTICLE_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ARTICLE_PARAMETER_PARAGRAPH_COUNT;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ARTICLE_PARAMETER_WORD_COUNT;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
 import static cloud.xcan.jmock.api.i18n.MessageResources.getString;
 import static java.util.Locale.CHINA;
@@ -30,17 +30,17 @@ import lombok.Setter;
 
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MARTICLE_DESC, categoryI18nKey = {
+@JMockFunctionRegister(descI18nKey = DOC_ARTICLE_DESC, categoryI18nKey = {
     DOC_CATEGORY_ARTICLE}, order = 406)
 public class MArticle extends AbstractMockFunction {
 
   public static final int DEFAULT_PARAGRAPH_COUNT = 3;
   public static final int DEFAULT_WORD_COUNT = 800;
 
-  @JMockParameter(descI18nKey = DOC_MARTICLE_PARAMETER_PARAGRAPH_COUNT)
+  @JMockParameter(descI18nKey = DOC_ARTICLE_PARAMETER_PARAGRAPH_COUNT)
   private int paragraphCount = DEFAULT_PARAGRAPH_COUNT;
 
-  @JMockParameter(descI18nKey = DOC_MARTICLE_PARAMETER_WORD_COUNT)
+  @JMockParameter(descI18nKey = DOC_ARTICLE_PARAMETER_WORD_COUNT)
   private int wordCount = DEFAULT_WORD_COUNT;
 
   @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE)
@@ -50,7 +50,7 @@ public class MArticle extends AbstractMockFunction {
 
   private transient final Random random = new Random();
 
-  @JMockConstructor(descI18nKey = DOC_MARTICLE_C1,
+  @JMockConstructor(descI18nKey = DOC_ARTICLE_C1,
       example = "@Article()",
       exampleValues = {
           """
@@ -64,7 +64,7 @@ public class MArticle extends AbstractMockFunction {
     this(CHINA);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MARTICLE_C2,
+  @JMockConstructor(descI18nKey = DOC_ARTICLE_C2,
       example = "@Article(en)",
       exampleValues = {
           """
@@ -78,7 +78,7 @@ public class MArticle extends AbstractMockFunction {
     this.dict = getString(JMockMessage.FDATA_ARTICLE, locale);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MARTICLE_C3,
+  @JMockConstructor(descI18nKey = DOC_ARTICLE_C3,
       example = "@Article(2|200|en)",
       exampleValues = {"""
           At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting.  I am here. The time is gone, the promise is still there, the people are gone, like the arrow from the mstring, even if it is far to the horizon, the tender words are still there.  The autumn models came with graceful and graceful steps, lovingly sending the back of Xia Yuan, accompanied by fallen leaves, waiting for the arrival of the next season.
@@ -90,7 +90,7 @@ public class MArticle extends AbstractMockFunction {
     this.dict = getString(JMockMessage.FDATA_ARTICLE, locale);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MARTICLE_C4,
+  @JMockConstructor(descI18nKey = DOC_ARTICLE_C4,
       example = "@Paragraph(2|200|At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting.)",
       exampleValues = {"""
           At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting.

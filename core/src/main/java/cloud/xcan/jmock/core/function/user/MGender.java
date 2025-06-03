@@ -2,11 +2,11 @@ package cloud.xcan.jmock.core.function.user;
 
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_USER;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MGENDER_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MGENDER_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MGENDER_C3;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MGENDER_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MGENDER_PARAMETER_DICT;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_GENDER_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_GENDER_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_GENDER_C3;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_GENDER_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_GENDER_PARAMETER_DICT;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_DICT;
 import static java.util.Locale.CHINA;
 
@@ -27,11 +27,11 @@ import lombok.Setter;
 */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MGENDER_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_GENDER_DESC,
     categoryI18nKey = {DOC_CATEGORY_USER}, order = 807)
 public class MGender extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_MGENDER_PARAMETER_DICT)
+  @JMockParameter(descI18nKey = DOC_GENDER_PARAMETER_DICT)
   private String dict;
 
   @JMockParameter(descI18nKey = DOC_PARAMETER_DICT)
@@ -39,14 +39,14 @@ public class MGender extends AbstractMockFunction {
 
   private String[] dictArray;
 
-  @JMockConstructor(descI18nKey = DOC_MGENDER_C1,
+  @JMockConstructor(descI18nKey = DOC_GENDER_C1,
       example = "@Gender()",
       exampleValues = {"男", "女"})
   public MGender() {
     this(CHINA);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MGENDER_C2,
+  @JMockConstructor(descI18nKey = DOC_GENDER_C2,
       example = "@Gender(en)",
       exampleValues = {"male", "female"})
   public MGender(Locale locale) {
@@ -54,7 +54,7 @@ public class MGender extends AbstractMockFunction {
     this.dictArray = lastName.split("\\|");
   }
 
-  @JMockConstructor(descI18nKey = DOC_MGENDER_C3,
+  @JMockConstructor(descI18nKey = DOC_GENDER_C3,
       example = "@Gender(F|M))",
       exampleValues = {"F", "M"})
   public MGender(String dict) {

@@ -1,11 +1,11 @@
 package cloud.xcan.jmock.core.function.network;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_NETWORK;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPORT_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPORT_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPORT_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPORT_PARAMETER_MAX;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MPORT_PARAMETER_MIN;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PORT_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PORT_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PORT_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PORT_PARAMETER_MAX;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PORT_PARAMETER_MIN;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MAX_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MIN_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_NOT_NULL_T;
@@ -26,14 +26,14 @@ import org.apache.commons.lang3.ObjectUtils;
  */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MPORT_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_PORT_DESC,
     categoryI18nKey = {DOC_CATEGORY_NETWORK}, order = 906)
 public class MPort extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_MPORT_PARAMETER_MIN)
+  @JMockParameter(descI18nKey = DOC_PORT_PARAMETER_MIN)
   private int min;
 
-  @JMockParameter(descI18nKey = DOC_MPORT_PARAMETER_MAX)
+  @JMockParameter(descI18nKey = DOC_PORT_PARAMETER_MAX)
   private int max;
 
   /**
@@ -45,7 +45,7 @@ public class MPort extends AbstractMockFunction {
   /**
    * No-parameter MockConstructor: @Port()
    */
-  @JMockConstructor(descI18nKey = DOC_MPORT_C1,
+  @JMockConstructor(descI18nKey = DOC_PORT_C1,
       example = "@Port()",
       exampleValues = {"1025"})
   public MPort() {
@@ -55,7 +55,7 @@ public class MPort extends AbstractMockFunction {
   /**
    * MockConstructor: @Port()
    */
-  @JMockConstructor(descI18nKey = DOC_MPORT_C2,
+  @JMockConstructor(descI18nKey = DOC_PORT_C2,
       example = "@Port(5000,10000)",
       exampleValues = {"6000"})
   public MPort(Integer min, Integer max) {

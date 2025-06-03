@@ -1,13 +1,13 @@
 package cloud.xcan.jmock.core.function.basic;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_BASIC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLONG_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLONG_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLONG_C3;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLONG_C4;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLONG_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLONG_PARAMETER_MAX;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLONG_PARAMETER_MIN;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LONG_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LONG_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LONG_C3;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LONG_C4;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LONG_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LONG_PARAMETER_MAX;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LONG_PARAMETER_MIN;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_NULL_WEIGHT;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MAX_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_WEIGHT_T;
@@ -29,14 +29,14 @@ import lombok.Setter;
 */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MLONG_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_LONG_DESC,
     categoryI18nKey = {DOC_CATEGORY_BASIC}, order = 102)
 public class MLong extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_MLONG_PARAMETER_MIN)
+  @JMockParameter(descI18nKey = DOC_LONG_PARAMETER_MIN)
   private long min;
 
-  @JMockParameter(descI18nKey = DOC_MLONG_PARAMETER_MAX)
+  @JMockParameter(descI18nKey = DOC_LONG_PARAMETER_MAX)
   private long max;
 
   @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT)
@@ -57,14 +57,14 @@ public class MLong extends AbstractMockFunction {
    */
   final static long DEFAULT_MIN_VALUE = 0L;
 
-  @JMockConstructor(descI18nKey = DOC_MLONG_C1,
+  @JMockConstructor(descI18nKey = DOC_LONG_C1,
       example = "@Long()", exampleValues = {"2567071027"}
   )
   public MLong() {
     this(null);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MLONG_C2,
+  @JMockConstructor(descI18nKey = DOC_LONG_C2,
       example = "@Long(\"1:2\")",
       exampleValues = {"98089", "null", "28907625479"}
   )
@@ -72,7 +72,7 @@ public class MLong extends AbstractMockFunction {
     this(DEFAULT_MIN_VALUE, DEFAULT_MAX_VALUE, nullWeight);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MLONG_C3,
+  @JMockConstructor(descI18nKey = DOC_LONG_C3,
       example = "@Long(1L,10000000000L)",
       exampleValues = {"1109", "34008978", "87256252199901"}
   )
@@ -90,7 +90,7 @@ public class MLong extends AbstractMockFunction {
    * @param nullWeight a ratio of null, such as value: "1:9", which means that a random mstring is
    *                   generated 10 times and an average of 1 is null
    */
-  @JMockConstructor(descI18nKey = DOC_MLONG_C4,
+  @JMockConstructor(descI18nKey = DOC_LONG_C4,
       example = "@Long(-10000L,100000L,)",
       exampleValues = {"198", "594", "-17865", "9876", "37092"})
   public MLong(Long min, Long max, String nullWeight) {

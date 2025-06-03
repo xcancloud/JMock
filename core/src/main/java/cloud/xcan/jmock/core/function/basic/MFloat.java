@@ -1,16 +1,16 @@
 package cloud.xcan.jmock.core.function.basic;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_BASIC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MFLOAT_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MFLOAT_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MFLOAT_C3;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MFLOAT_C4;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MFLOAT_C5;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MFLOAT_C6;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MFLOAT_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MFLOAT_PARAMETER_MAX;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MFLOAT_PARAMETER_MIN;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MFLOAT_PARAMETER_SCALE;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_FLOAT_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_FLOAT_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_FLOAT_C3;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_FLOAT_C4;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_FLOAT_C5;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_FLOAT_C6;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_FLOAT_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_FLOAT_PARAMETER_MAX;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_FLOAT_PARAMETER_MIN;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_FLOAT_PARAMETER_SCALE;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_NULL_WEIGHT;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MAX_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MIN_T;
@@ -33,17 +33,17 @@ import lombok.Setter;
 */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MFLOAT_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_FLOAT_DESC,
     categoryI18nKey = {DOC_CATEGORY_BASIC}, order = 103)
 public class MFloat extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_MFLOAT_PARAMETER_MIN)
+  @JMockParameter(descI18nKey = DOC_FLOAT_PARAMETER_MIN)
   private Float min;
 
-  @JMockParameter(descI18nKey = DOC_MFLOAT_PARAMETER_MAX)
+  @JMockParameter(descI18nKey = DOC_FLOAT_PARAMETER_MAX)
   private Float max;
 
-  @JMockParameter(descI18nKey = DOC_MFLOAT_PARAMETER_SCALE)
+  @JMockParameter(descI18nKey = DOC_FLOAT_PARAMETER_SCALE)
   private int scale;
 
   @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT)
@@ -61,35 +61,35 @@ public class MFloat extends AbstractMockFunction {
   /**
    * No-parameter MockConstructor: @Float()
    */
-  @JMockConstructor(descI18nKey = DOC_MFLOAT_C1,
+  @JMockConstructor(descI18nKey = DOC_FLOAT_C1,
       example = "@Float()",
       exampleValues = {"1.2222222"})
   public MFloat() {
     this((String) null);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MFLOAT_C2,
+  @JMockConstructor(descI18nKey = DOC_FLOAT_C2,
       example = "@Float(1:2)",
       exampleValues = {"1.2222222"})
   public MFloat(String nullWeight) {
     this(0f, DEFAULT_MAX_VALUE, DEFAULT_SCALE_VALUE, nullWeight);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MFLOAT_C3,
+  @JMockConstructor(descI18nKey = DOC_FLOAT_C3,
       example = "@Float(5,15)",
       exampleValues = {"5.2222222"})
   public MFloat(Float min, Float max) {
     this(min, max, null);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MFLOAT_C4,
+  @JMockConstructor(descI18nKey = DOC_FLOAT_C4,
       example = "@Float(5)",
       exampleValues = {"87901.01127", "3092290435.18326"})
   public MFloat(Integer scale) {
     this(0f, DEFAULT_MAX_VALUE, scale);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MFLOAT_C5,
+  @JMockConstructor(descI18nKey = DOC_FLOAT_C5,
       example = "@Float(5,15,2)",
       exampleValues = {"5.22"})
   public MFloat(Float min, Float max, Integer scale) {
@@ -109,7 +109,7 @@ public class MFloat extends AbstractMockFunction {
    *                   mstring 10 times and an average of 1 time is null, and the default is not
    *                   empty
    */
-  @JMockConstructor(descI18nKey = DOC_MFLOAT_C6,
+  @JMockConstructor(descI18nKey = DOC_FLOAT_C6,
       example = "@Float(0,10,5,1:2)",
       exampleValues = {"1.22222"})
   public MFloat(Float min, Float max, Integer scale, String nullWeight) {

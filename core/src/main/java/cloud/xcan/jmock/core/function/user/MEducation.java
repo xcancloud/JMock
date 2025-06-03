@@ -1,11 +1,11 @@
 package cloud.xcan.jmock.core.function.user;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_USER;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MEDUCATION_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MEDUCATION_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MEDUCATION_C3;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MEDUCATION_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MEDUCATION_PARAMETER_DICT;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_EDUCATION_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_EDUCATION_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_EDUCATION_C3;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_EDUCATION_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_EDUCATION_PARAMETER_DICT;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
@@ -26,11 +26,11 @@ import org.apache.commons.lang3.ObjectUtils;
 */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MEDUCATION_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_EDUCATION_DESC,
     categoryI18nKey = {DOC_CATEGORY_USER}, order = 808)
 public class MEducation extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_MEDUCATION_PARAMETER_DICT)
+  @JMockParameter(descI18nKey = DOC_EDUCATION_PARAMETER_DICT)
   private String[] dict;
 
   @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE)
@@ -38,21 +38,21 @@ public class MEducation extends AbstractMockFunction {
 
   final static Locale DEFAULT_LOCALE_VALUE = Locale.CHINA;
 
-  @JMockConstructor(descI18nKey = DOC_MEDUCATION_C1,
+  @JMockConstructor(descI18nKey = DOC_EDUCATION_C1,
       example = "@Education()",
       exampleValues = {"本科"})
   public MEducation() {
     this(DEFAULT_LOCALE_VALUE);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MEDUCATION_C2,
+  @JMockConstructor(descI18nKey = DOC_EDUCATION_C2,
       example = "@Education(zh_CN)",
       exampleValues = {"本科"})
   public MEducation(Locale locale) {
     this(locale, null);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MEDUCATION_C3,
+  @JMockConstructor(descI18nKey = DOC_EDUCATION_C3,
       example = "@Education(本科,硕士)",
       exampleValues = {"本科"})
   public MEducation(String dict) {

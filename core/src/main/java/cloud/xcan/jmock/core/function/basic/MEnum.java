@@ -1,12 +1,12 @@
 package cloud.xcan.jmock.core.function.basic;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_BASIC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MENUM_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MENUM_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MENUM_C3;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MENUM_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MENUM_PARAMETER_DICT;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MENUM_PARAMETER_VALUE_WEIGHT;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ENUM_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ENUM_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ENUM_C3;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ENUM_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ENUM_PARAMETER_DICT;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ENUM_PARAMETER_VALUE_WEIGHT;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_NULL_WEIGHT;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_NOT_NULL_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_WEIGHT_T;
@@ -33,14 +33,14 @@ import org.apache.commons.lang3.StringUtils;
 */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MENUM_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_ENUM_DESC,
     categoryI18nKey = {DOC_CATEGORY_BASIC}, order = 104)
 public class MEnum extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_MENUM_PARAMETER_DICT)
+  @JMockParameter(descI18nKey = DOC_ENUM_PARAMETER_DICT)
   private String dict;
 
-  @JMockParameter(descI18nKey = DOC_MENUM_PARAMETER_VALUE_WEIGHT)
+  @JMockParameter(descI18nKey = DOC_ENUM_PARAMETER_VALUE_WEIGHT)
   private String valueWeight;
 
   @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT)
@@ -69,21 +69,21 @@ public class MEnum extends AbstractMockFunction {
    * but the business external document does not expose the no-parameter constructor to avoid users'
    * use.
    */
-  @JMockConstructor(descI18nKey = DOC_MENUM_C1,
+  @JMockConstructor(descI18nKey = DOC_ENUM_C1,
       example = "@Enum(HIGH|WIDTH)",
       exampleValues = {"HIGH"})
   public MEnum(String dict) {
     this(dict, DEFAULT_VALUE_WEIGHT, null);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MENUM_C2,
+  @JMockConstructor(descI18nKey = DOC_ENUM_C2,
       example = "@Enum(HIGH|WIDTH,1:1)",
       exampleValues = {"HIGH", "WIDTH"})
   public MEnum(String dict, String valueWeight) {
     this(dict, valueWeight, null);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MENUM_C3,
+  @JMockConstructor(descI18nKey = DOC_ENUM_C3,
       example = "@Enum(HIGH|WIDTH,1:1,1:2)",
       exampleValues = {"HIGH", "WIDTH", "null"})
   public MEnum(String dict, String valueWeight, String nullWeight) {

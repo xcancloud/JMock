@@ -2,14 +2,14 @@ package cloud.xcan.jmock.core.function.date;
 
 import static cloud.xcan.angus.spec.utils.ObjectUtils.nullSafe;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_DATE;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLOCALE_DATE_PARAMETER_ZONEID;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLOCALE_DATE_TIME_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLOCALE_DATE_TIME_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLOCALE_DATE_TIME_C3;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLOCALE_DATE_TIME_C4;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLOCALE_DATE_TIME_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLOCALE_DATE_TIME_PARAMETER_FORMAT;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLOCALE_DATE_TIME_PARAMETER_RANDOM;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LOCALE_DATE_PARAMETER_ZONEID;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LOCALE_DATE_TIME_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LOCALE_DATE_TIME_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LOCALE_DATE_TIME_C3;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LOCALE_DATE_TIME_C4;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LOCALE_DATE_TIME_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LOCALE_DATE_TIME_PARAMETER_FORMAT;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LOCALE_DATE_TIME_PARAMETER_RANDOM;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
@@ -29,7 +29,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MLOCALE_DATE_TIME_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_LOCALE_DATE_TIME_DESC,
     categoryI18nKey = {DOC_CATEGORY_DATE}, order = 204)
 public class MLocaleDateTime extends AbstractMockFunction {
 
@@ -38,39 +38,39 @@ public class MLocaleDateTime extends AbstractMockFunction {
 
   static final DateTimeFormatter DATE_DEFAULT_FORMAT = DateTimeFormatter.ofPattern(DEFAULT_FORMAT);
 
-  @JMockParameter(descI18nKey = DOC_MLOCALE_DATE_TIME_PARAMETER_FORMAT)
+  @JMockParameter(descI18nKey = DOC_LOCALE_DATE_TIME_PARAMETER_FORMAT)
   private String format;
 
-  @JMockParameter(descI18nKey = DOC_MLOCALE_DATE_PARAMETER_ZONEID)
+  @JMockParameter(descI18nKey = DOC_LOCALE_DATE_PARAMETER_ZONEID)
   private ZoneId zoneId;
 
-  @JMockParameter(descI18nKey = DOC_MLOCALE_DATE_TIME_PARAMETER_RANDOM)
+  @JMockParameter(descI18nKey = DOC_LOCALE_DATE_TIME_PARAMETER_RANDOM)
   private Boolean random;
 
   private DateTimeFormatter df = DATE_DEFAULT_FORMAT;
 
-  @JMockConstructor(descI18nKey = DOC_MLOCALE_DATE_TIME_C1,
+  @JMockConstructor(descI18nKey = DOC_LOCALE_DATE_TIME_C1,
       example = "@LocaleDateTime()",
       exampleValues = {"2022-01-01 23:34:25", "2022-01-01 23:34:25"})
   public MLocaleDateTime() {
     this(DEFAULT_FORMAT, DEFAULT_ZONE_ID, false);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MLOCALE_DATE_TIME_C2,
+  @JMockConstructor(descI18nKey = DOC_LOCALE_DATE_TIME_C2,
       example = "@LocaleDateTime(yy-MM-dd a HH:mm:ss)",
       exampleValues = {"22-05-12 下午 23:40:22", "22-05-12 下午 23:40:22"})
   public MLocaleDateTime(String format) {
     this(format, DEFAULT_ZONE_ID, false);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MLOCALE_DATE_TIME_C3,
+  @JMockConstructor(descI18nKey = DOC_LOCALE_DATE_TIME_C3,
       example = "@LocaleDateTime(yy-MM-dd a HH:mm:ss)",
       exampleValues = {"22-05-12 下午 23:40:22", "22-05-12 下午 23:40:22"})
   public MLocaleDateTime(String format, Boolean random) {
     this(format, DEFAULT_ZONE_ID, random);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MLOCALE_DATE_TIME_C4,
+  @JMockConstructor(descI18nKey = DOC_LOCALE_DATE_TIME_C4,
       example = "@LocaleDateTime(yyyy-MM-dd HH:mm:ss,Asia/Shanghai)",
       exampleValues = {"2022-01-01 23:34:25", "2022-01-01 23:34:25"})
   public MLocaleDateTime(String format, String zoneId, Boolean random) {

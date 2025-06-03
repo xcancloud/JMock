@@ -1,10 +1,10 @@
 package cloud.xcan.jmock.core.function.geography;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_GEOGRAPHY;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MCITY_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MCITY_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MCITY_C3;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MCITY_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CITY_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CITY_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CITY_C3;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CITY_DESC;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_DICT;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
 import static java.util.Locale.CHINA;
@@ -26,7 +26,7 @@ import lombok.Setter;
 */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MCITY_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_CITY_DESC,
     categoryI18nKey = {DOC_CATEGORY_GEOGRAPHY}, order = 503)
 public class MCity extends AbstractMockFunction {
 
@@ -38,13 +38,13 @@ public class MCity extends AbstractMockFunction {
 
   private transient String[] dictArray;
 
-  @JMockConstructor(descI18nKey = DOC_MCITY_C1,
+  @JMockConstructor(descI18nKey = DOC_CITY_C1,
       exampleValues = {"北京", "上海"})
   public MCity() {
     this(CHINA);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MCITY_C2,
+  @JMockConstructor(descI18nKey = DOC_CITY_C2,
       example = "@City(en)",
       exampleValues = {"Chicago", "New York"})
   public MCity(Locale locale) {
@@ -52,7 +52,7 @@ public class MCity extends AbstractMockFunction {
     this.dictArray = province.split("\\|");
   }
 
-  @JMockConstructor(descI18nKey = DOC_MCITY_C3,
+  @JMockConstructor(descI18nKey = DOC_CITY_C3,
       example = "@Word(北京|深圳|上海))",
       exampleValues = {"深圳", "上海"})
   public MCity(String dict) {

@@ -1,9 +1,9 @@
 package cloud.xcan.jmock.core.function.network;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_NETWORK;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MAPP_NAME_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MAPP_NAME_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MAPP_NAME_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_APP_NAME_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_APP_NAME_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_APP_NAME_DESC;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_DICT;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
@@ -22,7 +22,7 @@ import lombok.Setter;
 */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MAPP_NAME_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_APP_NAME_DESC,
     categoryI18nKey = {DOC_CATEGORY_NETWORK}, order = 901)
 public class MAppName extends AbstractMockFunction {
 
@@ -31,14 +31,14 @@ public class MAppName extends AbstractMockFunction {
 
   private transient String[] dictArray;
 
-  @JMockConstructor(descI18nKey = DOC_MAPP_NAME_C1,
+  @JMockConstructor(descI18nKey = DOC_APP_NAME_C1,
       example = "@AppName()",
       exampleValues = {"搜狐新闻", "百度手机浏览器"})
   public MAppName() {
     this(MessageResources.getString(JMockMessage.FDATA_APP_NAME));
   }
 
-  @JMockConstructor(descI18nKey = DOC_MAPP_NAME_C2,
+  @JMockConstructor(descI18nKey = DOC_APP_NAME_C2,
       example = "@AppName(星链|360|ie))",
       exampleValues = {"360", "星链"})
   public MAppName(String dict) {

@@ -1,12 +1,12 @@
 package cloud.xcan.jmock.core.function.geography;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_GEOGRAPHY;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MCOORDINATES_PARAMETER_MAX_LNG;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MCOORDINATES_PARAMETER_MIN_LNG;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MCOORDINATES_PARAMETER_SCALE;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLONGITUDE_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLONGITUDE_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLONGITUDE_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_COORDINATES_PARAMETER_MAX_LNG;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_COORDINATES_PARAMETER_MIN_LNG;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_COORDINATES_PARAMETER_SCALE;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LONGITUDE_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LONGITUDE_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LONGITUDE_DESC;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_NULL_WEIGHT;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MAX_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MIN_T;
@@ -32,17 +32,17 @@ import org.apache.commons.lang3.ObjectUtils;
 */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MLONGITUDE_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_LONGITUDE_DESC,
     categoryI18nKey = {DOC_CATEGORY_GEOGRAPHY}, order = 512)
 public class MLongitude extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_MCOORDINATES_PARAMETER_MIN_LNG)
+  @JMockParameter(descI18nKey = DOC_COORDINATES_PARAMETER_MIN_LNG)
   private double minLng;
 
-  @JMockParameter(descI18nKey = DOC_MCOORDINATES_PARAMETER_MAX_LNG)
+  @JMockParameter(descI18nKey = DOC_COORDINATES_PARAMETER_MAX_LNG)
   private double maxLng;
 
-  @JMockParameter(descI18nKey = DOC_MCOORDINATES_PARAMETER_SCALE)
+  @JMockParameter(descI18nKey = DOC_COORDINATES_PARAMETER_SCALE)
   private Integer scale;
 
   @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT)
@@ -65,14 +65,14 @@ public class MLongitude extends AbstractMockFunction {
 
   final static int MIN_SCALE_VALUE = 0;
 
-  @JMockConstructor(descI18nKey = DOC_MLONGITUDE_C1,
+  @JMockConstructor(descI18nKey = DOC_LONGITUDE_C1,
       example = "@Longitude()",
       exampleValues = {"90.232121"})
   public MLongitude() {
     this(DEFAULT_MIN_LNG_VALUE, DEFAULT_MAX_LNG_VALUE, DEFAULT_SCALE_VALUE, null);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MLONGITUDE_C2,
+  @JMockConstructor(descI18nKey = DOC_LONGITUDE_C2,
       example = "@Longitude(30,60,5,1:2)",
       exampleValues = {"40.336546"})
   public MLongitude(Double minLng, Double maxLng, Integer scale, String nullWeight) {

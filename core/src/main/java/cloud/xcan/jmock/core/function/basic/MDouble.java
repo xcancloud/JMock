@@ -1,16 +1,16 @@
 package cloud.xcan.jmock.core.function.basic;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_BASIC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MDOUBLE_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MDOUBLE_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MDOUBLE_C3;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MDOUBLE_C4;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MDOUBLE_C5;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MDOUBLE_C6;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MDOUBLE_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MDOUBLE_PARAMETER_MAX;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MDOUBLE_PARAMETER_MIN;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MDOUBLE_PARAMETER_SCALE;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_DOUBLE_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_DOUBLE_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_DOUBLE_C3;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_DOUBLE_C4;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_DOUBLE_C5;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_DOUBLE_C6;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_DOUBLE_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_DOUBLE_PARAMETER_MAX;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_DOUBLE_PARAMETER_MIN;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_DOUBLE_PARAMETER_SCALE;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_NULL_WEIGHT;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MAX_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MIN_T;
@@ -31,17 +31,17 @@ import lombok.Setter;
 
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MDOUBLE_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_DOUBLE_DESC,
     categoryI18nKey = {DOC_CATEGORY_BASIC}, order = 103)
 public class MDouble extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_MDOUBLE_PARAMETER_MIN)
+  @JMockParameter(descI18nKey = DOC_DOUBLE_PARAMETER_MIN)
   private double min;
 
-  @JMockParameter(descI18nKey = DOC_MDOUBLE_PARAMETER_MAX)
+  @JMockParameter(descI18nKey = DOC_DOUBLE_PARAMETER_MAX)
   private double max;
 
-  @JMockParameter(descI18nKey = DOC_MDOUBLE_PARAMETER_SCALE)
+  @JMockParameter(descI18nKey = DOC_DOUBLE_PARAMETER_SCALE)
   private int scale;
 
   @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT)
@@ -56,35 +56,35 @@ public class MDouble extends AbstractMockFunction {
 
   public final static int MAX_SCALE_VALUE = 7;
 
-  @JMockConstructor(descI18nKey = DOC_MDOUBLE_C1,
+  @JMockConstructor(descI18nKey = DOC_DOUBLE_C1,
       example = "@Double()",
       exampleValues = {"78.99"})
   public MDouble() {
     this(DEFAULT_SCALE_VALUE);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MDOUBLE_C4,
+  @JMockConstructor(descI18nKey = DOC_DOUBLE_C4,
       example = "@Double(3)",
       exampleValues = {"7.987", "89.909", "85.231"})
   public MDouble(Integer scale) {
     this(0D, DEFAULT_MAX_VALUE, scale, null);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MDOUBLE_C2,
+  @JMockConstructor(descI18nKey = DOC_DOUBLE_C2,
       example = "@Double(\"1:2\")",
       exampleValues = {"89.90", "null", "999.90"})
   public MDouble(String nullWeight) {
     this(0D, DEFAULT_MAX_VALUE, DEFAULT_SCALE_VALUE, nullWeight);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MDOUBLE_C3,
+  @JMockConstructor(descI18nKey = DOC_DOUBLE_C3,
       example = "@Double(88,999999)",
       exampleValues = {"99.99", "899.99", "7865.09"})
   public MDouble(Double min, Double max) {
     this(min, max, null);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MDOUBLE_C5,
+  @JMockConstructor(descI18nKey = DOC_DOUBLE_C5,
       example = "@Double(88,99999,4,\"1:2\")",
       exampleValues = {"888.9087", "null", "666.9087"})
   public MDouble(Double min, Double max, Integer scale) {
@@ -105,7 +105,7 @@ public class MDouble extends AbstractMockFunction {
    *                   mstring 10 times and an average of 1 time is null, and the default is not
    *                   empty
    */
-  @JMockConstructor(descI18nKey = DOC_MDOUBLE_C6,
+  @JMockConstructor(descI18nKey = DOC_DOUBLE_C6,
       example = "@Double(88,99999,4,\"1:2\")",
       exampleValues = {"888.9087", "null", "666.9087"})
   public MDouble(Double min, Double max, Integer scale, String nullWeight) {

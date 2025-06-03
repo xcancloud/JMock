@@ -1,10 +1,10 @@
 package cloud.xcan.jmock.core.function.article;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_ARTICLE;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MSENTENCE_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MSENTENCE_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MSENTENCE_C3;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MSENTENCE_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_SENTENCE_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_SENTENCE_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_SENTENCE_C3;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_SENTENCE_DESC;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_DICT;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
 
@@ -27,7 +27,7 @@ import org.apache.commons.lang3.ObjectUtils;
  */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MSENTENCE_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_SENTENCE_DESC,
     categoryI18nKey = {DOC_CATEGORY_ARTICLE}, order = 403)
 public class MSentence extends AbstractMockFunction {
 
@@ -42,21 +42,21 @@ public class MSentence extends AbstractMockFunction {
    */
   final static Locale DEFAULT_LOCAL_VALUE = Locale.CHINA;
 
-  @JMockConstructor(descI18nKey = DOC_MSENTENCE_C1,
+  @JMockConstructor(descI18nKey = DOC_SENTENCE_C1,
       example = "@Sentence()",
       exampleValues = {"好好学习"})
   public MSentence() {
     this(DEFAULT_LOCAL_VALUE);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MSENTENCE_C2,
+  @JMockConstructor(descI18nKey = DOC_SENTENCE_C2,
       example = "@Sentence(zh_CN)",
       exampleValues = {"好好学习"})
   public MSentence(Locale locale) {
     this(locale, null);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MSENTENCE_C3,
+  @JMockConstructor(descI18nKey = DOC_SENTENCE_C3,
       example = "@Sentence(好好学习|天天向上)",
       exampleValues = {"天天向上"})
   public MSentence(String dict) {

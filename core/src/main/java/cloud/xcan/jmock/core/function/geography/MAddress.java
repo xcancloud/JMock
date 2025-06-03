@@ -1,10 +1,10 @@
 package cloud.xcan.jmock.core.function.geography;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_GEOGRAPHY;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MADDRESS_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MADDRESS_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MADDRESS_C3;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MADDRESS_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ADDRESS_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ADDRESS_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ADDRESS_C3;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ADDRESS_DESC;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_DICT;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
 import static java.util.Locale.CHINA;
@@ -26,7 +26,7 @@ import lombok.Setter;
 */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MADDRESS_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_ADDRESS_DESC,
     categoryI18nKey = {DOC_CATEGORY_GEOGRAPHY}, order = 504)
 public class MAddress extends AbstractMockFunction {
 
@@ -38,7 +38,7 @@ public class MAddress extends AbstractMockFunction {
 
   private transient String[] dictArray;
 
-  @JMockConstructor(descI18nKey = DOC_MADDRESS_C1,
+  @JMockConstructor(descI18nKey = DOC_ADDRESS_C1,
       example = "@Address()",
       exampleValues = {"恩施土家族苗族自治州利川市", "上海市浦东新区迎宾大道6000号"}
   )
@@ -46,7 +46,7 @@ public class MAddress extends AbstractMockFunction {
     this(CHINA);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MADDRESS_C2,
+  @JMockConstructor(descI18nKey = DOC_ADDRESS_C2,
       example = "@Address(en)",
       exampleValues = {"1112 Hermitage Rd NW, Edmonton, AB T5A 4M4",
           "Gangwon-do, Yeongweol, Yeongwol-eup, Hasong-ri, 217-2"}
@@ -56,7 +56,7 @@ public class MAddress extends AbstractMockFunction {
     this.dictArray = province.split("\\|");
   }
 
-  @JMockConstructor(descI18nKey = DOC_MADDRESS_C3,
+  @JMockConstructor(descI18nKey = DOC_ADDRESS_C3,
       example = "@Address(地址1|地址2|地址3))",
       exampleValues = {"地址3", "地址1"}
   )

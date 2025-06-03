@@ -1,10 +1,10 @@
 package cloud.xcan.jmock.core.function.basic;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_BASIC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MREGEXP_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MREGEXP_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MREGEXP_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MREGEXP_PARAMETER_REGEXP;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_REGEXP_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_REGEXP_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_REGEXP_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_REGEXP_PARAMETER_REGEXP;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_NULL_WEIGHT;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_UNACCEPTABLE_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_WEIGHT_T;
@@ -29,11 +29,11 @@ import org.apache.commons.lang3.StringUtils;
  */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MREGEXP_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_REGEXP_DESC,
     categoryI18nKey = {DOC_CATEGORY_BASIC}, order = 110)
 public class MRegExp extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_MREGEXP_PARAMETER_REGEXP)
+  @JMockParameter(descI18nKey = DOC_REGEXP_PARAMETER_REGEXP)
   private String regexp;
 
   @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT)
@@ -44,14 +44,14 @@ public class MRegExp extends AbstractMockFunction {
   public MRegExp() {
   }
 
-  @JMockConstructor(descI18nKey = DOC_MREGEXP_C1,
+  @JMockConstructor(descI18nKey = DOC_REGEXP_C1,
       example = "@RegExp([a-z][a-z][0-9])",
       exampleValues = {"kK8", "Cs9"})
   public MRegExp(String regexp) {
     this(regexp, null);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MREGEXP_C2,
+  @JMockConstructor(descI18nKey = DOC_REGEXP_C2,
       example = "@RegExp([a-z][a-z][0-9],1:2)",
       exampleValues = {"kK8", "null"})
   public MRegExp(String regexp, String nullWeight) {

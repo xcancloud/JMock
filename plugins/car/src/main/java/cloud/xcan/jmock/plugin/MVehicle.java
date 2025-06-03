@@ -1,9 +1,9 @@
 package cloud.xcan.jmock.plugin;
 
 import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_CAR;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_MPLATE_C1;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_MVEHICLE_C1;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_MVEHICLE_DESC;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_PLATE_C1;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_VEHICLE_C1;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_VEHICLE_DESC;
 import static cloud.xcan.jmock.plugin.MBrand.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
@@ -12,7 +12,7 @@ import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.Arrays;
 import java.util.List;
 
-@JMockFunctionRegister(descI18nKey = DOC_MVEHICLE_DESC, categoryI18nKey = {
+@JMockFunctionRegister(descI18nKey = DOC_VEHICLE_DESC, categoryI18nKey = {
     DOC_CATEGORY_CAR}, order = 2006)
 public class MVehicle extends AbstractMockFunction {
 
@@ -22,7 +22,7 @@ public class MVehicle extends AbstractMockFunction {
       "Station Wagon", "Pickup Truck", "Compact Car", "Luxury Car", "Hybrid Vehicle"
   );
 
-  @JMockConstructor(descI18nKey = DOC_MVEHICLE_C1,
+  @JMockConstructor(descI18nKey = DOC_VEHICLE_C1,
       example = "@Vehicle()",
       exampleValues = {"Coupe", "SUV", "Station Wagon"})
   public MVehicle() {

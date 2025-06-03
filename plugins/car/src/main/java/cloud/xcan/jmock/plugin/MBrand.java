@@ -1,9 +1,9 @@
 package cloud.xcan.jmock.plugin;
 
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MWORD_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_WORD_C1;
 import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_CAR;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_MBRAND_C1;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_MBRAND_DESC;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_BRAND_C1;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_BRAND_DESC;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
@@ -12,7 +12,7 @@ import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.List;
 
-@JMockFunctionRegister(descI18nKey = DOC_MBRAND_DESC, categoryI18nKey = {
+@JMockFunctionRegister(descI18nKey = DOC_BRAND_DESC, categoryI18nKey = {
     DOC_CATEGORY_CAR}, order = 2001)
 public class MBrand extends AbstractMockFunction {
 
@@ -32,7 +32,7 @@ public class MBrand extends AbstractMockFunction {
       "Peugeot", "Renault", "Fiat", "Jeep", "Lexus"
   );
 
-  @JMockConstructor(descI18nKey = DOC_MBRAND_C1,
+  @JMockConstructor(descI18nKey = DOC_BRAND_C1,
       example = "@Brand()",
       exampleValues = {"Peugeot", "Nissan", "Chery"})
   public MBrand() {

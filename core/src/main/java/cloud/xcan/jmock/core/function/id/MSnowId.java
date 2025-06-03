@@ -1,11 +1,11 @@
 package cloud.xcan.jmock.core.function.id;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_ID;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MSNOWID_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MSNOWID_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MSNOWID_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MSNOWID_PARAMETER_DCID;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MSNOWID_PARAMETER_MID;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_SNOWID_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_SNOWID_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_SNOWID_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_SNOWID_PARAMETER_DCID;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_SNOWID_PARAMETER_MID;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
@@ -21,14 +21,14 @@ import lombok.Setter;
 */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MSNOWID_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_SNOWID_DESC,
     categoryI18nKey = {DOC_CATEGORY_ID}, order = 304)
 public class MSnowId extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_MSNOWID_PARAMETER_DCID)
+  @JMockParameter(descI18nKey = DOC_SNOWID_PARAMETER_DCID)
   private long dcId;
 
-  @JMockParameter(descI18nKey = DOC_MSNOWID_PARAMETER_MID)
+  @JMockParameter(descI18nKey = DOC_SNOWID_PARAMETER_MID)
   private long mId;
 
   private final static Integer DEFAULT_DC_ID = 1;
@@ -41,14 +41,14 @@ public class MSnowId extends AbstractMockFunction {
 
   private SnowIdUtils snowIdUtils;
 
-  @JMockConstructor(descI18nKey = DOC_MSNOWID_C1,
+  @JMockConstructor(descI18nKey = DOC_SNOWID_C1,
       example = "@SnowId()",
       exampleValues = {"16685359784"})
   public MSnowId() {
     this(DEFAULT_DC_ID, DEFAULT_M_ID);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MSNOWID_C2,
+  @JMockConstructor(descI18nKey = DOC_SNOWID_C2,
       example = "@SnowId(1,1)",
       exampleValues = {"16685359784"})
   public MSnowId(Integer dcId, Integer mid) {

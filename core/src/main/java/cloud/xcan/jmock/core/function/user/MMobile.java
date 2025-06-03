@@ -1,9 +1,9 @@
 package cloud.xcan.jmock.core.function.user;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_USER;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MMOBILE_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MMOBILE_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MMOBILE_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MOBILE_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MOBILE_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MOBILE_DESC;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
 import static cloud.xcan.jmock.core.support.utils.RandomStringUtils.randomNum;
 import static java.util.Locale.CHINA;
@@ -24,7 +24,7 @@ import lombok.Setter;
 */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MMOBILE_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_MOBILE_DESC,
     categoryI18nKey = {DOC_CATEGORY_USER}, order = 805)
 public class MMobile extends AbstractMockFunction {
 
@@ -45,14 +45,14 @@ public class MMobile extends AbstractMockFunction {
 
   private String[] dictArray;
 
-  @JMockConstructor(descI18nKey = DOC_MMOBILE_C1,
+  @JMockConstructor(descI18nKey = DOC_MOBILE_C1,
       example = "@Mobile()",
       exampleValues = {"13293932848", "18764113305"})
   public MMobile() {
     this(CHINA);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MMOBILE_C2,
+  @JMockConstructor(descI18nKey = DOC_MOBILE_C2,
       example = "@Mobile(en)",
       exampleValues = {"07790421505", "07866557530"})
   public MMobile(Locale locale) {

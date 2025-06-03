@@ -1,8 +1,8 @@
 package cloud.xcan.jmock.core.function.web;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_WEB;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MEMOJI_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MEMOJI_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_EMOJI_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_EMOJI_DESC;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
@@ -16,11 +16,11 @@ import lombok.Setter;
  */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MEMOJI_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_EMOJI_DESC,
     categoryI18nKey = {DOC_CATEGORY_WEB}, order = 1001)
 public class MEmoji extends AbstractMockFunction {
 
-  @JMockConstructor(descI18nKey = DOC_MEMOJI_C1,
+  @JMockConstructor(descI18nKey = DOC_EMOJI_C1,
       example = "@Emoji()",
       exampleValues = {"\uD83D\uDE05", "\uD83D\uDE18"})
   public MEmoji() {

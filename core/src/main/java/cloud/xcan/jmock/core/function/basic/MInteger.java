@@ -1,13 +1,13 @@
 package cloud.xcan.jmock.core.function.basic;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_BASIC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MINTEGER_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MINTEGER_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MINTEGER_C3;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MINTEGER_C4;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MINTEGER_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MINTEGER_PARAMETER_MAX;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MINTEGER_PARAMETER_MIN;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_INTEGER_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_INTEGER_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_INTEGER_C3;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_INTEGER_C4;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_INTEGER_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_INTEGER_PARAMETER_MAX;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_INTEGER_PARAMETER_MIN;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_NULL_WEIGHT;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MAX_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MIN_T;
@@ -29,14 +29,14 @@ import lombok.Setter;
  */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MINTEGER_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_INTEGER_DESC,
     categoryI18nKey = {DOC_CATEGORY_BASIC}, order = 102)
 public class MInteger extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_MINTEGER_PARAMETER_MIN)
+  @JMockParameter(descI18nKey = DOC_INTEGER_PARAMETER_MIN)
   private int min;
 
-  @JMockParameter(descI18nKey = DOC_MINTEGER_PARAMETER_MAX)
+  @JMockParameter(descI18nKey = DOC_INTEGER_PARAMETER_MAX)
   private int max;
 
   @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT)
@@ -47,21 +47,21 @@ public class MInteger extends AbstractMockFunction {
    */
   final static int DEFAULT_MAX_VALUE = Integer.MAX_VALUE;
 
-  @JMockConstructor(descI18nKey = DOC_MINTEGER_C1,
+  @JMockConstructor(descI18nKey = DOC_INTEGER_C1,
       example = "@Integer()", exampleValues = {"666", "8888"}
   )
   public MInteger() {
     this(null);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MINTEGER_C2,
+  @JMockConstructor(descI18nKey = DOC_INTEGER_C2,
       example = "@Integer(\"1:2\")", exampleValues = {"8760182", "237", "null"}
   )
   public MInteger(String nullWeight) {
     this(0, DEFAULT_MAX_VALUE, nullWeight);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MINTEGER_C3,
+  @JMockConstructor(descI18nKey = DOC_INTEGER_C3,
       example = "@Integer(100,200)", exampleValues = {"162", "133", "191"}
   )
   public MInteger(Integer min, Integer max) {
@@ -78,7 +78,7 @@ public class MInteger extends AbstractMockFunction {
    * @param nullWeight a ratio of null, such as value: "1:9", which means that a random mstring is
    *                   generated 10 times and an average of 1 is null
    */
-  @JMockConstructor(descI18nKey = DOC_MINTEGER_C4,
+  @JMockConstructor(descI18nKey = DOC_INTEGER_C4,
       example = "@Integer(-100000,100000,\"1:3\")", exampleValues = {"-7811", "null", "78732",
       "12909", "76028"}
   )

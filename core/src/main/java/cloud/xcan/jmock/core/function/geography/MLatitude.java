@@ -1,12 +1,12 @@
 package cloud.xcan.jmock.core.function.geography;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_GEOGRAPHY;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MCOORDINATES_PARAMETER_MAX_LAT;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MCOORDINATES_PARAMETER_MIN_LAT;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MCOORDINATES_PARAMETER_SCALE;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLATITUDE_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLATITUDE_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MLATITUDE_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_COORDINATES_PARAMETER_MAX_LAT;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_COORDINATES_PARAMETER_MIN_LAT;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_COORDINATES_PARAMETER_SCALE;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LATITUDE_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LATITUDE_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_LATITUDE_DESC;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_NULL_WEIGHT;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MAX_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MIN_T;
@@ -32,17 +32,17 @@ import org.apache.commons.lang3.ObjectUtils;
 */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MLATITUDE_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_LATITUDE_DESC,
     categoryI18nKey = {DOC_CATEGORY_GEOGRAPHY}, order = 511)
 public class MLatitude extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_MCOORDINATES_PARAMETER_MIN_LAT)
+  @JMockParameter(descI18nKey = DOC_COORDINATES_PARAMETER_MIN_LAT)
   private double minLat;
 
-  @JMockParameter(descI18nKey = DOC_MCOORDINATES_PARAMETER_MAX_LAT)
+  @JMockParameter(descI18nKey = DOC_COORDINATES_PARAMETER_MAX_LAT)
   private double maxLat;
 
-  @JMockParameter(descI18nKey = DOC_MCOORDINATES_PARAMETER_SCALE)
+  @JMockParameter(descI18nKey = DOC_COORDINATES_PARAMETER_SCALE)
   private Integer scale;
 
   @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT)
@@ -62,14 +62,14 @@ public class MLatitude extends AbstractMockFunction {
 
   final static int MIN_SCALE_VALUE = 0;
 
-  @JMockConstructor(descI18nKey = DOC_MLATITUDE_C1,
+  @JMockConstructor(descI18nKey = DOC_LATITUDE_C1,
       example = "@Latitude()",
       exampleValues = {"90.232121"})
   public MLatitude() {
     this(DEFAULT_MIN_LAT_VALUE, DEFAULT_MAX_LAT_VALUE, DEFAULT_SCALE_VALUE, null);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MLATITUDE_C2,
+  @JMockConstructor(descI18nKey = DOC_LATITUDE_C2,
       example = "@Latitude(30,60,5,1:2)",
       exampleValues = {"40.336546"})
   public MLatitude(Double minLat, Double maxLat, Integer scale, String nullWeight) {

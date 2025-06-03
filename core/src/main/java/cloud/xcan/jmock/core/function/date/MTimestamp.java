@@ -2,10 +2,10 @@ package cloud.xcan.jmock.core.function.date;
 
 import static cloud.xcan.angus.spec.utils.ObjectUtils.nullSafe;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_DATE;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MTIMESTAMP_C1;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MTIMESTAMP_C2;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MTIMESTAMP_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_MTIMESTAMP_PARAMETER_UNIX;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_TIMESTAMP_C1;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_TIMESTAMP_C2;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_TIMESTAMP_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_TIMESTAMP_PARAMETER_UNIX;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
@@ -20,21 +20,21 @@ import lombok.Setter;
 */
 @Setter
 @Getter
-@JMockFunctionRegister(descI18nKey = DOC_MTIMESTAMP_DESC,
+@JMockFunctionRegister(descI18nKey = DOC_TIMESTAMP_DESC,
     categoryI18nKey = {DOC_CATEGORY_DATE}, order = 201)
 public class MTimestamp extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_MTIMESTAMP_PARAMETER_UNIX)
+  @JMockParameter(descI18nKey = DOC_TIMESTAMP_PARAMETER_UNIX)
   private Boolean unix;
 
-  @JMockConstructor(descI18nKey = DOC_MTIMESTAMP_C1,
+  @JMockConstructor(descI18nKey = DOC_TIMESTAMP_C1,
       example = "@Timestamp()",
       exampleValues = {"1653432546438"})
   public MTimestamp() {
     this(false);
   }
 
-  @JMockConstructor(descI18nKey = DOC_MTIMESTAMP_C2,
+  @JMockConstructor(descI18nKey = DOC_TIMESTAMP_C2,
       example = "@Timestamp()",
       exampleValues = {"1653432546438"})
   public MTimestamp(Boolean unix) {

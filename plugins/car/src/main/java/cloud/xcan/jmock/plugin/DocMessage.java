@@ -13,22 +13,22 @@ public class DocMessage {
    */
   public final static String DOC_CATEGORY_CAR = "jmock.func.category.car";
 
-  public final static String DOC_MBRAND_DESC = "jmock.func.MBrand.description";
-  public final static String DOC_MBRAND_C1 = "jmock.func.MBrand.C1";
+  public final static String DOC_BRAND_DESC = "jmock.func.MBrand.description";
+  public final static String DOC_BRAND_C1 = "jmock.func.MBrand.C1";
 
-  public final static String DOC_MDRIVETRAIN_DESC = "jmock.func.MDrivetrain.description";
-  public final static String DOC_MDRIVETRAIN_C1 = "jmock.func.MDrivetrain.C1";
+  public final static String DOC_DRIVETRAIN_DESC = "jmock.func.MDrivetrain.description";
+  public final static String DOC_DRIVETRAIN_C1 = "jmock.func.MDrivetrain.C1";
 
-  public final static String DOC_MENGINE_DESC = "jmock.func.MEngine.description";
-  public final static String DOC_MENGINE_C1 = "jmock.func.MEngine.C1";
+  public final static String DOC_ENGINE_DESC = "jmock.func.MEngine.description";
+  public final static String DOC_ENGINE_C1 = "jmock.func.MEngine.C1";
 
-  public final static String DOC_MHORSEPOWER_DESC = "jmock.func.MHorsepower.description";
-  public final static String DOC_MHORSEPOWER_C1 = "jmock.func.MHorsepower.C1";
+  public final static String DOC_HORSEPOWER_DESC = "jmock.func.MHorsepower.description";
+  public final static String DOC_HORSEPOWER_C1 = "jmock.func.MHorsepower.C1";
 
-  public final static String DOC_MPLATE_DESC = "jmock.func.MPlate.description";
-  public final static String DOC_MPLATE_C1 = "jmock.func.MPlate.C1";
+  public final static String DOC_PLATE_DESC = "jmock.func.MPlate.description";
+  public final static String DOC_PLATE_C1 = "jmock.func.MPlate.C1";
 
-  public final static String DOC_MVEHICLE_DESC = "jmock.func.MVehicle.description";
-  public final static String DOC_MVEHICLE_C1 = "jmock.func.MVehicle.C1";
+  public final static String DOC_VEHICLE_DESC = "jmock.func.MVehicle.description";
+  public final static String DOC_VEHICLE_C1 = "jmock.func.MVehicle.C1";
 
 }
