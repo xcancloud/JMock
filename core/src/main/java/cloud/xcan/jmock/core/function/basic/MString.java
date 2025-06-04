@@ -1,6 +1,7 @@
 package cloud.xcan.jmock.core.function.basic;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_BASIC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_NULL_WEIGHT;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_STRING_C1;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_STRING_C2;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_STRING_C3;
@@ -11,7 +12,6 @@ import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_STRING_PARAMETER
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_STRING_PARAMETER_LENGTH;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_STRING_PARAMETER_MAX;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_STRING_PARAMETER_MIN;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_NULL_WEIGHT;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MAX_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MIN_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_WEIGHT_T;

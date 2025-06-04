@@ -1,11 +1,11 @@
 package cloud.xcan.jmock.core.function.user;
 
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_USER;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_AGE_C1;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_AGE_C2;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_AGE_DESC;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_AGE_PARAMETER_MAX;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_AGE_PARAMETER_MIN;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_USER;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MAX_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_MIN_T;
 

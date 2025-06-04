@@ -1,12 +1,12 @@
 package cloud.xcan.jmock.core.function.geography;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_GEOGRAPHY;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_DICT;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PROVINCE_C1;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PROVINCE_C2;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PROVINCE_C3;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PROVINCE_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_DICT;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
 import static java.util.Locale.CHINA;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;

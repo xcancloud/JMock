@@ -11,7 +11,7 @@
     <version>1.0.0</version>
   </parent>
 
-  <artifactId>compute-plugin</artifactId>
+  <artifactId>xcan-jmock.compute-plugin</artifactId>
   <name>JMock :: Plugin :: News</name>
   <packaging>jar</packaging>
 

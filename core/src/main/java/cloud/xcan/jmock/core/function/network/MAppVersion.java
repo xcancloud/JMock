@@ -1,6 +1,5 @@
 package cloud.xcan.jmock.core.function.network;
 
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_NETWORK;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_APP_VERSION_C1;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_APP_VERSION_C2;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_APP_VERSION_C3;
@@ -9,6 +8,7 @@ import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_APP_VERSION_DESC
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_APP_VERSION_PARAMETER_BUILD_STATE_DICT;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_APP_VERSION_PARAMETER_PREFIX_DICT;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_APP_VERSION_PARAMETER_RELEASE_STATE_DICT;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_NETWORK;
 import static cloud.xcan.jmock.core.support.utils.AppVersionUtils.appVersion;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;

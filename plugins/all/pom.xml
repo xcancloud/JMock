@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>cloud.xcan.jmock</groupId>
+    <artifactId>xcan-jmock.plugins</artifactId>
+    <version>1.0.0</version>
+  </parent>
+
+  <artifactId>xcan-jmock.all-plugin</artifactId>
+
+  <dependencies>
+    <dependency>
+      <groupId>cloud.xcan.jmock</groupId>
+      <artifactId>xcan-jmock.car-plugin</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>cloud.xcan.jmock</groupId>
+      <artifactId>xcan-jmock.code-plugin</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>cloud.xcan.jmock</groupId>
+      <artifactId>xcan-jmock.company-plugin</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>cloud.xcan.jmock</groupId>
+      <artifactId>xcan-jmock.crypto-plugin</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>cloud.xcan.jmock</groupId>
+      <artifactId>xcan-jmock.financial-plugin</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>cloud.xcan.jmock</groupId>
+      <artifactId>xcan-jmock.compute-plugin</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
+
+</project>

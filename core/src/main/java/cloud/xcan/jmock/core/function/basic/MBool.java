@@ -1,6 +1,5 @@
 package cloud.xcan.jmock.core.function.basic;
 
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_BASIC;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_BOOL_C1;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_BOOL_C2;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_BOOL_C3;
@@ -8,6 +7,7 @@ import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_BOOL_C4;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_BOOL_DESC;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_BOOL_PARAMETER_DICT;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_BOOL_PARAMETER_TRUE_WEIGHT;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_BASIC;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_NULL_WEIGHT;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_UNACCEPTABLE_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_WEIGHT_T;

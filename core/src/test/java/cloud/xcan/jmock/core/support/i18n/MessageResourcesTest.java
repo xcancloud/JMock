@@ -1,8 +1,6 @@
 package cloud.xcan.jmock.core.support.i18n;
 
 
-import static cloud.xcan.jmock.api.i18n.MessageResources.RESOURCE_BUNDLE;
-
 import cloud.xcan.jmock.api.i18n.MessageResources;
 import java.util.Locale;
 import java.util.ResourceBundle;

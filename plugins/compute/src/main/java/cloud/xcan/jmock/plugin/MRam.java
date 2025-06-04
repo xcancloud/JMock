@@ -1,7 +1,6 @@
 package cloud.xcan.jmock.plugin;
 
 import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_COMPUTE;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_OS_C1;
 import static cloud.xcan.jmock.plugin.DocMessage.DOC_RAM_C1;
 import static cloud.xcan.jmock.plugin.DocMessage.DOC_RAM_DESC;
 import static cloud.xcan.jmock.plugin.MBrowser.random;

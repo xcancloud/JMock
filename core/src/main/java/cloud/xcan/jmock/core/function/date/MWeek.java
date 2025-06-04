@@ -1,10 +1,10 @@
 package cloud.xcan.jmock.core.function.date;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_DATE;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_WEEK_C1;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_WEEK_C2;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_WEEK_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;

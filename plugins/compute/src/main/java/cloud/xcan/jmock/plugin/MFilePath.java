@@ -1,8 +1,6 @@
 package cloud.xcan.jmock.plugin;
 
 import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_COMPUTE;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_FILENAME_C1;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_FILENAME_DESC;
 import static cloud.xcan.jmock.plugin.DocMessage.DOC_FILE_PATH_C1;
 import static cloud.xcan.jmock.plugin.DocMessage.DOC_FILE_PATH_DESC;
 import static cloud.xcan.jmock.plugin.MBrowser.random;

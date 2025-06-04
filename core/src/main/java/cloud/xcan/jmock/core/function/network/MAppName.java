@@ -1,9 +1,9 @@
 package cloud.xcan.jmock.core.function.network;
 
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_NETWORK;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_APP_NAME_C1;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_APP_NAME_C2;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_APP_NAME_DESC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_NETWORK;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_DICT;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;

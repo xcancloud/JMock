@@ -1,7 +1,6 @@
 package cloud.xcan.jmock.plugin;
 
 import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_CAR;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_PLATE_C1;
 import static cloud.xcan.jmock.plugin.DocMessage.DOC_VEHICLE_C1;
 import static cloud.xcan.jmock.plugin.DocMessage.DOC_VEHICLE_DESC;
 import static cloud.xcan.jmock.plugin.MBrand.random;

@@ -1,12 +1,12 @@
 package cloud.xcan.jmock.core.function.article;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_ARTICLE;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_DICT;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_SENTENCE_C1;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_SENTENCE_C2;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_SENTENCE_C3;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_SENTENCE_DESC;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_DICT;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;

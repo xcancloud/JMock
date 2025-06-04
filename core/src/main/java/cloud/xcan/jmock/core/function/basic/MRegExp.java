@@ -1,11 +1,11 @@
 package cloud.xcan.jmock.core.function.basic;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_BASIC;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_NULL_WEIGHT;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_REGEXP_C1;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_REGEXP_C2;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_REGEXP_DESC;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_REGEXP_PARAMETER_REGEXP;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_NULL_WEIGHT;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_UNACCEPTABLE_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_WEIGHT_T;
 import static cloud.xcan.jmock.core.support.utils.RandomStringUtils.randomRegexp;

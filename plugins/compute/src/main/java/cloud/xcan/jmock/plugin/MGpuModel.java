@@ -1,7 +1,6 @@
 package cloud.xcan.jmock.plugin;
 
 import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_COMPUTE;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_FRAMEWORK_C1;
 import static cloud.xcan.jmock.plugin.DocMessage.DOC_GPU_MODEL_C1;
 import static cloud.xcan.jmock.plugin.DocMessage.DOC_GPU_MODEL_DESC;
 

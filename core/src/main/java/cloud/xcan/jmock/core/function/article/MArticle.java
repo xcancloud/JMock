@@ -2,7 +2,6 @@ package cloud.xcan.jmock.core.function.article;
 
 import static cloud.xcan.angus.spec.utils.ObjectUtils.nullSafe;
 import static cloud.xcan.angus.spec.utils.ObjectUtils.stringSafe;
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_ARTICLE;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ARTICLE_C1;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ARTICLE_C2;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ARTICLE_C3;
@@ -10,6 +9,7 @@ import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ARTICLE_C4;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ARTICLE_DESC;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ARTICLE_PARAMETER_PARAGRAPH_COUNT;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_ARTICLE_PARAMETER_WORD_COUNT;
+import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_CATEGORY_ARTICLE;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
 import static cloud.xcan.jmock.api.i18n.MessageResources.getString;
 import static java.util.Locale.CHINA;

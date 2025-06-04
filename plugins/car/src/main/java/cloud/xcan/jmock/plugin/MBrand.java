@@ -1,9 +1,8 @@
 package cloud.xcan.jmock.plugin;
 
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_WORD_C1;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_CAR;
 import static cloud.xcan.jmock.plugin.DocMessage.DOC_BRAND_C1;
 import static cloud.xcan.jmock.plugin.DocMessage.DOC_BRAND_DESC;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_CAR;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
