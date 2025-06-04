@@ -1,8 +1,17 @@
 package cloud.xcan.jmock.plugin;
 
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_CRYPTO;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_KEY_PAIR_C1;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_KEY_PAIR_C2;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_KEY_PAIR_DESC;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_KEY_PAIR_PARAMETER_ALGORITHM;
+import static cloud.xcan.jmock.plugin.DocMessage.DOC_KEY_PAIR_PARAMETER_KEY_SIZE;
 import static cloud.xcan.jmock.plugin.MSymmetricKey.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
+import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
+import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -12,15 +21,60 @@ import java.security.PublicKey;
 import java.security.spec.ECGenParameterSpec;
 import java.util.Base64;
 
+@JMockFunctionRegister(descI18nKey = DOC_KEY_PAIR_DESC,
+    categoryI18nKey = {DOC_CATEGORY_CRYPTO}, order = 6004)
 public class MKeyPair extends AbstractMockFunction {
 
+  @JMockParameter(descI18nKey = DOC_KEY_PAIR_PARAMETER_ALGORITHM)
   private final String algorithm;
+
+  @JMockParameter(descI18nKey = DOC_KEY_PAIR_PARAMETER_KEY_SIZE)
   private final int keySize;
 
+  @JMockConstructor(descI18nKey = DOC_KEY_PAIR_C1,
+      example = "@KeyPair()",
+      exampleValues = {"""
+          Public Key:
+          -----BEGIN PUBLIC KEY-----
+          MF0wDQYJKoZIhvcNAQEBBQADTAAwSQJCINq6aF16xfELo/7qNjGxYCiBjMWvGCSi
+          uIWuel3qr/6y5tEaSF28kt9kuXUH+WRSiBRkjMlh+2Msi0BQPamOR6F5AgMBAAE=
+          -----END PUBLIC KEY-----
+
+          Private Key:
+          -----BEGIN PRIVATE KEY-----
+          MIIBWQIBADANBgkqhkiG9w0BAQEFAASCAUMwggE/AgEAAkIg2rpoXXrF8Quj/uo2
+          MbFgKIGMxa8YJKK4ha56Xeqv/rLm0RpIXbyS32S5dQf5ZFKIFGSMyWH7YyyLQFA9
+          qY5HoXkCAwEAAQJCCBBHEhhnaq+nsL9/EoANzdEDQt6+A8nyGiHNWgE0+a8kYlGd
+          gqIU54IkjxvCW+j2alI045v2O4g0g2YYVwjkxnuRAiFSJDI3zxKV2kjM8iMv4E2K
+          utyrI/U/7J1TVCHFJAYjJN0CIWZkr1aLQ/YAIGBOmqBegGjRHbpy5UzDoyKN6yFl
+          j4mHTQIhMQYdWqWhyAIRdRAG5CoQ3X2M+i9pzg8gDn2l8g0ABLWZAiFH7IOphAvJ
+          +g7D95LwAVGrzvBV7q0Y/fdSp2O5wtBPp6UCIU4MJyqLslRHwBgg/bFbp+oH8YjR
+          m8UhZPMtr2RsE1i52g==
+          -----END PRIVATE KEY-----"""})
   public MKeyPair() {
-    this("RSA", 256);
+    this("RSA", 526);
   }
 
+  @JMockConstructor(descI18nKey = DOC_KEY_PAIR_C2,
+      example = "@KeyPair(EC,256)",
+      exampleValues = {"""
+          Public Key:
+          -----BEGIN PUBLIC KEY-----
+          MF0wDQYJKoZIhvcNAQEBBQADTAAwSQJCNFUTq6yj/nhluxtj+sRNFl2L/AGuDNUs
+          hw8gdRcQBPShH0Q+wlxjLLESu2EXHpvtCgRVUajCV240WRy9hhis5HdPAgMBAAE=
+          -----END PUBLIC KEY-----
+
+          Private Key:
+          -----BEGIN PRIVATE KEY-----
+          MIIBWQIBADANBgkqhkiG9w0BAQEFAASCAUMwggE/AgEAAkI0VROrrKP+eGW7G2P6
+          xE0WXYv8Aa4M1SyHDyB1FxAE9KEfRD7CXGMssRK7YRcem+0KBFVRqMJXbjRZHL2G
+          GKzkd08CAwEAAQJCB0mjvCAGFG1iyVwmn6jPjWJImLcJLGtRUJuYKwYjqnUAjLYC
+          /7JjZpZ8z+6QBxXV9tz5ynIAccbRkxpCnqEQC/QlAiF+BDX++1uoOnLvfQHb0mN0
+          4R47FXCCJv1SmHVjUpVv55UCIWpP55219mvomEuXyaXAi8PQkzULNZCTbnRvndil
+          ZOpaUwIhNthIU9g79QSzPy4N4Ak6BgVwLdDP7aVgfVEjTf4EUfbdAiFMWpkyFwcl
+          10bSO/Dyn8iB2aJwXV2aOZkB/Uwz1g4VlssCIX2TEF/qTyy4PAGQUwNeGIWo4h6a
+          yOf7XXnOoEYUPaP2gw==
+          -----END PRIVATE KEY-----"""})
   public MKeyPair(String algorithm, int keySize) {
     this.algorithm = algorithm;
     this.keySize = keySize;
