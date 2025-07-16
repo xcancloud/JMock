@@ -24,6 +24,12 @@
     </dependency>
 
     <dependency>
+      <groupId>cloud.xcan.jmock</groupId>
+      <artifactId>xcan-jmock.all-plugin</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
       <groupId>com.github.mifmif</groupId>
       <artifactId>generex</artifactId>
       <version>${generex.version}</version>

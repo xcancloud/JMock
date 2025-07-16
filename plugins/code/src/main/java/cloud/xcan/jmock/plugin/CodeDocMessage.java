@@ -1,12 +1,9 @@
 package cloud.xcan.jmock.plugin;
 
 import cloud.xcan.jmock.api.i18n.MessageResources;
+import cloud.xcan.jmock.api.i18n.RegisterDocMessage;
 
-public class DocMessage {
-
-  static {
-    MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-code-plugin-messages");
-  }
+public class CodeDocMessage implements RegisterDocMessage {
 
   /**
    * Coding order by 30xx.
@@ -30,4 +27,8 @@ public class DocMessage {
   public final static String DOC_PROGRAMMING_LANGUAGE_DESC = "jmock.func.MProgrammingLanguage.description";
   public final static String DOC_PROGRAMMING_LANGUAGE_C1 = "jmock.func.MProgrammingLanguage.C1";
 
+  @Override
+  public void register() {
+    MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-code-plugin-messages");
+  }
 }

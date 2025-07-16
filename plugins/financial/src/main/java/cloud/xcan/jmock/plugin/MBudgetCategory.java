@@ -1,10 +1,10 @@
 package cloud.xcan.jmock.plugin;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_BUDGET_CATEGORY_C1;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_BUDGET_CATEGORY_C2;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_BUDGET_CATEGORY_DESC;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_FINANCIAL;
+import static cloud.xcan.jmock.plugin.FinancialDocMessage.DOC_BUDGET_CATEGORY_C1;
+import static cloud.xcan.jmock.plugin.FinancialDocMessage.DOC_BUDGET_CATEGORY_C2;
+import static cloud.xcan.jmock.plugin.FinancialDocMessage.DOC_BUDGET_CATEGORY_DESC;
+import static cloud.xcan.jmock.plugin.FinancialDocMessage.DOC_CATEGORY_FINANCIAL;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
@@ -29,8 +29,7 @@ public class MBudgetCategory extends AbstractMockFunction {
       Locale.ENGLISH, Arrays.asList(
           "Salaries & Wages", "Marketing", "R&D Expenses", "Administrative", "Equipment",
           "Travel & Reimbursement", "Training", "Office Supplies", "Software Licenses",
-          "Consulting",
-          "Taxes", "Rent & Utilities", "Insurance", "Depreciation", "Miscellaneous"
+          "Consulting", "Taxes", "Rent & Utilities", "Insurance", "Depreciation", "Miscellaneous"
       )
   );
 

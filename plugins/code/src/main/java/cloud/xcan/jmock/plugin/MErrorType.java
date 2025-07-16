@@ -1,9 +1,9 @@
 package cloud.xcan.jmock.plugin;
 
 
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_CODE;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_ERROR_TYPE_C1;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_ERROR_TYPE_DESC;
+import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_CATEGORY_CODE;
+import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_ERROR_TYPE_C1;
+import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_ERROR_TYPE_DESC;
 import static cloud.xcan.jmock.plugin.MCodeSnippet.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;

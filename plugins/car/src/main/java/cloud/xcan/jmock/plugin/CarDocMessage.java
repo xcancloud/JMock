@@ -1,12 +1,9 @@
 package cloud.xcan.jmock.plugin;
 
 import cloud.xcan.jmock.api.i18n.MessageResources;
+import cloud.xcan.jmock.api.i18n.RegisterDocMessage;
 
-public class DocMessage {
-
-  static {
-    MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-car-plugin-messages");
-  }
+public class CarDocMessage implements RegisterDocMessage {
 
   /**
    * Coding order by 20xx.
@@ -31,4 +28,8 @@ public class DocMessage {
   public final static String DOC_VEHICLE_DESC = "jmock.func.MVehicle.description";
   public final static String DOC_VEHICLE_C1 = "jmock.func.MVehicle.C1";
 
+  @Override
+  public void register() {
+    MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-car-plugin-messages");
+  }
 }

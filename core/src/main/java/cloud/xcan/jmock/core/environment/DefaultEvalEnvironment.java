@@ -8,6 +8,7 @@ import static java.util.Objects.nonNull;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.MockFunction;
+import cloud.xcan.jmock.api.i18n.RegisterDocMessage;
 import cloud.xcan.jmock.api.i18n.ThreadLocaleHolder;
 import java.util.Collections;
 import java.util.HashMap;
@@ -28,6 +29,7 @@ public class DefaultEvalEnvironment implements Environment {
 
   public DefaultEvalEnvironment(Locale locale) {
     loadServiceMockRegister();
+    loadServiceMessageRegister();
     ThreadLocaleHolder.setLocale(locale);
   }
 
@@ -74,6 +76,13 @@ public class DefaultEvalEnvironment implements Environment {
     return Collections.unmodifiableMap(mockClass);
   }
 
+  @Override
+  public void reloadEnvironment() {
+    mockLoader.reload();
+    loadServiceMockRegister();
+    loadServiceMessageRegister();
+  }
+
   private void loadServiceMockRegister() {
     ServiceLoader<MockFunction> loader = ServiceLoader.load(MockFunction.class);
     loader.forEach(mock -> {
@@ -81,10 +90,9 @@ public class DefaultEvalEnvironment implements Environment {
     });
   }
 
-  @Override
-  public void reloadEnvironment() {
-    mockLoader.reload();
-    loadServiceMockRegister();
+  private void loadServiceMessageRegister() {
+    ServiceLoader<RegisterDocMessage> loader = ServiceLoader.load(RegisterDocMessage.class);
+    loader.forEach(RegisterDocMessage::register);
   }
 
   @Override

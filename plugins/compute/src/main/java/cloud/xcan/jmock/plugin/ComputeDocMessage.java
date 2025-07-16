@@ -1,12 +1,9 @@
 package cloud.xcan.jmock.plugin;
 
 import cloud.xcan.jmock.api.i18n.MessageResources;
+import cloud.xcan.jmock.api.i18n.RegisterDocMessage;
 
-public class DocMessage {
-
-  static {
-    MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-compute-plugin-messages");
-  }
+public class ComputeDocMessage implements RegisterDocMessage {
 
   /**
    * Coding order by 50xx.
@@ -52,4 +49,8 @@ public class DocMessage {
   public final static String DOC_VULNERABILITY_DESC = "jmock.func.MVulnerability.description";
   public final static String DOC_VULNERABILITY_C1 = "jmock.func.MVulnerability.C1";
 
+  @Override
+  public void register() {
+    MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-compute-plugin-messages");
+  }
 }

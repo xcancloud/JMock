@@ -1,12 +1,9 @@
 package cloud.xcan.jmock.plugin;
 
 import cloud.xcan.jmock.api.i18n.MessageResources;
+import cloud.xcan.jmock.api.i18n.RegisterDocMessage;
 
-public class DocMessage {
-
-  static {
-    MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-company-plugin-messages");
-  }
+public class CompanyDocMessage implements RegisterDocMessage {
 
   /**
    * Coding order by 40xx.
@@ -30,4 +27,8 @@ public class DocMessage {
   public final static String DOC_JOB_C2 = "jmock.func.MJob.C2";
 
 
+  @Override
+  public void register() {
+    MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-company-plugin-messages");
+  }
 }

@@ -1,10 +1,10 @@
 package cloud.xcan.jmock.plugin;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_COMPANY;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_DEPARTMENT_C1;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_DEPARTMENT_C2;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_DEPARTMENT_DESC;
+import static cloud.xcan.jmock.plugin.CompanyDocMessage.DOC_CATEGORY_COMPANY;
+import static cloud.xcan.jmock.plugin.CompanyDocMessage.DOC_DEPARTMENT_C1;
+import static cloud.xcan.jmock.plugin.CompanyDocMessage.DOC_DEPARTMENT_C2;
+import static cloud.xcan.jmock.plugin.CompanyDocMessage.DOC_DEPARTMENT_DESC;
 import static cloud.xcan.jmock.plugin.MCompany.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;

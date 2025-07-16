@@ -1,10 +1,10 @@
 package cloud.xcan.jmock.plugin;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_COMPANY;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_JOB_C1;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_JOB_C2;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_JOB_DESC;
+import static cloud.xcan.jmock.plugin.CompanyDocMessage.DOC_CATEGORY_COMPANY;
+import static cloud.xcan.jmock.plugin.CompanyDocMessage.DOC_JOB_C1;
+import static cloud.xcan.jmock.plugin.CompanyDocMessage.DOC_JOB_C2;
+import static cloud.xcan.jmock.plugin.CompanyDocMessage.DOC_JOB_DESC;
 import static cloud.xcan.jmock.plugin.MCompany.random;
 import static java.util.Arrays.asList;
 

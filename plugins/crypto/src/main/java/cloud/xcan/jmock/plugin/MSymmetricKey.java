@@ -1,10 +1,10 @@
 package cloud.xcan.jmock.plugin;
 
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_CRYPTO;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_SYMMETRIC_KEY_C1;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_SYMMETRIC_KEY_C2;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_SYMMETRIC_KEY_DESC;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_SYMMETRIC_KEY_PARAMETER_ALGORITHM;
+import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_CATEGORY_CRYPTO;
+import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_SYMMETRIC_KEY_C1;
+import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_SYMMETRIC_KEY_C2;
+import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_SYMMETRIC_KEY_DESC;
+import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_SYMMETRIC_KEY_PARAMETER_ALGORITHM;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;

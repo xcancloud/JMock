@@ -161,7 +161,7 @@ public class MockFunctionDocParser {
     MockFunctionDocParser generator = new MockFunctionDocParser();
     List<MockFunction> mockFunctions = generator.parse(SupportedLanguage.zh_CN);
     String absolutePath = MockFunctionDocParser.class.getClassLoader().getResource("").getPath();
-    String filePath = absolutePath + File.separator + "JMockFunction.json";
+    String filePath = absolutePath + "JMockFunction.json";
     System.out.println(filePath);
     FileOutputStream fos = new FileOutputStream(filePath);
     fos.write(JsonUtils.toJson(mockFunctions).getBytes());

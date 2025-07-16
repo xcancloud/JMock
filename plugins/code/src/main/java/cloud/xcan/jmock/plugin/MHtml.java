@@ -1,8 +1,8 @@
 package cloud.xcan.jmock.plugin;
 
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_CODE;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_HTML_C1;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_HTML_DESC;
+import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_CATEGORY_CODE;
+import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_HTML_C1;
+import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_HTML_DESC;
 import static cloud.xcan.jmock.plugin.MCodeSnippet.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;

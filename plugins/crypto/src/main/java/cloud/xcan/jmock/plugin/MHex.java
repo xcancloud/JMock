@@ -1,10 +1,10 @@
 package cloud.xcan.jmock.plugin;
 
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_CRYPTO;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_HEX_C1;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_HEX_C2;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_HEX_DESC;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_HEX_PARAMETER_LENGTH;
+import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_CATEGORY_CRYPTO;
+import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_HEX_C1;
+import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_HEX_C2;
+import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_HEX_DESC;
+import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_HEX_PARAMETER_LENGTH;
 import static cloud.xcan.jmock.plugin.MSymmetricKey.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;

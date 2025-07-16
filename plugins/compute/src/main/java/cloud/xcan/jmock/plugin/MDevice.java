@@ -1,8 +1,8 @@
 package cloud.xcan.jmock.plugin;
 
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_CATEGORY_COMPUTE;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_DEVICE_C1;
-import static cloud.xcan.jmock.plugin.DocMessage.DOC_DEVICE_DESC;
+import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_CATEGORY_COMPUTE;
+import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_DEVICE_C1;
+import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_DEVICE_DESC;
 import static cloud.xcan.jmock.plugin.MBrowser.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
