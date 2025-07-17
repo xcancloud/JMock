@@ -3,6 +3,7 @@ package cloud.xcan.jmock.core.parser;
 import static cloud.xcan.angus.spec.utils.ObjectUtils.isEmpty;
 import static cloud.xcan.jmock.api.TokenChars.FUNC_IDENTIFIER;
 import static cloud.xcan.jmock.api.i18n.MessageResources.getString;
+import static java.util.Objects.nonNull;
 import static org.apache.commons.lang3.ObjectUtils.isNotEmpty;
 
 import cloud.xcan.angus.spec.experimental.Assert;
@@ -18,7 +19,6 @@ import cloud.xcan.jmock.core.parser.docs.model.MockFunction;
 import cloud.xcan.jmock.core.parser.docs.model.MockParameter;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
@@ -30,7 +30,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -70,11 +69,10 @@ public class MockFunctionDocParser {
       JMockFunctionRegister functionAnnotation = entry.getValue().getAnnotation(
           JMockFunctionRegister.class);
       // Ignore MockFunction that have not been annotated by @JMockFunctionRegister
-      if (Objects.nonNull(functionAnnotation)) {
+      if (nonNull(functionAnnotation)) {
         // Parsing function information
         MockFunction mockFunction = new MockFunction();
-        mockFunction.setName(
-                FUNC_IDENTIFIER + entry.getValue().getSimpleName().substring(1).concat("()"))
+        mockFunction.setName(getFunctionName(entry))
             .setClazz(entry.getValue().getTypeName())
             .setDescription(getString(functionAnnotation.descI18nKey(), language.toLocale()))
             .setTags(Stream.of(functionAnnotation.categoryI18nKey())
@@ -89,7 +87,7 @@ public class MockFunctionDocParser {
             parameter.setAccessible(true);
             JMockParameter parameterAnnotation = parameter.getAnnotation(JMockParameter.class);
             // Ignore parameter that have not been annotated by @JMockParameter
-            if (Objects.nonNull(parameterAnnotation)) {
+            if (nonNull(parameterAnnotation)) {
               MockParameter mockParameter = new MockParameter();
               mockParameter.setName(parameter.getName())
                   .setDescription(getString(parameterAnnotation.descI18nKey(),
@@ -108,7 +106,7 @@ public class MockFunctionDocParser {
           constructor.setAccessible(false);
           JMockConstructor constructAnnotation = constructor.getAnnotation(JMockConstructor.class);
           // Ignore constructors that have not been annotated by @JMockConstructor
-          if (Objects.nonNull(constructAnnotation)) {
+          if (nonNull(constructAnnotation)) {
             MockConstructor funcConstructor = new MockConstructor();
             Parameter[] constructorParameters = constructor.getParameters();
             List<String> parameterNames = Arrays.stream(constructorParameters)
@@ -135,6 +133,8 @@ public class MockFunctionDocParser {
             }
             mockConstructors.add(funcConstructor);
           }
+          mockConstructors.sort(Comparator.comparingInt(
+              mock -> mock.getParameters() == null ? 0 : mock.getParameters().size()));
           mockFunction.setConstructors(mockConstructors);
         }
         mockFunctions.add(mockFunction);
@@ -142,9 +142,13 @@ public class MockFunctionDocParser {
     }
 
     // Sort by order
-    return mockFunctions.stream()
-        .sorted(Comparator.comparingInt(MockFunction::getOrder))
+    return mockFunctions.stream().sorted(Comparator.comparingInt(MockFunction::getOrder))
         .collect(Collectors.toList());
+  }
+
+  private static String getFunctionName(
+      Entry<String, Class<? extends cloud.xcan.jmock.api.MockFunction>> entry) {
+    return FUNC_IDENTIFIER + entry.getValue().getSimpleName().substring(1).concat("()");
   }
 
   public List<MockFunction> load(SupportedLanguage language) {
@@ -159,7 +163,7 @@ public class MockFunctionDocParser {
 
   public static void main(String[] args) throws IOException {
     MockFunctionDocParser generator = new MockFunctionDocParser();
-    List<MockFunction> mockFunctions = generator.parse(SupportedLanguage.zh_CN);
+    List<MockFunction> mockFunctions = generator.parse(SupportedLanguage.en);
     String absolutePath = MockFunctionDocParser.class.getClassLoader().getResource("").getPath();
     String filePath = absolutePath + "JMockFunction.json";
     System.out.println(filePath);
