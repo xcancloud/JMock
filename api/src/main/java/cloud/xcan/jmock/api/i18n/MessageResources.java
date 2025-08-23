@@ -1,4 +1,3 @@
-
 package cloud.xcan.jmock.api.i18n;
 
 import java.text.MessageFormat;

@@ -27,14 +27,16 @@ public class MSymmetricKey extends AbstractMockFunction {
 
   @JMockConstructor(descI18nKey = DOC_SYMMETRIC_KEY_C1,
       example = "@SymmetricKey()",
-      exampleValues = {"wCnChNn+2WSH6saSatASL+3Bo3HcW8uEz8jHqM7TtQs=", "/IWyWbP42jcWFB47zmLCfWVGK6nnRkrBM/dJqnRt+bU="})
+      exampleValues = {"wCnChNn+2WSH6saSatASL+3Bo3HcW8uEz8jHqM7TtQs=",
+          "/IWyWbP42jcWFB47zmLCfWVGK6nnRkrBM/dJqnRt+bU="})
   public MSymmetricKey() {
     this("AES");
   }
 
   @JMockConstructor(descI18nKey = DOC_SYMMETRIC_KEY_C2,
       example = "@SymmetricKey(AES)",
-      exampleValues = {"wiuUG5/rfxB1r9VtxfgO1jy1TLyAmo5xFBm7iOPosAs=", "zHexV+cHC3O9T70eU2FEgSsFTfOmOsD/lJfGQOj90Aw="})
+      exampleValues = {"wiuUG5/rfxB1r9VtxfgO1jy1TLyAmo5xFBm7iOPosAs=",
+          "zHexV+cHC3O9T70eU2FEgSsFTfOmOsD/lJfGQOj90Aw="})
   public MSymmetricKey(String algorithm) {
     this.algorithm = algorithm;
   }

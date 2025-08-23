@@ -1,0 +1,10 @@
+cloud.xcan.jmock.plugin.MAge
+cloud.xcan.jmock.plugin.MMobile
+cloud.xcan.jmock.plugin.MName
+cloud.xcan.jmock.plugin.MPassword
+cloud.xcan.jmock.plugin.MEducation
+cloud.xcan.jmock.plugin.MLandline
+cloud.xcan.jmock.plugin.MLastname
+cloud.xcan.jmock.plugin.MEmail
+cloud.xcan.jmock.plugin.MFirstname
+cloud.xcan.jmock.plugin.MGender

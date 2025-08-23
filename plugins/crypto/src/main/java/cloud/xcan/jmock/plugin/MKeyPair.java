@@ -129,7 +129,9 @@ public class MKeyPair extends AbstractMockFunction {
 
   public static KeyPairStrings generateRandomKeyPairAsStrings(String algorithm, int keySize) {
     KeyPair keyPair = generateRandomKeyPair(algorithm, keySize);
-    if (keyPair == null) return null;
+    if (keyPair == null) {
+      return null;
+    }
 
     return new KeyPairStrings(
         publicKeyToString(keyPair.getPublic()),

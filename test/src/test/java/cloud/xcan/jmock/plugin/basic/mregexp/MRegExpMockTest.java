@@ -1,0 +1,52 @@
+package cloud.xcan.jmock.plugin.basic.mregexp;
+
+import cloud.xcan.jmock.api.FunctionToken;
+import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
+import cloud.xcan.jmock.plugin.MRegExp;
+import org.junit.jupiter.api.Test;
+
+public class MRegExpMockTest {
+
+  @Test
+  public void case1() throws Exception {
+    FunctionToken token = new FunctionToken("RegExp", new String[]{"[a-z][a-z][0-9]{2}"});
+    SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
+    MRegExp mock = (MRegExp) parser.parse(token);
+    for (int i = 0; i < 10; i++) {
+      String str = mock.mock();
+      System.out.println("str = " + str);
+    }
+  }
+
+  @Test
+  public void case2() throws Exception {
+    FunctionToken token = new FunctionToken("RegExp", new String[]{"[a-z][a-z][0-9]{2}", "1:1"});
+    SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
+    MRegExp mock = (MRegExp) parser.parse(token);
+    for (int i = 0; i < 10; i++) {
+      String str = mock.mock();
+      System.out.println("str = " + str);
+    }
+  }
+
+  //  @Test
+  //  public void case3() throws Exception {
+  //    FunctionToken token = new FunctionToken("RegExp", new String[]{"[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"});
+  //    SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
+  //    MRegExp mock = (MRegExp) parser.parse(token);
+  //    for (int i = 0; i < 10; i++) {
+  //      String str = mock.mock();
+  //    }
+  //  }
+
+  @Test
+  public void case4() throws Exception {
+    FunctionToken token = new FunctionToken("RegExp", new String[]{"(1[3-9]\\d{9})"});
+    SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
+    MRegExp mock = (MRegExp) parser.parse(token);
+    for (int i = 0; i < 10; i++) {
+      String str = mock.mock();
+      System.out.println("mobile = " + str);
+    }
+  }
+}

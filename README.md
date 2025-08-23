@@ -4,14 +4,18 @@
 
 ## Introduction
 
-JMock is a high-performance data generation and simulation library implemented in Java. It generates data that more closely resembles real business data characteristics compared to random data generation.
+JMock is a high-performance data generation and simulation library implemented in Java. It generates
+data that more closely resembles real business data characteristics compared to random data
+generation.
 
 ## Core Features
 
 - **High-performance data generation**:  
-  Generates 2M+ user records per second (single thread). Each record contains 10+ attributes totaling 200+ bytes.
+  Generates 2M+ user records per second (single thread). Each record contains 10+ attributes
+  totaling 200+ bytes.
 - **Business-realistic data with i18n support**:  
-  Produces data that accurately simulates real-world business scenarios with internationalization capabilities.
+  Produces data that accurately simulates real-world business scenarios with internationalization
+  capabilities.
 - **Dual definition approaches**:
     - *Annotation-based*: Applied to class fields
     - *Function-based*: Used in script files (txt, json, yml, etc.)
@@ -24,10 +28,10 @@ JMock is a high-performance data generation and simulation library implemented i
 
 ### Expression Formats
 
-| Type              | Parameterless Form | Parameterized Form                     |
-|-------------------|-------------------|----------------------------------------|
-| **Annotation**    | `@Annotation`     | `@Annotation(param1=value1, param2=value2)` |
-| **Function**      | `@Function()`     | `@Function(param1, param2)` or `@Function(param1,,param3)` |
+| Type           | Parameterless Form | Parameterized Form                                         |
+|----------------|--------------------|------------------------------------------------------------|
+| **Annotation** | `@Annotation`      | `@Annotation(param1=value1, param2=value2)`                |
+| **Function**   | `@Function()`      | `@Function(param1, param2)` or `@Function(param1,,param3)` |
 
 ### Syntax Rules
 
@@ -59,6 +63,7 @@ JMock is a high-performance data generation and simulation library implemented i
 ## Usage Example
 
 1. **Add Maven Dependency**
+
 ```xml
 <dependency>
    <groupId>cloud.xcan.jmock</groupId>
@@ -68,6 +73,7 @@ JMock is a high-performance data generation and simulation library implemented i
 ```
 
 2. **Generate Sample Data**
+
 ```java
 // Define template
 String content = """
@@ -87,6 +93,7 @@ System.out.println(result);
 ```
 
 ***Output:***
+
 ```json
 {
   "name": "Durfee Jacob",

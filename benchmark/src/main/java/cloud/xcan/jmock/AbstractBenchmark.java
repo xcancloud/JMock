@@ -1,4 +1,3 @@
-
 package cloud.xcan.jmock;
 
 import java.util.concurrent.TimeUnit;

@@ -1,4 +1,3 @@
-
 package cloud.xcan.jmock.baseline;
 
 import cloud.xcan.jmock.AbstractBenchmark;

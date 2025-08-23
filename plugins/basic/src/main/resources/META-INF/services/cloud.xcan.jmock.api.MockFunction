@@ -1,0 +1,8 @@
+cloud.xcan.jmock.plugin.MString
+cloud.xcan.jmock.plugin.MInteger
+cloud.xcan.jmock.plugin.MLong
+cloud.xcan.jmock.plugin.MFloat
+cloud.xcan.jmock.plugin.MDouble
+cloud.xcan.jmock.plugin.MBool
+cloud.xcan.jmock.plugin.MEnum
+cloud.xcan.jmock.plugin.MRegExp

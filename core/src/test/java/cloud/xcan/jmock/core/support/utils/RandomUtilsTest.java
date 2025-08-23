@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import cloud.xcan.jmock.api.support.utils.RandomUtils;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;
 import org.junit.jupiter.api.Test;
@@ -248,8 +249,9 @@ public class RandomUtilsTest {
   }
 
   /**
-   * Test a large value for long. DocGenerator previous implementation using {@link
-   * RandomUtils#nextDouble(double, double)} could generate a value equal to the upper limit.
+   * Test a large value for long. DocGenerator previous implementation using
+   * {@link RandomUtils#nextDouble(double, double)} could generate a value equal to the upper
+   * limit.
    *
    * <pre>
    * return (long) nextDouble(startInclusive, endExclusive);

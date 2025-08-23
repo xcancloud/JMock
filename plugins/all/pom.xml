@@ -15,6 +15,56 @@
   <dependencies>
     <dependency>
       <groupId>cloud.xcan.jmock</groupId>
+      <artifactId>xcan-jmock.basic-plugin</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>cloud.xcan.jmock</groupId>
+      <artifactId>xcan-jmock.article-plugin</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>cloud.xcan.jmock</groupId>
+      <artifactId>xcan-jmock.date-plugin</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>cloud.xcan.jmock</groupId>
+      <artifactId>xcan-jmock.geography-plugin</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>cloud.xcan.jmock</groupId>
+      <artifactId>xcan-jmock.hash-plugin</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>cloud.xcan.jmock</groupId>
+      <artifactId>xcan-jmock.id-plugin</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>cloud.xcan.jmock</groupId>
+      <artifactId>xcan-jmock.locale-plugin</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>cloud.xcan.jmock</groupId>
+      <artifactId>xcan-jmock.network-plugin</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>cloud.xcan.jmock</groupId>
+      <artifactId>xcan-jmock.user-plugin</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>cloud.xcan.jmock</groupId>
+      <artifactId>xcan-jmock.web-plugin</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>cloud.xcan.jmock</groupId>
       <artifactId>xcan-jmock.car-plugin</artifactId>
       <version>${project.version}</version>
     </dependency>

@@ -87,7 +87,7 @@ public class MCompany extends AbstractMockFunction {
       } while (usedWords.contains(word));
 
       name.append(word);
-      if (!isChinese){
+      if (!isChinese) {
         name.append(" ");
       }
       usedWords.add(word);

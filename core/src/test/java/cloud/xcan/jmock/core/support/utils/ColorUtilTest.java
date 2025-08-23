@@ -1,5 +1,6 @@
 package cloud.xcan.jmock.core.support.utils;
 
+import cloud.xcan.jmock.api.support.utils.ColorUtil;
 import org.junit.jupiter.api.Test;
 
 public class ColorUtilTest {

@@ -1,7 +1,7 @@
 package cloud.xcan.jmock.plugin;
 
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_BOOL_C1;
 import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_CATEGORY_CODE;
+import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_PROGRAMMING_LANGUAGE_C1;
 import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_PROGRAMMING_LANGUAGE_DESC;
 import static cloud.xcan.jmock.plugin.MCodeSnippet.random;
 
@@ -20,7 +20,7 @@ public class MProgrammingLanguage extends AbstractMockFunction {
       "Swift", "Kotlin", "PHP", "Ruby", "Scala", "Dart", "Elixir", "Clojure"
   );
 
-  @JMockConstructor(descI18nKey = DOC_BOOL_C1,
+  @JMockConstructor(descI18nKey = DOC_PROGRAMMING_LANGUAGE_C1,
       example = "@ProgrammingLanguage()",
       exampleValues = {"Kotlin", "Scala", "JavaScript"})
   public MProgrammingLanguage() {
@@ -31,7 +31,7 @@ public class MProgrammingLanguage extends AbstractMockFunction {
     return generateRandomProgrammingLanguage();
   }
 
-  public static String generateRandomProgrammingLanguage(){
+  public static String generateRandomProgrammingLanguage() {
     return PROGRAMMING_LANGUAGES.get(random.nextInt(PROGRAMMING_LANGUAGES.size()));
   }
 

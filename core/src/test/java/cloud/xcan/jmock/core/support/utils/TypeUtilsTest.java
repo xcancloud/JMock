@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import cloud.xcan.jmock.api.support.utils.TypeUtils;
 import java.awt.Insets;
 import java.io.Serializable;
 import java.lang.reflect.Constructor;

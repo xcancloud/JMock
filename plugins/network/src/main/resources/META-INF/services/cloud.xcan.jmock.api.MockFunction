@@ -1,0 +1,8 @@
+cloud.xcan.jmock.plugin.MPort
+cloud.xcan.jmock.plugin.MMac
+cloud.xcan.jmock.plugin.MUrl
+cloud.xcan.jmock.plugin.MAppVersion
+cloud.xcan.jmock.plugin.MIPv4
+cloud.xcan.jmock.plugin.MIPv6
+cloud.xcan.jmock.plugin.MAppName
+cloud.xcan.jmock.plugin.MProtocol

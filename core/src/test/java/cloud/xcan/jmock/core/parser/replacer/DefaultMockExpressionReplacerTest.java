@@ -69,7 +69,8 @@ public class DefaultMockExpressionReplacerTest {
     try {
       result = new DefaultMockTextReplacer().replace("aa @GetVariable(v1)");
     } catch (Exception e) {
-      Assertions.assertEquals("Function expression must start with identifier(@) , error position 1",
+      Assertions.assertEquals(
+          "Function expression must start with identifier(@) , error position 1",
           e.getMessage());
     }
 

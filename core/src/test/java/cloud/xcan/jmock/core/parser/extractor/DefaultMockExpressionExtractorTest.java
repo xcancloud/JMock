@@ -189,7 +189,7 @@ public class DefaultMockExpressionExtractorTest {
   public void shouldRejectMultipleFunctions() {
     DefaultMockExpressionExtractor extractor = new DefaultMockExpressionExtractor(
         "@First() @Second()");
-    List<FunctionToken> tokens =  extractor.extract();
+    List<FunctionToken> tokens = extractor.extract();
     Assertions.assertEquals(1, tokens.size());
     Assertions.assertEquals("@First()", tokens.get(0).token());
   }

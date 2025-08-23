@@ -1,0 +1,6 @@
+cloud.xcan.jmock.plugin.MArticle
+cloud.xcan.jmock.plugin.MTitle
+cloud.xcan.jmock.plugin.MSentence
+cloud.xcan.jmock.plugin.MParagraph
+cloud.xcan.jmock.plugin.MTangPoetry
+cloud.xcan.jmock.plugin.MWord

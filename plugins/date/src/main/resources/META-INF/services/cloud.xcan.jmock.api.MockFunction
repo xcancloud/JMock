@@ -1,0 +1,6 @@
+cloud.xcan.jmock.plugin.MTimestamp
+cloud.xcan.jmock.plugin.MLocaleDate
+cloud.xcan.jmock.plugin.MLocaleDateTime
+cloud.xcan.jmock.plugin.MLocaleTime
+cloud.xcan.jmock.plugin.MMonth
+cloud.xcan.jmock.plugin.MWeek

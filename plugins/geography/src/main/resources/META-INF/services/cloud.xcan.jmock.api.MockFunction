@@ -1,0 +1,8 @@
+cloud.xcan.jmock.plugin.MProvince
+cloud.xcan.jmock.plugin.MAddress
+cloud.xcan.jmock.plugin.MLatitude
+cloud.xcan.jmock.plugin.MLongitude
+cloud.xcan.jmock.plugin.MCoordinates
+cloud.xcan.jmock.plugin.MCountry
+cloud.xcan.jmock.plugin.MCity
+cloud.xcan.jmock.plugin.MZip

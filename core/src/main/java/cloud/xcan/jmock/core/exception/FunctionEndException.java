@@ -1,6 +1,6 @@
 package cloud.xcan.jmock.core.exception;
 
-import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_END_ERROR_T;
+import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_END_ERROR_T;
 import static cloud.xcan.jmock.api.i18n.ThreadLocaleHolder.getLocale;
 
 import cloud.xcan.jmock.api.i18n.MessageResources;
@@ -17,7 +17,7 @@ public class FunctionEndException extends ExpressionTokenException {
 
   @Override
   public String getMessage() {
-    return MessageResources.getString(FPARAM_END_ERROR_T, new Object[]{name, position},
+    return MessageResources.getString(PARAM_END_ERROR_T, new Object[]{name, position},
         getLocale());
   }
 }

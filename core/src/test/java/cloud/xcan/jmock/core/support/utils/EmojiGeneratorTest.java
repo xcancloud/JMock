@@ -4,6 +4,7 @@ package cloud.xcan.jmock.core.support.utils;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import cloud.xcan.jmock.api.support.utils.EmojiGeneratorUtils;
 import java.util.HashSet;
 import java.util.Set;
 import org.junit.jupiter.api.Test;

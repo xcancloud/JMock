@@ -16,6 +16,16 @@
   <packaging>pom</packaging>
 
   <modules>
+    <module>basic</module>
+    <module>article</module>
+    <module>date</module>
+    <module>geography</module>
+    <module>hash</module>
+    <module>id</module>
+    <module>locale</module>
+    <module>network</module>
+    <module>user</module>
+    <module>web</module>
     <module>car</module>
     <module>code</module>
     <module>company</module>

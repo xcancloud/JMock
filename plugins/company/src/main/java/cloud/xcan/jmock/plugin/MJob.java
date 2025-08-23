@@ -28,7 +28,8 @@ public class MJob extends AbstractMockFunction {
 
   private static final Map<Locale, List<String>> JOB_TITLES = Map.of(
       Locale.CHINA,
-      asList("专员", "经理", "总监", "执行官", "分析师", "工程师", "顾问", "代表", "协调员", "专家"),
+      asList("专员", "经理", "总监", "执行官", "分析师", "工程师", "顾问", "代表", "协调员",
+          "专家"),
       Locale.ENGLISH,
       asList("Specialist", "Manager", "Director", "Officer", "Analyst", "Engineer",
           "Consultant", "Representative", "Coordinator", "Expert")

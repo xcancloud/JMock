@@ -1,6 +1,6 @@
 package cloud.xcan.jmock.core.exception;
 
-import static cloud.xcan.jmock.api.i18n.JMockMessage.FPARAM_START_NOT_FOUND_T;
+import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_START_NOT_FOUND_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARSER_EXPRESSION_ERROR_T;
 import static cloud.xcan.jmock.api.i18n.ThreadLocaleHolder.getLocale;
 
@@ -19,7 +19,7 @@ public class FunctionStartException extends ExpressionTokenException {
   }
 
   public static FunctionStartException of(String name, int position) {
-    return new FunctionStartException(name, position, '\0', FPARAM_START_NOT_FOUND_T);
+    return new FunctionStartException(name, position, '\0', PARAM_START_NOT_FOUND_T);
   }
 
   public static FunctionStartException of(char functionIdentifier, int position) {
@@ -28,7 +28,7 @@ public class FunctionStartException extends ExpressionTokenException {
 
   @Override
   public String getMessage() {
-    if (messageKey.equals(FPARAM_START_NOT_FOUND_T)) {
+    if (messageKey.equals(PARAM_START_NOT_FOUND_T)) {
       return MessageResources.getString(messageKey, new Object[]{name, position}, getLocale());
     } else {
       return MessageResources.getString(messageKey, new Object[]{functionIdentifier, position
