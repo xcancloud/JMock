@@ -1,0 +1,4431 @@
+[
+  {
+    "clazz": "cloud.xcan.jmock.core.function.basic.MString",
+    "name": "@String()",
+    "description": "Generate random strings",
+    "tags": [
+      "Data Types"
+    ],
+    "constructors": [
+      {
+        "instance": "@String()",
+        "description": "Generate 6-character fixed-length random string",
+        "example": "@String()",
+        "exampleValues": [
+          "ceja7d"
+        ]
+      },
+      {
+        "instance": "@String(length)",
+        "description": "Generate fixed-length string",
+        "parameters": [
+          {
+            "name": "length",
+            "description": "String length, default 6, max length 2^31-1 characters"
+          }
+        ],
+        "example": "@String(2)",
+        "exampleValues": [
+          "uy",
+          "h8"
+        ]
+      },
+      {
+        "instance": "@String(min,max)",
+        "description": "Generate random string within specified length range",
+        "parameters": [
+          {
+            "name": "min",
+            "description": "Minimum length, default 0 (returns empty string \"\") when not specified. If length is specified, this parameter is ignored"
+          },
+          {
+            "name": "max",
+            "description": "Maximum length, max limit 2^31-1 characters. If length is specified, this parameter is ignored"
+          }
+        ],
+        "example": "@String(2,6)",
+        "exampleValues": [
+          "ht8ut",
+          "cy"
+        ]
+      },
+      {
+        "instance": "@String(length,nullWeight)",
+        "description": "Generate variable-length string within specified range with null ratio",
+        "parameters": [
+          {
+            "name": "length",
+            "description": "String length, default 6, max length 2^31-1 characters"
+          },
+          {
+            "name": "nullWeight",
+            "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+          }
+        ],
+        "example": "@String(3,\"1:2\")",
+        "exampleValues": [
+          "ec2",
+          "null",
+          "c3a"
+        ]
+      },
+      {
+        "instance": "@String(length,nullWeight,chars)",
+        "description": "Generate fixed-length string from custom character set with null ratio",
+        "parameters": [
+          {
+            "name": "length",
+            "description": "String length, default 6, max length 2^31-1 characters"
+          },
+          {
+            "name": "chars",
+            "description": "Character set for string generation. Default: 52 letters (a-z A-Z) and 10 digits (0-9). Max 2^31-1 characters, e.g.: 123456ABCDEF"
+          },
+          {
+            "name": "nullWeight",
+            "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+          }
+        ],
+        "example": "@String(3,\"1:2\",abcdef123456)",
+        "exampleValues": [
+          "ec2",
+          "f36",
+          "c3a"
+        ]
+      },
+      {
+        "instance": "@String(length,min,max,chars,nullWeight)",
+        "description": "Full parameter constructor, see complete parameter documentation",
+        "parameters": [
+          {
+            "name": "length",
+            "description": "String length, default 6, max length 2^31-1 characters"
+          },
+          {
+            "name": "min",
+            "description": "Minimum length, default 0 (returns empty string \"\") when not specified. If length is specified, this parameter is ignored"
+          },
+          {
+            "name": "max",
+            "description": "Maximum length, max limit 2^31-1 characters. If length is specified, this parameter is ignored"
+          },
+          {
+            "name": "chars",
+            "description": "Character set for string generation. Default: 52 letters (a-z A-Z) and 10 digits (0-9). Max 2^31-1 characters, e.g.: 123456ABCDEF"
+          },
+          {
+            "name": "nullWeight",
+            "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+          }
+        ],
+        "example": "@String(1,,,ABCDE,\"1:2\")",
+        "exampleValues": [
+          "A",
+          "null",
+          "B",
+          "C",
+          "null"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "length",
+        "description": "String length, default 6, max length 2^31-1 characters"
+      },
+      {
+        "name": "min",
+        "description": "Minimum length, default 0 (returns empty string \"\") when not specified. If length is specified, this parameter is ignored"
+      },
+      {
+        "name": "max",
+        "description": "Maximum length, max limit 2^31-1 characters. If length is specified, this parameter is ignored"
+      },
+      {
+        "name": "chars",
+        "description": "Character set for string generation. Default: 52 letters (a-z A-Z) and 10 digits (0-9). Max 2^31-1 characters, e.g.: 123456ABCDEF"
+      },
+      {
+        "name": "nullWeight",
+        "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+      }
+    ],
+    "order": 101
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.basic.MLong",
+    "name": "@Long()",
+    "description": "Generate random long values (8 bytes)",
+    "tags": [
+      "Data Types"
+    ],
+    "constructors": [
+      {
+        "instance": "@Long()",
+        "description": "Generate random long between 0 and 9223372036854775807",
+        "example": "@Long()",
+        "exampleValues": [
+          "2567071027"
+        ]
+      },
+      {
+        "instance": "@Long(nullWeight)",
+        "description": "Generate random long between 0 and 9223372036854775807 with null ratio",
+        "parameters": [
+          {
+            "name": "nullWeight",
+            "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+          }
+        ],
+        "example": "@Long(\"1:2\")",
+        "exampleValues": [
+          "98089",
+          "null",
+          "28907625479"
+        ]
+      },
+      {
+        "instance": "@Long(min,max)",
+        "description": "Generate random long between min and max",
+        "parameters": [
+          {
+            "name": "min",
+            "description": "Minimum value, default 0L (L indicates long type)"
+          },
+          {
+            "name": "max",
+            "description": "Maximum value, default 9223372036854775807L"
+          }
+        ],
+        "example": "@Long(1L,10000000000L)",
+        "exampleValues": [
+          "1109",
+          "34008978",
+          "87256252199901"
+        ]
+      },
+      {
+        "instance": "@Long(min,max,nullWeight)",
+        "description": "Generate random long between min and max with null ratio",
+        "parameters": [
+          {
+            "name": "min",
+            "description": "Minimum value, default 0L (L indicates long type)"
+          },
+          {
+            "name": "max",
+            "description": "Maximum value, default 9223372036854775807L"
+          },
+          {
+            "name": "nullWeight",
+            "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+          }
+        ],
+        "example": "@Long(-10000L,100000L,)",
+        "exampleValues": [
+          "198",
+          "594",
+          "-17865",
+          "9876",
+          "37092"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "min",
+        "description": "Minimum value, default 0L (L indicates long type)"
+      },
+      {
+        "name": "max",
+        "description": "Maximum value, default 9223372036854775807L"
+      },
+      {
+        "name": "nullWeight",
+        "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+      }
+    ],
+    "order": 102
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.basic.MInteger",
+    "name": "@Integer()",
+    "description": "Generate random integer values (4 bytes)",
+    "tags": [
+      "Data Types"
+    ],
+    "constructors": [
+      {
+        "instance": "@Integer()",
+        "description": "Generate random integer between 0 and 2147483647",
+        "example": "@Integer()",
+        "exampleValues": [
+          "666",
+          "8888"
+        ]
+      },
+      {
+        "instance": "@Integer(nullWeight)",
+        "description": "Generate random integer between 0 and 2147483647 with null ratio",
+        "parameters": [
+          {
+            "name": "nullWeight",
+            "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+          }
+        ],
+        "example": "@Integer(\"1:2\")",
+        "exampleValues": [
+          "8760182",
+          "237",
+          "null"
+        ]
+      },
+      {
+        "instance": "@Integer(min,max)",
+        "description": "Generate random integer between min and max",
+        "parameters": [
+          {
+            "name": "min",
+            "description": "Minimum value, default 0"
+          },
+          {
+            "name": "max",
+            "description": "Maximum value, default 2147483647"
+          }
+        ],
+        "example": "@Integer(100,200)",
+        "exampleValues": [
+          "162",
+          "133",
+          "191"
+        ]
+      },
+      {
+        "instance": "@Integer(min,max,nullWeight)",
+        "description": "Generate random integer between min and max with null ratio",
+        "parameters": [
+          {
+            "name": "min",
+            "description": "Minimum value, default 0"
+          },
+          {
+            "name": "max",
+            "description": "Maximum value, default 2147483647"
+          },
+          {
+            "name": "nullWeight",
+            "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+          }
+        ],
+        "example": "@Integer(-100000,100000,\"1:3\")",
+        "exampleValues": [
+          "-7811",
+          "null",
+          "78732",
+          "12909",
+          "76028"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "min",
+        "description": "Minimum value, default 0"
+      },
+      {
+        "name": "max",
+        "description": "Maximum value, default 2147483647"
+      },
+      {
+        "name": "nullWeight",
+        "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+      }
+    ],
+    "order": 102
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.basic.MDouble",
+    "name": "@Double()",
+    "description": "Generate random double values (8 bytes)",
+    "tags": [
+      "Data Types"
+    ],
+    "constructors": [
+      {
+        "instance": "@Double()",
+        "description": "Generate random double between 0 and 1.79769313486231570e+308",
+        "example": "@Double()",
+        "exampleValues": [
+          "78.99"
+        ]
+      },
+      {
+        "instance": "@Double(scale)",
+        "description": "Generate random double between 0 and 1.79769313486231570e+308 with specified precision",
+        "parameters": [
+          {
+            "name": "scale",
+            "description": "Precision digits, default 2"
+          }
+        ],
+        "example": "@Double(3)",
+        "exampleValues": [
+          "7.987",
+          "89.909",
+          "85.231"
+        ]
+      },
+      {
+        "instance": "@Double(nullWeight)",
+        "description": "Generate random double between 0 and 1.79769313486231570e+308 with null ratio",
+        "parameters": [
+          {
+            "name": "nullWeight",
+            "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+          }
+        ],
+        "example": "@Double(\"1:2\")",
+        "exampleValues": [
+          "89.90",
+          "null",
+          "999.90"
+        ]
+      },
+      {
+        "instance": "@Double(min,max)",
+        "description": "Generate random double between min and max",
+        "parameters": [
+          {
+            "name": "min",
+            "description": "Minimum value, default 0D (D indicates double type)"
+          },
+          {
+            "name": "max",
+            "description": "Maximum value, default 1.79769313486231570e+308"
+          }
+        ],
+        "example": "@Double(88,999999)",
+        "exampleValues": [
+          "99.99",
+          "899.99",
+          "7865.09"
+        ]
+      },
+      {
+        "instance": "@Double(min,max,scale)",
+        "description": "Generate random double between min and max with specified precision",
+        "parameters": [
+          {
+            "name": "min",
+            "description": "Minimum value, default 0D (D indicates double type)"
+          },
+          {
+            "name": "max",
+            "description": "Maximum value, default 1.79769313486231570e+308"
+          },
+          {
+            "name": "scale",
+            "description": "Precision digits, default 2"
+          }
+        ],
+        "example": "@Double(88,99999,4,\"1:2\")",
+        "exampleValues": [
+          "888.9087",
+          "null",
+          "666.9087"
+        ]
+      },
+      {
+        "instance": "@Double(min,max,scale,nullWeight)",
+        "description": "Full parameter constructor, see complete parameter documentation",
+        "parameters": [
+          {
+            "name": "min",
+            "description": "Minimum value, default 0D (D indicates double type)"
+          },
+          {
+            "name": "max",
+            "description": "Maximum value, default 1.79769313486231570e+308"
+          },
+          {
+            "name": "scale",
+            "description": "Precision digits, default 2"
+          },
+          {
+            "name": "nullWeight",
+            "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+          }
+        ],
+        "example": "@Double(88,99999,4,\"1:2\")",
+        "exampleValues": [
+          "888.9087",
+          "null",
+          "666.9087"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "min",
+        "description": "Minimum value, default 0D (D indicates double type)"
+      },
+      {
+        "name": "max",
+        "description": "Maximum value, default 1.79769313486231570e+308"
+      },
+      {
+        "name": "scale",
+        "description": "Precision digits, default 2"
+      },
+      {
+        "name": "nullWeight",
+        "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+      }
+    ],
+    "order": 103
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.basic.MFloat",
+    "name": "@Float()",
+    "description": "Generate random float values (4 bytes)",
+    "tags": [
+      "Data Types"
+    ],
+    "constructors": [
+      {
+        "instance": "@Float()",
+        "description": "Generate random float between 0 and 3.40282346638528860e+38",
+        "example": "@Float()",
+        "exampleValues": [
+          "1.2222222"
+        ]
+      },
+      {
+        "instance": "@Float(scale)",
+        "description": "Generate random float between 0 and 3.40282346638528860e+38 with specified precision",
+        "parameters": [
+          {
+            "name": "scale",
+            "description": "Precision digits, default 2"
+          }
+        ],
+        "example": "@Float(5)",
+        "exampleValues": [
+          "87901.01127",
+          "3092290435.18326"
+        ]
+      },
+      {
+        "instance": "@Float(nullWeight)",
+        "description": "Generate random float between 0 and 3.40282346638528860e+38 with null ratio",
+        "parameters": [
+          {
+            "name": "nullWeight",
+            "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+          }
+        ],
+        "example": "@Float(1:2)",
+        "exampleValues": [
+          "1.2222222"
+        ]
+      },
+      {
+        "instance": "@Float(min,max)",
+        "description": "Generate random float between min and max",
+        "parameters": [
+          {
+            "name": "min",
+            "description": "Minimum value, default 0.0"
+          },
+          {
+            "name": "max",
+            "description": "Maximum value, default 3.40282346638528860e+38"
+          }
+        ],
+        "example": "@Float(5,15)",
+        "exampleValues": [
+          "5.2222222"
+        ]
+      },
+      {
+        "instance": "@Float(min,max,scale)",
+        "description": "Generate random float between min and max with specified precision",
+        "parameters": [
+          {
+            "name": "min",
+            "description": "Minimum value, default 0.0"
+          },
+          {
+            "name": "max",
+            "description": "Maximum value, default 3.40282346638528860e+38"
+          },
+          {
+            "name": "scale",
+            "description": "Precision digits, default 2"
+          }
+        ],
+        "example": "@Float(5,15,2)",
+        "exampleValues": [
+          "5.22"
+        ]
+      },
+      {
+        "instance": "@Float(min,max,scale,nullWeight)",
+        "description": "Full parameter constructor, see complete parameter documentation",
+        "parameters": [
+          {
+            "name": "min",
+            "description": "Minimum value, default 0.0"
+          },
+          {
+            "name": "max",
+            "description": "Maximum value, default 3.40282346638528860e+38"
+          },
+          {
+            "name": "scale",
+            "description": "Precision digits, default 2"
+          },
+          {
+            "name": "nullWeight",
+            "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+          }
+        ],
+        "example": "@Float(0,10,5,1:2)",
+        "exampleValues": [
+          "1.22222"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "min",
+        "description": "Minimum value, default 0.0"
+      },
+      {
+        "name": "max",
+        "description": "Maximum value, default 3.40282346638528860e+38"
+      },
+      {
+        "name": "scale",
+        "description": "Precision digits, default 2"
+      },
+      {
+        "name": "nullWeight",
+        "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+      }
+    ],
+    "order": 103
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.basic.MEnum",
+    "name": "@Enum()",
+    "description": "Generate random constant values",
+    "tags": [
+      "Data Types"
+    ],
+    "constructors": [
+      {
+        "instance": "@Enum(dict)",
+        "description": "Generate enum values with equal ratios",
+        "parameters": [
+          {
+            "name": "dict",
+            "description": "Enum values separated by \"|\" (required)"
+          }
+        ],
+        "example": "@Enum(HIGH|WIDTH)",
+        "exampleValues": [
+          "HIGH"
+        ]
+      },
+      {
+        "instance": "@Enum(dict,valueWeight)",
+        "description": "Generate enum values with specified ratios",
+        "parameters": [
+          {
+            "name": "dict",
+            "description": "Enum values separated by \"|\" (required)"
+          },
+          {
+            "name": "valueWeight",
+            "description": "Value generation ratios, default equal ratios"
+          }
+        ],
+        "example": "@Enum(HIGH|WIDTH,1:1)",
+        "exampleValues": [
+          "HIGH",
+          "WIDTH"
+        ]
+      },
+      {
+        "instance": "@Enum(dict,valueWeight,nullWeight)",
+        "description": "Generate enum values with specified ratios and null ratio",
+        "parameters": [
+          {
+            "name": "dict",
+            "description": "Enum values separated by \"|\" (required)"
+          },
+          {
+            "name": "valueWeight",
+            "description": "Value generation ratios, default equal ratios"
+          },
+          {
+            "name": "nullWeight",
+            "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+          }
+        ],
+        "example": "@Enum(HIGH|WIDTH,1:1,1:2)",
+        "exampleValues": [
+          "HIGH",
+          "WIDTH",
+          "null"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "dict",
+        "description": "Enum values separated by \"|\" (required)"
+      },
+      {
+        "name": "valueWeight",
+        "description": "Value generation ratios, default equal ratios"
+      },
+      {
+        "name": "nullWeight",
+        "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+      }
+    ],
+    "order": 104
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.basic.MBool",
+    "name": "@Bool()",
+    "description": "Generate boolean values",
+    "tags": [
+      "Data Types"
+    ],
+    "constructors": [
+      {
+        "instance": "@Bool()",
+        "description": "Generate true/false with 2:1 ratio",
+        "example": "@Bool()",
+        "exampleValues": [
+          "true",
+          "false"
+        ]
+      },
+      {
+        "instance": "@Bool(trueWeight)",
+        "description": "Generate true/false/null with specified null ratio",
+        "parameters": [
+          {
+            "name": "trueWeight",
+            "description": "True ratio, e.g. \"2:1\" means 2 true per 3 values on average"
+          }
+        ],
+        "example": "@Bool(2:1)",
+        "exampleValues": [
+          "true",
+          "true",
+          "false"
+        ]
+      },
+      {
+        "instance": "@Bool(trueWeight,nullWeight)",
+        "description": "Generate true/false/null with specified true and null ratios",
+        "parameters": [
+          {
+            "name": "trueWeight",
+            "description": "True ratio, e.g. \"2:1\" means 2 true per 3 values on average"
+          },
+          {
+            "name": "nullWeight",
+            "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+          }
+        ],
+        "example": "@Bool(2:1,1:5)",
+        "exampleValues": [
+          "true",
+          "null",
+          "false"
+        ]
+      },
+      {
+        "instance": "@Bool(trueWeight,nullWeight,dict)",
+        "description": "Full parameter constructor, see complete parameter documentation",
+        "parameters": [
+          {
+            "name": "trueWeight",
+            "description": "True ratio, e.g. \"2:1\" means 2 true per 3 values on average"
+          },
+          {
+            "name": "nullWeight",
+            "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+          },
+          {
+            "name": "dict",
+            "description": "Boolean dictionary values separated by \"|\", first=true, second=false. Default: true|false"
+          }
+        ],
+        "example": "@Bool(2:1,1:5,1|0)",
+        "exampleValues": [
+          "1",
+          "null",
+          "0"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "trueWeight",
+        "description": "True ratio, e.g. \"2:1\" means 2 true per 3 values on average"
+      },
+      {
+        "name": "nullWeight",
+        "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+      },
+      {
+        "name": "dict",
+        "description": "Boolean dictionary values separated by \"|\", first=true, second=false. Default: true|false"
+      }
+    ],
+    "order": 105
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.basic.MRegExp",
+    "name": "@RegExp()",
+    "description": "Generate values based on regex pattern",
+    "tags": [
+      "Data Types"
+    ],
+    "constructors": [
+      {
+        "instance": "@RegExp(regexp)",
+        "description": "Generate value based on regex pattern",
+        "parameters": [
+          {
+            "name": "regexp",
+            "description": "Regular expression for value generation"
+          }
+        ],
+        "example": "@RegExp([a-z][a-z][0-9])",
+        "exampleValues": [
+          "kK8",
+          "Cs9"
+        ]
+      },
+      {
+        "instance": "@RegExp(regexp,nullWeight)",
+        "description": "Generate value based on regex pattern with null ratio",
+        "parameters": [
+          {
+            "name": "regexp",
+            "description": "Regular expression for value generation"
+          },
+          {
+            "name": "nullWeight",
+            "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+          }
+        ],
+        "example": "@RegExp([a-z][a-z][0-9],1:2)",
+        "exampleValues": [
+          "kK8",
+          "null"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "regexp",
+        "description": "Regular expression for value generation"
+      },
+      {
+        "name": "nullWeight",
+        "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+      }
+    ],
+    "order": 110
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.date.MTimestamp",
+    "name": "@Timestamp()",
+    "description": "Generate current timestamp",
+    "tags": [
+      "Date and Time"
+    ],
+    "constructors": [
+      {
+        "instance": "@Timestamp()",
+        "description": "Generate current system timestamp",
+        "example": "@Timestamp()",
+        "exampleValues": [
+          "1653432546438"
+        ]
+      },
+      {
+        "instance": "@Timestamp(unix)",
+        "description": "Generate specified timestamp type",
+        "parameters": [
+          {
+            "name": "unix",
+            "description": "Generate Unix timestamp (seconds since 1970), default false (milliseconds)"
+          }
+        ],
+        "example": "@Timestamp()",
+        "exampleValues": [
+          "1653432546438"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "unix",
+        "description": "Generate Unix timestamp (seconds since 1970), default false (milliseconds)"
+      }
+    ],
+    "order": 201
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.date.MLocaleTime",
+    "name": "@LocaleTime()",
+    "description": "Generate localized current time",
+    "tags": [
+      "Date and Time"
+    ],
+    "constructors": [
+      {
+        "instance": "@LocaleTime()",
+        "description": "Generate current time (HH:mm:ss, Asia/Shanghai)",
+        "example": "@LocaleTime()",
+        "exampleValues": [
+          "23:32:13",
+          "23:32:13"
+        ]
+      },
+      {
+        "instance": "@LocaleTime(format)",
+        "description": "Generate current time with specified format",
+        "parameters": [
+          {
+            "name": "format",
+            "description": "Time format pattern, default \"HH:mm:ss\""
+          }
+        ],
+        "example": "@LocaleTime(a HH:mm:ss)",
+        "exampleValues": [
+          "下午 23:34:25",
+          "下午 23:34:25"
+        ]
+      },
+      {
+        "instance": "@LocaleTime(format,random)",
+        "description": "Generate random time with specified format",
+        "parameters": [
+          {
+            "name": "format",
+            "description": "Time format pattern, default \"HH:mm:ss\""
+          },
+          {
+            "name": "random",
+            "description": "Generate random time within day, default false"
+          }
+        ],
+        "example": "@LocaleTime(a HH:mm:ss)",
+        "exampleValues": [
+          "下午 23:34:25",
+          "下午 23:34:25"
+        ]
+      },
+      {
+        "instance": "@LocaleTime(format,zoneId,random)",
+        "description": "Generate random time with specified format and timezone",
+        "parameters": [
+          {
+            "name": "format",
+            "description": "Time format pattern, default \"HH:mm:ss\""
+          },
+          {
+            "name": "zoneId",
+            "description": "Timezone ID, default \"Asia/Shanghai\""
+          },
+          {
+            "name": "random",
+            "description": "Generate random time within day, default false"
+          }
+        ],
+        "example": "@LocaleDate(HH:mm:ss,Asia/Tokyo)",
+        "exampleValues": [
+          "07:08:21",
+          "07:08:21"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "format",
+        "description": "Time format pattern, default \"HH:mm:ss\""
+      },
+      {
+        "name": "zoneId",
+        "description": "Timezone ID, default \"Asia/Shanghai\""
+      },
+      {
+        "name": "random",
+        "description": "Generate random time within day, default false"
+      }
+    ],
+    "order": 202
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.date.MLocaleDate",
+    "name": "@LocaleDate()",
+    "description": "Generate localized current date",
+    "tags": [
+      "Date and Time"
+    ],
+    "constructors": [
+      {
+        "instance": "@LocaleDate()",
+        "description": "Generate current date (yyyy-MM-dd, Asia/Shanghai)",
+        "example": "@LocaleDate()",
+        "exampleValues": [
+          "2022-01-01",
+          "2022-01-01"
+        ]
+      },
+      {
+        "instance": "@LocaleDate(format)",
+        "description": "Generate current date with specified format",
+        "parameters": [
+          {
+            "name": "format",
+            "description": "Date format pattern, default \"yyyy-MM-dd\""
+          }
+        ],
+        "example": "@LocaleDate(yyyy yy y MM M dd d)",
+        "exampleValues": [
+          "2022 22 2022 05 5 12 12",
+          "2022 22 2022 05 5 12 12"
+        ]
+      },
+      {
+        "instance": "@LocaleDate(format,random)",
+        "description": "Generate random date with specified format",
+        "parameters": [
+          {
+            "name": "format",
+            "description": "Date format pattern, default \"yyyy-MM-dd\""
+          },
+          {
+            "name": "random",
+            "description": "Generate random dates ±10 years, default false"
+          }
+        ],
+        "example": "@LocaleDate(yyyy yy y MM M dd d)",
+        "exampleValues": [
+          "2022 22 2022 05 5 12 12",
+          "2022 22 2022 05 5 12 12"
+        ]
+      },
+      {
+        "instance": "@LocaleDate(format,zoneId,random)",
+        "description": "Generate random date with specified format and timezone",
+        "parameters": [
+          {
+            "name": "format",
+            "description": "Date format pattern, default \"yyyy-MM-dd\""
+          },
+          {
+            "name": "zoneId",
+            "description": "Timezone ID, default \"Asia/Shanghai\""
+          },
+          {
+            "name": "random",
+            "description": "Generate random dates ±10 years, default false"
+          }
+        ],
+        "example": "@LocaleDate(yyyy-MM-dd,Asia/Shanghai)",
+        "exampleValues": [
+          "2022-01-01",
+          "2022-01-01"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "format",
+        "description": "Date format pattern, default \"yyyy-MM-dd\""
+      },
+      {
+        "name": "zoneId",
+        "description": "Timezone ID, default \"Asia/Shanghai\""
+      },
+      {
+        "name": "random",
+        "description": "Generate random dates ±10 years, default false"
+      }
+    ],
+    "order": 203
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.date.MLocaleDateTime",
+    "name": "@LocaleDateTime()",
+    "description": "Generate localized current datetime",
+    "tags": [
+      "Date and Time"
+    ],
+    "constructors": [
+      {
+        "instance": "@LocaleDateTime()",
+        "description": "Generate current datetime (yyyy-MM-dd HH:mm:ss, Asia/Shanghai)",
+        "example": "@LocaleDateTime()",
+        "exampleValues": [
+          "2022-01-01 23:34:25",
+          "2022-01-01 23:34:25"
+        ]
+      },
+      {
+        "instance": "@LocaleDateTime(format)",
+        "description": "Generate current datetime with specified format",
+        "parameters": [
+          {
+            "name": "format",
+            "description": "Datetime format pattern, default \"yyyy-MM-dd HH:mm:ss\""
+          }
+        ],
+        "example": "@LocaleDateTime(yy-MM-dd a HH:mm:ss)",
+        "exampleValues": [
+          "22-05-12 下午 23:40:22",
+          "22-05-12 下午 23:40:22"
+        ]
+      },
+      {
+        "instance": "@LocaleDateTime(format,random)",
+        "description": "Generate random datetime with specified format",
+        "parameters": [
+          {
+            "name": "format",
+            "description": "Datetime format pattern, default \"yyyy-MM-dd HH:mm:ss\""
+          },
+          {
+            "name": "random",
+            "description": "Generate random datetime ±10 years, default false"
+          }
+        ],
+        "example": "@LocaleDateTime(yy-MM-dd a HH:mm:ss)",
+        "exampleValues": [
+          "22-05-12 下午 23:40:22",
+          "22-05-12 下午 23:40:22"
+        ]
+      },
+      {
+        "instance": "@LocaleDateTime(format,zoneId,random)",
+        "description": "Generate random datetime with specified format and timezone",
+        "parameters": [
+          {
+            "name": "format",
+            "description": "Datetime format pattern, default \"yyyy-MM-dd HH:mm:ss\""
+          },
+          {
+            "name": "zoneId",
+            "description": "Timezone ID, default \"Asia/Shanghai\""
+          },
+          {
+            "name": "random",
+            "description": "Generate random datetime ±10 years, default false"
+          }
+        ],
+        "example": "@LocaleDateTime(yyyy-MM-dd HH:mm:ss,Asia/Shanghai)",
+        "exampleValues": [
+          "2022-01-01 23:34:25",
+          "2022-01-01 23:34:25"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "format",
+        "description": "Datetime format pattern, default \"yyyy-MM-dd HH:mm:ss\""
+      },
+      {
+        "name": "zoneId",
+        "description": "Timezone ID, default \"Asia/Shanghai\""
+      },
+      {
+        "name": "random",
+        "description": "Generate random datetime ±10 years, default false"
+      }
+    ],
+    "order": 204
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.date.MMonth",
+    "name": "@Month()",
+    "description": "Generate random month names",
+    "tags": [
+      "Date and Time"
+    ],
+    "constructors": [
+      {
+        "instance": "@Month()",
+        "description": "Generate Chinese month name",
+        "example": "@Month()",
+        "exampleValues": [
+          "一月"
+        ]
+      },
+      {
+        "instance": "@Month(locale)",
+        "description": "Generate month name in specified locale",
+        "parameters": [
+          {
+            "name": "locale",
+            "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+          }
+        ],
+        "example": "@Month()",
+        "exampleValues": [
+          "January"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "locale",
+        "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      }
+    ],
+    "order": 272
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.date.MWeek",
+    "name": "@Week()",
+    "description": "Generate random week names",
+    "tags": [
+      "Date and Time"
+    ],
+    "constructors": [
+      {
+        "instance": "@Week()",
+        "description": "Generate Chinese week name",
+        "example": "@Week()",
+        "exampleValues": [
+          "星期二"
+        ]
+      },
+      {
+        "instance": "@Week(locale)",
+        "description": "Generate week name in specified locale",
+        "parameters": [
+          {
+            "name": "locale",
+            "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+          }
+        ],
+        "example": "@Week()",
+        "exampleValues": [
+          "Tuesday"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "locale",
+        "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      }
+    ],
+    "order": 273
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.id.MGuid",
+    "name": "@Guid()",
+    "description": "Generate GUID-based IDs",
+    "tags": [
+      "ID Generation"
+    ],
+    "constructors": [
+      {
+        "instance": "@Guid()",
+        "description": "Generate GUID without separators",
+        "example": "@Guid()",
+        "exampleValues": [
+          "JIDLOIFIUDASNVHDLODGHYGONLKDHKP"
+        ]
+      },
+      {
+        "instance": "@Guid(withoutSeparator)",
+        "description": "Generate GUID with separators",
+        "parameters": [
+          {
+            "name": "withoutSeparator",
+            "description": "Include separators (\"-\"), default true"
+          }
+        ],
+        "example": "@Guid(true)",
+        "exampleValues": [
+          "JIDLO-IFIUD-ASNVH-DLODG-HYGON-LKDHKP"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "withoutSeparator",
+        "description": "Include separators (\"-\"), default true"
+      }
+    ],
+    "order": 301
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.id.MUuid",
+    "name": "@Uuid()",
+    "description": "Generate UUID-based IDs",
+    "tags": [
+      "ID Generation"
+    ],
+    "constructors": [
+      {
+        "instance": "@Uuid()",
+        "description": "Generate UUID without separators",
+        "example": "@Uuid()",
+        "exampleValues": [
+          "JIDLOIFIUDASNVHDLODGHYGONLKDHKP"
+        ]
+      },
+      {
+        "instance": "@Uuid(withoutSeparator)",
+        "description": "Generate UUID with separators",
+        "parameters": [
+          {
+            "name": "withoutSeparator",
+            "description": "Include separators (\"-\"), default true"
+          }
+        ],
+        "example": "@Uuid(true)",
+        "exampleValues": [
+          "JIDLO-IFIUD-ASNVH-DLODG-HYGON-LKDHKP"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "withoutSeparator",
+        "description": "Include separators (\"-\"), default true"
+      }
+    ],
+    "order": 302
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.id.MIncId",
+    "name": "@IncId()",
+    "description": "Generate incremental IDs (node-unique)",
+    "tags": [
+      "ID Generation"
+    ],
+    "constructors": [
+      {
+        "instance": "@IncId()",
+        "description": "Generate incremental ID (start=1, step=1)",
+        "example": "@IncId()",
+        "exampleValues": [
+          "1"
+        ]
+      },
+      {
+        "instance": "@IncId(init,step)",
+        "description": "Generate incremental ID with specified start and step",
+        "parameters": [
+          {
+            "name": "init",
+            "description": "Initial value, default 1"
+          },
+          {
+            "name": "step",
+            "description": "Increment step, default 1"
+          }
+        ],
+        "example": "@IncId(5,2)",
+        "exampleValues": [
+          "5"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "init",
+        "description": "Initial value, default 1"
+      },
+      {
+        "name": "step",
+        "description": "Increment step, default 1"
+      }
+    ],
+    "order": 303
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.id.MSnowId",
+    "name": "@SnowId()",
+    "description": "Generate Snowflake-based IDs (distributed unique)",
+    "tags": [
+      "ID Generation"
+    ],
+    "constructors": [
+      {
+        "instance": "@SnowId()",
+        "description": "Generate Snowflake ID (dcId=1, mId=1)",
+        "example": "@SnowId()",
+        "exampleValues": [
+          "16685359784"
+        ]
+      },
+      {
+        "instance": "@SnowId(dcId,mid)",
+        "description": "Generate Snowflake ID with specified dcId and mId",
+        "parameters": [
+          {
+            "name": "dcId",
+            "description": "Datacenter ID, default 1"
+          }
+        ],
+        "example": "@SnowId(1,1)",
+        "exampleValues": [
+          "16685359784"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "dcId",
+        "description": "Datacenter ID, default 1"
+      },
+      {
+        "name": "mId",
+        "description": "Machine ID, default 1"
+      }
+    ],
+    "order": 304
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.article.MWord",
+    "name": "@Word()",
+    "description": "Generate words",
+    "tags": [
+      "Text Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Word()",
+        "description": "Generate word (Chinese)",
+        "example": "@Word()",
+        "exampleValues": [
+          "弯弯曲曲",
+          "千家万户"
+        ]
+      },
+      {
+        "instance": "@Word(dict)",
+        "description": "Generate word using specified dictionary",
+        "parameters": [
+          {
+            "name": "dict",
+            "description": "Custom value dictionary, multiple values separated by '|'"
+          }
+        ],
+        "example": "@Word(开开心心|快快乐乐|红红火火))",
+        "exampleValues": [
+          "开开心心",
+          "快快乐乐"
+        ]
+      },
+      {
+        "instance": "@Word(locale)",
+        "description": "Generate word in specified locale",
+        "parameters": [
+          {
+            "name": "locale",
+            "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+          }
+        ],
+        "example": "@Word(en)",
+        "exampleValues": [
+          "along",
+          "designer"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "dict",
+        "description": "Custom value dictionary, multiple values separated by '|'"
+      },
+      {
+        "name": "locale",
+        "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      }
+    ],
+    "order": 401
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.article.MTitle",
+    "name": "@Title()",
+    "description": "Generate titles",
+    "tags": [
+      "Text Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Title()",
+        "description": "Generate title (Chinese, 2-20 characters)",
+        "example": "@Title()",
+        "exampleValues": [
+          "做好疫情防护"
+        ]
+      },
+      {
+        "instance": "@Title(dict)",
+        "description": "Generate title using specified dictionary",
+        "parameters": [
+          {
+            "name": "dict",
+            "description": "Custom value dictionary, multiple values separated by '|'"
+          }
+        ],
+        "example": "@Title(做好疫情防护|乌俄局势)",
+        "exampleValues": [
+          "做好疫情防护"
+        ]
+      },
+      {
+        "instance": "@Title(locale)",
+        "description": "Generate title in specified locale",
+        "parameters": [
+          {
+            "name": "locale",
+            "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+          }
+        ],
+        "example": "@Title(en)",
+        "exampleValues": [
+          "Do a good job in epidemic prevention"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "dict",
+        "description": "Custom value dictionary, multiple values separated by '|'"
+      },
+      {
+        "name": "locale",
+        "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      }
+    ],
+    "order": 402
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.article.MSentence",
+    "name": "@Sentence()",
+    "description": "Generate sentences",
+    "tags": [
+      "Text Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Sentence()",
+        "description": "Generate sentence (Chinese, 5-100 characters)",
+        "example": "@Sentence()",
+        "exampleValues": [
+          "好好学习"
+        ]
+      },
+      {
+        "instance": "@Sentence(dict)",
+        "description": "Generate sentence using specified dictionary",
+        "parameters": [
+          {
+            "name": "dict",
+            "description": "Custom value dictionary, multiple values separated by '|'"
+          }
+        ],
+        "example": "@Sentence(好好学习|天天向上)",
+        "exampleValues": [
+          "天天向上"
+        ]
+      },
+      {
+        "instance": "@Sentence(locale)",
+        "description": "Generate sentence in specified locale",
+        "parameters": [
+          {
+            "name": "locale",
+            "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+          }
+        ],
+        "example": "@Sentence(zh_CN)",
+        "exampleValues": [
+          "好好学习"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "dict",
+        "description": "Custom value dictionary, multiple values separated by '|'"
+      },
+      {
+        "name": "locale",
+        "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      }
+    ],
+    "order": 403
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.article.MTangPoetry",
+    "name": "@TangPoetry()",
+    "description": "Generate Tang poetry",
+    "tags": [
+      "Text Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@TangPoetry()",
+        "description": "Generate Tang poem (Chinese)",
+        "example": "@TangPoetry()",
+        "exampleValues": [
+          "柳宗元\n晨诣超师院读禅经\n汲井漱寒齿，清心拂尘服，\n闲持贝叶书，步出东斋读。\n真源了无取，忘迹世所逐；\n遗言冀可冥，缮性何由熟？\n道人庭宇静，苔色连深竹；\n日出雾露余，青松如膏沐。\n澹然离言说，悟悦心自足。",
+          "韦应物\n兵卫森画戟，宴寝凝清香。\n海上风雨至，逍遥池阁凉。\n烦疴近消散，嘉宾复满堂。\n自惭居处崇，未睹斯民康。\n理会是非遣，性达形迹忘。\n鲜肥属时禁，蔬果幸见尝。\n俯饮一杯酒，仰聆金玉章。\n神欢体自轻，意欲凌风翔。\n吴中盛文史，群彦今汪洋。\n方知大藩地，岂曰财赋强。"
+        ]
+      },
+      {
+        "instance": "@TangPoetry(dict)",
+        "description": "Generate Tang poem using specified dictionary",
+        "parameters": [
+          {
+            "name": "dict",
+            "description": "Custom value dictionary, multiple values separated by '|'"
+          }
+        ],
+        "example": "@TangPoetry(唐诗1|唐诗2)",
+        "exampleValues": [
+          "唐诗1",
+          "唐诗2"
+        ]
+      },
+      {
+        "instance": "@TangPoetry(locale)",
+        "description": "Generate Tang poem in specified locale",
+        "parameters": [
+          {
+            "name": "locale",
+            "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+          }
+        ],
+        "example": "@TangPoetry(en)",
+        "exampleValues": [
+          "Qiu Wei\nAFTER MISSING THE RECLUSE \nON THE WESTERN MOUNTAIN\nTo your hermitage here on the top of the mountain \nI have climbed, without stopping, these ten miles. \nI have knocked at your door, and no one answered; \nI have peeped into your room, at your seat beside the table. \nPerhaps you are out riding in your canopied chair, \nOr fishing, more likely, in some autumn pool. \nSorry though I am to be missing you, \nYou have become my meditation -- \nThe beauty of your grasses, fresh with rain, \nAnd close beside your window the music of your pines. \nI take into my being all that I see and hear, \nSoothing my senses, quieting my heart; \nAnd though there be neither host nor guest, \nHave I not reasoned a visit complete? \n...After enough, I have gone down the mountain. \nWhy should I wait for you any longer? ",
+          "Wang Wei\nAT PARTING\nI dismount from my horse and I offer you wine, \nAnd I ask you where you are going and why. \nAnd you answer: \"I am discontent \nAnd would rest at the foot of the southern mountain. \nSo give me leave and ask me no questions. \nWhite clouds pass there without end.\" "
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "dict",
+        "description": "Custom value dictionary, multiple values separated by '|'"
+      },
+      {
+        "name": "locale",
+        "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      }
+    ],
+    "order": 404
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.article.MParagraph",
+    "name": "@Paragraph()",
+    "description": "Generate paragraphs",
+    "tags": [
+      "Text Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Paragraph()",
+        "description": "Generate paragraph (Chinese, 200-1000 characters)",
+        "example": "@Paragraph()",
+        "exampleValues": [
+          "喜欢读诗，不管它是中国的还是外国的，也不管它是古代的还是现代的都爱读。从风格上来说不管它是豪放的还纤柔的，也不管它是浪漫的还是写实的我也同样爱读。因为我认为诗是大自然灵魂精神的体现，诗是社会的律动，诗是人思想意识真情实感的流露。喜欢诗，喜欢读诗，时间一长，也就喜欢练习写诗。古体诗，格律诗，词曲到新诗都学习过，也写过；虽然写得不好，可还是也写了，尝试了。",
+          "夜，宛若一副带着点点诗意的画卷，铺展开来。不知道从何时起，喜欢独处，喜欢一个人坐着，纵然对着夜色，是无数的孤独，也深觉挺好。孤独何妨呢?不被打扰，也是一种美丽的享受。无聊时候，敲几行贴心的小字，沉迷夜色的清然与优柔之中。静坐的时光，总有往昔的故事，如同电影一样心头回放，那些曾经的人，那些渐远渐无书的你我，而如今形同陌路了，唯有残留的往事，像是爬满心房的藤蔓，无休无止。"
+        ]
+      },
+      {
+        "instance": "@Paragraph(dict)",
+        "description": "Generate paragraph using specified dictionary",
+        "parameters": [
+          {
+            "name": "dict",
+            "description": "Custom value dictionary, multiple values separated by '|'"
+          }
+        ],
+        "example": "@Paragraph(段落1|段落2)",
+        "exampleValues": [
+          "段落1",
+          "段落2"
+        ]
+      },
+      {
+        "instance": "@Paragraph(locale)",
+        "description": "Generate paragraph in specified locale",
+        "parameters": [
+          {
+            "name": "locale",
+            "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+          }
+        ],
+        "example": "@Paragraph(en)",
+        "exampleValues": [
+          "At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. The time is gone, the promise is still there, the people are gone, like the arrow from the mstring, even if it is far to the horizon, the tender words are still there. If the affection is deep, I am not afraid of the long-term, having you in my heart is enough to comfort a lonely soul. The cymbals were pale that day, the white dew was frost, and the autumn breeze brought coolness. Xia came quietly, and went quietly. The autumn models came with graceful and graceful steps, lovingly sending the back of Xia Yuan, accompanied by fallen leaves, waiting for the arrival of the next season. Looking at the withered leaves, knowing that some departures are unobstructed, and the empty heart will be filled with the tranquility of the autumn light, so the parting time and time will be warmed by the next meeting.",
+          "accidentally met and met. You are over there. I am here. A virtual thread connects us together. We could have become friends, communicate, talk, and sigh. However, we have been indulged in real life for too long. In this masked society, we have lost the most precious and simplest relationship between people-trust!"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "dict",
+        "description": "Custom value dictionary, multiple values separated by '|'"
+      },
+      {
+        "name": "locale",
+        "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      }
+    ],
+    "order": 405
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.article.MArticle",
+    "name": "@Article()",
+    "description": "Generate articles",
+    "tags": [
+      "Text Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Article()",
+        "description": "Generate Chinese article (3 paragraphs, ≤800 words)",
+        "example": "@Article()",
+        "exampleValues": [
+          "有时我们是主角，有时我们是配角，但无论角色如何，我们都在努力地活着，追求着自己的梦想。 未来会怎样？ 有时我们是主角，有时我们是配角，但无论角色如何，我们都在努力地活着，追求着自己的梦想。 静坐的时光，总有往昔的故事，如同电影一样心头回放，那些曾经的人，那些渐远渐无书的你我，而如今形同陌路了，唯有残留的往事，像是爬满心房的藤蔓，无休无止。 科技的发展改变了我们的生活方式。\n\n从风格上来说不管它是豪放的还纤柔的，也不管它是浪漫的还是写实的我也同样爱读。 静坐的时光，总有往昔的故事，如同电影一样心头回放，那些曾经的人，那些渐远渐无书的你我，而如今形同陌路了，唯有残留的往事，像是爬满心房的藤蔓，无休无止。 从风格上来说不管它是豪放的还纤柔的，也不管它是浪漫的还是写实的我也同样爱读。 喜欢诗，喜欢读诗，时间一长，也就喜欢练习写诗。\n\n不被打扰，也是一种美丽的享受。 喜欢诗，喜欢读诗，时间一长，也就喜欢练习写诗。 孤独何妨呢? 从互联网到人工智能，从智能手机到智能家居，科技正在以前所未有的速度改变着我们的世界。 春天来了，万物复苏。"
+        ]
+      },
+      {
+        "instance": "@Article(locale)",
+        "description": "Generate article in specified language (3 paragraphs, ≤800 words)",
+        "parameters": [
+          {
+            "name": "locale",
+            "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+          }
+        ],
+        "example": "@Article(en)",
+        "exampleValues": [
+          "The time is gone, the promise is still there, the people are gone, like the arrow from the mstring, even if it is far to the horizon, the tender words are still there.  You are over there. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting.  I am here.\n\nAt this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting.  Looking at the withered leaves, knowing that some departures are unobstructed, and the empty heart will be filled with the tranquility of the autumn light, so the parting time and time will be warmed by the next meeting.  We could have become friends, communicate, talk, and sigh.\n\nIf the affection is deep, I am not afraid of the long-term, having you in my heart is enough to comfort a lonely soul.  You are over there.  Accidentally met and met.  If the affection is deep, I am not afraid of the long-term, having you in my heart is enough to comfort a lonely soul."
+        ]
+      },
+      {
+        "instance": "@Article(paragraphCount,wordCount,dict)",
+        "description": "Generate article with specified paragraphs/word count/content",
+        "parameters": [
+          {
+            "name": "paragraphCount",
+            "description": "Number of paragraphs"
+          },
+          {
+            "name": "wordCount",
+            "description": "Maximum word count"
+          }
+        ],
+        "example": "@Paragraph(2|200|At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting.)",
+        "exampleValues": [
+          "At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting.\n\nAt this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting."
+        ]
+      },
+      {
+        "instance": "@Article(paragraphCount,wordCount,locale)",
+        "description": "Generate article with specified paragraphs/word count/language",
+        "parameters": [
+          {
+            "name": "paragraphCount",
+            "description": "Number of paragraphs"
+          },
+          {
+            "name": "wordCount",
+            "description": "Maximum word count"
+          },
+          {
+            "name": "locale",
+            "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+          }
+        ],
+        "example": "@Article(2|200|en)",
+        "exampleValues": [
+          "At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting.  I am here. The time is gone, the promise is still there, the people are gone, like the arrow from the mstring, even if it is far to the horizon, the tender words are still there.  The autumn models came with graceful and graceful steps, lovingly sending the back of Xia Yuan, accompanied by fallen leaves, waiting for the arrival of the next season.\n\nXia came quietly, and went quietly.  Xia came quietly, and went quietly. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting."
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "paragraphCount",
+        "description": "Number of paragraphs"
+      },
+      {
+        "name": "wordCount",
+        "description": "Maximum word count"
+      },
+      {
+        "name": "locale",
+        "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      }
+    ],
+    "order": 406
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.geography.MCountry",
+    "name": "@Country()",
+    "description": "Generate countries (ISO 3166-1 standard)",
+    "tags": [
+      "Geographic Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Country()",
+        "description": "Generate country (Chinese)",
+        "example": "@Country()",
+        "exampleValues": [
+          "中国"
+        ]
+      },
+      {
+        "instance": "@Country(dict)",
+        "description": "Generate country using specified dictionary",
+        "parameters": [
+          {
+            "name": "dict",
+            "description": "Custom value dictionary, multiple values separated by '|'"
+          }
+        ],
+        "example": "@Country(中国,俄罗斯)",
+        "exampleValues": [
+          "中国"
+        ]
+      },
+      {
+        "instance": "@Country(locale)",
+        "description": "Generate country in specified locale",
+        "parameters": [
+          {
+            "name": "locale",
+            "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+          }
+        ],
+        "example": "@Country(zh_CN)",
+        "exampleValues": [
+          "中国"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "dict",
+        "description": "Custom value dictionary, multiple values separated by '|'"
+      },
+      {
+        "name": "locale",
+        "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      }
+    ],
+    "order": 501
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.geography.MProvince",
+    "name": "@Province()",
+    "description": "Generate provinces",
+    "tags": [
+      "Geographic Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Province()",
+        "description": "Generate province (Chinese)",
+        "example": "@Province()",
+        "exampleValues": [
+          "山东",
+          "河北"
+        ]
+      },
+      {
+        "instance": "@Province(dict)",
+        "description": "Generate province using specified dictionary",
+        "parameters": [
+          {
+            "name": "dict",
+            "description": "Custom value dictionary, multiple values separated by '|'"
+          }
+        ],
+        "example": "@Province(山西,河北,北京,上海)",
+        "exampleValues": [
+          "北京",
+          "上海"
+        ]
+      },
+      {
+        "instance": "@Province(locale)",
+        "description": "Generate province in specified locale",
+        "parameters": [
+          {
+            "name": "locale",
+            "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+          }
+        ],
+        "example": "@Province(en)",
+        "exampleValues": [
+          "U.S.",
+          "U.K."
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "dict",
+        "description": "Custom value dictionary, multiple values separated by '|'"
+      },
+      {
+        "name": "locale",
+        "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      }
+    ],
+    "order": 502
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.geography.MCity",
+    "name": "@City()",
+    "description": "Generate cities",
+    "tags": [
+      "Geographic Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@City()",
+        "description": "Generate city (Chinese)",
+        "exampleValues": [
+          "北京",
+          "上海"
+        ]
+      },
+      {
+        "instance": "@City(dict)",
+        "description": "Generate city using specified dictionary",
+        "parameters": [
+          {
+            "name": "dict",
+            "description": "Custom value dictionary, multiple values separated by '|'"
+          }
+        ],
+        "example": "@Word(北京|深圳|上海))",
+        "exampleValues": [
+          "深圳",
+          "上海"
+        ]
+      },
+      {
+        "instance": "@City(locale)",
+        "description": "Generate city in specified locale",
+        "parameters": [
+          {
+            "name": "locale",
+            "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+          }
+        ],
+        "example": "@City(en)",
+        "exampleValues": [
+          "Chicago",
+          "New York"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "dict",
+        "description": "Custom value dictionary, multiple values separated by '|'"
+      },
+      {
+        "name": "locale",
+        "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      }
+    ],
+    "order": 503
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.geography.MAddress",
+    "name": "@Address()",
+    "description": "Generate addresses",
+    "tags": [
+      "Geographic Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Address()",
+        "description": "Generate address (Chinese)",
+        "example": "@Address()",
+        "exampleValues": [
+          "恩施土家族苗族自治州利川市",
+          "上海市浦东新区迎宾大道6000号"
+        ]
+      },
+      {
+        "instance": "@Address(dict)",
+        "description": "Generate address using specified dictionary",
+        "parameters": [
+          {
+            "name": "dict",
+            "description": "Custom value dictionary, multiple values separated by '|'"
+          }
+        ],
+        "example": "@Address(地址1|地址2|地址3))",
+        "exampleValues": [
+          "地址3",
+          "地址1"
+        ]
+      },
+      {
+        "instance": "@Address(locale)",
+        "description": "Generate address in specified locale",
+        "parameters": [
+          {
+            "name": "locale",
+            "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+          }
+        ],
+        "example": "@Address(en)",
+        "exampleValues": [
+          "1112 Hermitage Rd NW, Edmonton, AB T5A 4M4",
+          "Gangwon-do, Yeongweol, Yeongwol-eup, Hasong-ri, 217-2"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "dict",
+        "description": "Custom value dictionary, multiple values separated by '|'"
+      },
+      {
+        "name": "locale",
+        "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      }
+    ],
+    "order": 504
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.geography.MLatitude",
+    "name": "@Latitude()",
+    "description": "Generate latitude values",
+    "tags": [
+      "Geographic Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Latitude()",
+        "description": "Generate random latitude",
+        "example": "@Latitude()",
+        "exampleValues": [
+          "90.232121"
+        ]
+      },
+      {
+        "instance": "@Latitude(minLat,maxLat,scale,nullWeight)",
+        "description": "Generate latitude with specified parameters",
+        "parameters": [
+          {
+            "name": "minLat",
+            "description": "Min latitude (-90)"
+          },
+          {
+            "name": "maxLat",
+            "description": "Max latitude (+90)"
+          },
+          {
+            "name": "scale",
+            "description": "Decimal precision"
+          },
+          {
+            "name": "nullWeight",
+            "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+          }
+        ],
+        "example": "@Latitude(30,60,5,1:2)",
+        "exampleValues": [
+          "40.336546"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "minLat",
+        "description": "Min latitude (-90)"
+      },
+      {
+        "name": "maxLat",
+        "description": "Max latitude (+90)"
+      },
+      {
+        "name": "scale",
+        "description": "Decimal precision"
+      },
+      {
+        "name": "nullWeight",
+        "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+      }
+    ],
+    "order": 511
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.geography.MLongitude",
+    "name": "@Longitude()",
+    "description": "Generate longitude values",
+    "tags": [
+      "Geographic Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Longitude()",
+        "description": "Generate random longitude",
+        "example": "@Longitude()",
+        "exampleValues": [
+          "90.232121"
+        ]
+      },
+      {
+        "instance": "@Longitude(minLng,maxLng,scale,nullWeight)",
+        "description": "Generate longitude with specified parameters",
+        "parameters": [
+          {
+            "name": "minLng",
+            "description": "Min longitude (-180)"
+          },
+          {
+            "name": "maxLng",
+            "description": "Max longitude (+180)"
+          },
+          {
+            "name": "scale",
+            "description": "Decimal precision"
+          },
+          {
+            "name": "nullWeight",
+            "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+          }
+        ],
+        "example": "@Longitude(30,60,5,1:2)",
+        "exampleValues": [
+          "40.336546"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "minLng",
+        "description": "Min longitude (-180)"
+      },
+      {
+        "name": "maxLng",
+        "description": "Max longitude (+180)"
+      },
+      {
+        "name": "scale",
+        "description": "Decimal precision"
+      },
+      {
+        "name": "nullWeight",
+        "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+      }
+    ],
+    "order": 512
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.geography.MCoordinates",
+    "name": "@Coordinates()",
+    "description": "Generate random coordinates (format: longitude,latitude)",
+    "tags": [
+      "Geographic Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Coordinates()",
+        "description": "Generate random coordinates",
+        "example": "@Coordinates()",
+        "exampleValues": [
+          "20.336546,90.232121"
+        ]
+      },
+      {
+        "instance": "@Coordinates(minLng,maxLng,minLat,maxLat,scale,nullWeight)",
+        "description": "Generate coordinates with specified parameters",
+        "parameters": [
+          {
+            "name": "minLng",
+            "description": "Min longitude (-180)"
+          },
+          {
+            "name": "maxLng",
+            "description": "Max longitude (+180)"
+          },
+          {
+            "name": "minLat",
+            "description": "Min latitude (-90)"
+          },
+          {
+            "name": "maxLat",
+            "description": "Max latitude (+90)"
+          },
+          {
+            "name": "scale",
+            "description": "Decimal precision"
+          },
+          {
+            "name": "nullWeight",
+            "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+          }
+        ],
+        "example": "@Coordinates(30,60,100,160,5,1:2)",
+        "exampleValues": [
+          "40.336546,110.232121"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "minLng",
+        "description": "Min longitude (-180)"
+      },
+      {
+        "name": "maxLng",
+        "description": "Max longitude (+180)"
+      },
+      {
+        "name": "minLat",
+        "description": "Min latitude (-90)"
+      },
+      {
+        "name": "maxLat",
+        "description": "Max latitude (+90)"
+      },
+      {
+        "name": "scale",
+        "description": "Decimal precision"
+      },
+      {
+        "name": "nullWeight",
+        "description": "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+      }
+    ],
+    "order": 513
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.geography.MZip",
+    "name": "@Zip()",
+    "description": "Generate postal codes",
+    "tags": [
+      "Geographic Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Zip(locale)",
+        "description": "Generate postal code in specified locale",
+        "example": "@Zip(en)",
+        "exampleValues": [
+          "EC1A 1HQ",
+          "1ASA 9AA",
+          "1BSA 4AB"
+        ]
+      },
+      {
+        "instance": "@Zip()",
+        "description": "Generate postal code (Chinese)",
+        "example": "@Zip()",
+        "exampleValues": [
+          "252863",
+          "252665",
+          "1252866"
+        ]
+      },
+      {
+        "instance": "@Zip(dict)",
+        "description": "Generate postal code using specified dictionary",
+        "parameters": [
+          {
+            "name": "dict",
+            "description": "Postal code dictionary, default includes Chinese and UK formats"
+          }
+        ],
+        "example": "@Zip(101407|101406|101405)",
+        "exampleValues": [
+          "101407",
+          "101405",
+          "101406"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "dict",
+        "description": "Postal code dictionary, default includes Chinese and UK formats"
+      }
+    ],
+    "order": 520
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.hash.MMd5",
+    "name": "@Md5()",
+    "description": "Generate MD5 values",
+    "tags": [
+      "Hash Algorithm"
+    ],
+    "constructors": [
+      {
+        "instance": "@Md5()",
+        "description": "Generate MD5 value (default 32 length)",
+        "example": "@Md5()",
+        "exampleValues": [
+          "E2FC714C4727EE9395F324CD2E7F331F"
+        ]
+      },
+      {
+        "instance": "@Md5(length)",
+        "description": "Generate MD5 value with specified length",
+        "parameters": [
+          {
+            "name": "length",
+            "description": "Digest length (16 or 32), default 32"
+          }
+        ],
+        "example": "@Md5(16)",
+        "exampleValues": [
+          "4727EE9395F324CD"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "length",
+        "description": "Digest length (16 or 32), default 32"
+      }
+    ],
+    "order": 601
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.hash.MSha",
+    "name": "@Sha()",
+    "description": "Generate SHA hash values",
+    "tags": [
+      "Hash Algorithm"
+    ],
+    "constructors": [
+      {
+        "instance": "@Sha()",
+        "description": "Generate SHA hash (default SHA-512)",
+        "example": "@Sha()",
+        "exampleValues": [
+          "85433ab2b5841aaced05816705ff434f4df037829ed425de03ba80e636a826d020a4e954e4f69c2cfe57abc7751bdcc9d27dc89c286b8567934f01a467221169",
+          "91701de028f41ddc5319e31c21b3453ca0653cdaf1dfe410b43da0cdf5a0218053f0f0034ff696367b741a51dcc028c6676403f52955e78bc66bd49abe99ab95"
+        ]
+      },
+      {
+        "instance": "@Sha(version)",
+        "description": "Generate SHA hash with specified version",
+        "parameters": [
+          {
+            "name": "version",
+            "description": "Algorithm version (SHA-1, SHA-224, SHA-256, SHA-384, SHA-512), default SHA-512"
+          }
+        ],
+        "example": "@Word(SHA-224)",
+        "exampleValues": [
+          "21bca972707548ae0ffac10d2fed7495e51cb62f48b31e5edd4eb257",
+          "ad7cdf3b66e8d68c22ce4750557e4f7c3af1a199fd11193dfbfa1e41"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "version",
+        "description": "Algorithm version (SHA-1, SHA-224, SHA-256, SHA-384, SHA-512), default SHA-512"
+      }
+    ],
+    "order": 602
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.locale.MLocale",
+    "name": "@Locale()",
+    "description": "Generate locale strings (language + country)",
+    "tags": [
+      "Localization"
+    ],
+    "constructors": [
+      {
+        "instance": "@Locale()",
+        "description": "Generate locale string",
+        "example": "@Locale()",
+        "exampleValues": [
+          "zh_CN"
+        ]
+      },
+      {
+        "instance": "@Locale(joiner)",
+        "description": "Generate locale string with specified separator",
+        "parameters": [
+          {
+            "name": "joiner",
+            "description": "Country/language separator, default \"_\""
+          }
+        ],
+        "example": "@Locale(-)",
+        "exampleValues": [
+          "zh-CN"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "joiner",
+        "description": "Country/language separator, default \"_\""
+      }
+    ],
+    "order": 701
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.locale.MTimeZone",
+    "name": "@TimeZone()",
+    "description": "Generate timezone strings",
+    "tags": [
+      "Localization"
+    ],
+    "constructors": [
+      {
+        "instance": "@TimeZone()",
+        "description": "Generate random timezone",
+        "example": "@TimeZone()",
+        "exampleValues": [
+          "Australia/Darwin",
+          "Africa/Cairo",
+          "Europe/Paris"
+        ]
+      },
+      {
+        "instance": "@TimeZone(dict)",
+        "description": "Generate timezone from specified dictionary",
+        "parameters": [
+          {
+            "name": "dict",
+            "description": "Timezone dictionary, default includes major timezones"
+          }
+        ],
+        "example": "@TimeZone(Australia/Darwin|Australia/Sydney|America/Argentina/Buenos_Aires))",
+        "exampleValues": [
+          "Australia/Darwin",
+          "America/Argentina/Buenos_Aires"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "dict",
+        "description": "Timezone dictionary, default includes major timezones"
+      }
+    ],
+    "order": 702
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.user.MAge",
+    "name": "@Age()",
+    "description": "Generate ages",
+    "tags": [
+      "User Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Age()",
+        "description": "Generate random age (0-100)",
+        "example": "@String()",
+        "exampleValues": [
+          "60"
+        ]
+      },
+      {
+        "instance": "@Age(min,max)",
+        "description": "Generate age between min and max",
+        "parameters": [
+          {
+            "name": "min",
+            "description": "Minimum age, default 0"
+          },
+          {
+            "name": "max",
+            "description": "Maximum age, default 100"
+          }
+        ],
+        "example": "@String(1,50)",
+        "exampleValues": [
+          "25"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "min",
+        "description": "Minimum age, default 0"
+      },
+      {
+        "name": "max",
+        "description": "Maximum age, default 100"
+      }
+    ],
+    "order": 800
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.user.MName",
+    "name": "@Name()",
+    "description": "Generate full names",
+    "tags": [
+      "User Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Name()",
+        "description": "Generate Chinese name",
+        "example": "@Name()",
+        "exampleValues": [
+          "郑倾宇",
+          "何政贤"
+        ]
+      },
+      {
+        "instance": "@Name(dict)",
+        "description": "Generate name from specified dictionary",
+        "parameters": [
+          {
+            "name": "dict",
+            "description": "Name dictionary, default combines @Firstname() and @Lastname()"
+          }
+        ],
+        "example": "@Name(欧阳娜娜|贾玲)",
+        "exampleValues": [
+          "欧阳娜娜",
+          "贾玲"
+        ]
+      },
+      {
+        "instance": "@Name(locale)",
+        "description": "Generate name in specified locale",
+        "parameters": [
+          {
+            "name": "locale",
+            "description": "Custom value dictionary, multiple values separated by '|'"
+          }
+        ],
+        "example": "@Name(en)",
+        "exampleValues": [
+          "Chris Jack",
+          "Abra Abel"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "dict",
+        "description": "Name dictionary, default combines @Firstname() and @Lastname()"
+      },
+      {
+        "name": "locale",
+        "description": "Custom value dictionary, multiple values separated by '|'"
+      }
+    ],
+    "order": 801
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.user.MPassword",
+    "name": "@Password()",
+    "description": "Generate random passwords",
+    "tags": [
+      "User Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Password()",
+        "description": "Generate password (6-20 chars, A-Za-z0-9)",
+        "example": "@Passd()",
+        "exampleValues": [
+          "PKA1BGmN",
+          "iD5p27p2w"
+        ]
+      },
+      {
+        "instance": "@Password(min,max)",
+        "description": "Generate password (min-max length, A-Za-z0-9)",
+        "parameters": [
+          {
+            "name": "min",
+            "description": "Min length, default 6"
+          },
+          {
+            "name": "max",
+            "description": "Max length, default 20"
+          }
+        ],
+        "example": "@Passd(5,8)",
+        "exampleValues": [
+          "llbxB6Z",
+          "qLQlgRz"
+        ]
+      },
+      {
+        "instance": "@Password(allowUpperCase,allowLowerCase,allowDigits,allowSpecialChar)",
+        "description": "Generate password (6-20 chars) with specified character sets",
+        "parameters": [
+          {
+            "name": "allowUpperCase",
+            "description": "Allow uppercase, default true"
+          },
+          {
+            "name": "allowLowerCase",
+            "description": "Allow lowercase, default true"
+          },
+          {
+            "name": "allowDigits",
+            "description": "Allow digits, default true"
+          },
+          {
+            "name": "allowSpecialChar",
+            "description": "Allow special chars, default false"
+          }
+        ],
+        "example": "@Passd(true,true,true,true)",
+        "exampleValues": [
+          "H/70~{E:nmB%e",
+          "'KIJbW2DP`\\<s3b+ze"
+        ]
+      },
+      {
+        "instance": "@Password(min,max,allowUpperCase,allowLowerCase,allowDigits,allowSpecialChar)",
+        "description": "Generate password (min-max length) with specified character sets",
+        "parameters": [
+          {
+            "name": "min",
+            "description": "Min length, default 6"
+          },
+          {
+            "name": "max",
+            "description": "Max length, default 20"
+          },
+          {
+            "name": "allowUpperCase",
+            "description": "Allow uppercase, default true"
+          },
+          {
+            "name": "allowLowerCase",
+            "description": "Allow lowercase, default true"
+          },
+          {
+            "name": "allowDigits",
+            "description": "Allow digits, default true"
+          },
+          {
+            "name": "allowSpecialChar",
+            "description": "Allow special chars, default false"
+          }
+        ],
+        "example": "@Passd(5,8,true,true,true,true)",
+        "exampleValues": [
+          "H-+:6",
+          "@7^KQf8"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "min",
+        "description": "Min length, default 6"
+      },
+      {
+        "name": "max",
+        "description": "Max length, default 20"
+      },
+      {
+        "name": "allowUpperCase",
+        "description": "Allow uppercase, default true"
+      },
+      {
+        "name": "allowLowerCase",
+        "description": "Allow lowercase, default true"
+      },
+      {
+        "name": "allowDigits",
+        "description": "Allow digits, default true"
+      },
+      {
+        "name": "allowSpecialChar",
+        "description": "Allow special chars, default false"
+      }
+    ],
+    "order": 802
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.user.MFirstname",
+    "name": "@Firstname()",
+    "description": "Generate first names",
+    "tags": [
+      "User Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Firstname()",
+        "description": "Generate Chinese first name",
+        "example": "@Firstname()",
+        "exampleValues": [
+          "紫沫",
+          "超俊",
+          "政晧"
+        ]
+      },
+      {
+        "instance": "@Firstname(dict)",
+        "description": "Generate first name from specified dictionary",
+        "parameters": [
+          {
+            "name": "dict",
+            "description": "Name dictionary, default Chinese names"
+          }
+        ],
+        "example": "@Firstname(逍遥|哪哪|曦曦)",
+        "exampleValues": [
+          "曦曦",
+          "逍遥"
+        ]
+      },
+      {
+        "instance": "@Firstname(locale)",
+        "description": "Generate first name in specified locale",
+        "parameters": [
+          {
+            "name": "locale",
+            "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+          }
+        ],
+        "example": "@Firstname(en)",
+        "exampleValues": [
+          "Aaron",
+          "Alan"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "dict",
+        "description": "Name dictionary, default Chinese names"
+      },
+      {
+        "name": "locale",
+        "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      }
+    ],
+    "order": 803
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.user.MLastname",
+    "name": "@Lastname()",
+    "description": "Generate last names",
+    "tags": [
+      "User Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Lastname()",
+        "description": "Generate Chinese last name",
+        "example": "@Lastname()",
+        "exampleValues": [
+          "孙",
+          "林",
+          "梁"
+        ]
+      },
+      {
+        "instance": "@Lastname(dict)",
+        "description": "Generate last name from specified dictionary",
+        "parameters": [
+          {
+            "name": "dict",
+            "description": "Surname dictionary, default Chinese surnames"
+          }
+        ],
+        "example": "@Lastname(李|王|张|刘|陈)",
+        "exampleValues": [
+          "张",
+          "王"
+        ]
+      },
+      {
+        "instance": "@Lastname(locale)",
+        "description": "Generate last name in specified locale",
+        "parameters": [
+          {
+            "name": "locale",
+            "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+          }
+        ],
+        "example": "@Lastname(en)",
+        "exampleValues": [
+          "Sun",
+          "Zhang"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "dict",
+        "description": "Surname dictionary, default Chinese surnames"
+      },
+      {
+        "name": "locale",
+        "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      }
+    ],
+    "order": 804
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.user.MMobile",
+    "name": "@Mobile()",
+    "description": "Generate mobile numbers",
+    "tags": [
+      "User Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Mobile()",
+        "description": "Generate Chinese mobile number",
+        "example": "@Mobile()",
+        "exampleValues": [
+          "13293932848",
+          "18764113305"
+        ]
+      },
+      {
+        "instance": "@Mobile(locale)",
+        "description": "Generate mobile number for specified locale",
+        "parameters": [
+          {
+            "name": "locale",
+            "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+          }
+        ],
+        "example": "@Mobile(en)",
+        "exampleValues": [
+          "07790421505",
+          "07866557530"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "locale",
+        "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      }
+    ],
+    "order": 805
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.user.MLandline",
+    "name": "@Landline()",
+    "description": "Generate landline numbers",
+    "tags": [
+      "User Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Landline()",
+        "description": "Generate Chinese landline number",
+        "example": "@MLandline()",
+        "exampleValues": [
+          "",
+          ""
+        ]
+      },
+      {
+        "instance": "@Landline(locale)",
+        "description": "Generate landline number for specified locale",
+        "parameters": [
+          {
+            "name": "locale",
+            "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+          }
+        ],
+        "example": "@MLandline(en)",
+        "exampleValues": [
+          "",
+          ""
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "locale",
+        "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      }
+    ],
+    "order": 805
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.user.MEmail",
+    "name": "@Email()",
+    "description": "Generate email addresses",
+    "tags": [
+      "User Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Email()",
+        "description": "Generate email (length 6-20)",
+        "example": "@Email()",
+        "exampleValues": [
+          "WF8W5NFeMyrMKAx@153.com",
+          "CcbZYdmDEtWGEY1@yahoo.com.cn"
+        ]
+      },
+      {
+        "instance": "@Email(suffix)",
+        "description": "Generate email (length 6-20) with default suffixes",
+        "parameters": [
+          {
+            "name": "suffix",
+            "description": "Email suffixes separated by \"|\", default common providers"
+          }
+        ],
+        "example": "@Email(@xcan.cloud)",
+        "exampleValues": [
+          "WF8W5NFeMyrMKAx@xcan.cloud",
+          "CcbZYdmDEtWGEY1@xcan.cloud"
+        ]
+      },
+      {
+        "instance": "@Email(min,max)",
+        "description": "Generate email (min-max length) with default suffixes",
+        "parameters": [
+          {
+            "name": "min",
+            "description": "Min length, default 6"
+          },
+          {
+            "name": "max",
+            "description": "Max length, default 20"
+          }
+        ],
+        "example": "@Email(5,10)",
+        "exampleValues": [
+          "zjs7cb@hotmail.com",
+          "jsGH6sc@yahoo.com"
+        ]
+      },
+      {
+        "instance": "@Email(min,max,suffix)",
+        "description": "Generate email (min-max length) with specified suffixes",
+        "parameters": [
+          {
+            "name": "min",
+            "description": "Min length, default 6"
+          },
+          {
+            "name": "max",
+            "description": "Max length, default 20"
+          },
+          {
+            "name": "suffix",
+            "description": "Email suffixes separated by \"|\", default common providers"
+          }
+        ],
+        "example": "@Email(5,5,@xcan.cloud)",
+        "exampleValues": [
+          "4g4Fv@xcan.cloud",
+          "Hv8jh@xcan.cloud"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "min",
+        "description": "Min length, default 6"
+      },
+      {
+        "name": "max",
+        "description": "Max length, default 20"
+      },
+      {
+        "name": "suffix",
+        "description": "Email suffixes separated by \"|\", default common providers"
+      }
+    ],
+    "order": 806
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.user.MGender",
+    "name": "@Gender()",
+    "description": "Generate genders",
+    "tags": [
+      "User Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Gender()",
+        "description": "Generate Chinese gender",
+        "example": "@Gender()",
+        "exampleValues": [
+          "男",
+          "女"
+        ]
+      },
+      {
+        "instance": "@Gender(dict)",
+        "description": "Generate gender from specified dictionary",
+        "parameters": [
+          {
+            "name": "dict",
+            "description": "Gender dictionary, default: Male|Female"
+          }
+        ],
+        "example": "@Gender(F|M))",
+        "exampleValues": [
+          "F",
+          "M"
+        ]
+      },
+      {
+        "instance": "@Gender(locale)",
+        "description": "Generate gender in specified locale",
+        "parameters": [
+          {
+            "name": "locale",
+            "description": "Custom value dictionary, multiple values separated by '|'"
+          }
+        ],
+        "example": "@Gender(en)",
+        "exampleValues": [
+          "male",
+          "female"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "dict",
+        "description": "Gender dictionary, default: Male|Female"
+      },
+      {
+        "name": "locale",
+        "description": "Custom value dictionary, multiple values separated by '|'"
+      }
+    ],
+    "order": 807
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.user.MEducation",
+    "name": "@Education()",
+    "description": "Generate education levels",
+    "tags": [
+      "User Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Education()",
+        "description": "Generate Chinese education level",
+        "example": "@Education()",
+        "exampleValues": [
+          "本科"
+        ]
+      },
+      {
+        "instance": "@Education(dict)",
+        "description": "Generate education level from specified dictionary",
+        "parameters": [
+          {
+            "name": "dict",
+            "description": "Education dictionary, default Chinese levels"
+          }
+        ],
+        "example": "@Education(本科,硕士)",
+        "exampleValues": [
+          "本科"
+        ]
+      },
+      {
+        "instance": "@Education(locale)",
+        "description": "Generate education level in specified locale",
+        "parameters": [
+          {
+            "name": "locale",
+            "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+          }
+        ],
+        "example": "@Education(zh_CN)",
+        "exampleValues": [
+          "本科"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "dict",
+        "description": "Education dictionary, default Chinese levels"
+      },
+      {
+        "name": "locale",
+        "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      }
+    ],
+    "order": 808
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.network.MAppName",
+    "name": "@AppName()",
+    "description": "Generate application names",
+    "tags": [
+      "Network Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@AppName()",
+        "description": "Generate application name using default dictionary",
+        "example": "@AppName()",
+        "exampleValues": [
+          "搜狐新闻",
+          "百度手机浏览器"
+        ]
+      },
+      {
+        "instance": "@AppName(dict)",
+        "description": "Generate application name using specified dictionary",
+        "parameters": [
+          {
+            "name": "dict",
+            "description": "Custom value dictionary, multiple values separated by '|'"
+          }
+        ],
+        "example": "@AppName(星链|360|ie))",
+        "exampleValues": [
+          "360",
+          "星链"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "dict",
+        "description": "Custom value dictionary, multiple values separated by '|'"
+      }
+    ],
+    "order": 901
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.network.MAppVersion",
+    "name": "@AppVersion()",
+    "description": "Generate application versions (format: major.minor.patch[-releaseState][+buildstate])",
+    "tags": [
+      "Network Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@AppVersion()",
+        "description": "Generate application version using default dictionaries",
+        "example": "@AppVersion()",
+        "exampleValues": [
+          "135.50.149",
+          "199.31.103"
+        ]
+      },
+      {
+        "instance": "@AppVersion(prefixDict)",
+        "description": "Generate version with specified prefix, no release/build state",
+        "parameters": [
+          {
+            "name": "prefixDict",
+            "description": "Version prefix (e.g., \"v\", \"wchat\"), default none"
+          }
+        ],
+        "example": "@AppVersion(v|wchat)",
+        "exampleValues": [
+          "v-74.153.115",
+          "m-223.100.154"
+        ]
+      },
+      {
+        "instance": "@AppVersion(prefixDict,releaseStateDict)",
+        "description": "Generate version with specified prefix and release state",
+        "parameters": [
+          {
+            "name": "prefixDict",
+            "description": "Version prefix (e.g., \"v\", \"wchat\"), default none"
+          },
+          {
+            "name": "releaseStateDict",
+            "description": "Release state dictionary (e.g., SNAPSHOT, BETA, RELEASE)"
+          }
+        ],
+        "example": "@AppVersion(v|wchat,SNAPSHOT|BETA|RELEASE)",
+        "exampleValues": [
+          "v-237.22.12-SNAPSHOT",
+          "m-110.126.74-BETA"
+        ]
+      },
+      {
+        "instance": "@AppVersion(prefixDict,releaseStateDict,buildStateDict)",
+        "description": "Generate version with specified prefix, release state, and build state",
+        "parameters": [
+          {
+            "name": "prefixDict",
+            "description": "Version prefix (e.g., \"v\", \"wchat\"), default none"
+          },
+          {
+            "name": "releaseStateDict",
+            "description": "Release state dictionary (e.g., SNAPSHOT, BETA, RELEASE)"
+          },
+          {
+            "name": "buildStateDict",
+            "description": "Build state dictionary (e.g., build.1, build.2)"
+          }
+        ],
+        "example": "@AppVersion(v|wchat,SNAPSHOT|BETA|RELEASE,build.1|build.2)",
+        "exampleValues": [
+          "v-78.225.93-BETA+build2",
+          "m-250.204.99-RELEASE+build1"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "prefixDict",
+        "description": "Version prefix (e.g., \"v\", \"wchat\"), default none"
+      },
+      {
+        "name": "releaseStateDict",
+        "description": "Release state dictionary (e.g., SNAPSHOT, BETA, RELEASE)"
+      },
+      {
+        "name": "buildStateDict",
+        "description": "Build state dictionary (e.g., build.1, build.2)"
+      }
+    ],
+    "order": 902
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.network.MIPv4",
+    "name": "@IPv4()",
+    "description": "Generate IPv4 addresses",
+    "tags": [
+      "Network Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@IPv4()",
+        "description": "Generate IPv4 address using default dictionary",
+        "example": "@IPv4()",
+        "exampleValues": [
+          "185.122.62.64",
+          "56.106.168.69"
+        ]
+      }
+    ],
+    "order": 903
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.network.MIPv6",
+    "name": "@IPv6()",
+    "description": "Generate IPv6 addresses",
+    "tags": [
+      "Network Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@IPv6()",
+        "description": "Generate IPv6 address",
+        "example": "@IPv4()",
+        "exampleValues": [
+          "185.122.62.64",
+          "56.106.168.69"
+        ]
+      }
+    ],
+    "order": 904
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.network.MMac",
+    "name": "@Mac()",
+    "description": "Generate MAC addresses",
+    "tags": [
+      "Network Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Mac()",
+        "description": "Generate MAC address (range: 00:00:00:00:00:00 - FF:FF:FF:FF:FF:FF)",
+        "example": "@Mac()",
+        "exampleValues": [
+          "d8:01:8f:96:b1:f4",
+          "65:d2:65:a5:6c:81",
+          "2b:3d:70:76:69:f0"
+        ]
+      }
+    ],
+    "order": 905
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.network.MPort",
+    "name": "@Port()",
+    "description": "Generate random server ports",
+    "tags": [
+      "Network Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Port()",
+        "description": "Generate random server port",
+        "example": "@Port()",
+        "exampleValues": [
+          "1025"
+        ]
+      },
+      {
+        "instance": "@Port(min,max)",
+        "description": "Generate server port within specified min~max range",
+        "parameters": [
+          {
+            "name": "min",
+            "description": "Minimum port, default 1024 (min 0)"
+          },
+          {
+            "name": "max",
+            "description": "Maximum port, default 65535 (max 65535)"
+          }
+        ],
+        "example": "@Port(5000,10000)",
+        "exampleValues": [
+          "6000"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "min",
+        "description": "Minimum port, default 1024 (min 0)"
+      },
+      {
+        "name": "max",
+        "description": "Maximum port, default 65535 (max 65535)"
+      }
+    ],
+    "order": 906
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.network.MProtocol",
+    "name": "@Protocol()",
+    "description": "Generate network protocols",
+    "tags": [
+      "Network Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Protocol()",
+        "description": "Generate protocol using default dictionary",
+        "example": "@Protocol()",
+        "exampleValues": [
+          "SMTP"
+        ]
+      },
+      {
+        "instance": "@Protocol(dict)",
+        "description": "Generate protocol using specified dictionary",
+        "parameters": [
+          {
+            "name": "dict",
+            "description": "Protocol dictionary, default: FTP|TFTP|HTTP|SMTP|DHCP|Telnet|DNS|SNMP|DNS|TCP|UDP|ARP|DHCP|SIP|RTP|RLP|RAP|L2TP|PPTP|SNMP|TFTP"
+          }
+        ],
+        "example": "@Protocol(FTP|TFTP|HTTP)",
+        "exampleValues": [
+          "HTTP"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "dict",
+        "description": "Protocol dictionary, default: FTP|TFTP|HTTP|SMTP|DHCP|Telnet|DNS|SNMP|DNS|TCP|UDP|ARP|DHCP|SIP|RTP|RLP|RAP|L2TP|PPTP|SNMP|TFTP"
+      }
+    ],
+    "order": 907
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.network.MUrl",
+    "name": "@Url()",
+    "description": "Generate URLs",
+    "tags": [
+      "Network Information"
+    ],
+    "constructors": [
+      {
+        "instance": "@Url()",
+        "description": "Generate URL with default parameters",
+        "example": "@Url()",
+        "exampleValues": [
+          "http://127.0.0.1:8080/P1ZXOF9uI0/",
+          "http://127.0.0.1:8080/Dcm"
+        ]
+      },
+      {
+        "instance": "@Url(max)",
+        "description": "Generate URL with specified domain",
+        "parameters": [
+          {
+            "name": "max",
+            "description": "Max length, default 50"
+          }
+        ],
+        "example": "@Url(true)",
+        "exampleValues": [
+          "http://www.xcan.org:8080/aacj/uics?acc=67&ubc7=8jFc",
+          "http://www.xcan.org:8080/aacj/uics?name=8jkc&gggbssiu=78hbss"
+        ]
+      },
+      {
+        "instance": "@Url(max,protocol,domain,allowQueryParams)",
+        "description": "Generate URL with query parameters",
+        "parameters": [
+          {
+            "name": "max",
+            "description": "Max length, default 50"
+          },
+          {
+            "name": "protocol",
+            "description": "Protocol (http/https), default http"
+          },
+          {
+            "name": "domain",
+            "description": "Domain/IP, default 127.0.0.1:8080"
+          },
+          {
+            "name": "allowQueryParams",
+            "description": "Generate query parameters, default false"
+          }
+        ],
+        "example": "@Url(https,www.xcan.org,user|name,true)",
+        "exampleValues": [
+          "https://www.xcan.org:8080/aacj/uics?user=67&name=8jFc",
+          "https://www.xcan.org:8080/aacj/uics?name=8jkc&user=78hbss"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "max",
+        "description": "Max length, default 50"
+      },
+      {
+        "name": "protocol",
+        "description": "Protocol (http/https), default http"
+      },
+      {
+        "name": "domain",
+        "description": "Domain/IP, default 127.0.0.1:8080"
+      },
+      {
+        "name": "allowQueryParams",
+        "description": "Generate query parameters, default false"
+      }
+    ],
+    "order": 908
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.web.MEmoji",
+    "name": "@Emoji()",
+    "description": "Generate random emojis",
+    "tags": [
+      "Web Resources"
+    ],
+    "constructors": [
+      {
+        "instance": "@Emoji()",
+        "description": "Generate random emoji",
+        "example": "@Emoji()",
+        "exampleValues": [
+          "😅",
+          "😘"
+        ]
+      }
+    ],
+    "order": 1001
+  },
+  {
+    "clazz": "cloud.xcan.jmock.core.function.web.MColor",
+    "name": "@Color()",
+    "description": "Generate web color values",
+    "tags": [
+      "Web Resources"
+    ],
+    "constructors": [
+      {
+        "instance": "@Color()",
+        "description": "Generate random color (default rgb format)",
+        "example": "@Color()",
+        "exampleValues": [
+          "rgb(88, 245, 14)",
+          "rgb(97, 69, 216)"
+        ]
+      },
+      {
+        "instance": "@Color(format)",
+        "description": "Generate color in specified format",
+        "parameters": [
+          {
+            "name": "format",
+            "description": "Color format (rgb, hsl, hwb, lch, cmyk), default rgb"
+          }
+        ],
+        "example": "@Color(hwb)",
+        "exampleValues": [
+          "hwb(108, 67%, 45%)",
+          "hwb(133, 2%, 93%)"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "format",
+        "description": "Color format (rgb, hsl, hwb, lch, cmyk), default rgb"
+      }
+    ],
+    "order": 1002
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MBrand",
+    "name": "@Brand()",
+    "description": "Generate car brand",
+    "tags": [
+      "Car"
+    ],
+    "constructors": [
+      {
+        "instance": "@Brand()",
+        "description": "Generate a default random car brand",
+        "example": "@Brand()",
+        "exampleValues": [
+          "Peugeot",
+          "Nissan",
+          "Chery"
+        ]
+      }
+    ],
+    "order": 2001
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MDrivetrain",
+    "name": "@Drivetrain()",
+    "description": "Generate drivetrain",
+    "tags": [
+      "Car"
+    ],
+    "constructors": [
+      {
+        "instance": "@Drivetrain()",
+        "description": "Generate a default random drivetrain type",
+        "example": "@Drivetrain()",
+        "exampleValues": [
+          "AWD (All-Wheel Drive)",
+          "RWD (Rear-Wheel Drive)",
+          "FWD (Front-Wheel Drive)"
+        ]
+      }
+    ],
+    "order": 2002
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MEngine",
+    "name": "@Engine()",
+    "description": "Generate car engine",
+    "tags": [
+      "Car"
+    ],
+    "constructors": [
+      {
+        "instance": "@Engine()",
+        "description": "Generate a default random car engine type",
+        "example": "@Engine()",
+        "exampleValues": [
+          "2.2L Diesel",
+          "3.5L V6 Turbo",
+          "1.5L I4 Turbo"
+        ]
+      }
+    ],
+    "order": 2003
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MHorsepower",
+    "name": "@Horsepower()",
+    "description": "Generate car horsepower",
+    "tags": [
+      "Car"
+    ],
+    "constructors": [
+      {
+        "instance": "@Horsepower()",
+        "description": "Generate a default random car horsepower value",
+        "example": "@Horsepower()",
+        "exampleValues": [
+          "723 HP",
+          "71 HP",
+          "982 HP"
+        ]
+      }
+    ],
+    "order": 2004
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MPlate",
+    "name": "@Plate()",
+    "description": "Generate license plate",
+    "tags": [
+      "Car"
+    ],
+    "constructors": [
+      {
+        "instance": "@Plate()",
+        "description": "Generate a default random license plate",
+        "example": "@Plate()",
+        "exampleValues": [
+          "渝G ZKK97",
+          "甘J FKH92",
+          "ABCDEFGHJKLMNPQRSTUVWXYZ0123456789773"
+        ]
+      }
+    ],
+    "order": 2005
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MVehicle",
+    "name": "@Vehicle()",
+    "description": "Generate vehicle",
+    "tags": [
+      "Car"
+    ],
+    "constructors": [
+      {
+        "instance": "@Vehicle()",
+        "description": "Generate a default random license plate",
+        "example": "@Vehicle()",
+        "exampleValues": [
+          "Coupe",
+          "SUV",
+          "Station Wagon"
+        ]
+      }
+    ],
+    "order": 2006
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MCodeSnippet",
+    "name": "@CodeSnippet()",
+    "description": "Generate code",
+    "tags": [
+      "Code"
+    ],
+    "constructors": [
+      {
+        "instance": "@CodeSnippet()",
+        "description": "Generate a JAVA code snippet",
+        "example": "@CodeSnippet()",
+        "exampleValues": [
+          "public class MathUtils {\n    /**\n     * Calculate the square of a number\n     */\n    public static int updateResult(int userCount) {\n        int newCount = userCount * userCount;\n        return newCount;\n    }\n\n    public static void main(String[] args) {\n        int result = updateResult(3);\n        System.out.println(\"Square of \" + 3 + \" is \" + result);\n    }\n}"
+        ]
+      },
+      {
+        "instance": "@CodeSnippet(language)",
+        "description": "Generate a specified programming language code snippet",
+        "parameters": [
+          {
+            "name": "language",
+            "description": "Programming language, supported values: PYTHON, JAVA, JAVASCRIPT, TYPESRIPT, CPP, CSHARP, PHP, RUBY, SWIFT, GO"
+          }
+        ],
+        "example": "@CodeSnippet(PYTHON)",
+        "exampleValues": [
+          "def calculateResult(currentTotal):\n    \"\"\"Calculate the square of a number\"\"\"\n    data = currentTotal ** 2\n    return data\n\n# Function call\nresult = calculateResult(94)\nprint(f\"Square of 94 is {result}\")"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "language",
+        "description": "Programming language, supported values: PYTHON, JAVA, JAVASCRIPT, TYPESRIPT, CPP, CSHARP, PHP, RUBY, SWIFT, GO"
+      }
+    ],
+    "order": 3001
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MErrorType",
+    "name": "@ErrorType()",
+    "description": "Generate error",
+    "tags": [
+      "Code"
+    ],
+    "constructors": [
+      {
+        "instance": "@ErrorType()",
+        "description": "Generate a default random exception type",
+        "example": "@ErrorType()",
+        "exampleValues": [
+          "ReferenceError",
+          "IndexOutOfBoundsException"
+        ]
+      }
+    ],
+    "order": 3002
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MHtml",
+    "name": "@Html()",
+    "description": "Generate HTML content",
+    "tags": [
+      "Code"
+    ],
+    "constructors": [
+      {
+        "instance": "@Html()",
+        "description": "Generate default random HTML content",
+        "example": "@Html()",
+        "exampleValues": [
+          "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Blog Hub</title>\n  <style>\n    body {\n      font-family: Georgia, 'Times New Roman', Times, serif;\n      line-height: 1.6;\n      color: #333;\n      max-width: 1200px;\n      margin: 0 auto;\n      padding: 20px;\n      background-color: #f9f9f9;\n    }\n\n    .container {\n      background-color: white;\n      border-radius: 8px;\n      box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n      padding: 20px;\n      margin-bottom: 30px;\n    }\n\n    h1, h2, h3 {\n      color: #f39c12;\n      margin-top: 0;\n    }\n\n    .btn {\n      display: inline-block;\n      padding: 10px 20px;\n      background-color: #d35400;\n      color: white;\n      text-decoration: none;\n      border-radius: 4px;\n      border: none;\n      cursor: pointer;\n      font-weight: bold;\n      transition: background-color 0.3s;\n    }\n\n    .btn:hover {\n      background-color: #c0392b;\n    }\n\n    table {\n      width: 100%;\n      border-collapse: collapse;\n      margin: 20px 0;\n    }\n\n    th, td {\n      border: 1px solid #ddd;\n      padding: 12px;\n      text-align: left;\n    }\n\n    th {\n      background-color: #f2f2f2;\n    }\n\n    .form-group {\n      margin-bottom: 15px;\n    }\n\n    label {\n      display: block;\n      margin-bottom: 5px;\n      font-weight: bold;\n    }\n\n    input, textarea, select {\n      width: 100%;\n      padding: 10px;\n      border: 1px solid #ddd;\n      border-radius: 4px;\n    }\n  </style>\n</head>\n<body>\n<div class=\"container\">\n  <h1>Introduction to Company Mission</h2>\n  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua<code></code>.</p>\n  <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua<strong></strong>. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit<strong></strong>.</p>\n  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris<u></u>. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>\n  <ol>\n    <li>Key element that saves time</li>\n    <li>Important benefit that saves time</li>\n    <li>Critical aspect that saves time</li>\n    <li>Critical benefit that enhances security</li>\n    <li>Primary element that reduces costs</li>\n  </ol>\n  <img src=\"https://picsum.photos/533/425\" alt=\"Landscape\" class=\"responsive-img\">\n  <table>\n    <thead>\n      <tr>\n        <th>Price</th>\n        <th>Date</th>\n        <th>Price</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr>\n        <td>26</td>\n        <td>16</td>\n        <td>Product A</td>\n      </tr>\n      <tr>\n        <td>56</td>\n        <td>100</td>\n        <td>Component D</td>\n      </tr>\n      <tr>\n        <td>44</td>\n        <td>27</td>\n        <td>Component D</td>\n      </tr>\n      <tr>\n        <td>70</td>\n        <td>Service B</td>\n        <td>Component D</td>\n      </tr>\n      <tr>\n        <td>26</td>\n        <td>89</td>\n        <td>Service B</td>\n      </tr>\n      <tr>\n        <td>42</td>\n        <td>Feature E</td>\n        <td>Product A</td>\n      </tr>\n    </tbody>\n  </table>\n  <form>\n    <div class=\"form-group\">\n      <label for=\"field0\">Phone</label>\n      <input type=\"password\" id=\"field0\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"field1\">Message</label>\n      <input type=\"text\" id=\"field1\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"field2\">Message</label>\n      <textarea id=\"field2\" rows=\"4\"></textarea>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"field3\">Message</label>\n      <input type=\"email\" id=\"field3\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"field4\">Message</label>\n      <textarea id=\"field4\" rows=\"4\"></textarea>\n    </div>\n    <button type=\"submit\" class=\"btn\">Save</button>\n  </form>\n</div>\n</body>\n</html>"
+        ]
+      }
+    ],
+    "order": 3003
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MMarkdown",
+    "name": "@Markdown()",
+    "description": "Generate Markdown content",
+    "tags": [
+      "Code"
+    ],
+    "constructors": [
+      {
+        "instance": "@Markdown()",
+        "description": "Generate default random Markdown content",
+        "example": "@Markdown()",
+        "exampleValues": [
+          "# Kubernetes Project Overview\n![License](https://img.shields.io/badge/license-MIT-blue.svg) ![Version](https://img.shields.io/badge/version-1.0.0-green.svg) ![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)\n## Table of Contents\n\n- [Introduction](#introduction)\n- [Features](#features)\n- [Installation](#installation)\n- [Usage](#usage)\n- [Contributing](#contributing)\n- [License](#license)\n\n## Usage\n\n### Basic Usage\n\nThe modular design allows for selective adoption of components. The architecture is built on proven best practices and industry standards.\n\n```json\nconsole.log('Hello, World!');\n```\n\n### Advanced Features\n\nThe modular design allows for selective adoption of components. Integration with existing systems is straightforward and well-documented. Integration with existing systems is straightforward and well-documented.\n\n| Feature | Description | Status |\n|---------|-------------|--------|\n| optimization | automates interface | 🔄 Planned |\n| loop | transforms function | 🔄 Planned |\n| implementation | transforms class | ✅ Implemented |\n| algorithm | facilitates optimization | ✅ Implemented |\n| abstraction | optimizes implementation | ✅ Implemented |\n| function | facilitates function | 🔄 Planned |\n| implementation | enhances class | 🔄 Planned |\n| implementation | simplifies interface | 🔄 Planned |\n\n\n### Common Patterns\n\nExtensive customization options allow tailoring to specific use cases.\n\n```xml\nconsole.log('Hello, World!');\n```\n\nIntegration with existing systems is straightforward and well-documented.\n\n\n## Installation\n\nBefore you begin, ensure you have the following prerequisites:\n\n1. - [ ] facilitates interface\n2. lightweight implementation\n3. interface:\n  - conditional\n\n\n### Installation Steps\n\n#### Step 1\n\nIntegration with existing systems is straightforward and well-documented.\n\n```yaml\nserver:\n  port: 8080\n\ndatabase:\n  host: localhost\n  name: example\n```\n\n#### Step 2\n\nPerformance benchmarks demonstrate significant improvements over alternatives. The modular design allows for selective adoption of components.\n\n```json\nconsole.log('Hello, World!');\n```\n\n#### Step 3\n\nCompatibility with multiple platforms extends the potential use cases.\n\n```javascript\nconst express = require('express');\nconst app = express();\n\napp.get('/', (req, res) => {\n    res.send('Hello World!');\n});\n\napp.listen(3000);\n```\n\n---\n## Configuration\n\n### Configuration Options\n\nThe following options can be specified in the configuration file:\n\n| Parameter | Type | Default | Description | Required |\n|---|---|---|---|---|\n| `config.interface` | string | `\"\"` | modular configuration for loop | Yes |\n| `config.conditional` | string | `null` | high-performance configuration for interface | No |\n| `config.optimization` | integer | `null` | lightweight configuration for algorithm | Yes |\n| `config.optimization` | string | `null` | flexible configuration for algorithm | Yes |\n| `config.variable` | integer | `null` | secure configuration for interface | Yes |\n| `config.variable` | integer | `0` | high-performance configuration for loop | No |\n| `config.interface` | integer | `null` | powerful configuration for loop | No |\n\n\n### Example Configuration\n\n```yaml\nserver:\n  port: 8080\n\ndatabase:\n  host: localhost\n  name: example\n```\n\n\n## Examples\n\n### Example 1\n\nIntegration with existing systems is straightforward and well-documented.\n\n```typescript\nconsole.log('Hello, World!');\n```\n\n**Explanation:**\n\nThis project provides a comprehensive solution for modern development challenges.\n\n### Example 2\n\nExtensive customization options allow tailoring to specific use cases.\n\n```shell\ncurl -O https://example.com/install.sh\nchmod +x install.sh\n./install.sh\n```\n\n**Explanation:**\n\nExtensive customization options allow tailoring to specific use cases.\n\n### Example 3\n\nCompatibility with multiple platforms extends the potential use cases. With its intuitive `optimization`, you can achieve significant productivity gains.\n\n```shell\ncurl -O https://example.com/install.sh\nchmod +x install.sh\n./install.sh\n```\n\n**Explanation:**\n\nExtensive customization options allow tailoring to specific use cases.\n\n---\n## Examples\n\n### Example 1\n\nCommunity support and active development ensure long-term viability.\n\n```yaml\nserver:\n  port: 8080\n\ndatabase:\n  host: localhost\n  name: example\n```\n\n**Explanation:**\n\nPerformance benchmarks demonstrate significant improvements over alternatives. Performance benchmarks demonstrate significant improvements over alternatives. Performance benchmarks demonstrate significant improvements over alternatives.\n\n### Example 2\n\nWith its intuitive `implementation`, you can achieve significant productivity gains.\n\n```python\ndef main():\n    print(\"Hello, World!\")\n\nif __name__ == \"__main__\":\n    main()\n```\n\n**Explanation:**\n\nWith its intuitive design, you can achieve significant productivity gains. The architecture is built on proven best practices and industry standards.\n\n### Example 3\n\nPerformance benchmarks demonstrate significant improvements over alternatives. Compatibility with multiple platforms extends the potential use cases.\n\n```dockerfile\nconsole.log('Hello, World!');\n```\n\n**Explanation:**\n\nSecurity considerations are at the forefront of the `abstraction` philosophy.\n\n\n## Features\n\nWith its intuitive `algorithm`, you can achieve significant productivity gains. Extensive customization options allow tailoring to specific use cases. The architecture is built on proven best practices and industry standards. With its intuitive `function`, you can achieve significant productivity gains.\n\n- powerful class\n- abstraction:\n  - function\n- high-performance abstraction\n- secure conditional\n- optimization:\n    - conditional\n\n## Advanced Topics\n\nThis project provides a comprehensive solution for modern development challenges. Security considerations are at the forefront of the design philosophy. The architecture is built on proven best practices and industry standards.\n\n> [!danger]\n> With its intuitive design, you can achieve significant productivity gains.\n\n1. flexible interface\n2. intuitive abstraction\n3. function:\n    - variable"
+        ]
+      }
+    ],
+    "order": 3004
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MProgrammingLanguage",
+    "name": "@ProgrammingLanguage()",
+    "description": "Generate programming language",
+    "tags": [
+      "Code"
+    ],
+    "constructors": [
+      {
+        "instance": "@ProgrammingLanguage()",
+        "description": "Generate true/false with 2:1 ratio",
+        "example": "@ProgrammingLanguage()",
+        "exampleValues": [
+          "Kotlin",
+          "Scala",
+          "JavaScript"
+        ]
+      }
+    ],
+    "order": 3005
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MBrowser",
+    "name": "@Browser()",
+    "description": "Generate browser",
+    "tags": [
+      "Computer"
+    ],
+    "constructors": [
+      {
+        "instance": "@Browser()",
+        "description": "Generate default random browser",
+        "example": "@Browser()",
+        "exampleValues": [
+          "Firefox 119",
+          "Opera 119"
+        ]
+      }
+    ],
+    "order": 5001
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MCloudService",
+    "name": "@CloudService()",
+    "description": "Generate cloud service",
+    "tags": [
+      "Computer"
+    ],
+    "constructors": [
+      {
+        "instance": "@CloudService()",
+        "description": "Generate default random cloud service",
+        "example": "@MCloudService()",
+        "exampleValues": [
+          "Google Kubernetes Engine",
+          "IBM Cloud Object Storage"
+        ]
+      }
+    ],
+    "order": 5002
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MOs",
+    "name": "@Os()",
+    "description": "Generate operating system",
+    "tags": [
+      "Computer"
+    ],
+    "constructors": [
+      {
+        "instance": "@Os()",
+        "description": "Generate default random operating system",
+        "example": "@Os()",
+        "exampleValues": [
+          "iOS 16",
+          "Windows Server 2022"
+        ]
+      }
+    ],
+    "order": 5003
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MRam",
+    "name": "@Ram()",
+    "description": "Generate memory",
+    "tags": [
+      "Computer"
+    ],
+    "constructors": [
+      {
+        "instance": "@Ram()",
+        "description": "Generate default random memory",
+        "example": "@Ram()",
+        "exampleValues": [
+          "128GB DDR5 2933MHz",
+          "32GB DDR4 5600MHz"
+        ]
+      }
+    ],
+    "order": 5004
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MCpuModel",
+    "name": "@CpuModel()",
+    "description": "Generate CPU model",
+    "tags": [
+      "Computer"
+    ],
+    "constructors": [
+      {
+        "instance": "@CpuModel()",
+        "description": "Generate default random CPU model",
+        "example": "@MCloudService()",
+        "exampleValues": [
+          "Intel Xeon W-1390P",
+          "Intel Core i9-13900K"
+        ]
+      }
+    ],
+    "order": 5005
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MDatabase",
+    "name": "@Database()",
+    "description": "Generate database",
+    "tags": [
+      "Computer"
+    ],
+    "constructors": [
+      {
+        "instance": "@Database()",
+        "description": "Generate default random database",
+        "example": "@Database()",
+        "exampleValues": [
+          "MariaDB",
+          "Amazon DynamoDB"
+        ]
+      }
+    ],
+    "order": 5006
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MDevice",
+    "name": "@Device()",
+    "description": "Generate device name",
+    "tags": [
+      "Computer"
+    ],
+    "constructors": [
+      {
+        "instance": "@Device()",
+        "description": "Generate default random device name",
+        "example": "@Device()",
+        "exampleValues": [
+          "Mainframe",
+          "Server"
+        ]
+      }
+    ],
+    "order": 5007
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MFileName",
+    "name": "@FileName()",
+    "description": "Generate file name",
+    "tags": [
+      "Computer"
+    ],
+    "constructors": [
+      {
+        "instance": "@FileName()",
+        "description": "Generate default random file name",
+        "example": "@FileName()",
+        "exampleValues": [
+          "presentation_jan.xml",
+          "report.pptx"
+        ]
+      }
+    ],
+    "order": 5008
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MFilePath",
+    "name": "@FilePath()",
+    "description": "Generate file path",
+    "tags": [
+      "Computer"
+    ],
+    "constructors": [
+      {
+        "instance": "@FilePath()",
+        "description": "Generate default random file path",
+        "example": "@FilePath()",
+        "exampleValues": [
+          "F:\\Media\\Photos\\report_jan.exe",
+          "/tmp/archive_jan.pdf"
+        ]
+      }
+    ],
+    "order": 5009
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MFramework",
+    "name": "@Framework()",
+    "description": "Generate framework",
+    "tags": [
+      "Computer"
+    ],
+    "constructors": [
+      {
+        "instance": "@Framework()",
+        "description": "Generate default random framework name",
+        "example": "@Framework()",
+        "exampleValues": [
+          "React Native",
+          "Ruby on Rails"
+        ]
+      }
+    ],
+    "order": 5010
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MGpuModel",
+    "name": "@GpuModel()",
+    "description": "Generate GPU model",
+    "tags": [
+      "Computer"
+    ],
+    "constructors": [
+      {
+        "instance": "@GpuModel()",
+        "description": "Generate default random GPU model",
+        "example": "@GpuModel()",
+        "exampleValues": [
+          "NVIDIA RTX 4080",
+          "NVIDIA Quadro RTX 6000"
+        ]
+      }
+    ],
+    "order": 5011
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MHttpStatus",
+    "name": "@HttpStatus()",
+    "description": "Generate HTTP status code",
+    "tags": [
+      "Computer"
+    ],
+    "constructors": [
+      {
+        "instance": "@HttpStatus()",
+        "description": "Generate default random HTTP status code",
+        "example": "@HttpStatus()",
+        "exampleValues": [
+          "302 Found",
+          "500 Internal Server Error"
+        ]
+      }
+    ],
+    "order": 5012
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MVulnerability",
+    "name": "@Vulnerability()",
+    "description": "Generate vulnerability",
+    "tags": [
+      "Computer"
+    ],
+    "constructors": [
+      {
+        "instance": "@Vulnerability()",
+        "description": "Generate default random vulnerability",
+        "example": "@Vulnerability()",
+        "exampleValues": [
+          "XML External Entity (XXE)",
+          "Security Misconfiguration"
+        ]
+      }
+    ],
+    "order": 5014
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MBase64",
+    "name": "@Base64()",
+    "description": "Generate Base64 string",
+    "tags": [
+      "Cipher"
+    ],
+    "constructors": [
+      {
+        "instance": "@Base64()",
+        "description": "Generate default random string with 128 characters",
+        "example": "@Base64()",
+        "exampleValues": [
+          "pWJCBBEyFi4THaYWOcLtlj+aWJ5w/v9SazFHbi+D/XQdY1AoFDkaF/hJlHS1tjITELoz5ROb7WS98Tio4IO796mezlxjdCT4c+Hdp5adjZNRK2FT3QZ0jKeOwM263KIT",
+          "wddMreXApGyczv6Glsti22HtOABU69E1KacyRidg6l6AAD2fvPezQeN+jEUOyk9zwTgyA/WXsTUpw5f4C9TMS09V4rvm/ikQD3OQilYpo0g6MIblEToYBXnWS4ybnoMh"
+        ]
+      },
+      {
+        "instance": "@Base64(length)",
+        "description": "Generate random string with specified character length",
+        "parameters": [
+          {
+            "name": "length",
+            "description": "String length"
+          }
+        ],
+        "example": "@Base64(32)",
+        "exampleValues": [
+          "XII3JC7y4gQvCXLB7V08uKDvBORyDiVI",
+          "LQqpeYt1sl3rlYPaLYQZUsKtALZj8Yt7"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "length",
+        "description": "String length"
+      }
+    ],
+    "order": 6001
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MHash",
+    "name": "@Hash()",
+    "description": "Generate hash value",
+    "tags": [
+      "Cipher"
+    ],
+    "constructors": [
+      {
+        "instance": "@Hash()",
+        "description": "Generate default random MD5 hash value",
+        "example": "@Hash()",
+        "exampleValues": [
+          "4cf8e6d87f05b4f979ff8775d1f78fb8",
+          "46a7f33aab52baef179770517bedeb2b"
+        ]
+      },
+      {
+        "instance": "@Hash(algorithm)",
+        "description": "Generate random hash value with specified algorithm",
+        "parameters": [
+          {
+            "name": "algorithm",
+            "description": "Hash algorithm, e.g., MD5, SHA-256, etc."
+          }
+        ],
+        "example": "@Hash(SHA-256)",
+        "exampleValues": [
+          "191d55ca8427b35fffc964461ee430e15ea738f67885ad65162cdafc866da558",
+          "6c9cd1dadcf6c447ef4b80a9e28d358350958f9c2b8e4ca4fcffefa2c6c8185a"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "algorithm",
+        "description": "Hash algorithm, e.g., MD5, SHA-256, etc."
+      }
+    ],
+    "order": 6002
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MHex",
+    "name": "@Hex()",
+    "description": "Generate hexadecimal value",
+    "tags": [
+      "Cipher"
+    ],
+    "constructors": [
+      {
+        "instance": "@Hex()",
+        "description": "Generate default 8-character long hexadecimal value",
+        "example": "@Hex()",
+        "exampleValues": [
+          "6c1aecc9",
+          "45075b35"
+        ]
+      },
+      {
+        "instance": "@Hex(length)",
+        "description": "Generate hexadecimal value with specified character length",
+        "parameters": [
+          {
+            "name": "length",
+            "description": "Hexadecimal value length"
+          }
+        ],
+        "example": "@Hex(32)",
+        "exampleValues": [
+          "a45e50145cdee6c45141682ab3c2bce8",
+          "c97e1952909460ccaf410a089ef1b41c"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "length",
+        "description": "Hexadecimal value length"
+      }
+    ],
+    "order": 6003
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MKeyPair",
+    "name": "@KeyPair()",
+    "description": "Generate key pair",
+    "tags": [
+      "Cipher"
+    ],
+    "constructors": [
+      {
+        "instance": "@KeyPair()",
+        "description": "Generate default RSA algorithm key pair with size 526",
+        "example": "@KeyPair()",
+        "exampleValues": [
+          "Public Key:\n-----BEGIN PUBLIC KEY-----\nMF0wDQYJKoZIhvcNAQEBBQADTAAwSQJCINq6aF16xfELo/7qNjGxYCiBjMWvGCSi\nuIWuel3qr/6y5tEaSF28kt9kuXUH+WRSiBRkjMlh+2Msi0BQPamOR6F5AgMBAAE=\n-----END PUBLIC KEY-----\n\nPrivate Key:\n-----BEGIN PRIVATE KEY-----\nMIIBWQIBADANBgkqhkiG9w0BAQEFAASCAUMwggE/AgEAAkIg2rpoXXrF8Quj/uo2\nMbFgKIGMxa8YJKK4ha56Xeqv/rLm0RpIXbyS32S5dQf5ZFKIFGSMyWH7YyyLQFA9\nqY5HoXkCAwEAAQJCCBBHEhhnaq+nsL9/EoANzdEDQt6+A8nyGiHNWgE0+a8kYlGd\ngqIU54IkjxvCW+j2alI045v2O4g0g2YYVwjkxnuRAiFSJDI3zxKV2kjM8iMv4E2K\nutyrI/U/7J1TVCHFJAYjJN0CIWZkr1aLQ/YAIGBOmqBegGjRHbpy5UzDoyKN6yFl\nj4mHTQIhMQYdWqWhyAIRdRAG5CoQ3X2M+i9pzg8gDn2l8g0ABLWZAiFH7IOphAvJ\n+g7D95LwAVGrzvBV7q0Y/fdSp2O5wtBPp6UCIU4MJyqLslRHwBgg/bFbp+oH8YjR\nm8UhZPMtr2RsE1i52g==\n-----END PRIVATE KEY-----"
+        ]
+      },
+      {
+        "instance": "@KeyPair(algorithm,keySize)",
+        "description": "Generate random key pair with specified algorithm and key size",
+        "parameters": [
+          {
+            "name": "algorithm",
+            "description": "Generation algorithm, e.g., RSA, EC, DSA"
+          },
+          {
+            "name": "keySize",
+            "description": "Key size, e.g., 2048 RSA, 256 EC"
+          }
+        ],
+        "example": "@KeyPair(EC,256)",
+        "exampleValues": [
+          "Public Key:\n-----BEGIN PUBLIC KEY-----\nMF0wDQYJKoZIhvcNAQEBBQADTAAwSQJCNFUTq6yj/nhluxtj+sRNFl2L/AGuDNUs\nhw8gdRcQBPShH0Q+wlxjLLESu2EXHpvtCgRVUajCV240WRy9hhis5HdPAgMBAAE=\n-----END PUBLIC KEY-----\n\nPrivate Key:\n-----BEGIN PRIVATE KEY-----\nMIIBWQIBADANBgkqhkiG9w0BAQEFAASCAUMwggE/AgEAAkI0VROrrKP+eGW7G2P6\nxE0WXYv8Aa4M1SyHDyB1FxAE9KEfRD7CXGMssRK7YRcem+0KBFVRqMJXbjRZHL2G\nGKzkd08CAwEAAQJCB0mjvCAGFG1iyVwmn6jPjWJImLcJLGtRUJuYKwYjqnUAjLYC\n/7JjZpZ8z+6QBxXV9tz5ynIAccbRkxpCnqEQC/QlAiF+BDX++1uoOnLvfQHb0mN0\n4R47FXCCJv1SmHVjUpVv55UCIWpP55219mvomEuXyaXAi8PQkzULNZCTbnRvndil\nZOpaUwIhNthIU9g79QSzPy4N4Ak6BgVwLdDP7aVgfVEjTf4EUfbdAiFMWpkyFwcl\n10bSO/Dyn8iB2aJwXV2aOZkB/Uwz1g4VlssCIX2TEF/qTyy4PAGQUwNeGIWo4h6a\nyOf7XXnOoEYUPaP2gw==\n-----END PRIVATE KEY-----"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "algorithm",
+        "description": "Generation algorithm, e.g., RSA, EC, DSA"
+      },
+      {
+        "name": "keySize",
+        "description": "Key size, e.g., 2048 RSA, 256 EC"
+      }
+    ],
+    "order": 6004
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MSymmetricKey",
+    "name": "@SymmetricKey()",
+    "description": "Generate symmetric encryption key",
+    "tags": [
+      "Cipher"
+    ],
+    "constructors": [
+      {
+        "instance": "@SymmetricKey()",
+        "description": "Generate default AES algorithm encryption key",
+        "example": "@SymmetricKey()",
+        "exampleValues": [
+          "wCnChNn+2WSH6saSatASL+3Bo3HcW8uEz8jHqM7TtQs=",
+          "/IWyWbP42jcWFB47zmLCfWVGK6nnRkrBM/dJqnRt+bU="
+        ]
+      },
+      {
+        "instance": "@SymmetricKey(algorithm)",
+        "description": "Generate encryption key with specified algorithm",
+        "parameters": [
+          {
+            "name": "algorithm",
+            "description": "Generation algorithm, e.g., RSA, EC, DSA"
+          }
+        ],
+        "example": "@SymmetricKey(AES)",
+        "exampleValues": [
+          "wiuUG5/rfxB1r9VtxfgO1jy1TLyAmo5xFBm7iOPosAs=",
+          "zHexV+cHC3O9T70eU2FEgSsFTfOmOsD/lJfGQOj90Aw="
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "algorithm",
+        "description": "Generation algorithm, e.g., RSA, EC, DSA"
+      }
+    ],
+    "order": 6005
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MAmount",
+    "name": "@Amount()",
+    "description": "Generate random amount",
+    "tags": [
+      "Financial"
+    ],
+    "constructors": [
+      {
+        "instance": "@Amount()",
+        "description": "Generate default localized amount for China",
+        "example": "@Amount()",
+        "exampleValues": [
+          "¥532,009.41",
+          "¥795,734.08"
+        ]
+      },
+      {
+        "instance": "@Amount(locale)",
+        "description": "Generate amount for specified locale",
+        "parameters": [
+          {
+            "name": "locale",
+            "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+          }
+        ],
+        "example": "@Amount(en)",
+        "exampleValues": [
+          "¤249,495.63",
+          "¤965,859.18"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "locale",
+        "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      }
+    ],
+    "order": 7001
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MBudgetCategory",
+    "name": "@BudgetCategory()",
+    "description": "Generate budget category",
+    "tags": [
+      "Financial"
+    ],
+    "constructors": [
+      {
+        "instance": "@BudgetCategory()",
+        "description": "Generate default Chinese budget category",
+        "example": "@BudgetCategory()",
+        "exampleValues": [
+          "市场营销",
+          "差旅报销"
+        ]
+      },
+      {
+        "instance": "@BudgetCategory(locale)",
+        "description": "Generate budget category in specified language",
+        "parameters": [
+          {
+            "name": "locale",
+            "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+          }
+        ],
+        "example": "@BudgetCategory(en)",
+        "exampleValues": [
+          "Taxes",
+          "Travel & Reimbursement"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "locale",
+        "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      }
+    ],
+    "order": 7002
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MCurrency",
+    "name": "@Currency()",
+    "description": "Generate currency",
+    "tags": [
+      "Financial"
+    ],
+    "constructors": [
+      {
+        "instance": "@Currency()",
+        "description": "Generate default localized currency for China",
+        "example": "@MCurrency()",
+        "exampleValues": [
+          "EUR",
+          "EUR"
+        ]
+      },
+      {
+        "instance": "@Currency(locale)",
+        "description": "Generate currency for specified locale",
+        "parameters": [
+          {
+            "name": "locale",
+            "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+          }
+        ],
+        "example": "@MCurrency(en)",
+        "exampleValues": [
+          "CNY",
+          "CAD"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "locale",
+        "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      }
+    ],
+    "order": 7003
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MInvoiceNumber",
+    "name": "@InvoiceNumber()",
+    "description": "Generate invoice number",
+    "tags": [
+      "Financial"
+    ],
+    "constructors": [
+      {
+        "instance": "@InvoiceNumber()",
+        "description": "Generate default localized invoice number for China",
+        "example": "@InvoiceNumber()",
+        "exampleValues": [
+          "FP-202506-63498",
+          "FP-202506-75545"
+        ]
+      },
+      {
+        "instance": "@InvoiceNumber(locale)",
+        "description": "Generate invoice number for specified locale",
+        "parameters": [
+          {
+            "name": "locale",
+            "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+          }
+        ],
+        "example": "@InvoiceNumber(en)",
+        "exampleValues": [
+          "INV-202506-18877",
+          "INV-202506-81864"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "locale",
+        "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      }
+    ],
+    "order": 7004
+  },
+  {
+    "clazz": "cloud.xcan.jmock.plugin.MTaxCode",
+    "name": "@TaxCode()",
+    "description": "Generate tax code",
+    "tags": [
+      "Financial"
+    ],
+    "constructors": [
+      {
+        "instance": "@TaxCode()",
+        "description": "Generate default localized tax code for China",
+        "example": "@TaxCode()",
+        "exampleValues": [
+          "11010RU5G000",
+          "11010LJR5000",
+          "110109LGN000"
+        ]
+      },
+      {
+        "instance": "@TaxCode(locale)",
+        "description": "Generate tax code for specified locale",
+        "parameters": [
+          {
+            "name": "locale",
+            "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+          }
+        ],
+        "example": "@TaxCode(en)",
+        "exampleValues": [
+          "XX-LNDL6HY7",
+          "L4B-ZK85QS"
+        ]
+      }
+    ],
+    "parameters": [
+      {
+        "name": "locale",
+        "description": "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      }
+    ],
+    "order": 7005
+  }
+]
