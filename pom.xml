@@ -223,21 +223,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
-        <configuration>
-          <encoding>UTF-8</encoding>
-          <nonFilteredFileExtensions>
-            <nonFilteredFileExtension>lic</nonFilteredFileExtension>
-            <nonFilteredFileExtension>cer</nonFilteredFileExtension>
-            <nonFilteredFileExtension>key</nonFilteredFileExtension>
-            <nonFilteredFileExtension>keystore</nonFilteredFileExtension>
-            <nonFilteredFileExtension>p12</nonFilteredFileExtension>
-            <nonFilteredFileExtension>pem</nonFilteredFileExtension>
-          </nonFilteredFileExtensions>
-          <delimiters>
-            <encoding>UTF-8</encoding>
-            <delimiter>@</delimiter>
-          </delimiters>
-        </configuration>
       </plugin>
 
       <plugin>
