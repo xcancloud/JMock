@@ -5,9 +5,9 @@ import static cloud.xcan.jmock.plugin.CompanyDocMessage.DOC_CATEGORY_COMPANY;
 import static cloud.xcan.jmock.plugin.CompanyDocMessage.DOC_INDUSTRY_C1;
 import static cloud.xcan.jmock.plugin.CompanyDocMessage.DOC_INDUSTRY_C2;
 import static cloud.xcan.jmock.plugin.CompanyDocMessage.DOC_INDUSTRY_DESC;
-import static cloud.xcan.jmock.plugin.MCompany.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
@@ -60,7 +60,7 @@ public class MIndustry extends AbstractMockFunction {
     List<String> categories = INDUSTRY_CATEGORIES.getOrDefault(
         locale, INDUSTRY_CATEGORIES.get(Locale.ENGLISH)
     );
-    return categories.get(random.nextInt(categories.size()));
+    return categories.get(JMockRandom.nextInt(categories.size()));
   }
 
 }

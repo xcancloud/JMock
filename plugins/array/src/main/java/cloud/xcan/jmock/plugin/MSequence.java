@@ -41,7 +41,7 @@ public class MSequence extends AbstractMockFunction {
   @JMockConstructor(descI18nKey = DOC_SEQUENCE_C1,
       example = "@Sequence(1,1,5)",
       exampleValues = {"[1,2,3,4,5]"})
-  public MSequence(long start, long step, int count) {
+  public MSequence(Integer start, Integer step, Integer count) {
     this.start = start;
     this.step = step;
     this.count = Math.max(count, 0);
@@ -50,14 +50,14 @@ public class MSequence extends AbstractMockFunction {
   @JMockConstructor(descI18nKey = DOC_SEQUENCE_C2,
       example = "@Sequence(0,2,4)",
       exampleValues = {"[0,2,4,6]"})
-  public MSequence(long start, int count) {
+  public MSequence(Integer start, Integer count) {
     this(start, 1, count);
   }
 
   @JMockConstructor(descI18nKey = DOC_SEQUENCE_C3,
       example = "@Sequence(5)",
       exampleValues = {"[0,1,2,3,4]"})
-  public MSequence(int count) {
+  public MSequence(Integer count) {
     this(0, 1, count);
   }
 

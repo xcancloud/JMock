@@ -3,9 +3,8 @@ package cloud.xcan.jmock.plugin;
 import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_CATEGORY_CODE;
 import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_MARKDOWN_C1;
 import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_MARKDOWN_DESC;
-import static cloud.xcan.jmock.plugin.MCodeSnippet.random;
-
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.Arrays;
@@ -326,10 +325,6 @@ public class MMarkdown extends AbstractMockFunction {
   public MMarkdown() {
   }
 
-  public static void main(String[] args) {
-    System.out.println(new MMarkdown().mock());
-  }
-
   @Override
   public String mock() {
     return generateRandomMarkdown();
@@ -346,12 +341,12 @@ public class MMarkdown extends AbstractMockFunction {
     markdown.append(generateTableOfContents())
         .append("\n");
 
-    int sections = 4 + random.nextInt(4);
+    int sections = 4 + JMockRandom.nextInt(4);
     for (int i = 0; i < sections; i++) {
       markdown.append(generateSection())
           .append("\n");
 
-      if (random.nextDouble() < 0.3 && i < sections - 1) {
+      if (JMockRandom.nextDouble() < 0.3 && i < sections - 1) {
         markdown.append("---\n");
       }
     }
@@ -360,7 +355,7 @@ public class MMarkdown extends AbstractMockFunction {
   }
 
   public static String generateTitle() {
-    String tech = TECHNOLOGIES[random.nextInt(TECHNOLOGIES.length)];
+    String tech = TECHNOLOGIES[JMockRandom.nextInt(TECHNOLOGIES.length)];
     return "# " + tech + " Project Overview";
   }
 
@@ -373,13 +368,13 @@ public class MMarkdown extends AbstractMockFunction {
         "![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)"
     };
 
-    return String.join(" ", Arrays.copyOfRange(badges, 0, 3 + random.nextInt(3)));
+    return String.join(" ", Arrays.copyOfRange(badges, 0, 3 + JMockRandom.nextInt(3)));
   }
 
   public static String generateTableOfContents() {
     StringBuilder toc = new StringBuilder("## Table of Contents\n\n");
 
-    for (String heading : Arrays.copyOfRange(HEADINGS, 0, 3 + random.nextInt(5))) {
+    for (String heading : Arrays.copyOfRange(HEADINGS, 0, 3 + JMockRandom.nextInt(5))) {
       toc.append("- [").append(heading).append("](#")
           .append(heading.toLowerCase().replace(" ", "-"))
           .append(")\n");
@@ -394,7 +389,7 @@ public class MMarkdown extends AbstractMockFunction {
   public static String generateSection() {
     StringBuilder section = new StringBuilder();
 
-    String heading = HEADINGS[random.nextInt(HEADINGS.length)];
+    String heading = HEADINGS[JMockRandom.nextInt(HEADINGS.length)];
     section.append("## ").append(heading).append("\n\n");
 
     switch (heading.toLowerCase()) {
@@ -446,13 +441,13 @@ public class MMarkdown extends AbstractMockFunction {
 
     install.append("### Installation Steps\n\n");
 
-    int steps = 3 + random.nextInt(4);
+    int steps = 3 + JMockRandom.nextInt(4);
     for (int i = 0; i < steps; i++) {
       install.append("#### Step ").append(i + 1).append("\n\n");
       install.append(generateParagraph(1, 2))
           .append("\n\n");
 
-      if (random.nextDouble() < 0.8) {
+      if (JMockRandom.nextDouble() < 0.8) {
         install.append(generateCodeBlock())
             .append("\n\n");
       }
@@ -487,7 +482,7 @@ public class MMarkdown extends AbstractMockFunction {
   public static String generateExamples() {
     StringBuilder examples = new StringBuilder();
 
-    int exampleCount = 2 + random.nextInt(3);
+    int exampleCount = 2 + JMockRandom.nextInt(3);
     for (int i = 0; i < exampleCount; i++) {
       examples.append("### Example ").append(i + 1).append("\n\n");
       examples.append(generateParagraph(1, 2))
@@ -524,7 +519,7 @@ public class MMarkdown extends AbstractMockFunction {
     content.append(generateParagraph(2, 4))
         .append("\n\n");
 
-    double elementChance = random.nextDouble();
+    double elementChance = JMockRandom.nextDouble();
     if (elementChance < 0.3) {
       content.append(generateBlockQuote())
           .append("\n\n");
@@ -533,12 +528,12 @@ public class MMarkdown extends AbstractMockFunction {
           .append("\n\n");
     }
 
-    if (random.nextDouble() < 0.5) {
+    if (JMockRandom.nextDouble() < 0.5) {
       content.append(generateList(3, 5))
           .append("\n\n");
     }
 
-    if (random.nextDouble() < 0.4) {
+    if (JMockRandom.nextDouble() < 0.4) {
       content.append(generateSimpleTable())
           .append("\n\n");
     }
@@ -549,21 +544,21 @@ public class MMarkdown extends AbstractMockFunction {
   public static String generateParagraph(int minSentences, int maxSentences) {
     StringBuilder paragraph = new StringBuilder();
 
-    int sentenceCount = minSentences + random.nextInt(maxSentences - minSentences + 1);
+    int sentenceCount = minSentences + JMockRandom.nextInt(maxSentences - minSentences + 1);
     for (int i = 0; i < sentenceCount; i++) {
-      String sentence = PARAGRAPH_SENTENCES[random.nextInt(PARAGRAPH_SENTENCES.length)];
+      String sentence = PARAGRAPH_SENTENCES[JMockRandom.nextInt(PARAGRAPH_SENTENCES.length)];
 
-      if (random.nextDouble() < 0.3) {
-        String tech = TECHNOLOGIES[random.nextInt(TECHNOLOGIES.length)];
+      if (JMockRandom.nextDouble() < 0.3) {
+        String tech = TECHNOLOGIES[JMockRandom.nextInt(TECHNOLOGIES.length)];
         sentence = sentence.replace("project", "**" + tech + "**");
       }
 
-      if (random.nextDouble() < 0.2) {
-        String term = PROGRAMMING_TERMS[random.nextInt(PROGRAMMING_TERMS.length)];
+      if (JMockRandom.nextDouble() < 0.2) {
+        String term = PROGRAMMING_TERMS[JMockRandom.nextInt(PROGRAMMING_TERMS.length)];
         sentence = sentence.replace("design", "`" + term + "`");
       }
 
-      if (random.nextDouble() < 0.15) {
+      if (JMockRandom.nextDouble() < 0.15) {
         String linkText = "documentation";
         sentence = sentence.replace(linkText, "[" + linkText + "](#documentation)");
       }
@@ -581,8 +576,8 @@ public class MMarkdown extends AbstractMockFunction {
   public static String generateList(int minItems, int maxItems) {
     StringBuilder list = new StringBuilder();
 
-    boolean ordered = random.nextBoolean();
-    int itemCount = minItems + random.nextInt(maxItems - minItems + 1);
+    boolean ordered = JMockRandom.nextBoolean();
+    int itemCount = minItems + JMockRandom.nextInt(maxItems - minItems + 1);
 
     for (int i = 0; i < itemCount; i++) {
       if (ordered) {
@@ -592,16 +587,16 @@ public class MMarkdown extends AbstractMockFunction {
       }
 
       String item;
-      if (random.nextDouble() < 0.3) {
-        item = PROGRAMMING_TERMS[random.nextInt(PROGRAMMING_TERMS.length)] + ":\n  " +
-            (random.nextBoolean() ? "- " : "  - ") +
-            PROGRAMMING_TERMS[random.nextInt(PROGRAMMING_TERMS.length)];
-      } else if (random.nextDouble() < 0.2) {
-        item = "- [ ] " + VERBS[random.nextInt(VERBS.length)] + " " +
-            PROGRAMMING_TERMS[random.nextInt(PROGRAMMING_TERMS.length)];
+      if (JMockRandom.nextDouble() < 0.3) {
+        item = PROGRAMMING_TERMS[JMockRandom.nextInt(PROGRAMMING_TERMS.length)] + ":\n  " +
+            (JMockRandom.nextBoolean() ? "- " : "  - ") +
+            PROGRAMMING_TERMS[JMockRandom.nextInt(PROGRAMMING_TERMS.length)];
+      } else if (JMockRandom.nextDouble() < 0.2) {
+        item = "- [ ] " + VERBS[JMockRandom.nextInt(VERBS.length)] + " " +
+            PROGRAMMING_TERMS[JMockRandom.nextInt(PROGRAMMING_TERMS.length)];
       } else {
-        item = ADJECTIVES[random.nextInt(ADJECTIVES.length)] + " " +
-            PROGRAMMING_TERMS[random.nextInt(PROGRAMMING_TERMS.length)];
+        item = ADJECTIVES[JMockRandom.nextInt(ADJECTIVES.length)] + " " +
+            PROGRAMMING_TERMS[JMockRandom.nextInt(PROGRAMMING_TERMS.length)];
       }
 
       list.append(item).append("\n");
@@ -611,14 +606,14 @@ public class MMarkdown extends AbstractMockFunction {
   }
 
   public static String generateCodeBlock() {
-    return generateCodeBlock(CODE_LANGUAGES[random.nextInt(CODE_LANGUAGES.length)]);
+    return generateCodeBlock(CODE_LANGUAGES[JMockRandom.nextInt(CODE_LANGUAGES.length)]);
   }
 
   public static String generateCodeBlock(String language) {
     String code = switch (language) {
-      case "java" -> JAVA_CODE[random.nextInt(JAVA_CODE.length)];
-      case "python" -> PYTHON_CODE[random.nextInt(PYTHON_CODE.length)];
-      case "javascript" -> JAVASCRIPT_CODE[random.nextInt(JAVASCRIPT_CODE.length)];
+      case "java" -> JAVA_CODE[JMockRandom.nextInt(JAVA_CODE.length)];
+      case "python" -> PYTHON_CODE[JMockRandom.nextInt(PYTHON_CODE.length)];
+      case "javascript" -> JAVASCRIPT_CODE[JMockRandom.nextInt(JAVASCRIPT_CODE.length)];
       case "shell" -> "curl -O https://example.com/install.sh\nchmod +x install.sh\n./install.sh";
       case "yaml" -> "server:\n  port: 8080\n\ndatabase:\n  host: localhost\n  name: example";
       default -> "console.log('Hello, World!');";
@@ -644,12 +639,12 @@ public class MMarkdown extends AbstractMockFunction {
     table.append("| Technology | Purpose | Maturity |\n");
     table.append("|------------|---------|----------|\n");
 
-    int rows = 4 + random.nextInt(4); // 4-7行
+    int rows = 4 + JMockRandom.nextInt(4); // 4-7行
     for (int i = 0; i < rows; i++) {
-      String tech = TECHNOLOGIES[random.nextInt(TECHNOLOGIES.length)];
-      String purpose = ADJECTIVES[random.nextInt(ADJECTIVES.length)] + " " +
-          PROGRAMMING_TERMS[random.nextInt(PROGRAMMING_TERMS.length)];
-      String maturity = random.nextBoolean() ? "Production-ready" : "Experimental";
+      String tech = TECHNOLOGIES[JMockRandom.nextInt(TECHNOLOGIES.length)];
+      String purpose = ADJECTIVES[JMockRandom.nextInt(ADJECTIVES.length)] + " " +
+          PROGRAMMING_TERMS[JMockRandom.nextInt(PROGRAMMING_TERMS.length)];
+      String maturity = JMockRandom.nextBoolean() ? "Production-ready" : "Experimental";
 
       table.append("| ").append(tech).append(" | ").append(purpose).append(" | ").append(maturity)
           .append(" |\n");
@@ -664,12 +659,12 @@ public class MMarkdown extends AbstractMockFunction {
     table.append("| Feature | Description | Status |\n");
     table.append("|---------|-------------|--------|\n");
 
-    int rows = 5 + random.nextInt(4); // 5-8行
+    int rows = 5 + JMockRandom.nextInt(4); // 5-8行
     for (int i = 0; i < rows; i++) {
-      String feature = PROGRAMMING_TERMS[random.nextInt(PROGRAMMING_TERMS.length)];
-      String description = VERBS[random.nextInt(VERBS.length)] + " " +
-          PROGRAMMING_TERMS[random.nextInt(PROGRAMMING_TERMS.length)];
-      String status = random.nextBoolean() ? "✅ Implemented" : "🔄 Planned";
+      String feature = PROGRAMMING_TERMS[JMockRandom.nextInt(PROGRAMMING_TERMS.length)];
+      String description = VERBS[JMockRandom.nextInt(VERBS.length)] + " " +
+          PROGRAMMING_TERMS[JMockRandom.nextInt(PROGRAMMING_TERMS.length)];
+      String status = JMockRandom.nextBoolean() ? "✅ Implemented" : "🔄 Planned";
 
       table.append("| ").append(feature).append(" | ").append(description).append(" | ")
           .append(status).append(" |\n");
@@ -688,15 +683,15 @@ public class MMarkdown extends AbstractMockFunction {
     }
     table.append("\n");
 
-    int rows = 5 + random.nextInt(6);
+    int rows = 5 + JMockRandom.nextInt(6);
     for (int i = 0; i < rows; i++) {
-      String param = "`config." + PROGRAMMING_TERMS[random.nextInt(PROGRAMMING_TERMS.length)] + "`";
-      String type = random.nextBoolean() ? "string" : "integer";
+      String param = "`config." + PROGRAMMING_TERMS[JMockRandom.nextInt(PROGRAMMING_TERMS.length)] + "`";
+      String type = JMockRandom.nextBoolean() ? "string" : "integer";
       String defaultValue =
-          random.nextBoolean() ? "`null`" : (random.nextBoolean() ? "`0`" : "`\"\"`");
-      String description = ADJECTIVES[random.nextInt(ADJECTIVES.length)] + " configuration for " +
-          PROGRAMMING_TERMS[random.nextInt(PROGRAMMING_TERMS.length)];
-      String required = random.nextBoolean() ? "Yes" : "No";
+          JMockRandom.nextBoolean() ? "`null`" : (JMockRandom.nextBoolean() ? "`0`" : "`\"\"`");
+      String description = ADJECTIVES[JMockRandom.nextInt(ADJECTIVES.length)] + " configuration for " +
+          PROGRAMMING_TERMS[JMockRandom.nextInt(PROGRAMMING_TERMS.length)];
+      String required = JMockRandom.nextBoolean() ? "Yes" : "No";
 
       table.append("| ").append(param).append(" | ")
           .append(type).append(" | ")

@@ -5,17 +5,15 @@ import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_GPU_MODEL_C1;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_GPU_MODEL_DESC;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 @JMockFunctionRegister(descI18nKey = DOC_GPU_MODEL_DESC,
     categoryI18nKey = {DOC_CATEGORY_COMPUTE}, order = 5011)
 public class MGpuModel extends AbstractMockFunction {
-
-  private static final Random random = new Random();
 
   public static final List<String> NVIDIA_GPUS = Arrays.asList(
       "RTX 4090", "RTX 4080", "RTX 4070 Ti", "RTX 4070", "RTX 4060 Ti",
@@ -40,16 +38,16 @@ public class MGpuModel extends AbstractMockFunction {
 
   @Override
   public String mock() {
-    int manufacturer = random.nextInt(100);
+    int manufacturer = JMockRandom.nextInt(100);
     if (manufacturer < 75) {
       // NVIDIA (75% probability)
-      return "NVIDIA " + NVIDIA_GPUS.get(random.nextInt(NVIDIA_GPUS.size()));
+      return "NVIDIA " + NVIDIA_GPUS.get(JMockRandom.nextInt(NVIDIA_GPUS.size()));
     } else if (manufacturer < 95) {
       // AMD (20% probability)
-      return "AMD " + AMD_GPUS.get(random.nextInt(AMD_GPUS.size()));
+      return "AMD " + AMD_GPUS.get(JMockRandom.nextInt(AMD_GPUS.size()));
     } else {
       // Intel (5% probability)
-      return "Intel " + INTEL_GPUS.get(random.nextInt(INTEL_GPUS.size()));
+      return "Intel " + INTEL_GPUS.get(JMockRandom.nextInt(INTEL_GPUS.size()));
     }
   }
 }

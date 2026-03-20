@@ -5,9 +5,9 @@ import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_BASE64_C2;
 import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_BASE64_DESC;
 import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_BASE64_PARAMETER_LENGTH;
 import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_CATEGORY_CRYPTO;
-import static cloud.xcan.jmock.plugin.MSymmetricKey.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
@@ -52,7 +52,7 @@ public class MBase64 extends AbstractMockFunction {
     // Calculate required byte length (Base64 uses 4 chars for every 3 bytes)
     int byteLength = (int) Math.ceil(length * 3.0 / 4);
     byte[] randomBytes = new byte[byteLength];
-    random.nextBytes(randomBytes);
+    JMockRandom.current().nextBytes(randomBytes);
 
     String base64 = Base64.getEncoder().encodeToString(randomBytes);
     return base64.substring(0, Math.min(length, base64.length()));

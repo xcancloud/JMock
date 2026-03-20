@@ -3,9 +3,9 @@ package cloud.xcan.jmock.plugin;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_CATEGORY_COMPUTE;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_FILENAME_C1;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_FILENAME_DESC;
-import static cloud.xcan.jmock.plugin.MBrowser.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.Arrays;
@@ -41,18 +41,18 @@ public class MFileName extends AbstractMockFunction {
   }
 
   public static String generateRandomFileName() {
-    String prefix = FILE_PREFIXES.get(random.nextInt(FILE_PREFIXES.size()));
+    String prefix = FILE_PREFIXES.get(JMockRandom.nextInt(FILE_PREFIXES.size()));
     String suffix = "";
-    String extension = FILE_EXTENSIONS.get(random.nextInt(FILE_EXTENSIONS.size()));
+    String extension = FILE_EXTENSIONS.get(JMockRandom.nextInt(FILE_EXTENSIONS.size()));
 
     // 50% chance to add a suffix
-    if (random.nextBoolean()) {
-      suffix = "_" + FILE_SUFFIXES.get(random.nextInt(FILE_SUFFIXES.size()));
+    if (JMockRandom.nextBoolean()) {
+      suffix = "_" + FILE_SUFFIXES.get(JMockRandom.nextInt(FILE_SUFFIXES.size()));
     }
 
     // 30% chance to add a number
-    if (random.nextDouble() < 0.3) {
-      int num = random.nextInt(10) + 1;
+    if (JMockRandom.nextDouble() < 0.3) {
+      int num = JMockRandom.nextInt(10) + 1;
       return prefix + num + suffix + "." + extension;
     } else {
       return prefix + suffix + "." + extension;

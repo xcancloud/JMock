@@ -7,11 +7,11 @@ import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_SYMMETRIC_KEY_DESC;
 import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_SYMMETRIC_KEY_PARAMETER_ALGORITHM;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
 import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 import java.util.Base64;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
@@ -19,8 +19,6 @@ import javax.crypto.SecretKey;
 @JMockFunctionRegister(descI18nKey = DOC_SYMMETRIC_KEY_DESC,
     categoryI18nKey = {DOC_CATEGORY_CRYPTO}, order = 6005)
 public class MSymmetricKey extends AbstractMockFunction {
-
-  public static final SecureRandom random = new SecureRandom();
 
   @JMockParameter(descI18nKey = DOC_SYMMETRIC_KEY_PARAMETER_ALGORITHM)
   private final String algorithm;
@@ -62,7 +60,7 @@ public class MSymmetricKey extends AbstractMockFunction {
       case "DESede" -> 168;
       case "HmacSHA256" -> 256;
       default -> 128;
-    }, random);
+    }, JMockRandom.secure());
     return keyGen.generateKey();
   }
 

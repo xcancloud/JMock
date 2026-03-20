@@ -3,9 +3,9 @@ package cloud.xcan.jmock.plugin;
 import static cloud.xcan.jmock.plugin.CarDocMessage.DOC_CATEGORY_CAR;
 import static cloud.xcan.jmock.plugin.CarDocMessage.DOC_HORSEPOWER_C1;
 import static cloud.xcan.jmock.plugin.CarDocMessage.DOC_HORSEPOWER_DESC;
-import static cloud.xcan.jmock.plugin.MBrand.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 
@@ -25,7 +25,7 @@ public class MHorsepower extends AbstractMockFunction {
 
   @Override
   public String mock() {
-    int hp = random.nextInt(MIN_HORSEPOWER, MAX_HORSEPOWER + 1);
+    int hp = JMockRandom.nextInt(MIN_HORSEPOWER, MAX_HORSEPOWER + 1);
     return hp + " HP";
   }
 

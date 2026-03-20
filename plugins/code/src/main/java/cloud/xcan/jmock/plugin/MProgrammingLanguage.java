@@ -3,9 +3,8 @@ package cloud.xcan.jmock.plugin;
 import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_CATEGORY_CODE;
 import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_PROGRAMMING_LANGUAGE_C1;
 import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_PROGRAMMING_LANGUAGE_DESC;
-import static cloud.xcan.jmock.plugin.MCodeSnippet.random;
-
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.Arrays;
@@ -32,7 +31,7 @@ public class MProgrammingLanguage extends AbstractMockFunction {
   }
 
   public static String generateRandomProgrammingLanguage() {
-    return PROGRAMMING_LANGUAGES.get(random.nextInt(PROGRAMMING_LANGUAGES.size()));
+    return PROGRAMMING_LANGUAGES.get(JMockRandom.nextInt(PROGRAMMING_LANGUAGES.size()));
   }
 
 }

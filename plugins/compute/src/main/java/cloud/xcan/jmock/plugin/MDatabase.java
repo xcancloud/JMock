@@ -3,9 +3,9 @@ package cloud.xcan.jmock.plugin;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_CATEGORY_COMPUTE;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_DATABASE_C1;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_DATABASE_DESC;
-import static cloud.xcan.jmock.plugin.MBrowser.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.Arrays;
@@ -37,16 +37,16 @@ public class MDatabase extends AbstractMockFunction {
 
   @Override
   public String mock() {
-    int category = random.nextInt(100);
+    int category = JMockRandom.nextInt(100);
     if (category < 60) {
       // SQL databases (60% probability)
-      return SQL_DATABASES.get(random.nextInt(SQL_DATABASES.size()));
+      return SQL_DATABASES.get(JMockRandom.nextInt(SQL_DATABASES.size()));
     } else if (category < 90) {
       // NoSQL databases (30% probability)
-      return NOSQL_DATABASES.get(random.nextInt(NOSQL_DATABASES.size()));
+      return NOSQL_DATABASES.get(JMockRandom.nextInt(NOSQL_DATABASES.size()));
     } else {
       // NewSQL databases (10% probability)
-      return NEWSQL_DATABASES.get(random.nextInt(NEWSQL_DATABASES.size()));
+      return NEWSQL_DATABASES.get(JMockRandom.nextInt(NEWSQL_DATABASES.size()));
     }
   }
 }

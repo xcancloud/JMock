@@ -3,9 +3,9 @@ package cloud.xcan.jmock.plugin;
 import static cloud.xcan.jmock.plugin.CarDocMessage.DOC_CATEGORY_CAR;
 import static cloud.xcan.jmock.plugin.CarDocMessage.DOC_PLATE_C1;
 import static cloud.xcan.jmock.plugin.CarDocMessage.DOC_PLATE_DESC;
-import static cloud.xcan.jmock.plugin.MBrand.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.Arrays;
@@ -43,7 +43,7 @@ public class MPlate extends AbstractMockFunction {
 
   @Override
   public String mock() {
-    if (random.nextDouble() < 0.5) {
+    if (JMockRandom.nextDouble() < 0.5) {
       return generateChineseLicensePlate();
     } else {
       return generateUSLicensePlate();

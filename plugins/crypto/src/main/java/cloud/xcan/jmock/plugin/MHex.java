@@ -1,13 +1,15 @@
 package cloud.xcan.jmock.plugin;
 
+import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_UNACCEPTABLE_T;
 import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_CATEGORY_CRYPTO;
 import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_HEX_C1;
 import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_HEX_C2;
 import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_HEX_DESC;
 import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_HEX_PARAMETER_LENGTH;
-import static cloud.xcan.jmock.plugin.MSymmetricKey.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
+import cloud.xcan.jmock.api.exception.ParamParseException;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
@@ -47,11 +49,11 @@ public class MHex extends AbstractMockFunction {
    */
   public static String generateRandomHexString(int length) {
     if (length % 2 != 0) {
-      throw new IllegalArgumentException("Hex string length must be even");
+      ParamParseException.throw0(PARAM_UNACCEPTABLE_T, new Object[]{"length"});
     }
 
     byte[] randomBytes = new byte[length / 2];
-    random.nextBytes(randomBytes);
+    JMockRandom.current().nextBytes(randomBytes);
     return HexFormat.of().formatHex(randomBytes);
   }
 

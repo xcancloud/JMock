@@ -5,17 +5,15 @@ import static cloud.xcan.jmock.plugin.CarDocMessage.DOC_BRAND_DESC;
 import static cloud.xcan.jmock.plugin.CarDocMessage.DOC_CATEGORY_CAR;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
-import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.List;
 
 @JMockFunctionRegister(descI18nKey = DOC_BRAND_DESC, categoryI18nKey = {
     DOC_CATEGORY_CAR}, order = 2001)
 public class MBrand extends AbstractMockFunction {
-
-  public static final SecureRandom random = new SecureRandom();
 
   // List of car brands including both Chinese domestic and international brands
   public static final List<String> CAR_BRANDS = Arrays.asList(
@@ -39,7 +37,7 @@ public class MBrand extends AbstractMockFunction {
 
   @Override
   public String mock() {
-    return CAR_BRANDS.get(random.nextInt(CAR_BRANDS.size()));
+    return CAR_BRANDS.get(JMockRandom.nextInt(CAR_BRANDS.size()));
   }
 
 }

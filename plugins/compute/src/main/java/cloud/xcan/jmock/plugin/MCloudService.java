@@ -3,9 +3,9 @@ package cloud.xcan.jmock.plugin;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_CATEGORY_COMPUTE;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_CLOUD_SERVICE_C1;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_CLOUD_SERVICE_DESC;
-import static cloud.xcan.jmock.plugin.MBrowser.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.Arrays;
@@ -43,19 +43,19 @@ public class MCloudService extends AbstractMockFunction {
 
   @Override
   public String mock() {
-    int provider = random.nextInt(100);
+    int provider = JMockRandom.nextInt(100);
     if (provider < 50) {
       // AWS (50% probability)
-      return AWS_SERVICES.get(random.nextInt(AWS_SERVICES.size()));
+      return AWS_SERVICES.get(JMockRandom.nextInt(AWS_SERVICES.size()));
     } else if (provider < 80) {
       // Azure (30% probability)
-      return AZURE_SERVICES.get(random.nextInt(AZURE_SERVICES.size()));
+      return AZURE_SERVICES.get(JMockRandom.nextInt(AZURE_SERVICES.size()));
     } else if (provider < 95) {
       // GCP (15% probability)
-      return GCP_SERVICES.get(random.nextInt(GCP_SERVICES.size()));
+      return GCP_SERVICES.get(JMockRandom.nextInt(GCP_SERVICES.size()));
     } else {
       // Other providers (5% probability)
-      return OTHER_CLOUD_SERVICES.get(random.nextInt(OTHER_CLOUD_SERVICES.size()));
+      return OTHER_CLOUD_SERVICES.get(JMockRandom.nextInt(OTHER_CLOUD_SERVICES.size()));
     }
   }
 }

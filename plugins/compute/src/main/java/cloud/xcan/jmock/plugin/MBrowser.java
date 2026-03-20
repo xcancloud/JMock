@@ -5,17 +5,15 @@ import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_BROWSER_DESC;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_CATEGORY_COMPUTE;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
-import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.List;
 
 @JMockFunctionRegister(descI18nKey = DOC_BROWSER_DESC,
     categoryI18nKey = {DOC_CATEGORY_COMPUTE}, order = 5001)
 public class MBrowser extends AbstractMockFunction {
-
-  public static final SecureRandom random = new SecureRandom();
 
   public static final List<String> BROWSERS = Arrays.asList(
       "Chrome", "Firefox", "Safari", "Edge", "Opera", "Brave", "Vivaldi", "Chromium"
@@ -34,11 +32,11 @@ public class MBrowser extends AbstractMockFunction {
 
   @Override
   public String mock() {
-    String browser = BROWSERS.get(random.nextInt(BROWSERS.size()));
-    String version = BROWSER_VERSIONS.get(random.nextInt(BROWSER_VERSIONS.size()));
+    String browser = BROWSERS.get(JMockRandom.nextInt(BROWSERS.size()));
+    String version = BROWSER_VERSIONS.get(JMockRandom.nextInt(BROWSER_VERSIONS.size()));
 
     // 80% chance to include version number
-    if (random.nextDouble() < 0.8) {
+    if (JMockRandom.nextDouble() < 0.8) {
       return browser + " " + version;
     } else {
       return browser;

@@ -3,9 +3,9 @@ package cloud.xcan.jmock.plugin;
 import static cloud.xcan.jmock.plugin.CarDocMessage.DOC_CATEGORY_CAR;
 import static cloud.xcan.jmock.plugin.CarDocMessage.DOC_VEHICLE_C1;
 import static cloud.xcan.jmock.plugin.CarDocMessage.DOC_VEHICLE_DESC;
-import static cloud.xcan.jmock.plugin.MBrand.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.Arrays;
@@ -27,14 +27,8 @@ public class MVehicle extends AbstractMockFunction {
   public MVehicle() {
   }
 
-  public static void main(String[] args) {
-    for (int i = 0; i < 3; i++) {
-      System.out.println(new MVehicle().mock());
-    }
-  }
-
   @Override
   public String mock() {
-    return VEHICLE_TYPES.get(random.nextInt(VEHICLE_TYPES.size()));
+    return VEHICLE_TYPES.get(JMockRandom.nextInt(VEHICLE_TYPES.size()));
   }
 }

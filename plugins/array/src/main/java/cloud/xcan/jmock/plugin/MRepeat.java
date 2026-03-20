@@ -31,12 +31,12 @@ public class MRepeat extends AbstractMockFunction {
   private String value;
 
   @JMockParameter(descI18nKey = DOC_REPEAT_PARAMETER_COUNT)
-  private int count;
+  private Integer count;
 
   @JMockConstructor(descI18nKey = DOC_REPEAT_C1,
       example = "@Repeat(hello,3)",
       exampleValues = {"[\"hello\",\"hello\",\"hello\"]"})
-  public MRepeat(String value, int count) {
+  public MRepeat(String value, Integer count) {
     this.value = value;
     this.count = Math.max(count, 0);
   }

@@ -3,9 +3,8 @@ package cloud.xcan.jmock.plugin;
 import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_CATEGORY_CODE;
 import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_HTML_C1;
 import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_HTML_DESC;
-import static cloud.xcan.jmock.plugin.MCodeSnippet.random;
-
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 
@@ -207,10 +206,6 @@ public class MHtml extends AbstractMockFunction {
   public MHtml() {
   }
 
-  public static void main(String[] args) {
-    System.out.println(new MHtml().mock());
-  }
-
   @Override
   public String mock() {
     return generateRandomHtmlDocument();
@@ -245,8 +240,8 @@ public class MHtml extends AbstractMockFunction {
         "Documentation"};
     String[] suffixes = {"Page", "Portal", "Dashboard", "Hub", "Center", "System"};
 
-    return prefixes[random.nextInt(prefixes.length)] + " " +
-        suffixes[random.nextInt(suffixes.length)];
+    return prefixes[JMockRandom.nextInt(prefixes.length)] + " " +
+        suffixes[JMockRandom.nextInt(suffixes.length)];
   }
 
   public static String generateRandomCss() {
@@ -271,14 +266,14 @@ public class MHtml extends AbstractMockFunction {
     css.append("    }\n\n");
 
     css.append("    h1, h2, h3 {\n");
-    css.append("      color: ").append(COLORS[random.nextInt(COLORS.length)]).append(";\n");
+    css.append("      color: ").append(COLORS[JMockRandom.nextInt(COLORS.length)]).append(";\n");
     css.append("      margin-top: 0;\n");
     css.append("    }\n\n");
 
     css.append("    .btn {\n");
     css.append("      display: inline-block;\n");
     css.append("      padding: 10px 20px;\n");
-    css.append("      background-color: ").append(COLORS[random.nextInt(COLORS.length)])
+    css.append("      background-color: ").append(COLORS[JMockRandom.nextInt(COLORS.length)])
         .append(";\n");
     css.append("      color: white;\n");
     css.append("      text-decoration: none;\n");
@@ -290,7 +285,7 @@ public class MHtml extends AbstractMockFunction {
     css.append("    }\n\n");
 
     css.append("    .btn:hover {\n");
-    css.append("      background-color: ").append(COLORS[random.nextInt(COLORS.length)])
+    css.append("      background-color: ").append(COLORS[JMockRandom.nextInt(COLORS.length)])
         .append(";\n");
     css.append("    }\n\n");
 
@@ -337,7 +332,7 @@ public class MHtml extends AbstractMockFunction {
         "Georgia, 'Times New Roman', Times, serif",
         "'Courier New', Courier, monospace"
     };
-    return fonts[random.nextInt(fonts.length)];
+    return fonts[JMockRandom.nextInt(fonts.length)];
   }
 
   public static String generateRandomBodyContent() {
@@ -345,18 +340,18 @@ public class MHtml extends AbstractMockFunction {
 
     body.append("<div class=\"container\">\n");
 
-    body.append("  <").append(HEADING_TAGS[random.nextInt(2)]) // h1-h3
+    body.append("  <").append(HEADING_TAGS[JMockRandom.nextInt(2)]) // h1-h3
         .append(">").append(generateRandomHeading()).append("</")
-        .append(HEADING_TAGS[random.nextInt(2)]).append(">\n");
+        .append(HEADING_TAGS[JMockRandom.nextInt(2)]).append(">\n");
 
-    int paragraphCount = 2 + random.nextInt(3);
+    int paragraphCount = 2 + JMockRandom.nextInt(3);
     for (int i = 0; i < paragraphCount; i++) {
       body.append("  <p>").append(generateRandomParagraph()).append("</p>\n");
     }
 
-    int elementsToAdd = 3 + random.nextInt(3);
+    int elementsToAdd = 3 + JMockRandom.nextInt(3);
     for (int i = 0; i < elementsToAdd; i++) {
-      switch (random.nextInt(5)) {
+      switch (JMockRandom.nextInt(5)) {
         case 0:
           body.append(generateRandomList());
           break;
@@ -384,21 +379,21 @@ public class MHtml extends AbstractMockFunction {
     String[] subjects = {"Product", "Service", "Company", "Technology", "Solution", "Platform"};
     String[] suffixes = {"Overview", "Features", "Benefits", "Vision", "Mission"};
 
-    return prefixes[random.nextInt(prefixes.length)] + " " +
-        subjects[random.nextInt(subjects.length)] + " " +
-        suffixes[random.nextInt(suffixes.length)];
+    return prefixes[JMockRandom.nextInt(prefixes.length)] + " " +
+        subjects[JMockRandom.nextInt(subjects.length)] + " " +
+        suffixes[JMockRandom.nextInt(suffixes.length)];
   }
 
   public static String generateRandomParagraph() {
     StringBuilder paragraph = new StringBuilder();
 
-    int sentenceCount = 3 + random.nextInt(4);
+    int sentenceCount = 3 + JMockRandom.nextInt(4);
     for (int i = 0; i < sentenceCount; i++) {
-      paragraph.append(TEXT_CONTENT[random.nextInt(TEXT_CONTENT.length)]);
+      paragraph.append(TEXT_CONTENT[JMockRandom.nextInt(TEXT_CONTENT.length)]);
 
-      if (random.nextDouble() < 0.3) {
+      if (JMockRandom.nextDouble() < 0.3) {
         String[] styles = {"strong", "em", "u", "code"};
-        String style = styles[random.nextInt(styles.length)];
+        String style = styles[JMockRandom.nextInt(styles.length)];
         paragraph.insert(paragraph.length() - 1, "<" + style + ">");
         paragraph.insert(paragraph.length() - 1, "</" + style + ">");
       }
@@ -414,10 +409,10 @@ public class MHtml extends AbstractMockFunction {
   public static String generateRandomList() {
     StringBuilder list = new StringBuilder();
 
-    String listType = random.nextBoolean() ? "ul" : "ol";
+    String listType = JMockRandom.nextBoolean() ? "ul" : "ol";
     list.append("  <").append(listType).append(">\n");
 
-    int itemCount = 3 + random.nextInt(4);
+    int itemCount = 3 + JMockRandom.nextInt(4);
     for (int i = 0; i < itemCount; i++) {
       list.append("    <li>").append(generateRandomListItem()).append("</li>\n");
     }
@@ -431,9 +426,9 @@ public class MHtml extends AbstractMockFunction {
     String[] subjects = {"feature", "benefit", "aspect", "element", "consideration"};
     String[] verbs = {"saves time", "improves efficiency", "reduces costs", "enhances security"};
 
-    return prefixes[random.nextInt(prefixes.length)] + " " +
-        subjects[random.nextInt(subjects.length)] + " that " +
-        verbs[random.nextInt(verbs.length)];
+    return prefixes[JMockRandom.nextInt(prefixes.length)] + " " +
+        subjects[JMockRandom.nextInt(subjects.length)] + " that " +
+        verbs[JMockRandom.nextInt(verbs.length)];
   }
 
   public static String generateRandomTable() {
@@ -443,9 +438,9 @@ public class MHtml extends AbstractMockFunction {
     table.append("    <thead>\n");
     table.append("      <tr>\n");
 
-    int colCount = 3 + random.nextInt(3);
+    int colCount = 3 + JMockRandom.nextInt(3);
     for (int i = 0; i < colCount; i++) {
-      table.append("        <th>").append(TABLE_HEADERS[random.nextInt(TABLE_HEADERS.length)])
+      table.append("        <th>").append(TABLE_HEADERS[JMockRandom.nextInt(TABLE_HEADERS.length)])
           .append("</th>\n");
     }
 
@@ -453,7 +448,7 @@ public class MHtml extends AbstractMockFunction {
     table.append("    </thead>\n");
     table.append("    <tbody>\n");
 
-    int rowCount = 3 + random.nextInt(4);
+    int rowCount = 3 + JMockRandom.nextInt(4);
     for (int i = 0; i < rowCount; i++) {
       table.append("      <tr>\n");
 
@@ -470,11 +465,11 @@ public class MHtml extends AbstractMockFunction {
   }
 
   public static String generateRandomTableCell() {
-    if (random.nextBoolean()) {
+    if (JMockRandom.nextBoolean()) {
       String[] items = {"Product A", "Service B", "Item C", "Component D", "Feature E"};
-      return items[random.nextInt(items.length)];
+      return items[JMockRandom.nextInt(items.length)];
     } else {
-      return String.valueOf(10 + random.nextInt(91)); // 10-100
+      return String.valueOf(10 + JMockRandom.nextInt(91)); // 10-100
     }
   }
 
@@ -483,13 +478,13 @@ public class MHtml extends AbstractMockFunction {
 
     form.append("  <form>\n");
 
-    int fieldCount = 3 + random.nextInt(3);
+    int fieldCount = 3 + JMockRandom.nextInt(3);
     for (int i = 0; i < fieldCount; i++) {
       form.append("    <div class=\"form-group\">\n");
       form.append("      <label for=\"field").append(i).append("\">")
-          .append(FORM_LABELS[random.nextInt(FORM_LABELS.length)]).append("</label>\n");
+          .append(FORM_LABELS[JMockRandom.nextInt(FORM_LABELS.length)]).append("</label>\n");
 
-      switch (random.nextInt(4)) {
+      switch (JMockRandom.nextInt(4)) {
         case 0:
           form.append("      <input type=\"text\" id=\"field").append(i).append("\">\n");
           break;
@@ -508,23 +503,23 @@ public class MHtml extends AbstractMockFunction {
     }
 
     form.append("    <button type=\"submit\" class=\"btn\">")
-        .append(BUTTON_TEXTS[random.nextInt(BUTTON_TEXTS.length)]).append("</button>\n");
+        .append(BUTTON_TEXTS[JMockRandom.nextInt(BUTTON_TEXTS.length)]).append("</button>\n");
 
     form.append("  </form>\n");
     return form.toString();
   }
 
   public static String generateRandomImage() {
-    int width = 400 + random.nextInt(401); // 400-800
-    int height = 300 + random.nextInt(301); // 300-600
+    int width = 400 + JMockRandom.nextInt(401); // 400-800
+    int height = 300 + JMockRandom.nextInt(301); // 300-600
 
     return "  <img src=\"" + IMAGE_SERVICE + "/" + width + "/" + height + "\" " +
-        "alt=\"" + IMAGE_ALTS[random.nextInt(IMAGE_ALTS.length)] + "\" " +
+        "alt=\"" + IMAGE_ALTS[JMockRandom.nextInt(IMAGE_ALTS.length)] + "\" " +
         "class=\"responsive-img\">\n";
   }
 
   public static String generateRandomButton() {
     return "  <button class=\"btn\">" +
-        BUTTON_TEXTS[random.nextInt(BUTTON_TEXTS.length)] + "</button>\n";
+        BUTTON_TEXTS[JMockRandom.nextInt(BUTTON_TEXTS.length)] + "</button>\n";
   }
 }

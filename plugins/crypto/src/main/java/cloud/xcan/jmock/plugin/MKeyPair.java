@@ -1,17 +1,19 @@
 package cloud.xcan.jmock.plugin;
 
+import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_UNACCEPTABLE_T;
 import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_CATEGORY_CRYPTO;
 import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_KEY_PAIR_C1;
 import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_KEY_PAIR_C2;
 import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_KEY_PAIR_DESC;
 import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_KEY_PAIR_PARAMETER_ALGORITHM;
 import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_KEY_PAIR_PARAMETER_KEY_SIZE;
-import static cloud.xcan.jmock.plugin.MSymmetricKey.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
+import cloud.xcan.jmock.api.exception.ParamParseException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -105,16 +107,19 @@ public class MKeyPair extends AbstractMockFunction {
     }
 
     switch (algorithm) {
-      case "RSA", "DSA" -> keyPairGen.initialize(keySize, random);
+      case "RSA", "DSA" -> keyPairGen.initialize(keySize, JMockRandom.secure());
       case "EC" -> {
         String curveName = switch (keySize) {
           case 256 -> "secp256r1";
           case 384 -> "secp384r1";
           case 521 -> "secp521r1";
-          default -> throw new IllegalArgumentException("Unsupported EC key size: " + keySize);
+          default -> {
+            ParamParseException.throw0(PARAM_UNACCEPTABLE_T, new Object[]{"keySize"});
+            yield null;
+          }
         };
         try {
-          keyPairGen.initialize(new ECGenParameterSpec(curveName), random);
+          keyPairGen.initialize(new ECGenParameterSpec(curveName), JMockRandom.secure());
         } catch (InvalidAlgorithmParameterException e) {
           return null;
         }

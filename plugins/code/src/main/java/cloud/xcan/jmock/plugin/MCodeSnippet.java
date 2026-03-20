@@ -7,10 +7,10 @@ import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_CODE_SNIPPET_C2;
 import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_CODE_SNIPPET_DESC;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
-import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.List;
@@ -19,8 +19,6 @@ import java.util.Map;
 @JMockFunctionRegister(descI18nKey = DOC_CODE_SNIPPET_DESC, categoryI18nKey = {
     DOC_CATEGORY_CODE}, order = 3001)
 public class MCodeSnippet extends AbstractMockFunction {
-
-  public static final SecureRandom random = new SecureRandom();
 
   public enum Language {
     PYTHON, JAVA, JAVASCRIPT, TYPESCRIPT, CPP, CSHARP, PHP, RUBY, SWIFT, GO;
@@ -107,7 +105,7 @@ public class MCodeSnippet extends AbstractMockFunction {
   public static String generateSnippet(String language0) {
     Language language = Language.of(language0);
 
-    int snippetType = random.nextInt(7);
+    int snippetType = JMockRandom.nextInt(7);
     return switch (snippetType) {
       case 0 -> generateFunction(language);
       case 1 -> generateClass(language);
@@ -123,7 +121,7 @@ public class MCodeSnippet extends AbstractMockFunction {
     String functionName = generateIdentifier("function");
     String argName = generateIdentifier("arg");
     String varName = generateIdentifier("var");
-    int randomNum = random.nextInt(100) + 1;
+    int randomNum = JMockRandom.nextInt(100) + 1;
 
     Map<Language, String> templates = new EnumMap<>(Language.class);
     templates.put(Language.PYTHON,
@@ -414,7 +412,7 @@ public class MCodeSnippet extends AbstractMockFunction {
   public static String generateLoop(Language language) {
     String varName = generateIdentifier("i");
     String arrayName = generateIdentifier("items");
-    int maxValue = random.nextInt(5) + 3;
+    int maxValue = JMockRandom.nextInt(5) + 3;
 
     Map<Language, String> templates = new EnumMap<>(Language.class);
     templates.put(Language.PYTHON,
@@ -508,7 +506,7 @@ public class MCodeSnippet extends AbstractMockFunction {
 
   public static String generateConditional(Language language) {
     String varName = generateIdentifier("num");
-    int value = random.nextInt(10) + 1;
+    int value = JMockRandom.nextInt(10) + 1;
 
     Map<Language, String> templates = new EnumMap<>(Language.class);
     templates.put(Language.PYTHON,
@@ -845,14 +843,14 @@ public class MCodeSnippet extends AbstractMockFunction {
         suffixes = new String[]{"Id", "Name", "Count", "Total", "Status"};
     }
 
-    String prefix = prefixes[random.nextInt(prefixes.length)];
-    String suffix = suffixes[random.nextInt(suffixes.length)];
+    String prefix = prefixes[JMockRandom.nextInt(prefixes.length)];
+    String suffix = suffixes[JMockRandom.nextInt(suffixes.length)];
 
     if (type.equals("class")) {
       return prefix + suffix;
     }
 
-    if (random.nextDouble() < 0.7) {
+    if (JMockRandom.nextDouble() < 0.7) {
       return prefix + suffix;
     }
     return prefix;

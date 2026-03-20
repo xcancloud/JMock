@@ -31,14 +31,14 @@ public class MSample extends AbstractMockFunction {
   private String items;
 
   @JMockParameter(descI18nKey = DOC_SAMPLE_PARAMETER_COUNT)
-  private int count;
+  private Integer count;
 
   private List<String> itemList;
 
   @JMockConstructor(descI18nKey = DOC_SAMPLE_C1,
       example = "@Sample(a|b|c|d|e,3)",
       exampleValues = {"[\"c\",\"a\",\"e\"]"})
-  public MSample(String items, int count) {
+  public MSample(String items, Integer count) {
     this.items = items;
     this.itemList = new ArrayList<>(List.of(items.split("\\|")));
     this.count = Math.min(Math.max(count, 0), this.itemList.size());

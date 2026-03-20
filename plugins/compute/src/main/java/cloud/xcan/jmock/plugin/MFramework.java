@@ -3,9 +3,9 @@ package cloud.xcan.jmock.plugin;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_CATEGORY_COMPUTE;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_FRAMEWORK_C1;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_FRAMEWORK_DESC;
-import static cloud.xcan.jmock.plugin.MBrowser.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.Arrays;
@@ -36,16 +36,16 @@ public class MFramework extends AbstractMockFunction {
 
   @Override
   public String mock() {
-    int category = random.nextInt(100);
+    int category = JMockRandom.nextInt(100);
     if (category < 40) {
       // Frontend frameworks (40% probability)
-      return FRONTEND_FRAMEWORKS.get(random.nextInt(FRONTEND_FRAMEWORKS.size()));
+      return FRONTEND_FRAMEWORKS.get(JMockRandom.nextInt(FRONTEND_FRAMEWORKS.size()));
     } else if (category < 80) {
       // Backend frameworks (40% probability)
-      return BACKEND_FRAMEWORKS.get(random.nextInt(BACKEND_FRAMEWORKS.size()));
+      return BACKEND_FRAMEWORKS.get(JMockRandom.nextInt(BACKEND_FRAMEWORKS.size()));
     } else {
       // Mobile frameworks (20% probability)
-      return MOBILE_FRAMEWORKS.get(random.nextInt(MOBILE_FRAMEWORKS.size()));
+      return MOBILE_FRAMEWORKS.get(JMockRandom.nextInt(MOBILE_FRAMEWORKS.size()));
     }
   }
 }

@@ -3,9 +3,9 @@ package cloud.xcan.jmock.plugin;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_CATEGORY_COMPUTE;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_OS_C1;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_OS_DESC;
-import static cloud.xcan.jmock.plugin.MBrowser.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.Arrays;
@@ -40,16 +40,16 @@ public class MOs extends AbstractMockFunction {
 
   @Override
   public String mock() {
-    int category = random.nextInt(100);
+    int category = JMockRandom.nextInt(100);
     if (category < 60) {
       // Desktop OS (60% probability)
-      return DESKTOP_OS.get(random.nextInt(DESKTOP_OS.size()));
+      return DESKTOP_OS.get(JMockRandom.nextInt(DESKTOP_OS.size()));
     } else if (category < 85) {
       // Mobile OS (25% probability)
-      return MOBILE_OS.get(random.nextInt(MOBILE_OS.size()));
+      return MOBILE_OS.get(JMockRandom.nextInt(MOBILE_OS.size()));
     } else {
       // Server OS (15% probability)
-      return SERVER_OS.get(random.nextInt(SERVER_OS.size()));
+      return SERVER_OS.get(JMockRandom.nextInt(SERVER_OS.size()));
     }
   }
 }

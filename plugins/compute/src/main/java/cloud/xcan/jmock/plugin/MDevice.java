@@ -3,9 +3,9 @@ package cloud.xcan.jmock.plugin;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_CATEGORY_COMPUTE;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_DEVICE_C1;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_DEVICE_DESC;
-import static cloud.xcan.jmock.plugin.MBrowser.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.Arrays;
@@ -40,24 +40,24 @@ public class MDevice extends AbstractMockFunction {
 
   @Override
   public String mock() {
-    int category = random.nextInt(100);
+    int category = JMockRandom.nextInt(100);
     if (category < 60) {
       // Computer devices (60% probability)
-      String name = COMPUTER_NAMES.get(random.nextInt(COMPUTER_NAMES.size()));
-      if (random.nextDouble() < 0.4) {
-        name += " " + DEVICE_MODIFIERS.get(random.nextInt(DEVICE_MODIFIERS.size()));
+      String name = COMPUTER_NAMES.get(JMockRandom.nextInt(COMPUTER_NAMES.size()));
+      if (JMockRandom.nextDouble() < 0.4) {
+        name += " " + DEVICE_MODIFIERS.get(JMockRandom.nextInt(DEVICE_MODIFIERS.size()));
       }
       return name;
     } else if (category < 85) {
       // Mobile devices (25% probability)
-      String name = MOBILE_DEVICES.get(random.nextInt(MOBILE_DEVICES.size()));
-      if (random.nextDouble() < 0.6) {
-        name += " " + (random.nextInt(15) + 1);
+      String name = MOBILE_DEVICES.get(JMockRandom.nextInt(MOBILE_DEVICES.size()));
+      if (JMockRandom.nextDouble() < 0.6) {
+        name += " " + (JMockRandom.nextInt(15) + 1);
       }
       return name;
     } else {
       // IoT devices (15% probability)
-      return IOT_DEVICES.get(random.nextInt(IOT_DEVICES.size()));
+      return IOT_DEVICES.get(JMockRandom.nextInt(IOT_DEVICES.size()));
     }
   }
 }

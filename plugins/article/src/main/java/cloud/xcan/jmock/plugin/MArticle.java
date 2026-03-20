@@ -3,6 +3,7 @@ package cloud.xcan.jmock.plugin;
 import static cloud.xcan.angus.spec.utils.ObjectUtils.nullSafe;
 import static cloud.xcan.angus.spec.utils.ObjectUtils.stringSafe;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
+import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_MIN_T;
 import static cloud.xcan.jmock.api.i18n.MessageResources.getString;
 import static cloud.xcan.jmock.plugin.ArticleDocMessage.DOC_ARTICLE_C1;
 import static cloud.xcan.jmock.plugin.ArticleDocMessage.DOC_ARTICLE_C2;
@@ -15,13 +16,14 @@ import static cloud.xcan.jmock.plugin.ArticleDocMessage.DOC_CATEGORY_ARTICLE;
 import static java.util.Locale.CHINA;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
+import cloud.xcan.jmock.api.exception.ParamParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import lombok.Getter;
@@ -46,8 +48,6 @@ public class MArticle extends AbstractMockFunction {
   private Locale locale;
 
   private transient String dict;
-
-  private transient final Random random = new Random();
 
   @JMockConstructor(descI18nKey = DOC_ARTICLE_C1,
       example = "@Article()",
@@ -115,7 +115,7 @@ public class MArticle extends AbstractMockFunction {
    */
   public String generateArticle(int paragraphCount, int wordCount) {
     if (paragraphCount <= 0 || wordCount <= 0) {
-      throw new IllegalArgumentException("Paragraph count and word count must be positive");
+      ParamParseException.throw0(PARAM_MIN_T, new Object[]{"paragraphCount/wordCount", 1});
     }
 
     List<String> sentences = splitTextIntoSentences(dict);
@@ -155,9 +155,9 @@ public class MArticle extends AbstractMockFunction {
    * Generates a single paragraph by combining random sentences
    */
   private String generateParagraph(List<String> sentences) {
-    int sentenceCount = random.nextInt(3) + 3; // 3-5 sentences per paragraph
+    int sentenceCount = JMockRandom.nextInt(3) + 3; // 3-5 sentences per paragraph
     return IntStream.range(0, sentenceCount)
-        .mapToObj(i -> sentences.get(random.nextInt(sentences.size())))
+        .mapToObj(i -> sentences.get(JMockRandom.nextInt(sentences.size())))
         .collect(Collectors.joining(" "));
   }
 
@@ -199,11 +199,6 @@ public class MArticle extends AbstractMockFunction {
       return 0;
     }
     return CHINA.equals(locale) ? text.length() : text.split("\\s+").length;
-  }
-
-  public static void main(String[] args) {
-    System.out.println(new MArticle(2, 200,
-        "At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting.").mock());
   }
 }
 

@@ -5,9 +5,9 @@ import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_HASH_C1;
 import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_HASH_C2;
 import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_HASH_DESC;
 import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_HASH_PARAMETER_ALGORITHM;
-import static cloud.xcan.jmock.plugin.MSymmetricKey.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
@@ -57,7 +57,7 @@ public class MHash extends AbstractMockFunction {
 
     // Generate random input data
     byte[] randomData = new byte[32];
-    random.nextBytes(randomData);
+    JMockRandom.current().nextBytes(randomData);
 
     // Compute hash
     MessageDigest digest = null;

@@ -4,9 +4,8 @@ package cloud.xcan.jmock.plugin;
 import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_CATEGORY_CODE;
 import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_ERROR_TYPE_C1;
 import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_ERROR_TYPE_DESC;
-import static cloud.xcan.jmock.plugin.MCodeSnippet.random;
-
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.Arrays;
@@ -31,6 +30,6 @@ public class MErrorType extends AbstractMockFunction {
 
   @Override
   public String mock() {
-    return ERROR_TYPES.get(random.nextInt(ERROR_TYPES.size()));
+    return ERROR_TYPES.get(JMockRandom.nextInt(ERROR_TYPES.size()));
   }
 }

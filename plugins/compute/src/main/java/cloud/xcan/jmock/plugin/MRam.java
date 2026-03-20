@@ -3,9 +3,9 @@ package cloud.xcan.jmock.plugin;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_CATEGORY_COMPUTE;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_RAM_C1;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_RAM_DESC;
-import static cloud.xcan.jmock.plugin.MBrowser.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.Arrays;
@@ -28,9 +28,9 @@ public class MRam extends AbstractMockFunction {
 
   @Override
   public String mock() {
-    int size = RAM_SIZES.get(random.nextInt(RAM_SIZES.size()));
-    String type = RAM_TYPES.get(random.nextInt(RAM_TYPES.size()));
-    int speed = RAM_SPEEDS.get(random.nextInt(RAM_SPEEDS.size()));
+    int size = RAM_SIZES.get(JMockRandom.nextInt(RAM_SIZES.size()));
+    String type = RAM_TYPES.get(JMockRandom.nextInt(RAM_TYPES.size()));
+    int speed = RAM_SPEEDS.get(JMockRandom.nextInt(RAM_SPEEDS.size()));
 
     return size + "GB " + type + " " + speed + "MHz";
   }

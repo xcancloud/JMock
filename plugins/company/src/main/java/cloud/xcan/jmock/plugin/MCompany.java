@@ -7,10 +7,10 @@ import static cloud.xcan.jmock.plugin.CompanyDocMessage.DOC_COMPANY_C2;
 import static cloud.xcan.jmock.plugin.CompanyDocMessage.DOC_COMPANY_DESC;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
-import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -20,8 +20,6 @@ import java.util.Set;
 @JMockFunctionRegister(descI18nKey = DOC_COMPANY_DESC,
     categoryI18nKey = {DOC_CATEGORY_COMPANY}, order = 4001)
 public class MCompany extends AbstractMockFunction {
-
-  public static final SecureRandom random = new SecureRandom();
 
   public static final List<String> CN_COMPANY_TYPES = Arrays.asList(
       "有限公司", "集团", "股份有限公司", "控股集团", "科技公司", "实业公司", "咨询公司", "国际集团"
@@ -59,10 +57,6 @@ public class MCompany extends AbstractMockFunction {
     this.locale = locale;
   }
 
-  public static void main(String[] args) {
-    System.out.println(new MCompany(Locale.ENGLISH).mock());
-  }
-
   @Override
   public String mock() {
     return generateRandomCompanyName(locale);
@@ -77,13 +71,13 @@ public class MCompany extends AbstractMockFunction {
     StringBuilder name = new StringBuilder();
 
     // 2-3 words + company type
-    int wordCount = 1 + random.nextInt(3);
+    int wordCount = 1 + JMockRandom.nextInt(3);
     Set<String> usedWords = new HashSet<>();
 
     for (int i = 0; i < wordCount; i++) {
       String word;
       do {
-        word = words.get(random.nextInt(words.size()));
+        word = words.get(JMockRandom.nextInt(words.size()));
       } while (usedWords.contains(word));
 
       name.append(word);
@@ -94,7 +88,7 @@ public class MCompany extends AbstractMockFunction {
     }
 
     // Add company type
-    name.append(types.get(random.nextInt(types.size())));
+    name.append(types.get(JMockRandom.nextInt(types.size())));
 
     return name.toString();
   }

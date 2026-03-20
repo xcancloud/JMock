@@ -3,9 +3,9 @@ package cloud.xcan.jmock.plugin;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_CATEGORY_COMPUTE;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_CPU_MODEL_C1;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_CPU_MODEL_DESC;
-import static cloud.xcan.jmock.plugin.MBrowser.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.Arrays;
@@ -38,16 +38,16 @@ public class MCpuModel extends AbstractMockFunction {
 
   @Override
   public String mock() {
-    int manufacturer = random.nextInt(100);
+    int manufacturer = JMockRandom.nextInt(100);
     if (manufacturer < 70) {
       // Intel (70% probability)
-      return "Intel " + INTEL_CPUS.get(random.nextInt(INTEL_CPUS.size()));
+      return "Intel " + INTEL_CPUS.get(JMockRandom.nextInt(INTEL_CPUS.size()));
     } else if (manufacturer < 95) {
       // AMD (25% probability)
-      return "AMD " + AMD_CPUS.get(random.nextInt(AMD_CPUS.size()));
+      return "AMD " + AMD_CPUS.get(JMockRandom.nextInt(AMD_CPUS.size()));
     } else {
       // Apple Silicon (5% probability)
-      return APPLE_CPUS.get(random.nextInt(APPLE_CPUS.size()));
+      return APPLE_CPUS.get(JMockRandom.nextInt(APPLE_CPUS.size()));
     }
   }
 }

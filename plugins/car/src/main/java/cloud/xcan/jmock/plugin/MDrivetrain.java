@@ -3,9 +3,9 @@ package cloud.xcan.jmock.plugin;
 import static cloud.xcan.jmock.plugin.CarDocMessage.DOC_CATEGORY_CAR;
 import static cloud.xcan.jmock.plugin.CarDocMessage.DOC_DRIVETRAIN_C1;
 import static cloud.xcan.jmock.plugin.CarDocMessage.DOC_DRIVETRAIN_DESC;
-import static cloud.xcan.jmock.plugin.MBrand.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.Arrays;
@@ -30,7 +30,7 @@ public class MDrivetrain extends AbstractMockFunction {
 
   @Override
   public String mock() {
-    return DRIVETRAIN_TYPES.get(random.nextInt(DRIVETRAIN_TYPES.size()));
+    return DRIVETRAIN_TYPES.get(JMockRandom.nextInt(DRIVETRAIN_TYPES.size()));
   }
 
 }

@@ -5,10 +5,10 @@ import static cloud.xcan.jmock.plugin.CompanyDocMessage.DOC_CATEGORY_COMPANY;
 import static cloud.xcan.jmock.plugin.CompanyDocMessage.DOC_JOB_C1;
 import static cloud.xcan.jmock.plugin.CompanyDocMessage.DOC_JOB_C2;
 import static cloud.xcan.jmock.plugin.CompanyDocMessage.DOC_JOB_DESC;
-import static cloud.xcan.jmock.plugin.MCompany.random;
 import static java.util.Arrays.asList;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
@@ -64,15 +64,15 @@ public class MJob extends AbstractMockFunction {
     StringBuilder title = new StringBuilder();
 
     // Level (70% probability)
-    if (random.nextDouble() < 0.7) {
-      title.append(levels.get(random.nextInt(levels.size())));
+    if (JMockRandom.nextDouble() < 0.7) {
+      title.append(levels.get(JMockRandom.nextInt(levels.size())));
       if (locale.equals(Locale.ENGLISH)) {
         title.append(" ");
       }
     }
 
     // Title
-    title.append(titles.get(random.nextInt(titles.size())));
+    title.append(titles.get(JMockRandom.nextInt(titles.size())));
 
     return title.toString();
   }

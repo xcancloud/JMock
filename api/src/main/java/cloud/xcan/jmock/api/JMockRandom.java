@@ -2,7 +2,6 @@ package cloud.xcan.jmock.api;
 
 import java.security.SecureRandom;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.random.RandomGenerator;
 
 /**
  * Shared random source for all JMock functions.
@@ -12,7 +11,7 @@ import java.util.random.RandomGenerator;
  */
 public final class JMockRandom {
 
-  private static volatile RandomGenerator secureInstance;
+  private static volatile SecureRandom secureInstance;
 
   private JMockRandom() {
   }
@@ -29,7 +28,7 @@ public final class JMockRandom {
    * Returns a cryptographically secure random generator.
    * Use only when security-quality randomness is required (e.g., key generation).
    */
-  public static RandomGenerator secure() {
+  public static SecureRandom secure() {
     if (secureInstance == null) {
       synchronized (JMockRandom.class) {
         if (secureInstance == null) {
@@ -59,6 +58,13 @@ public final class JMockRandom {
    */
   public static long nextLong(long origin, long bound) {
     return current().nextLong(origin, bound);
+  }
+
+  /**
+   * Returns a random double in [0.0, 1.0).
+   */
+  public static double nextDouble() {
+    return current().nextDouble();
   }
 
   /**

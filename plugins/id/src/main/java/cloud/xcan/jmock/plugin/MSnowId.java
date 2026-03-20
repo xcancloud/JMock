@@ -1,5 +1,6 @@
 package cloud.xcan.jmock.plugin;
 
+import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_MAX_T;
 import static cloud.xcan.jmock.plugin.IDDocMessage.DOC_CATEGORY_ID;
 import static cloud.xcan.jmock.plugin.IDDocMessage.DOC_SNOWID_C1;
 import static cloud.xcan.jmock.plugin.IDDocMessage.DOC_SNOWID_C2;
@@ -11,6 +12,7 @@ import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
+import cloud.xcan.jmock.api.exception.ParamParseException;
 import cloud.xcan.jmock.api.support.utils.SnowIdUtils;
 import lombok.Getter;
 import lombok.Setter;
@@ -53,12 +55,10 @@ public class MSnowId extends AbstractMockFunction {
       exampleValues = {"16685359784"})
   public MSnowId(Integer dcId, Integer mid) {
     if (dcId != null && (dcId > MAX_DC_ID || dcId < 0)) {
-      throw new RuntimeException(
-          String.format("dataCenterId can't be greater than %d or less than 0", dcId));
+      ParamParseException.throw0(PARAM_MAX_T, new Object[]{"dataCenterId", MAX_DC_ID});
     }
     if (mid != null && (mid > MAX_M_ID || mid < 0)) {
-      throw new RuntimeException(
-          String.format("workerId can't be greater than %d or less than 0", mid));
+      ParamParseException.throw0(PARAM_MAX_T, new Object[]{"workerId", MAX_M_ID});
     }
     this.dcId = dcId == null ? DEFAULT_DC_ID : dcId;
     this.mId = mid == null ? DEFAULT_M_ID : mid;

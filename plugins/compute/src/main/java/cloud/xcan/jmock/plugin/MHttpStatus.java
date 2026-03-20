@@ -3,9 +3,9 @@ package cloud.xcan.jmock.plugin;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_CATEGORY_COMPUTE;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_HTTP_STATUS_C1;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_HTTP_STATUS_DESC;
-import static cloud.xcan.jmock.plugin.MBrowser.random;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import java.util.ArrayList;
@@ -52,7 +52,7 @@ public class MHttpStatus extends AbstractMockFunction {
   @Override
   public String mock() {
     List<Integer> codes = new ArrayList<>(HTTP_STATUS_CODES.keySet());
-    int code = codes.get(random.nextInt(codes.size()));
+    int code = codes.get(JMockRandom.nextInt(codes.size()));
     return code + " " + HTTP_STATUS_CODES.get(code);
   }
 }
