@@ -13,11 +13,36 @@ public class MCoordinatesMockTest {
     FunctionToken token = new FunctionToken("Coordinates", new String[]{});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MCoordinates mock = (MCoordinates) parser.parse(token);
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 20; i++) {
       String str = mock.mock();
-      Assertions.assertEquals(2, str.split(",").length);
+      Assertions.assertNotNull(str);
+      String[] parts = str.split(",");
+      Assertions.assertEquals(2, parts.length, "Coordinates should have lat,lng format");
+      double lat = Double.parseDouble(parts[0].trim());
+      double lng = Double.parseDouble(parts[1].trim());
+      Assertions.assertTrue(lat >= -90 && lat <= 90, "Latitude out of range: " + lat);
+      Assertions.assertTrue(lng >= -180 && lng <= 180, "Longitude out of range: " + lng);
     }
   }
 
-
+  @Test
+  public void case2_nullWeightTest() throws Exception {
+    FunctionToken token = new FunctionToken("Coordinates", new String[]{"2:8"});
+    SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
+    MCoordinates mock = (MCoordinates) parser.parse(token);
+    boolean hasNull = false;
+    boolean hasValue = false;
+    for (int i = 0; i < 1000; i++) {
+      String str = mock.mock();
+      if (str == null) {
+        hasNull = true;
+      } else {
+        hasValue = true;
+        String[] parts = str.split(",");
+        Assertions.assertEquals(2, parts.length);
+      }
+    }
+    Assertions.assertTrue(hasNull, "Should produce null values with 2:8 nullWeight");
+    Assertions.assertTrue(hasValue, "Should produce non-null values too");
+  }
 }

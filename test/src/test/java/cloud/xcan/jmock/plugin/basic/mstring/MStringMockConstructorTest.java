@@ -46,7 +46,8 @@ public class MStringMockConstructorTest {
     Assertions.assertNotNull(mock);
     Assertions.assertEquals(Integer.valueOf(10), mock.getLength());
     Assertions.assertEquals(10, mock.getFixedLength());
-    Assertions.assertEquals(0.1d, mock.getNullWeight(), 2);
+    Assertions.assertNotNull(mock.getNullSampler());
+    Assertions.assertEquals(0.1, mock.getNullSampler().getNullProbability(), 0.01);
   }
 
   /**
@@ -60,7 +61,8 @@ public class MStringMockConstructorTest {
     Assertions.assertNotNull(mock);
     Assertions.assertEquals(Integer.valueOf(10), mock.getLength());
     Assertions.assertEquals(10, mock.getFixedLength());
-    Assertions.assertEquals(0.1d, mock.getNullWeight(), 2);
+    Assertions.assertNotNull(mock.getNullSampler());
+    Assertions.assertEquals(0.1, mock.getNullSampler().getNullProbability(), 0.01);
     Assertions.assertEquals("中英法德美", new String(mock.getChars()));
   }
 

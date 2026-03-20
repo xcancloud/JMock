@@ -21,7 +21,7 @@ public class MDoubleMockConstructorTest {
     Assertions.assertEquals(MDouble.DEFAULT_SCALE_VALUE, mock.getScale());
     Assertions.assertEquals(MDouble.DEFAULT_MAX_VALUE, mock.getMax(), 1);
     Assertions.assertEquals(0D, mock.getMin(), 1);
-    Assertions.assertEquals(0.0D, mock.getNullWeight(), 1);
+    Assertions.assertNull(mock.getNullSampler());
   }
 
   /**
@@ -36,7 +36,7 @@ public class MDoubleMockConstructorTest {
     Assertions.assertEquals(3, mock.getScale());
     Assertions.assertEquals(MDouble.DEFAULT_MAX_VALUE, mock.getMax(), 1);
     Assertions.assertEquals(0D, mock.getMin(), 1);
-    Assertions.assertEquals(0.0D, mock.getNullWeight(), 1);
+    Assertions.assertNull(mock.getNullSampler());
   }
 
 
@@ -52,7 +52,8 @@ public class MDoubleMockConstructorTest {
     Assertions.assertEquals(MDouble.DEFAULT_SCALE_VALUE, mock.getScale());
     Assertions.assertEquals(MDouble.DEFAULT_MAX_VALUE, mock.getMax(), 1);
     Assertions.assertEquals(0, mock.getMin(), 1);
-    Assertions.assertEquals(0.1D, mock.getNullWeight(), 1);
+    Assertions.assertNotNull(mock.getNullSampler());
+    Assertions.assertEquals(0.1, mock.getNullSampler().getNullProbability(), 0.01);
   }
 
   /**
@@ -67,7 +68,7 @@ public class MDoubleMockConstructorTest {
     Assertions.assertEquals(MDouble.DEFAULT_SCALE_VALUE, mock.getScale());
     Assertions.assertEquals(300D, mock.getMax(), 1);
     Assertions.assertEquals(200D, mock.getMin(), 1);
-    Assertions.assertEquals(0.0D, mock.getNullWeight(), 1);
+    Assertions.assertNull(mock.getNullSampler());
   }
 
   /**
@@ -82,7 +83,7 @@ public class MDoubleMockConstructorTest {
     Assertions.assertEquals(5, mock.getScale());
     Assertions.assertEquals(200D, mock.getMax(), 1);
     Assertions.assertEquals(100D, mock.getMin(), 1);
-    Assertions.assertEquals(0.0D, mock.getNullWeight(), 1);
+    Assertions.assertNull(mock.getNullSampler());
   }
 
 
@@ -98,6 +99,7 @@ public class MDoubleMockConstructorTest {
     Assertions.assertEquals(5, mock.getScale());
     Assertions.assertEquals(200D, mock.getMax(), 1);
     Assertions.assertEquals(100D, mock.getMin(), 1);
-    Assertions.assertEquals(0.1D, mock.getNullWeight(), 1);
+    Assertions.assertNotNull(mock.getNullSampler());
+    Assertions.assertEquals(0.1, mock.getNullSampler().getNullProbability(), 0.01);
   }
 }

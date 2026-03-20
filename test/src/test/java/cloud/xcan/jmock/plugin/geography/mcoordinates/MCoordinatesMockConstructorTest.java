@@ -23,7 +23,7 @@ public class MCoordinatesMockConstructorTest {
     Assertions.assertEquals(-90, mock.getMinLat());
     Assertions.assertEquals(90, mock.getMaxLat());
     Assertions.assertEquals("0.000000", mock.getScalePattern());
-    Assertions.assertEquals(0.0, mock.getNullWeight());
+    Assertions.assertNull(mock.getNullSampler());
   }
 
   /**
@@ -41,6 +41,7 @@ public class MCoordinatesMockConstructorTest {
     Assertions.assertEquals(-80, mock.getMinLat());
     Assertions.assertEquals(70, mock.getMaxLat());
     Assertions.assertEquals("0.000000", mock.getScalePattern());
-    Assertions.assertEquals(0.2, mock.getNullWeight());
+    Assertions.assertNotNull(mock.getNullSampler());
+    Assertions.assertEquals(0.2, mock.getNullSampler().getNullProbability(), 0.01);
   }
 }

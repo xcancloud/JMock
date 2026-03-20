@@ -36,7 +36,8 @@ public class MRegExpMockConstructorTest {
     MRegExp mock = (MRegExp) parser.parse(token);
     Assertions.assertNotNull(mock);
     Assertions.assertEquals("[0-9]", mock.getRegexp());
-    Assertions.assertEquals(0.5, mock.getNullWeight(), 1);
+    Assertions.assertNotNull(mock.getNullSampler());
+    Assertions.assertEquals(0.5, mock.getNullSampler().getNullProbability(), 0.01);
   }
 
 }

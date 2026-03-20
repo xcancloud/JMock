@@ -20,7 +20,7 @@ public class MBoolMockConstructorTest {
     MBool mock = (MBool) parser.parse(token);
     Assertions.assertNotNull(mock);
     Assertions.assertEquals(0.0, mock.getTrueWeight(), 1);
-    Assertions.assertEquals(0.0, mock.getNullWeight(), 1);
+    Assertions.assertNull(mock.getNullSampler());
   }
 
   /**
@@ -45,7 +45,8 @@ public class MBoolMockConstructorTest {
     MBool mock = (MBool) parser.parse(token);
     Assertions.assertNotNull(mock);
     Assertions.assertEquals(0.5, mock.getTrueWeight(), 1);
-    Assertions.assertEquals(0.5, mock.getNullWeight(), 1);
+    Assertions.assertNotNull(mock.getNullSampler());
+    Assertions.assertEquals(0.5, mock.getNullSampler().getNullProbability(), 0.01);
   }
 
   /**
@@ -58,7 +59,8 @@ public class MBoolMockConstructorTest {
     MBool mock = (MBool) parser.parse(token);
     Assertions.assertNotNull(mock);
     Assertions.assertEquals(0.5, mock.getTrueWeight(), 1);
-    Assertions.assertEquals(0.2, mock.getNullWeight(), 1);
+    Assertions.assertNotNull(mock.getNullSampler());
+    Assertions.assertEquals(0.2, mock.getNullSampler().getNullProbability(), 0.01);
     Assertions.assertEquals(Arrays.asList("是", "否"), mock.getDictArray());
   }
 

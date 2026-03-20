@@ -20,7 +20,7 @@ public class MLongitudeMockConstructorTest {
     Assertions.assertEquals(-180, mock.getMinLng());
     Assertions.assertEquals(180, mock.getMaxLng());
     Assertions.assertEquals("0.000000", mock.getScalePattern());
-    Assertions.assertEquals(0.0D, mock.getNullWeight());
+    Assertions.assertNull(mock.getNullSampler());
   }
 
   @Test
@@ -33,7 +33,8 @@ public class MLongitudeMockConstructorTest {
     Assertions.assertEquals(-176, mock.getMinLng());
     Assertions.assertEquals(60, mock.getMaxLng());
     Assertions.assertEquals("0.000", mock.getScalePattern());
-    Assertions.assertEquals(0.2D, mock.getNullWeight());
+    Assertions.assertNotNull(mock.getNullSampler());
+    Assertions.assertEquals(0.2, mock.getNullSampler().getNullProbability(), 0.01);
   }
 
 }

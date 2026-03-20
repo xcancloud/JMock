@@ -3,66 +3,69 @@ package cloud.xcan.jmock.plugin.basic.minteger;
 import cloud.xcan.jmock.api.FunctionToken;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
 import cloud.xcan.jmock.plugin.MInteger;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MIntegerMockTest {
 
-  /**
-   * No-parameter MockConstructor: @Integer()
-   */
   @Test
-  public void MInteger1() throws Exception {
+  public void MInteger1_defaultRange() throws Exception {
     FunctionToken token = new FunctionToken("Integer", new String[]{});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MInteger mock = (MInteger) parser.parse(token);
-    for (int i = 0; i < 10; i++) {
-      Integer l1 = mock.mock();
-      System.out.println("l1 = " + l1);
+    for (int i = 0; i < 20; i++) {
+      Integer val = mock.mock();
+      Assertions.assertNotNull(val);
     }
   }
 
-
-  /**
-   * parameter MockConstructor: @Integer(Integer min, Integer max)
-   */
   @Test
-  public void MInteger2() throws Exception {
+  public void MInteger2_customRange() throws Exception {
     FunctionToken token = new FunctionToken("Integer", new String[]{"-100", "100"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MInteger mock = (MInteger) parser.parse(token);
-    for (int i = 0; i < 10; i++) {
-      Integer l1 = mock.mock();
-      System.out.println("l1 = " + l1);
+    for (int i = 0; i < 100; i++) {
+      Integer val = mock.mock();
+      Assertions.assertNotNull(val);
+      Assertions.assertTrue(val >= -100 && val <= 100,
+          "Value out of range: " + val);
     }
   }
 
-
-  /**
-   * parameter MockConstructor: @Integer(String nullWeight)
-   */
   @Test
-  public void MInteger3() throws Exception {
+  public void MInteger3_nullWeight() throws Exception {
     FunctionToken token = new FunctionToken("Integer", new String[]{"1:1"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MInteger mock = (MInteger) parser.parse(token);
-    for (int i = 0; i < 10; i++) {
-      Integer l1 = mock.mock();
-      System.out.println("l1 = " + l1);
+    boolean hasNull = false;
+    boolean hasValue = false;
+    for (int i = 0; i < 1000; i++) {
+      Integer val = mock.mock();
+      if (val == null) {
+        hasNull = true;
+      } else {
+        hasValue = true;
+      }
     }
+    Assertions.assertTrue(hasNull, "Should produce null values with 1:1 nullWeight");
+    Assertions.assertTrue(hasValue, "Should produce non-null values too");
   }
 
-  /**
-   * parameter MockConstructor: @Integer(Integer min, Integer max,String nullWeight)
-   */
   @Test
-  public void MInteger4() throws Exception {
+  public void MInteger4_rangeAndNullWeight() throws Exception {
     FunctionToken token = new FunctionToken("Integer", new String[]{"-100", "100", "1:1"});
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MInteger mock = (MInteger) parser.parse(token);
-    for (int i = 0; i < 10; i++) {
-      Integer l1 = mock.mock();
-      System.out.println("l1 = " + l1);
+    boolean hasNull = false;
+    for (int i = 0; i < 1000; i++) {
+      Integer val = mock.mock();
+      if (val == null) {
+        hasNull = true;
+      } else {
+        Assertions.assertTrue(val >= -100 && val <= 100,
+            "Value out of range: " + val);
+      }
     }
+    Assertions.assertTrue(hasNull, "Should produce null values with 1:1 nullWeight");
   }
-
 }

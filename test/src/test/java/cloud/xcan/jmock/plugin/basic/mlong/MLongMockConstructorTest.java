@@ -45,7 +45,8 @@ public class MLongMockConstructorTest {
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MLong mock = (MLong) parser.parse(token);
     Assertions.assertNotNull(mock);
-    Assertions.assertEquals(0.5, mock.getNullWeight(), 1);
+    Assertions.assertNotNull(mock.getNullSampler());
+    Assertions.assertEquals(0.5, mock.getNullSampler().getNullProbability(), 0.01);
   }
 
   /**
@@ -59,6 +60,7 @@ public class MLongMockConstructorTest {
     Assertions.assertNotNull(mock);
     Assertions.assertEquals(-1000L, mock.getMin());
     Assertions.assertEquals(100000L, mock.getMax());
-    Assertions.assertEquals(0.5, mock.getNullWeight(), 1);
+    Assertions.assertNotNull(mock.getNullSampler());
+    Assertions.assertEquals(0.5, mock.getNullSampler().getNullProbability(), 0.01);
   }
 }

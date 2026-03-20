@@ -44,7 +44,8 @@ public class MIntegerMockConstructorTest {
     SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
     MInteger mock = (MInteger) parser.parse(token);
     Assertions.assertNotNull(mock);
-    Assertions.assertEquals(0.5, mock.getNullWeight(), 1);
+    Assertions.assertNotNull(mock.getNullSampler());
+    Assertions.assertEquals(0.5, mock.getNullSampler().getNullProbability(), 0.01);
   }
 
   /**
@@ -58,6 +59,7 @@ public class MIntegerMockConstructorTest {
     Assertions.assertNotNull(mock);
     Assertions.assertEquals(-1000, mock.getMin());
     Assertions.assertEquals(100000, mock.getMax());
-    Assertions.assertEquals(0.5, mock.getNullWeight(), 1);
+    Assertions.assertNotNull(mock.getNullSampler());
+    Assertions.assertEquals(0.5, mock.getNullSampler().getNullProbability(), 0.01);
   }
 }

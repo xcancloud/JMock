@@ -20,7 +20,7 @@ public class MFloatMockConstructorTest {
     Assertions.assertEquals(0f, mock.getMin(), 0);
     Assertions.assertEquals(Float.MAX_VALUE, mock.getMax(), 0);
     Assertions.assertEquals(2, mock.getScale());
-    Assertions.assertEquals(1D, mock.getNullWeight(), 1);
+    Assertions.assertNull(mock.getNullSampler());
   }
 
   @Test
@@ -34,7 +34,8 @@ public class MFloatMockConstructorTest {
     Assertions.assertEquals(0, mock.getMin(), 0);
     Assertions.assertEquals(Float.MAX_VALUE, mock.getMax(), 0);
     Assertions.assertEquals(2, mock.getScale());
-    Assertions.assertEquals(1D, mock.getNullWeight(), 1);
+    Assertions.assertNotNull(mock.getNullSampler());
+    Assertions.assertEquals(0.5, mock.getNullSampler().getNullProbability(), 0.01);
   }
 
   @Test
@@ -48,7 +49,7 @@ public class MFloatMockConstructorTest {
     Assertions.assertEquals(1, mock.getMin(), 0);
     Assertions.assertEquals(6, mock.getMax(), 0);
     Assertions.assertEquals(5, mock.getScale());
-    Assertions.assertEquals(1D, mock.getNullWeight(), 1);
+    Assertions.assertNull(mock.getNullSampler());
   }
 
   @Test
@@ -61,7 +62,7 @@ public class MFloatMockConstructorTest {
     Assertions.assertEquals(0, mock.getMin(), 0);
     Assertions.assertEquals(Float.MAX_VALUE, mock.getMax(), 0);
     Assertions.assertEquals(5, mock.getScale());
-    Assertions.assertEquals(0.5D, mock.getNullWeight(), 1);
+    Assertions.assertNull(mock.getNullSampler());
   }
 
   @Test
@@ -75,7 +76,8 @@ public class MFloatMockConstructorTest {
     Assertions.assertEquals(0, mock.getMin(), 0);
     Assertions.assertEquals(Float.MAX_VALUE, mock.getMax(), 0);
     Assertions.assertEquals(2, mock.getScale());
-    Assertions.assertEquals(0.2D, mock.getNullWeight(), 1);
+    Assertions.assertNotNull(mock.getNullSampler());
+    Assertions.assertEquals(1.0/9, mock.getNullSampler().getNullProbability(), 0.01);
   }
 
   /**
@@ -92,6 +94,7 @@ public class MFloatMockConstructorTest {
     Assertions.assertEquals(104, mock.getMin(), 0);
     Assertions.assertEquals(10000, mock.getMax(), 0);
     Assertions.assertEquals(2, mock.getScale());
-    Assertions.assertEquals(0.1D, mock.getNullWeight(), 1);
+    Assertions.assertNotNull(mock.getNullSampler());
+    Assertions.assertEquals(0.1, mock.getNullSampler().getNullProbability(), 0.01);
   }
 }
