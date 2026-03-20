@@ -1,5 +1,7 @@
 package cloud.xcan.jmock.plugin;
 
+import static cloud.xcan.jmock.api.i18n.MessageResources.getString;
+import static cloud.xcan.jmock.plugin.CarDocMessage.DATA_CAR_BRANDS;
 import static cloud.xcan.jmock.plugin.CarDocMessage.DOC_BRAND_C1;
 import static cloud.xcan.jmock.plugin.CarDocMessage.DOC_BRAND_DESC;
 import static cloud.xcan.jmock.plugin.CarDocMessage.DOC_CATEGORY_CAR;
@@ -8,36 +10,23 @@ import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
-import java.util.Arrays;
-import java.util.List;
 
 @JMockFunctionRegister(descI18nKey = DOC_BRAND_DESC, categoryI18nKey = {
     DOC_CATEGORY_CAR}, order = 2001)
 public class MBrand extends AbstractMockFunction {
 
-  // List of car brands including both Chinese domestic and international brands
-  public static final List<String> CAR_BRANDS = Arrays.asList(
-      // Chinese domestic brands
-      "BYD", "Geely", "Chery", "Great Wall", "Changan",
-      "FAW", "SAIC Motor", "NIO", "XPeng", "Li Auto",
-      "Hongqi", "BAIC", "GAC", "JAC", "Dongfeng",
-
-      // International brands
-      "Toyota", "Honda", "Ford", "Chevrolet", "Volkswagen",
-      "BMW", "Mercedes-Benz", "Audi", "Tesla", "Nissan",
-      "Hyundai", "Kia", "Volvo", "Subaru", "Mazda",
-      "Peugeot", "Renault", "Fiat", "Jeep", "Lexus"
-  );
+  private final String[] brands;
 
   @JMockConstructor(descI18nKey = DOC_BRAND_C1,
       example = "@Brand()",
       exampleValues = {"Peugeot", "Nissan", "Chery"})
   public MBrand() {
+    this.brands = getString(DATA_CAR_BRANDS).split("\\|");
   }
 
   @Override
   public String mock() {
-    return CAR_BRANDS.get(JMockRandom.nextInt(CAR_BRANDS.size()));
+    return brands[JMockRandom.nextInt(brands.length)];
   }
 
 }

@@ -1,5 +1,9 @@
 package cloud.xcan.jmock.plugin;
 
+import static cloud.xcan.jmock.api.i18n.MessageResources.getString;
+import static cloud.xcan.jmock.plugin.ComputeDocMessage.DATA_AMD_GPUS;
+import static cloud.xcan.jmock.plugin.ComputeDocMessage.DATA_INTEL_GPUS;
+import static cloud.xcan.jmock.plugin.ComputeDocMessage.DATA_NVIDIA_GPUS;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_CATEGORY_COMPUTE;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_GPU_MODEL_C1;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_GPU_MODEL_DESC;
@@ -8,46 +12,33 @@ import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
-import java.util.Arrays;
-import java.util.List;
 
 @JMockFunctionRegister(descI18nKey = DOC_GPU_MODEL_DESC,
     categoryI18nKey = {DOC_CATEGORY_COMPUTE}, order = 5011)
 public class MGpuModel extends AbstractMockFunction {
 
-  public static final List<String> NVIDIA_GPUS = Arrays.asList(
-      "RTX 4090", "RTX 4080", "RTX 4070 Ti", "RTX 4070", "RTX 4060 Ti",
-      "RTX 3090 Ti", "RTX 3080", "RTX 3070", "RTX 3060 Ti",
-      "Quadro RTX 6000", "Tesla V100"
-  );
-
-  public static final List<String> AMD_GPUS = Arrays.asList(
-      "RX 7900 XTX", "RX 7900 XT", "RX 7800 XT", "RX 7700 XT",
-      "RX 6950 XT", "RX 6800 XT", "RX 6700 XT", "Radeon Pro W6800"
-  );
-
-  public static final List<String> INTEL_GPUS = Arrays.asList(
-      "Arc A770", "Arc A750", "Arc A380", "Iris Xe MAX"
-  );
+  private final String[] nvidiaGpus;
+  private final String[] amdGpus;
+  private final String[] intelGpus;
 
   @JMockConstructor(descI18nKey = DOC_GPU_MODEL_C1,
       example = "@GpuModel()",
       exampleValues = {"NVIDIA RTX 4080", "NVIDIA Quadro RTX 6000"})
   public MGpuModel() {
+    this.nvidiaGpus = getString(DATA_NVIDIA_GPUS).split("\\|");
+    this.amdGpus = getString(DATA_AMD_GPUS).split("\\|");
+    this.intelGpus = getString(DATA_INTEL_GPUS).split("\\|");
   }
 
   @Override
   public String mock() {
     int manufacturer = JMockRandom.nextInt(100);
     if (manufacturer < 75) {
-      // NVIDIA (75% probability)
-      return "NVIDIA " + NVIDIA_GPUS.get(JMockRandom.nextInt(NVIDIA_GPUS.size()));
+      return "NVIDIA " + nvidiaGpus[JMockRandom.nextInt(nvidiaGpus.length)];
     } else if (manufacturer < 95) {
-      // AMD (20% probability)
-      return "AMD " + AMD_GPUS.get(JMockRandom.nextInt(AMD_GPUS.size()));
+      return "AMD " + amdGpus[JMockRandom.nextInt(amdGpus.length)];
     } else {
-      // Intel (5% probability)
-      return "Intel " + INTEL_GPUS.get(JMockRandom.nextInt(INTEL_GPUS.size()));
+      return "Intel " + intelGpus[JMockRandom.nextInt(intelGpus.length)];
     }
   }
 }

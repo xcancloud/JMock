@@ -6,8 +6,6 @@ import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_MIN_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_WEIGHT_T;
 import static cloud.xcan.jmock.api.support.utils.RandomStringUtils.random;
 import static cloud.xcan.jmock.api.support.utils.RandomUtils.nextInt;
-import static cloud.xcan.jmock.api.support.utils.StringToTypeUtils.calcNullWeight;
-import static cloud.xcan.jmock.api.support.utils.StringToTypeUtils.isNullWeight;
 import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_CATEGORY_BASIC;
 import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_STRING_C1;
 import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_STRING_C2;
@@ -22,6 +20,7 @@ import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_STRING_PARAMETER_MAX;
 import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_STRING_PARAMETER_MIN;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.WeightedSampler;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
@@ -52,7 +51,7 @@ public class MString extends AbstractMockFunction {
   private char[] chars;
 
   @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT)
-  private double nullWeight;
+  private WeightedSampler nullSampler;
 
   private transient boolean isFixedLength = false;
   private transient boolean isCustomChars = false;
@@ -167,11 +166,12 @@ public class MString extends AbstractMockFunction {
       this.isCustomChars = true;
     }
     if (null != nullWeight && !nullWeight.isEmpty()) {
-      if (!isNullWeight(nullWeight)) {
+      try {
+        this.nullSampler = WeightedSampler.of(nullWeight);
+      } catch (IllegalArgumentException e) {
         ParamParseException.throw0(PARAM_WEIGHT_T, new Object[]{"nullWeight"});
       }
       this.isAllowNull = true;
-      this.nullWeight = calcNullWeight(nullWeight);
     }
     calcCase();
     if (this.mockCase == 1 || this.mockCase == 4 || this.mockCase == 5 || this.mockCase == 8) {
@@ -184,23 +184,22 @@ public class MString extends AbstractMockFunction {
    */
   @Override
   public String mock() {
+    if (nullSampler != null && nullSampler.shouldBeNull()) {
+      return null;
+    }
     switch (mockCase) {
       case 1:
+      case 5:
         return random(this.fixedLength);
       case 2:
+      case 6:
         return random(nextInt(this.min, this.max), this.chars);
       case 3:
-        return random(nextInt(this.min, this.max), this.nullWeight);
-      case 4:
-        return random(this.fixedLength, this.chars);
-      case 5:
-        return random(this.fixedLength, this.nullWeight);
-      case 6:
-        return random(nextInt(this.min, this.max), this.chars, this.nullWeight);
       case 7:
         return random(nextInt(this.min, this.max));
+      case 4:
       case 8:
-        return random(this.fixedLength, this.chars, this.nullWeight);
+        return random(this.fixedLength, this.chars);
       default:
         throw new IllegalStateException("Unexpected mock case value: " + mockCase);
     }

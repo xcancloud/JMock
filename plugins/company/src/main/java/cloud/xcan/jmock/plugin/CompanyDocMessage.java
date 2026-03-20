@@ -26,6 +26,13 @@ public class CompanyDocMessage implements RegisterDocMessage {
   public final static String DOC_JOB_C1 = "jmock.func.MJob.C1";
   public final static String DOC_JOB_C2 = "jmock.func.MJob.C2";
 
+  // Data keys
+  public final static String DATA_COMPANY_TYPES = "jmock.data.company.types";
+  public final static String DATA_COMPANY_WORDS = "jmock.data.company.words";
+  public final static String DATA_DEPARTMENTS = "jmock.data.departments";
+  public final static String DATA_INDUSTRIES = "jmock.data.industries";
+  public final static String DATA_JOB_LEVELS = "jmock.data.job.levels";
+  public final static String DATA_JOB_TITLES = "jmock.data.job.titles";
 
   @Override
   public void register() {

@@ -1,6 +1,9 @@
 package cloud.xcan.jmock.plugin;
 
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
+import static cloud.xcan.jmock.api.i18n.MessageResources.getString;
+import static cloud.xcan.jmock.plugin.CompanyDocMessage.DATA_COMPANY_TYPES;
+import static cloud.xcan.jmock.plugin.CompanyDocMessage.DATA_COMPANY_WORDS;
 import static cloud.xcan.jmock.plugin.CompanyDocMessage.DOC_CATEGORY_COMPANY;
 import static cloud.xcan.jmock.plugin.CompanyDocMessage.DOC_COMPANY_C1;
 import static cloud.xcan.jmock.plugin.CompanyDocMessage.DOC_COMPANY_C2;
@@ -11,9 +14,7 @@ import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
-import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
@@ -21,24 +22,9 @@ import java.util.Set;
     categoryI18nKey = {DOC_CATEGORY_COMPANY}, order = 4001)
 public class MCompany extends AbstractMockFunction {
 
-  public static final List<String> CN_COMPANY_TYPES = Arrays.asList(
-      "有限公司", "集团", "股份有限公司", "控股集团", "科技公司", "实业公司", "咨询公司", "国际集团"
-  );
-
-  public static final List<String> EN_COMPANY_TYPES = Arrays.asList(
-      "LLC", "Inc.", "Corp.", "Group", "Holdings", "Global", "International", "Solutions"
-  );
-
-  public static final List<String> CN_COMPANY_WORDS = Arrays.asList(
-      "创新", "卓越", "未来", "智慧", "华夏", "东方", "环球", "星辰", "科技", "数据",
-      "云", "数智", "恒通", "博雅", "启明", "宏图", "鑫达", "信达", "智联", "创想"
-  );
-
-  public static final List<String> EN_COMPANY_WORDS = Arrays.asList(
-      "Alpha", "Beta", "Gamma", "Stellar", "Nova", "Quantum", "Apex", "Pinnacle",
-      "Horizon", "Vertex", "Summit", "Crest", "Peak", "Dynamic", "Strategic", "Agile",
-      "Tech", "Data", "Cloud", "Digital", "Cyber", "Global", "Capital", "Wealth"
-  );
+  private final String[] companyTypes;
+  private final String[] companyWords;
+  private final boolean isChinese;
 
   @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE)
   private final Locale locale;
@@ -55,19 +41,13 @@ public class MCompany extends AbstractMockFunction {
       exampleValues = {"Alpha Gamma Digital Corp.", "Gamma Apex Strategic Holdings"})
   public MCompany(Locale locale) {
     this.locale = locale;
+    this.isChinese = locale.equals(Locale.CHINA);
+    this.companyTypes = getString(DATA_COMPANY_TYPES, locale).split("\\|");
+    this.companyWords = getString(DATA_COMPANY_WORDS, locale).split("\\|");
   }
 
   @Override
   public String mock() {
-    return generateRandomCompanyName(locale);
-  }
-
-  public static String generateRandomCompanyName(Locale locale) {
-    boolean isChinese = locale.equals(Locale.CHINA);
-
-    List<String> words = isChinese ? CN_COMPANY_WORDS : EN_COMPANY_WORDS;
-    List<String> types = isChinese ? CN_COMPANY_TYPES : EN_COMPANY_TYPES;
-
     StringBuilder name = new StringBuilder();
 
     // 2-3 words + company type
@@ -77,7 +57,7 @@ public class MCompany extends AbstractMockFunction {
     for (int i = 0; i < wordCount; i++) {
       String word;
       do {
-        word = words.get(JMockRandom.nextInt(words.size()));
+        word = companyWords[JMockRandom.nextInt(companyWords.length)];
       } while (usedWords.contains(word));
 
       name.append(word);
@@ -88,7 +68,7 @@ public class MCompany extends AbstractMockFunction {
     }
 
     // Add company type
-    name.append(types.get(JMockRandom.nextInt(types.size())));
+    name.append(companyTypes[JMockRandom.nextInt(companyTypes.length)]);
 
     return name.toString();
   }

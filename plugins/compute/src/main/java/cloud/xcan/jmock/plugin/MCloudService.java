@@ -1,5 +1,10 @@
 package cloud.xcan.jmock.plugin;
 
+import static cloud.xcan.jmock.api.i18n.MessageResources.getString;
+import static cloud.xcan.jmock.plugin.ComputeDocMessage.DATA_AWS_SERVICES;
+import static cloud.xcan.jmock.plugin.ComputeDocMessage.DATA_AZURE_SERVICES;
+import static cloud.xcan.jmock.plugin.ComputeDocMessage.DATA_GCP_SERVICES;
+import static cloud.xcan.jmock.plugin.ComputeDocMessage.DATA_OTHER_CLOUD_SERVICES;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_CATEGORY_COMPUTE;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_CLOUD_SERVICE_C1;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_CLOUD_SERVICE_DESC;
@@ -8,54 +13,37 @@ import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
-import java.util.Arrays;
-import java.util.List;
 
 @JMockFunctionRegister(descI18nKey = DOC_CLOUD_SERVICE_DESC,
     categoryI18nKey = {DOC_CATEGORY_COMPUTE}, order = 5002)
 public class MCloudService extends AbstractMockFunction {
 
-  public static final List<String> AWS_SERVICES = Arrays.asList(
-      "Amazon S3", "Amazon EC2", "AWS Lambda", "Amazon RDS",
-      "Amazon DynamoDB", "Amazon SQS", "Amazon SNS", "Amazon EKS"
-  );
-
-  public static final List<String> AZURE_SERVICES = Arrays.asList(
-      "Azure Blob Storage", "Azure Virtual Machines", "Azure Functions",
-      "Azure SQL Database", "Azure Cosmos DB", "Azure Kubernetes Service"
-  );
-
-  public static final List<String> GCP_SERVICES = Arrays.asList(
-      "Google Cloud Storage", "Compute Engine", "Cloud Functions",
-      "Cloud SQL", "Firestore", "Google Kubernetes Engine"
-  );
-
-  public static final List<String> OTHER_CLOUD_SERVICES = Arrays.asList(
-      "IBM Cloud Object Storage", "Oracle Cloud Infrastructure",
-      "Alibaba Cloud ECS", "DigitalOcean Droplets", "Cloudflare Workers"
-  );
+  private final String[] awsServices;
+  private final String[] azureServices;
+  private final String[] gcpServices;
+  private final String[] otherCloudServices;
 
   @JMockConstructor(descI18nKey = DOC_CLOUD_SERVICE_C1,
       example = "@MCloudService()",
       exampleValues = {"Google Kubernetes Engine", "IBM Cloud Object Storage"})
   public MCloudService() {
+    this.awsServices = getString(DATA_AWS_SERVICES).split("\\|");
+    this.azureServices = getString(DATA_AZURE_SERVICES).split("\\|");
+    this.gcpServices = getString(DATA_GCP_SERVICES).split("\\|");
+    this.otherCloudServices = getString(DATA_OTHER_CLOUD_SERVICES).split("\\|");
   }
 
   @Override
   public String mock() {
     int provider = JMockRandom.nextInt(100);
     if (provider < 50) {
-      // AWS (50% probability)
-      return AWS_SERVICES.get(JMockRandom.nextInt(AWS_SERVICES.size()));
+      return awsServices[JMockRandom.nextInt(awsServices.length)];
     } else if (provider < 80) {
-      // Azure (30% probability)
-      return AZURE_SERVICES.get(JMockRandom.nextInt(AZURE_SERVICES.size()));
+      return azureServices[JMockRandom.nextInt(azureServices.length)];
     } else if (provider < 95) {
-      // GCP (15% probability)
-      return GCP_SERVICES.get(JMockRandom.nextInt(GCP_SERVICES.size()));
+      return gcpServices[JMockRandom.nextInt(gcpServices.length)];
     } else {
-      // Other providers (5% probability)
-      return OTHER_CLOUD_SERVICES.get(JMockRandom.nextInt(OTHER_CLOUD_SERVICES.size()));
+      return otherCloudServices[JMockRandom.nextInt(otherCloudServices.length)];
     }
   }
 }

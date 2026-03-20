@@ -1,5 +1,9 @@
 package cloud.xcan.jmock.plugin;
 
+import static cloud.xcan.jmock.api.i18n.MessageResources.getString;
+import static cloud.xcan.jmock.plugin.ComputeDocMessage.DATA_DESKTOP_OS;
+import static cloud.xcan.jmock.plugin.ComputeDocMessage.DATA_MOBILE_OS;
+import static cloud.xcan.jmock.plugin.ComputeDocMessage.DATA_SERVER_OS;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_CATEGORY_COMPUTE;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_OS_C1;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_OS_DESC;
@@ -8,48 +12,33 @@ import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
-import java.util.Arrays;
-import java.util.List;
 
 @JMockFunctionRegister(descI18nKey = DOC_OS_DESC,
     categoryI18nKey = {DOC_CATEGORY_COMPUTE}, order = 5003)
 public class MOs extends AbstractMockFunction {
 
-  public static final List<String> DESKTOP_OS = Arrays.asList(
-      "Windows 11", "Windows 10", "Windows 8.1", "Windows 7",
-      "macOS Ventura", "macOS Monterey", "macOS Big Sur",
-      "Ubuntu 22.04", "Ubuntu 20.04", "Fedora 38", "Debian 12",
-      "Arch Linux", "Linux Mint 21"
-  );
-
-  public static final List<String> SERVER_OS = Arrays.asList(
-      "Windows Server 2022", "Windows Server 2019",
-      "Red Hat Enterprise Linux 9", "CentOS Stream 9",
-      "Ubuntu Server 22.04", "Debian 11", "SUSE Linux Enterprise 15"
-  );
-
-  public static final List<String> MOBILE_OS = Arrays.asList(
-      "Android 13", "Android 12", "iOS 16", "iOS 15", "iPadOS 16"
-  );
+  private final String[] desktopOs;
+  private final String[] serverOs;
+  private final String[] mobileOs;
 
   @JMockConstructor(descI18nKey = DOC_OS_C1,
       example = "@Os()",
       exampleValues = {"iOS 16", "Windows Server 2022"})
   public MOs() {
+    this.desktopOs = getString(DATA_DESKTOP_OS).split("\\|");
+    this.serverOs = getString(DATA_SERVER_OS).split("\\|");
+    this.mobileOs = getString(DATA_MOBILE_OS).split("\\|");
   }
 
   @Override
   public String mock() {
     int category = JMockRandom.nextInt(100);
     if (category < 60) {
-      // Desktop OS (60% probability)
-      return DESKTOP_OS.get(JMockRandom.nextInt(DESKTOP_OS.size()));
+      return desktopOs[JMockRandom.nextInt(desktopOs.length)];
     } else if (category < 85) {
-      // Mobile OS (25% probability)
-      return MOBILE_OS.get(JMockRandom.nextInt(MOBILE_OS.size()));
+      return mobileOs[JMockRandom.nextInt(mobileOs.length)];
     } else {
-      // Server OS (15% probability)
-      return SERVER_OS.get(JMockRandom.nextInt(SERVER_OS.size()));
+      return serverOs[JMockRandom.nextInt(serverOs.length)];
     }
   }
 }

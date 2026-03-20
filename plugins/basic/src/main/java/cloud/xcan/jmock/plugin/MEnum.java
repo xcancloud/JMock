@@ -4,8 +4,6 @@ import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_NULL_W
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_NOT_NULL_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_WEIGHT_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARSER_PARAM_NOT_MATCH_WEIGHTS;
-import static cloud.xcan.jmock.api.support.utils.StringToTypeUtils.calcNullWeight;
-import static cloud.xcan.jmock.api.support.utils.StringToTypeUtils.isNullWeight;
 import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_CATEGORY_BASIC;
 import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_ENUM_C1;
 import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_ENUM_C2;
@@ -15,6 +13,7 @@ import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_ENUM_PARAMETER_DICT;
 import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_ENUM_PARAMETER_VALUE_WEIGHT;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.WeightedSampler;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
@@ -44,7 +43,7 @@ public class MEnum extends AbstractMockFunction {
   private String valueWeight;
 
   @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT)
-  private double nullWeight;
+  private WeightedSampler nullSampler;
 
   /**
    * Random number is empty ratio: 1:1:1...
@@ -123,10 +122,11 @@ public class MEnum extends AbstractMockFunction {
       weightArray.add(i, rangeValue);
     }
     if (null != nullWeight && !nullWeight.isEmpty()) {
-      if (!isNullWeight(nullWeight)) {
+      try {
+        this.nullSampler = WeightedSampler.of(nullWeight);
+      } catch (IllegalArgumentException e) {
         ParamParseException.throw0(PARAM_WEIGHT_T, new Object[]{"nullWeight"});
       }
-      this.nullWeight = calcNullWeight(nullWeight);
     }
 
   }
@@ -138,6 +138,9 @@ public class MEnum extends AbstractMockFunction {
       //ParamParseException.throw0(PARAM_NOT_NULL_T, new Object[]{"value"});
       return null;
     }
-    return RandomStringUtils.random(dictArray, weightArray, count, nullWeight);
+    if (nullSampler != null && nullSampler.shouldBeNull()) {
+      return null;
+    }
+    return RandomStringUtils.random(dictArray, weightArray, count, 0);
   }
 }

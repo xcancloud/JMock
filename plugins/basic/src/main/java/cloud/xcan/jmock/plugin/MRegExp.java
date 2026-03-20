@@ -4,8 +4,6 @@ import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_NULL_W
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_UNACCEPTABLE_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_WEIGHT_T;
 import static cloud.xcan.jmock.api.support.utils.RandomStringUtils.randomRegexp;
-import static cloud.xcan.jmock.api.support.utils.StringToTypeUtils.calcNullWeight;
-import static cloud.xcan.jmock.api.support.utils.StringToTypeUtils.isNullWeight;
 import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_CATEGORY_BASIC;
 import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_REGEXP_C1;
 import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_REGEXP_C2;
@@ -13,6 +11,7 @@ import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_REGEXP_DESC;
 import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_REGEXP_PARAMETER_REGEXP;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.WeightedSampler;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
@@ -37,7 +36,7 @@ public class MRegExp extends AbstractMockFunction {
   private String regexp;
 
   @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT)
-  private double nullWeight;
+  private WeightedSampler nullSampler;
 
   private static final String DEFAULT_REGEXP_VALUE = "[a-z][a-z][0-9]";
 
@@ -60,15 +59,19 @@ public class MRegExp extends AbstractMockFunction {
     }
     this.regexp = regexp;
     if (null != nullWeight && !nullWeight.isEmpty()) {
-      if (!isNullWeight(nullWeight)) {
+      try {
+        this.nullSampler = WeightedSampler.of(nullWeight);
+      } catch (IllegalArgumentException e) {
         ParamParseException.throw0(PARAM_WEIGHT_T, new Object[]{"nullWeight"});
       }
-      this.nullWeight = calcNullWeight(nullWeight);
     }
   }
 
   @Override
   public String mock() {
-    return randomRegexp(regexp, nullWeight);
+    if (nullSampler != null && nullSampler.shouldBeNull()) {
+      return null;
+    }
+    return randomRegexp(regexp, 0);
   }
 }

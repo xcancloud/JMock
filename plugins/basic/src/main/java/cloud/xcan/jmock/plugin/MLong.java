@@ -3,8 +3,6 @@ package cloud.xcan.jmock.plugin;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_NULL_WEIGHT;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_MAX_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_WEIGHT_T;
-import static cloud.xcan.jmock.api.support.utils.StringToTypeUtils.calcNullWeight;
-import static cloud.xcan.jmock.api.support.utils.StringToTypeUtils.isNullWeight;
 import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_CATEGORY_BASIC;
 import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_LONG_C1;
 import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_LONG_C2;
@@ -15,6 +13,7 @@ import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_LONG_PARAMETER_MAX;
 import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_LONG_PARAMETER_MIN;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.WeightedSampler;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
@@ -40,7 +39,7 @@ public class MLong extends AbstractMockFunction {
   private long max;
 
   @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT)
-  private double nullWeight;
+  private WeightedSampler nullSampler;
 
   /**
    * Max value of Long allowed
@@ -100,19 +99,20 @@ public class MLong extends AbstractMockFunction {
       ParamParseException.throw0(PARAM_MAX_T, new Object[]{"min", max});
     }
     if (null != nullWeight && !nullWeight.isEmpty()) {
-      if (!isNullWeight(nullWeight)) {
+      try {
+        this.nullSampler = WeightedSampler.of(nullWeight);
+      } catch (IllegalArgumentException e) {
         ParamParseException.throw0(PARAM_WEIGHT_T, new Object[]{"nullWeight"});
       }
-      this.nullWeight = calcNullWeight(nullWeight);
     }
   }
 
   @Override
   public Long mock() {
-    if (this.nullWeight == 0) {
-      return RandomUtils.nextLong(this.min, this.max);
+    if (nullSampler != null && nullSampler.shouldBeNull()) {
+      return null;
     }
-    return RandomUtils.nextLong(this.min, this.max, this.nullWeight);
+    return RandomUtils.nextLong(this.min, this.max);
   }
 
 }

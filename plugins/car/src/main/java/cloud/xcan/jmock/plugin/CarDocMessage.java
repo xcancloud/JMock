@@ -28,6 +28,12 @@ public class CarDocMessage implements RegisterDocMessage {
   public final static String DOC_VEHICLE_DESC = "jmock.func.MVehicle.description";
   public final static String DOC_VEHICLE_C1 = "jmock.func.MVehicle.C1";
 
+  // Data keys
+  public final static String DATA_CAR_BRANDS = "jmock.func.data.car.brands";
+  public final static String DATA_VEHICLE_TYPES = "jmock.func.data.car.vehicleTypes";
+  public final static String DATA_ENGINE_TYPES = "jmock.func.data.car.engineTypes";
+  public final static String DATA_DRIVETRAIN_TYPES = "jmock.func.data.car.drivetrainTypes";
+
   @Override
   public void register() {
     MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-car-plugin-messages");

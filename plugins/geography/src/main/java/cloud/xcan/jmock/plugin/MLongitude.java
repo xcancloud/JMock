@@ -5,8 +5,6 @@ import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_MAX_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_MIN_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_NOT_NULL_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_WEIGHT_T;
-import static cloud.xcan.jmock.api.support.utils.StringToTypeUtils.calcNullWeight;
-import static cloud.xcan.jmock.api.support.utils.StringToTypeUtils.isNullWeight;
 import static cloud.xcan.jmock.plugin.GeographyDocMessage.DOC_CATEGORY_GEOGRAPHY;
 import static cloud.xcan.jmock.plugin.GeographyDocMessage.DOC_COORDINATES_PARAMETER_MAX_LNG;
 import static cloud.xcan.jmock.plugin.GeographyDocMessage.DOC_COORDINATES_PARAMETER_MIN_LNG;
@@ -16,6 +14,7 @@ import static cloud.xcan.jmock.plugin.GeographyDocMessage.DOC_LONGITUDE_C2;
 import static cloud.xcan.jmock.plugin.GeographyDocMessage.DOC_LONGITUDE_DESC;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.WeightedSampler;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
@@ -46,7 +45,7 @@ public class MLongitude extends AbstractMockFunction {
   private Integer scale;
 
   @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT)
-  private double nullWeight;
+  private WeightedSampler nullSampler;
 
   private String scalePattern;
 
@@ -98,10 +97,11 @@ public class MLongitude extends AbstractMockFunction {
       ParamParseException.throw0(PARAM_MAX_T, new Object[]{"minLng", "maxLng"});
     }
     if (null != nullWeight && !nullWeight.isEmpty()) {
-      if (!isNullWeight(nullWeight)) {
+      try {
+        this.nullSampler = WeightedSampler.of(nullWeight);
+      } catch (IllegalArgumentException e) {
         ParamParseException.throw0(PARAM_WEIGHT_T, new Object[]{"nullWeight"});
       }
-      this.nullWeight = calcNullWeight(nullWeight);
     }
     this.minLng = minLng;
     this.maxLng = maxLng;
@@ -115,6 +115,9 @@ public class MLongitude extends AbstractMockFunction {
 
   @Override
   public String mock() {
+    if (nullSampler != null && nullSampler.shouldBeNull()) {
+      return null;
+    }
     double lng = RandomUtils.nextDouble(0, this.maxLng);
     DecimalFormat decimalFormat = new DecimalFormat(scalePattern);
     String strLng = decimalFormat.format(lng);

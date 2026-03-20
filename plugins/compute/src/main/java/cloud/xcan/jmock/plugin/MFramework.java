@@ -1,5 +1,9 @@
 package cloud.xcan.jmock.plugin;
 
+import static cloud.xcan.jmock.api.i18n.MessageResources.getString;
+import static cloud.xcan.jmock.plugin.ComputeDocMessage.DATA_BACKEND_FRAMEWORKS;
+import static cloud.xcan.jmock.plugin.ComputeDocMessage.DATA_FRONTEND_FRAMEWORKS;
+import static cloud.xcan.jmock.plugin.ComputeDocMessage.DATA_MOBILE_FRAMEWORKS;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_CATEGORY_COMPUTE;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_FRAMEWORK_C1;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_FRAMEWORK_DESC;
@@ -8,44 +12,33 @@ import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
-import java.util.Arrays;
-import java.util.List;
 
 @JMockFunctionRegister(descI18nKey = DOC_FRAMEWORK_DESC,
     categoryI18nKey = {DOC_CATEGORY_COMPUTE}, order = 5010)
 public class MFramework extends AbstractMockFunction {
 
-  public static final List<String> FRONTEND_FRAMEWORKS = Arrays.asList(
-      "React", "Angular", "Vue.js", "Svelte", "Ember.js", "Backbone.js"
-  );
-
-  public static final List<String> BACKEND_FRAMEWORKS = Arrays.asList(
-      "Spring Boot", "Django", "Flask", "Express.js", "Ruby on Rails",
-      "Laravel", "ASP.NET Core", "FastAPI", "NestJS"
-  );
-
-  public static final List<String> MOBILE_FRAMEWORKS = Arrays.asList(
-      "React Native", "Flutter", "Xamarin", "Ionic", "SwiftUI", "Jetpack Compose"
-  );
+  private final String[] frontendFrameworks;
+  private final String[] backendFrameworks;
+  private final String[] mobileFrameworks;
 
   @JMockConstructor(descI18nKey = DOC_FRAMEWORK_C1,
       example = "@Framework()",
       exampleValues = {"React Native", "Ruby on Rails"})
   public MFramework() {
+    this.frontendFrameworks = getString(DATA_FRONTEND_FRAMEWORKS).split("\\|");
+    this.backendFrameworks = getString(DATA_BACKEND_FRAMEWORKS).split("\\|");
+    this.mobileFrameworks = getString(DATA_MOBILE_FRAMEWORKS).split("\\|");
   }
 
   @Override
   public String mock() {
     int category = JMockRandom.nextInt(100);
     if (category < 40) {
-      // Frontend frameworks (40% probability)
-      return FRONTEND_FRAMEWORKS.get(JMockRandom.nextInt(FRONTEND_FRAMEWORKS.size()));
+      return frontendFrameworks[JMockRandom.nextInt(frontendFrameworks.length)];
     } else if (category < 80) {
-      // Backend frameworks (40% probability)
-      return BACKEND_FRAMEWORKS.get(JMockRandom.nextInt(BACKEND_FRAMEWORKS.size()));
+      return backendFrameworks[JMockRandom.nextInt(backendFrameworks.length)];
     } else {
-      // Mobile frameworks (20% probability)
-      return MOBILE_FRAMEWORKS.get(JMockRandom.nextInt(MOBILE_FRAMEWORKS.size()));
+      return mobileFrameworks[JMockRandom.nextInt(mobileFrameworks.length)];
     }
   }
 }

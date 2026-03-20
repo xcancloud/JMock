@@ -1,5 +1,9 @@
 package cloud.xcan.jmock.plugin;
 
+import static cloud.xcan.jmock.api.i18n.MessageResources.getString;
+import static cloud.xcan.jmock.plugin.ComputeDocMessage.DATA_FILE_EXTENSIONS;
+import static cloud.xcan.jmock.plugin.ComputeDocMessage.DATA_FILE_PREFIXES;
+import static cloud.xcan.jmock.plugin.ComputeDocMessage.DATA_FILE_SUFFIXES;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_CATEGORY_COMPUTE;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_FILENAME_C1;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_FILENAME_DESC;
@@ -8,46 +12,37 @@ import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
-import java.util.Arrays;
-import java.util.List;
 
 @JMockFunctionRegister(descI18nKey = DOC_FILENAME_DESC,
     categoryI18nKey = {DOC_CATEGORY_COMPUTE}, order = 5008)
 public class MFileName extends AbstractMockFunction {
 
-  public static final List<String> FILE_PREFIXES = Arrays.asList(
-      "report", "document", "image", "data", "backup", "config", "settings",
-      "log", "archive", "temp", "file", "project", "presentation", "budget"
-  );
-
-  public static final List<String> FILE_SUFFIXES = Arrays.asList(
-      "final", "draft", "v2", "backup", "old", "new", "2023", "2024", "jan", "feb"
-  );
-
-  public static final List<String> FILE_EXTENSIONS = Arrays.asList(
-      "txt", "pdf", "docx", "xlsx", "pptx", "jpg", "png", "gif", "mp4", "mp3",
-      "zip", "rar", "exe", "js", "java", "py", "html", "css", "json", "xml"
-  );
+  final String[] filePrefixes;
+  final String[] fileSuffixes;
+  final String[] fileExtensions;
 
   @JMockConstructor(descI18nKey = DOC_FILENAME_C1,
       example = "@FileName()",
       exampleValues = {"presentation_jan.xml", "report.pptx"})
   public MFileName() {
+    this.filePrefixes = getString(DATA_FILE_PREFIXES).split("\\|");
+    this.fileSuffixes = getString(DATA_FILE_SUFFIXES).split("\\|");
+    this.fileExtensions = getString(DATA_FILE_EXTENSIONS).split("\\|");
   }
 
   @Override
   public String mock() {
-    return generateRandomFileName();
+    return generateFileName(filePrefixes, fileSuffixes, fileExtensions);
   }
 
-  public static String generateRandomFileName() {
-    String prefix = FILE_PREFIXES.get(JMockRandom.nextInt(FILE_PREFIXES.size()));
+  static String generateFileName(String[] prefixes, String[] suffixes, String[] extensions) {
+    String prefix = prefixes[JMockRandom.nextInt(prefixes.length)];
     String suffix = "";
-    String extension = FILE_EXTENSIONS.get(JMockRandom.nextInt(FILE_EXTENSIONS.size()));
+    String extension = extensions[JMockRandom.nextInt(extensions.length)];
 
     // 50% chance to add a suffix
     if (JMockRandom.nextBoolean()) {
-      suffix = "_" + FILE_SUFFIXES.get(JMockRandom.nextInt(FILE_SUFFIXES.size()));
+      suffix = "_" + suffixes[JMockRandom.nextInt(suffixes.length)];
     }
 
     // 30% chance to add a number

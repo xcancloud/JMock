@@ -3,8 +3,6 @@ package cloud.xcan.jmock.plugin;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_NULL_WEIGHT;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_UNACCEPTABLE_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_WEIGHT_T;
-import static cloud.xcan.jmock.api.support.utils.StringToTypeUtils.calcNullWeight;
-import static cloud.xcan.jmock.api.support.utils.StringToTypeUtils.isNullWeight;
 import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_BOOL_C1;
 import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_BOOL_C2;
 import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_BOOL_C3;
@@ -15,6 +13,7 @@ import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_BOOL_PARAMETER_TRUE_WE
 import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_CATEGORY_BASIC;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.WeightedSampler;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
@@ -40,7 +39,7 @@ public class MBool extends AbstractMockFunction {
   private double trueWeight;
 
   @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT)
-  private double nullWeight;
+  private WeightedSampler nullSampler;
 
   @JMockParameter(descI18nKey = DOC_BOOL_PARAMETER_DICT)
   private String dict;
@@ -99,15 +98,19 @@ public class MBool extends AbstractMockFunction {
       weightArray.add(i, rangeValue);
     }
     if (null != nullWeight && !nullWeight.isEmpty()) {
-      if (!isNullWeight(nullWeight)) {
+      try {
+        this.nullSampler = WeightedSampler.of(nullWeight);
+      } catch (IllegalArgumentException e) {
         ParamParseException.throw0(PARAM_WEIGHT_T, new Object[]{"nullWeight"});
       }
-      this.nullWeight = calcNullWeight(nullWeight);
     }
   }
 
   @Override
   public String mock() {
-    return RandomStringUtils.random(dictArray, weightArray, count, nullWeight);
+    if (nullSampler != null && nullSampler.shouldBeNull()) {
+      return null;
+    }
+    return RandomStringUtils.random(dictArray, weightArray, count, 0);
   }
 }

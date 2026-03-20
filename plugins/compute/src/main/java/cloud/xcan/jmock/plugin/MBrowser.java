@@ -1,5 +1,8 @@
 package cloud.xcan.jmock.plugin;
 
+import static cloud.xcan.jmock.api.i18n.MessageResources.getString;
+import static cloud.xcan.jmock.plugin.ComputeDocMessage.DATA_BROWSERS;
+import static cloud.xcan.jmock.plugin.ComputeDocMessage.DATA_BROWSER_VERSIONS;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_BROWSER_C1;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_BROWSER_DESC;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_CATEGORY_COMPUTE;
@@ -8,32 +11,26 @@ import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
-import java.util.Arrays;
-import java.util.List;
 
 @JMockFunctionRegister(descI18nKey = DOC_BROWSER_DESC,
     categoryI18nKey = {DOC_CATEGORY_COMPUTE}, order = 5001)
 public class MBrowser extends AbstractMockFunction {
 
-  public static final List<String> BROWSERS = Arrays.asList(
-      "Chrome", "Firefox", "Safari", "Edge", "Opera", "Brave", "Vivaldi", "Chromium"
-  );
-
-  public static final List<String> BROWSER_VERSIONS = Arrays.asList(
-      "115", "116", "117", "118", "119", "120",
-      "100", "101", "102", "103", "104", "105"
-  );
+  private final String[] browsers;
+  private final String[] browserVersions;
 
   @JMockConstructor(descI18nKey = DOC_BROWSER_C1,
       example = "@Browser()",
       exampleValues = {"Firefox 119", "Opera 119"})
   public MBrowser() {
+    this.browsers = getString(DATA_BROWSERS).split("\\|");
+    this.browserVersions = getString(DATA_BROWSER_VERSIONS).split("\\|");
   }
 
   @Override
   public String mock() {
-    String browser = BROWSERS.get(JMockRandom.nextInt(BROWSERS.size()));
-    String version = BROWSER_VERSIONS.get(JMockRandom.nextInt(BROWSER_VERSIONS.size()));
+    String browser = browsers[JMockRandom.nextInt(browsers.length)];
+    String version = browserVersions[JMockRandom.nextInt(browserVersions.length)];
 
     // 80% chance to include version number
     if (JMockRandom.nextDouble() < 0.8) {

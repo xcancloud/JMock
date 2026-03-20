@@ -49,6 +49,43 @@ public class ComputeDocMessage implements RegisterDocMessage {
   public final static String DOC_VULNERABILITY_DESC = "jmock.func.MVulnerability.description";
   public final static String DOC_VULNERABILITY_C1 = "jmock.func.MVulnerability.C1";
 
+  // Data keys
+  public final static String DATA_BROWSERS = "jmock.data.browsers";
+  public final static String DATA_BROWSER_VERSIONS = "jmock.data.browser.versions";
+  public final static String DATA_AWS_SERVICES = "jmock.data.cloud.aws";
+  public final static String DATA_AZURE_SERVICES = "jmock.data.cloud.azure";
+  public final static String DATA_GCP_SERVICES = "jmock.data.cloud.gcp";
+  public final static String DATA_OTHER_CLOUD_SERVICES = "jmock.data.cloud.other";
+  public final static String DATA_DESKTOP_OS = "jmock.data.os.desktop";
+  public final static String DATA_SERVER_OS = "jmock.data.os.server";
+  public final static String DATA_MOBILE_OS = "jmock.data.os.mobile";
+  public final static String DATA_RAM_SIZES = "jmock.data.ram.sizes";
+  public final static String DATA_RAM_TYPES = "jmock.data.ram.types";
+  public final static String DATA_RAM_SPEEDS = "jmock.data.ram.speeds";
+  public final static String DATA_INTEL_CPUS = "jmock.data.cpu.intel";
+  public final static String DATA_AMD_CPUS = "jmock.data.cpu.amd";
+  public final static String DATA_APPLE_CPUS = "jmock.data.cpu.apple";
+  public final static String DATA_SQL_DATABASES = "jmock.data.db.sql";
+  public final static String DATA_NOSQL_DATABASES = "jmock.data.db.nosql";
+  public final static String DATA_NEWSQL_DATABASES = "jmock.data.db.newsql";
+  public final static String DATA_COMPUTER_NAMES = "jmock.data.device.computer";
+  public final static String DATA_MOBILE_DEVICES = "jmock.data.device.mobile";
+  public final static String DATA_IOT_DEVICES = "jmock.data.device.iot";
+  public final static String DATA_DEVICE_MODIFIERS = "jmock.data.device.modifiers";
+  public final static String DATA_FILE_PREFIXES = "jmock.data.file.prefixes";
+  public final static String DATA_FILE_SUFFIXES = "jmock.data.file.suffixes";
+  public final static String DATA_FILE_EXTENSIONS = "jmock.data.file.extensions";
+  public final static String DATA_WINDOWS_PATHS = "jmock.data.path.windows";
+  public final static String DATA_UNIX_PATHS = "jmock.data.path.unix";
+  public final static String DATA_FRONTEND_FRAMEWORKS = "jmock.data.framework.frontend";
+  public final static String DATA_BACKEND_FRAMEWORKS = "jmock.data.framework.backend";
+  public final static String DATA_MOBILE_FRAMEWORKS = "jmock.data.framework.mobile";
+  public final static String DATA_NVIDIA_GPUS = "jmock.data.gpu.nvidia";
+  public final static String DATA_AMD_GPUS = "jmock.data.gpu.amd";
+  public final static String DATA_INTEL_GPUS = "jmock.data.gpu.intel";
+  public final static String DATA_HTTP_STATUS_CODES = "jmock.data.http.status";
+  public final static String DATA_VULNERABILITY_TYPES = "jmock.data.vulnerabilities";
+
   @Override
   public void register() {
     MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-compute-plugin-messages");

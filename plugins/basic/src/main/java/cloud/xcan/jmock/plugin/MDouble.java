@@ -5,8 +5,6 @@ import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_MAX_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_MIN_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_SIZE_T;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_WEIGHT_T;
-import static cloud.xcan.jmock.api.support.utils.StringToTypeUtils.calcNullWeight;
-import static cloud.xcan.jmock.api.support.utils.StringToTypeUtils.isNullWeight;
 import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_CATEGORY_BASIC;
 import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_DOUBLE_C1;
 import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_DOUBLE_C2;
@@ -20,6 +18,7 @@ import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_DOUBLE_PARAMETER_MIN;
 import static cloud.xcan.jmock.plugin.BasicDocMessage.DOC_DOUBLE_PARAMETER_SCALE;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
+import cloud.xcan.jmock.api.WeightedSampler;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
@@ -45,7 +44,7 @@ public class MDouble extends AbstractMockFunction {
   private int scale;
 
   @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT)
-  private double nullWeight;
+  private WeightedSampler nullSampler;
 
   /**
    * Max value of Double allowed
@@ -123,10 +122,11 @@ public class MDouble extends AbstractMockFunction {
     this.max = max;
 
     if (null != nullWeight && !nullWeight.isEmpty()) {
-      if (!isNullWeight(nullWeight)) {
+      try {
+        this.nullSampler = WeightedSampler.of(nullWeight);
+      } catch (IllegalArgumentException e) {
         ParamParseException.throw0(PARAM_WEIGHT_T, new Object[]{"nullWeight"});
       }
-      this.nullWeight = calcNullWeight(nullWeight);
     }
     if (scale == null) {
       this.scale = DEFAULT_SCALE_VALUE;
@@ -139,9 +139,9 @@ public class MDouble extends AbstractMockFunction {
 
   @Override
   public Double mock() {
-    if (this.nullWeight == 0) {
-      return RandomUtils.nextDouble(this.min, this.max, scale);
+    if (nullSampler != null && nullSampler.shouldBeNull()) {
+      return null;
     }
-    return RandomUtils.nextDouble(this.min, this.max, this.scale, this.nullWeight);
+    return RandomUtils.nextDouble(this.min, this.max, scale);
   }
 }

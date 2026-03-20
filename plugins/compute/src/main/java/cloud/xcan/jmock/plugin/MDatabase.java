@@ -1,5 +1,9 @@
 package cloud.xcan.jmock.plugin;
 
+import static cloud.xcan.jmock.api.i18n.MessageResources.getString;
+import static cloud.xcan.jmock.plugin.ComputeDocMessage.DATA_NEWSQL_DATABASES;
+import static cloud.xcan.jmock.plugin.ComputeDocMessage.DATA_NOSQL_DATABASES;
+import static cloud.xcan.jmock.plugin.ComputeDocMessage.DATA_SQL_DATABASES;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_CATEGORY_COMPUTE;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_DATABASE_C1;
 import static cloud.xcan.jmock.plugin.ComputeDocMessage.DOC_DATABASE_DESC;
@@ -8,45 +12,33 @@ import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
-import java.util.Arrays;
-import java.util.List;
 
 @JMockFunctionRegister(descI18nKey = DOC_DATABASE_DESC,
     categoryI18nKey = {DOC_CATEGORY_COMPUTE}, order = 5006)
 public class MDatabase extends AbstractMockFunction {
 
-  public static final List<String> SQL_DATABASES = Arrays.asList(
-      "MySQL", "PostgreSQL", "Microsoft SQL Server", "Oracle Database",
-      "SQLite", "MariaDB", "Amazon Aurora", "CockroachDB"
-  );
-
-  public static final List<String> NOSQL_DATABASES = Arrays.asList(
-      "MongoDB", "Cassandra", "Redis", "Couchbase", "Amazon DynamoDB",
-      "Firebase Realtime Database", "Elasticsearch", "Neo4j"
-  );
-
-  public static final List<String> NEWSQL_DATABASES = Arrays.asList(
-      "Google Spanner", "TiDB", "YugabyteDB", "CockroachDB"
-  );
+  private final String[] sqlDatabases;
+  private final String[] nosqlDatabases;
+  private final String[] newsqlDatabases;
 
   @JMockConstructor(descI18nKey = DOC_DATABASE_C1,
       example = "@Database()",
       exampleValues = {"MariaDB", "Amazon DynamoDB"})
   public MDatabase() {
+    this.sqlDatabases = getString(DATA_SQL_DATABASES).split("\\|");
+    this.nosqlDatabases = getString(DATA_NOSQL_DATABASES).split("\\|");
+    this.newsqlDatabases = getString(DATA_NEWSQL_DATABASES).split("\\|");
   }
 
   @Override
   public String mock() {
     int category = JMockRandom.nextInt(100);
     if (category < 60) {
-      // SQL databases (60% probability)
-      return SQL_DATABASES.get(JMockRandom.nextInt(SQL_DATABASES.size()));
+      return sqlDatabases[JMockRandom.nextInt(sqlDatabases.length)];
     } else if (category < 90) {
-      // NoSQL databases (30% probability)
-      return NOSQL_DATABASES.get(JMockRandom.nextInt(NOSQL_DATABASES.size()));
+      return nosqlDatabases[JMockRandom.nextInt(nosqlDatabases.length)];
     } else {
-      // NewSQL databases (10% probability)
-      return NEWSQL_DATABASES.get(JMockRandom.nextInt(NEWSQL_DATABASES.size()));
+      return newsqlDatabases[JMockRandom.nextInt(newsqlDatabases.length)];
     }
   }
 }
