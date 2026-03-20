@@ -94,10 +94,11 @@ public final class MockEngine {
     if (template == null || template.isEmpty() || count <= 0) {
       return Collections.emptyList();
     }
+    // Parse once — AST nodes are immutable records; MockFunction instances are created
+    // fresh per render() call via reflection, so the same AST is safe to reuse.
+    List<MockExpr> ast = parser.parse(template);
     List<String> results = new ArrayList<>(count);
     for (int i = 0; i < count; i++) {
-      // Re-parse each iteration: MockFunction instances are created fresh per evaluation
-      List<MockExpr> ast = parser.parse(template);
       results.add(renderer.render(ast, registry));
     }
     return results;

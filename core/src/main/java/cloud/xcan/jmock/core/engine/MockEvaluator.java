@@ -47,7 +47,7 @@ public final class MockEvaluator {
     }
 
     Object result = instance.mock();
-    return result != null ? result : "null";
+    return result;
   }
 
   private Object evaluateArray(MockExpr.ArrayExpr ae, FunctionRegistry registry) {
