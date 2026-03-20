@@ -19,4 +19,21 @@ public @interface JMockParameter {
    */
   String descI18nKey();
 
+  /**
+   * The type of the parameter (for documentation).
+   */
+  String type() default "";
+
+  /**
+   * Default value if the parameter is not provided.
+   */
+  String defaultValue() default "";
+
+  /**
+   * Whether this parameter is required.
+   */
+  boolean required() default false;
+
+}
+
 }

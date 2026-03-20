@@ -33,4 +33,9 @@ public @interface JMockFunctionRegister {
    */
   int order() default 10000;
 
+  /**
+   * The version since this function was introduced.
+   */
+  String since() default "1.0.0";
+
 }

@@ -1,0 +1,5 @@
+cloud.xcan.jmock.plugin.MRepeat
+cloud.xcan.jmock.plugin.MSequence
+cloud.xcan.jmock.plugin.MShuffle
+cloud.xcan.jmock.plugin.MSample
+cloud.xcan.jmock.plugin.MOneOf
