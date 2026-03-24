@@ -44,6 +44,7 @@ public class MockParserTest {
     MockExpr.FunctionCall fc = (MockExpr.FunctionCall) result.get(0);
     Assertions.assertEquals("Integer", fc.name());
     Assertions.assertTrue(fc.args().isEmpty());
+    Assertions.assertTrue(fc.explicitEmptyParentheses());
   }
 
   @Test
@@ -81,6 +82,7 @@ public class MockParserTest {
     MockExpr.FunctionCall fc = (MockExpr.FunctionCall) result.get(0);
     Assertions.assertEquals("Integer", fc.name());
     Assertions.assertTrue(fc.args().isEmpty());
+    Assertions.assertFalse(fc.explicitEmptyParentheses());
   }
 
   // ----- escape sequences -----

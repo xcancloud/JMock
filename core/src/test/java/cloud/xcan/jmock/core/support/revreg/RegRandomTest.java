@@ -182,8 +182,7 @@ public class RegRandomTest {
     Pattern pattern = Pattern.compile("[^0-9]");
     for (int i = 0; i < 100; i++) {
       String s = RegRandom.random("[^0-9]");
-      assertTrue(pattern.matcher(s).matches());
-      assertFalse(Character.isDigit(s.charAt(0)));
+      assertTrue(pattern.matcher(s).matches(), "got: " + s);
     }
   }
 

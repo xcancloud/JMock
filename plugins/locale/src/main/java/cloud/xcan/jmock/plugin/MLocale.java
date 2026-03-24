@@ -33,9 +33,20 @@ public class MLocale extends AbstractMockFunction {
   public static final String DEFAULT_JOINER = "_";
 
   /**
-   * Default build language range
+   * Locales used for random generation (each should yield a distinct language[_country] string).
    */
-  static Locale[] locales = {Locale.SIMPLIFIED_CHINESE, Locale.ENGLISH};
+  static final Locale[] LOCALES = {
+      Locale.SIMPLIFIED_CHINESE,
+      Locale.ENGLISH,
+      Locale.US,
+      Locale.UK,
+      Locale.FRANCE,
+      Locale.GERMANY,
+      Locale.JAPAN,
+      Locale.KOREA,
+      Locale.ITALY,
+      Locale.CANADA
+  };
 
   @JMockConstructor(descI18nKey = DOC_LOCALE_C1,
       example = "@Locale()",
@@ -66,7 +77,7 @@ public class MLocale extends AbstractMockFunction {
 
   @Override
   public String mock() {
-    Locale locale = locales[RandomUtils.RANDOM.nextInt(locales.length)];
+    Locale locale = LOCALES[RandomUtils.RANDOM.nextInt(LOCALES.length)];
     StringBuilder sb = new StringBuilder(locale.getLanguage());
     if (StringUtils.isNotEmpty(locale.getCountry())) {
       sb.append(joiner);

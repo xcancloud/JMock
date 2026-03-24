@@ -12,6 +12,7 @@ import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
 import cloud.xcan.jmock.api.i18n.MessageResources;
 import cloud.xcan.jmock.api.support.utils.RandomUtils;
+import java.util.Arrays;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,6 +25,12 @@ import lombok.Setter;
 @JMockFunctionRegister(descI18nKey = DOC_APP_NAME_DESC,
     categoryI18nKey = {DOC_CATEGORY_NETWORK}, order = 901)
 public class MAppName extends AbstractMockFunction {
+
+  private static final String DEFAULT_APP_NAMES = "微信|QQ|示例应用";
+
+  static {
+    MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-network-plugin-messages");
+  }
 
   @JMockParameter(descI18nKey = DOC_PARAMETER_DICT)
   private String dict;
@@ -41,7 +48,19 @@ public class MAppName extends AbstractMockFunction {
       example = "@AppName(星链|360|ie))",
       exampleValues = {"360", "星链"})
   public MAppName(String dict) {
-    this.dictArray = dict.split("\\|");
+    this.dictArray = normalizeDict(dict);
+  }
+
+  private static String[] normalizeDict(String pipeSeparated) {
+    if (pipeSeparated == null) {
+      pipeSeparated = "";
+    }
+    String[] raw = pipeSeparated.split("\\|", -1);
+    String[] filtered = Arrays.stream(raw)
+        .map(String::trim)
+        .filter(s -> !s.isEmpty())
+        .toArray(String[]::new);
+    return filtered.length > 0 ? filtered : DEFAULT_APP_NAMES.split("\\|");
   }
 
   @Override

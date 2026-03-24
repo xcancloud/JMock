@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
 public class MessageResourcesTest {
 
   String messageKey = "jmock.func.param.size.t";
-  String enMessageTemplate = "Parameter {0} must be between {1} and {2}";
-  String enMessage = "Parameter length must be between 1 and 10";
+  String enMessageTemplate = "Size of parameter {0} must be between {1} and {2}";
+  String enMessage = "Size of parameter length must be between 1 and 10";
   String chMessageTemplate = "参数{0}个数必须在{1}和{2}之间";
   String chMessage = "参数length个数必须在1和10之间";
 

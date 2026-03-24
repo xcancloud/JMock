@@ -52,7 +52,7 @@ public class MockRendererTest {
   public void renderNullFunctionResult_producesNullString() {
     registry.register("NullFn", MockEvaluatorTest.NullReturnMock.class);
     List<MockExpr> nodes = List.of(
-        new MockExpr.FunctionCall("NullFn", Collections.emptyList(), 0, 7)
+        new MockExpr.FunctionCall("NullFn", Collections.emptyList(), false, 0, 7)
     );
     String result = renderer.render(nodes, registry);
     Assertions.assertEquals("null", result);
@@ -64,7 +64,7 @@ public class MockRendererTest {
   public void renderArrayOfStrings_producesJsonArray() {
     // ArrayExpr with a text constant inner expr — we use ConstantStrMock
     registry.register("ConstantStr", MockEvaluatorTest.ConstantStrMock.class);
-    MockExpr inner = new MockExpr.FunctionCall("ConstantStr", Collections.emptyList(), 0, 13);
+    MockExpr inner = new MockExpr.FunctionCall("ConstantStr", Collections.emptyList(), false, 0, 13);
     MockExpr.ArrayExpr ae = new MockExpr.ArrayExpr(inner, 3, 0, 20);
     String result = renderer.render(List.of(ae), registry);
     Assertions.assertEquals("[\"CONSTANT\",\"CONSTANT\",\"CONSTANT\"]", result);
@@ -84,7 +84,7 @@ public class MockRendererTest {
   public void renderRaw_nullFromFunction_propagatesNull() {
     registry.register("NullFn", MockEvaluatorTest.NullReturnMock.class);
     List<MockExpr> nodes = List.of(
-        new MockExpr.FunctionCall("NullFn", Collections.emptyList(), 0, 7)
+        new MockExpr.FunctionCall("NullFn", Collections.emptyList(), false, 0, 7)
     );
     List<Object> raw = renderer.renderRaw(nodes, registry);
     Assertions.assertEquals(1, raw.size());
@@ -97,7 +97,7 @@ public class MockRendererTest {
   public void renderArrayWithSpecialCharsInStrings_escapesJson() {
     // Build an array containing a string with quotes and backslash
     registry.register("QuotedStr", QuotedStrMock.class);
-    MockExpr inner = new MockExpr.FunctionCall("QuotedStr", Collections.emptyList(), 0, 10);
+    MockExpr inner = new MockExpr.FunctionCall("QuotedStr", Collections.emptyList(), false, 0, 10);
     MockExpr.ArrayExpr ae = new MockExpr.ArrayExpr(inner, 1, 0, 15);
     String result = renderer.render(List.of(ae), registry);
     // Expected: ["say \"hi\""]

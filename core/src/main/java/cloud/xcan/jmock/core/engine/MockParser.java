@@ -128,7 +128,7 @@ public final class MockParser {
     // No parameters?
     if (pos >= len || chars[pos] != TokenChars.FUNC_PARAM_START) {
       return new ParseResult(
-          new MockExpr.FunctionCall(funcName, Collections.emptyList(), start, pos), pos);
+          new MockExpr.FunctionCall(funcName, Collections.emptyList(), false, start, pos), pos);
     }
 
     pos++; // Skip '('
@@ -191,7 +191,9 @@ public final class MockParser {
       pos++; // Skip ')'
     }
 
-    MockExpr.FunctionCall call = new MockExpr.FunctionCall(funcName, args, start, pos);
+    boolean explicitEmptyParens = args.isEmpty();
+    MockExpr.FunctionCall call =
+        new MockExpr.FunctionCall(funcName, args, explicitEmptyParens, start, pos);
 
     // Check if this is a Repeat call → convert to ArrayExpr
     if ("Repeat".equals(funcName) && args.size() >= 2) {

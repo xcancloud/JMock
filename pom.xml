@@ -105,6 +105,8 @@
     <maven-site-plugin.version>3.12.1</maven-site-plugin.version>
     <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
 
+    <jacoco.version>0.8.11</jacoco.version>
+
     <!-- JMock internal module versions -->
     <jmock.version>${project.version}</jmock.version>
 

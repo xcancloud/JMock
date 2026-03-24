@@ -82,6 +82,10 @@ public class UserDocMessage implements RegisterDocMessage {
   public static final String DOC_EDUCATION_C2 = "jmock.func.MEducation.C2";
   public static final String DOC_EDUCATION_C3 = "jmock.func.MEducation.C3";
 
+  static {
+    MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-user-plugin-messages");
+  }
+
   @Override
   public void register() {
     MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-user-plugin-messages");

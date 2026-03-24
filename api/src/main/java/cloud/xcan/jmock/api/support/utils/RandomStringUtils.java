@@ -99,10 +99,11 @@ public class RandomStringUtils {
       }
     }
     // Generate length chars
+    char[] alphabet = chars == null ? DEFAULT_CHARS : chars;
     StringBuilder res = new StringBuilder();
     for (int i = 0; i < length; i++) {
-      int randIndex = RANDOM.nextInt(chars.length);
-      res.append(chars[randIndex]);
+      int randIndex = RANDOM.nextInt(alphabet.length);
+      res.append(alphabet[randIndex]);
     }
     return res.toString();
   }

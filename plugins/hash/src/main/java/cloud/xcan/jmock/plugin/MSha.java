@@ -2,6 +2,10 @@ package cloud.xcan.jmock.plugin;
 
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_UNACCEPTABLE_T;
 import static cloud.xcan.jmock.api.support.utils.EncryptionUtils.DEFAULT_SHA_VERSION_LIST;
+import static cloud.xcan.jmock.api.support.utils.EncryptionUtils.SHA1_VERSION;
+import static cloud.xcan.jmock.api.support.utils.EncryptionUtils.SHA224_VERSION;
+import static cloud.xcan.jmock.api.support.utils.EncryptionUtils.SHA256_VERSION;
+import static cloud.xcan.jmock.api.support.utils.EncryptionUtils.SHA384_VERSION;
 import static cloud.xcan.jmock.api.support.utils.EncryptionUtils.SHA512_VERSION;
 import static cloud.xcan.jmock.api.support.utils.EncryptionUtils.shaDigest;
 import static cloud.xcan.jmock.plugin.HashDocMessage.DOC_CATEGORY_HASH;
@@ -41,14 +45,36 @@ public class MSha extends AbstractMockFunction {
   }
 
   @JMockConstructor(descI18nKey = DOC_SHA_C2,
-      example = "@Word(SHA-224)",
+      example = "@Sha(SHA-224)",
       exampleValues = {"21bca972707548ae0ffac10d2fed7495e51cb62f48b31e5edd4eb257",
           "ad7cdf3b66e8d68c22ce4750557e4f7c3af1a199fd11193dfbfa1e41"})
   public MSha(String version) {
-    if (!DEFAULT_SHA_VERSION_LIST.contains(version)) {
+    String normalized = normalizeShaVersion(version);
+    if (normalized == null || !DEFAULT_SHA_VERSION_LIST.contains(normalized)) {
       ParamParseException.throw0(PARAM_UNACCEPTABLE_T, new Object[]{"version"});
     }
-    this.version = version;
+    this.version = normalized;
+  }
+
+  /**
+   * Accepts full names ({@code SHA-256}) or bit-length shorthands ({@code 256}, {@code 512}).
+   */
+  private static String normalizeShaVersion(String version) {
+    if (version == null || version.isEmpty()) {
+      return null;
+    }
+    String v = version.trim();
+    if (DEFAULT_SHA_VERSION_LIST.contains(v)) {
+      return v;
+    }
+    return switch (v) {
+      case "1" -> SHA1_VERSION;
+      case "224" -> SHA224_VERSION;
+      case "256" -> SHA256_VERSION;
+      case "384" -> SHA384_VERSION;
+      case "512" -> SHA512_VERSION;
+      default -> v;
+    };
   }
 
   @Override

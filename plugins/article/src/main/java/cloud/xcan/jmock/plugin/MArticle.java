@@ -21,7 +21,9 @@ import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
 import cloud.xcan.jmock.api.exception.ParamParseException;
+import cloud.xcan.jmock.api.i18n.MessageResources;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
@@ -34,6 +36,17 @@ import lombok.Setter;
 @JMockFunctionRegister(descI18nKey = DOC_ARTICLE_DESC, categoryI18nKey = {
     DOC_CATEGORY_ARTICLE}, order = 406)
 public class MArticle extends AbstractMockFunction {
+
+  static {
+    MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-article-plugin-messages");
+  }
+
+  private static final String FALLBACK_ARTICLE_EN =
+      "Hello world. This is sample text for mock articles. "
+          + "Another sentence follows here. Technology changes our lives every day. ";
+
+  private static final String FALLBACK_ARTICLE_ZH =
+      "你好世界。这是用于模拟文章的样例文本。科技每天都在改变生活。春天万物复苏。";
 
   public static final int DEFAULT_PARAGRAPH_COUNT = 3;
   public static final int DEFAULT_WORD_COUNT = 800;
@@ -74,7 +87,7 @@ public class MArticle extends AbstractMockFunction {
               If the affection is deep, I am not afraid of the long-term, having you in my heart is enough to comfort a lonely soul.  You are over there.  Accidentally met and met.  If the affection is deep, I am not afraid of the long-term, having you in my heart is enough to comfort a lonely soul."""})
   public MArticle(Locale locale) {
     this.locale = locale;
-    this.dict = getString(ArticleDocMessage.DATA_ARTICLE, locale);
+    this.dict = resolveArticleDict(locale, getString(ArticleDocMessage.DATA_ARTICLE, locale));
   }
 
   @JMockConstructor(descI18nKey = DOC_ARTICLE_C3,
@@ -86,7 +99,8 @@ public class MArticle extends AbstractMockFunction {
   public MArticle(Integer paragraphCount, Integer wordCount, Locale locale) {
     this.paragraphCount = nullSafe(paragraphCount, DEFAULT_PARAGRAPH_COUNT);
     this.wordCount = nullSafe(wordCount, DEFAULT_WORD_COUNT);
-    this.dict = getString(ArticleDocMessage.DATA_ARTICLE, locale);
+    this.locale = locale;
+    this.dict = resolveArticleDict(locale, getString(ArticleDocMessage.DATA_ARTICLE, locale));
   }
 
   @JMockConstructor(descI18nKey = DOC_ARTICLE_C4,
@@ -98,12 +112,31 @@ public class MArticle extends AbstractMockFunction {
   public MArticle(Integer paragraphCount, Integer wordCount, String dict) {
     this.paragraphCount = nullSafe(paragraphCount, DEFAULT_PARAGRAPH_COUNT);
     this.wordCount = nullSafe(wordCount, DEFAULT_WORD_COUNT);
-    this.dict = stringSafe(dict, getString(ArticleDocMessage.DATA_ARTICLE, Locale.ENGLISH));
+    this.locale = Locale.ENGLISH;
+    String explicit = stringSafe(dict);
+    this.dict = explicit.isEmpty()
+        ? resolveArticleDict(Locale.ENGLISH,
+        getString(ArticleDocMessage.DATA_ARTICLE, Locale.ENGLISH))
+        : explicit;
   }
 
   @Override
   public String mock() {
     return generateArticle(paragraphCount, wordCount);
+  }
+
+  private boolean isChineseLocale() {
+    return locale != null && Locale.CHINESE.getLanguage().equals(locale.getLanguage());
+  }
+
+  private static String resolveArticleDict(Locale locale, String fromI18n) {
+    if (fromI18n != null && !fromI18n.isEmpty()) {
+      return fromI18n;
+    }
+    if (locale != null && Locale.CHINESE.getLanguage().equals(locale.getLanguage())) {
+      return FALLBACK_ARTICLE_ZH;
+    }
+    return FALLBACK_ARTICLE_EN;
   }
 
   /**
@@ -119,36 +152,76 @@ public class MArticle extends AbstractMockFunction {
     }
 
     List<String> sentences = splitTextIntoSentences(dict);
-
-    // Generate paragraphs
+    if (sentences.isEmpty()) {
+      sentences = List.of(isChineseLocale() ? "测试。样例。" : "Test. Sample.");
+    }
     List<String> paragraphs = new ArrayList<>();
-    int currentWordCount = 0;
-
-    while (paragraphs.size() < paragraphCount && currentWordCount < wordCount) {
-      String paragraph = generateParagraph(sentences);
-      int paragraphWordCount = countWords(paragraph);
-
-      // Check if adding this paragraph would exceed the word count
-      if (currentWordCount + paragraphWordCount > wordCount && !paragraphs.isEmpty()) {
-        // Adjust the last paragraph to meet word count
-        String lastParagraph = adjustParagraphLength(paragraphs.get(paragraphs.size() - 1),
-            wordCount - currentWordCount);
-        paragraphs.set(paragraphs.size() - 1, lastParagraph);
-        break;
-      }
-
-      paragraphs.add(paragraph);
-      currentWordCount += paragraphWordCount;
-
-      // If we have enough paragraphs but not enough words, add more content
-      if (paragraphs.size() < paragraphCount && currentWordCount < wordCount) {
-        String extraParagraph = generateParagraph(sentences);
-        paragraphs.add(extraParagraph);
-        currentWordCount += countWords(extraParagraph);
-      }
+    for (int i = 0; i < paragraphCount; i++) {
+      paragraphs.add(generateParagraph(sentences));
     }
 
+    trimArticleToAtMostWordCount(paragraphs, wordCount);
+    int total = countWordsInFullArticle(String.join("\n\n", paragraphs));
+
+    int guard = 0;
+    while (total < wordCount && guard++ < 10_000) {
+      int lastIdx = paragraphs.size() - 1;
+      String more = sentences.get(JMockRandom.nextInt(sentences.size()));
+      paragraphs.set(lastIdx, paragraphs.get(lastIdx) + " " + more);
+      total = countWordsInFullArticle(String.join("\n\n", paragraphs));
+    }
+
+    trimArticleToAtMostWordCount(paragraphs, wordCount);
     return String.join("\n\n", paragraphs);
+  }
+
+  private void trimArticleToAtMostWordCount(List<String> paragraphs, int wordCount) {
+    int guard = 0;
+    while (guard++ < 10_000) {
+      int total = countWordsInFullArticle(String.join("\n\n", paragraphs));
+      if (total <= wordCount) {
+        break;
+      }
+      boolean changed = false;
+      for (int idx = paragraphs.size() - 1; idx >= 0 && total > wordCount; idx--) {
+        int others = sumParagraphUnits(paragraphs, idx);
+        int cap = Math.max(1, wordCount - others);
+        String p = paragraphs.get(idx);
+        if (countWords(p) > cap) {
+          paragraphs.set(idx, adjustParagraphLength(p, cap));
+          changed = true;
+          total = countWordsInFullArticle(String.join("\n\n", paragraphs));
+          break;
+        }
+      }
+      if (!changed) {
+        break;
+      }
+    }
+  }
+
+  private int sumParagraphUnits(List<String> paragraphs, int excludeIdx) {
+    int s = 0;
+    for (int i = 0; i < paragraphs.size(); i++) {
+      if (i != excludeIdx) {
+        s += countWords(paragraphs.get(i));
+      }
+    }
+    return s;
+  }
+
+  private int countWordsInFullArticle(String article) {
+    if (article == null || article.isEmpty()) {
+      return 0;
+    }
+    if (isChineseLocale()) {
+      return article.replaceAll("\\s", "").length();
+    }
+    String t = article.trim();
+    if (t.isEmpty()) {
+      return 0;
+    }
+    return t.split("\\s+").length;
   }
 
   /**
@@ -165,6 +238,13 @@ public class MArticle extends AbstractMockFunction {
    * Adjusts paragraph length to meet target word count
    */
   private String adjustParagraphLength(String paragraph, int targetWordCount) {
+    if (isChineseLocale()) {
+      String compact = paragraph.replaceAll("\\s", "");
+      if (compact.length() <= targetWordCount) {
+        return paragraph;
+      }
+      return compact.substring(0, targetWordCount);
+    }
     String[] words = paragraph.split("\\s+");
     if (words.length <= targetWordCount) {
       return paragraph;
@@ -173,6 +253,9 @@ public class MArticle extends AbstractMockFunction {
     StringBuilder result = new StringBuilder();
     int count = 0;
     for (String word : words) {
+      if (word.isEmpty()) {
+        continue;
+      }
       if (count >= targetWordCount) {
         break;
       }
@@ -186,9 +269,13 @@ public class MArticle extends AbstractMockFunction {
    * Splits text into sentences
    */
   private List<String> splitTextIntoSentences(String text) {
-    // Simple sentence splitting (works for English and Chinese)
-    String[] sentences = text.split("(?<=[.!?。？！])");
-    return List.of(sentences);
+    if (text == null || text.isEmpty()) {
+      return List.of();
+    }
+    return Arrays.stream(text.split("(?<=[.!?。？！])"))
+        .map(String::trim)
+        .filter(s -> !s.isEmpty())
+        .collect(Collectors.toList());
   }
 
   /**
@@ -198,7 +285,11 @@ public class MArticle extends AbstractMockFunction {
     if (text == null || text.isEmpty()) {
       return 0;
     }
-    return CHINA.equals(locale) ? text.length() : text.split("\\s+").length;
+    if (isChineseLocale()) {
+      return text.replaceAll("\\s", "").length();
+    }
+    String t = text.trim();
+    return t.isEmpty() ? 0 : t.split("\\s+").length;
   }
 }
 

@@ -4,6 +4,7 @@ import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.MockFunction;
 import cloud.xcan.jmock.api.i18n.RegisterDocMessage;
 import cloud.xcan.jmock.api.i18n.ThreadLocaleHolder;
+import cloud.xcan.jmock.core.spi.MockFunctionSpiClasses;
 import java.lang.reflect.Modifier;
 import java.util.Collection;
 import java.util.Collections;
@@ -15,8 +16,9 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Default SPI-based function registry.
  * <p>
- * Uses {@link ServiceLoader} to auto-discover MockFunction implementations at startup. Backed by
- * {@link ConcurrentHashMap} for lock-free concurrent reads.
+ * Discovers {@link MockFunction} classes from {@link MockFunctionSpiClasses#RESOURCE_PATH} (no
+ * {@link ServiceLoader} instantiation). Backed by {@link ConcurrentHashMap} for lock-free
+ * concurrent reads.
  * <p>
  * Note: This class has NO compile-time dependency on any plugin module. Plugins are discovered
  * purely at runtime via SPI.
@@ -100,8 +102,8 @@ public class DefaultFunctionRegistry implements FunctionRegistry {
   }
 
   private void loadServiceMockRegister() {
-    ServiceLoader<MockFunction> loader = ServiceLoader.load(MockFunction.class);
-    loader.forEach(mock -> register(mock.getClass()));
+    MockFunctionSpiClasses.forEachClass(MockFunctionSpiClasses.resolveClassLoader(),
+        this::register);
   }
 
   private void loadServiceMessageRegister() {

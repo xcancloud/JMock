@@ -7,6 +7,7 @@ import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_WEIGHT_T;
 import static cloud.xcan.jmock.plugin.GeographyDocMessage.DOC_CATEGORY_GEOGRAPHY;
 import static cloud.xcan.jmock.plugin.GeographyDocMessage.DOC_COORDINATES_C1;
 import static cloud.xcan.jmock.plugin.GeographyDocMessage.DOC_COORDINATES_C2;
+import static cloud.xcan.jmock.plugin.GeographyDocMessage.DOC_COORDINATES_C3;
 import static cloud.xcan.jmock.plugin.GeographyDocMessage.DOC_COORDINATES_DESC;
 import static cloud.xcan.jmock.plugin.GeographyDocMessage.DOC_COORDINATES_PARAMETER_MAX_LAT;
 import static cloud.xcan.jmock.plugin.GeographyDocMessage.DOC_COORDINATES_PARAMETER_MAX_LNG;
@@ -79,6 +80,14 @@ public class MCoordinates extends AbstractMockFunction {
         DEFAULT_SCALE_VALUE, null);
   }
 
+  @JMockConstructor(descI18nKey = DOC_COORDINATES_C3,
+      example = "@Coordinates(2:8)",
+      exampleValues = {"20.336546,90.232121", "null"})
+  public MCoordinates(String nullWeight) {
+    this(DEFAULT_MIN_LNG_VALUE, DEFAULT_MAX_LNG_VALUE, DEFAULT_MIN_LAT_VALUE, DEFAULT_MAX_LAT_VALUE,
+        DEFAULT_SCALE_VALUE, nullWeight);
+  }
+
   @JMockConstructor(descI18nKey = DOC_COORDINATES_C2,
       example = "@Coordinates(30,60,100,160,5,1:2)",
       exampleValues = {"40.336546,110.232121"})
@@ -146,6 +155,7 @@ public class MCoordinates extends AbstractMockFunction {
         strLat = "-" + strLat;
       }
     }
-    return strLng + "," + strLat;
+    // Documented / tested format: latitude,longitude
+    return strLat + "," + strLng;
   }
 }

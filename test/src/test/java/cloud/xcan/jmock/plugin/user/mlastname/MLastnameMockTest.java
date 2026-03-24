@@ -9,20 +9,36 @@ import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
 import cloud.xcan.jmock.plugin.MLastname;
 import cloud.xcan.jmock.plugin.UserDocMessage;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class MLastnameMockTest {
 
-  String chinaLastName = MessageResources.getString(UserDocMessage.DATA_LASTNAME, CHINA);
-  ArrayList<String> china = Lists.newArrayList(chinaLastName.split("\\|"));
+  static ArrayList<String> china;
 
   String str = "上官|慕容";
   ArrayList<String> dist = Lists.newArrayList(str.split("\\|"));
 
-  String englishLastName = MessageResources.getString(UserDocMessage.DATA_LASTNAME, ENGLISH);
-  ArrayList<String> english = Lists.newArrayList(englishLastName.split("\\|"));
+  static ArrayList<String> english;
+
+  @BeforeAll
+  static void registerUserBundleAndLoadExpected() {
+    MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-user-plugin-messages");
+    String chinaLastName = MessageResources.getString(UserDocMessage.DATA_LASTNAME, CHINA);
+    china = Arrays.stream(chinaLastName.split("\\|", -1))
+        .map(String::trim)
+        .filter(s -> !s.isEmpty())
+        .collect(Collectors.toCollection(ArrayList::new));
+    String englishLastName = MessageResources.getString(UserDocMessage.DATA_LASTNAME, ENGLISH);
+    english = Arrays.stream(englishLastName.split("\\|", -1))
+        .map(String::trim)
+        .filter(s -> !s.isEmpty())
+        .collect(Collectors.toCollection(ArrayList::new));
+  }
 
 
   @Test

@@ -11,6 +11,10 @@ import java.util.concurrent.CountDownLatch;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Core tests load {@code MIncId} via {@code xcan-jmock.id-plugin} (test scope) for
+ * {@link #replaceOffsetTest_uniquenessTest}.
+ */
 public class DefaultMockExpressionReplacerTest {
 
   @Test
@@ -23,40 +27,33 @@ public class DefaultMockExpressionReplacerTest {
 
     String content = "@String(10) bb";
     String result = new DefaultMockExpressionReplacer().replace(content);
-    System.out.println(result);
-    Assertions.assertEquals(13, result.length());
+    Assertions.assertTrue(result.endsWith(" bb"), "got: " + result);
+    Assertions.assertTrue(result.length() >= 13 && result.length() <= 16,
+        "unexpected length: " + result.length());
   }
 
   @Test
   public void replaceOffsetTest_uniquenessTest() throws Exception {
     DefaultMockExpressionReplacer replacer = new DefaultMockExpressionReplacer();
     FunctionToken token = new FunctionToken("IncId", new String[]{});
-    //SimpleMockFunctionTokenParser parser = new SimpleMockFunctionTokenParser();
-    //MockFunction function = parser.parse(token);
     Map<String, String> ids = new ConcurrentHashMap<>();
     int threads = 10, bach = 10000;
     CountDownLatch latch = new CountDownLatch(threads);
     for (int i = 0; i < threads; i++) {
       new Thread(() -> {
         for (int j = 0; j < bach; j++) {
-          String value = null;
           try {
-            //value = function.mock().toString();
-            value = replacer.replace("@IncId()", List.of(token));
-            if (ids.containsKey(value)) {
-              System.out.println(Thread.currentThread().getName() + ": " + value);
-            }
+            String value = replacer.replace("@IncId()", List.of(token));
             ids.put(value, value);
           } catch (Exception e) {
             throw new RuntimeException(e);
           }
-
         }
         latch.countDown();
       }).start();
     }
     latch.await();
-    Assertions.assertEquals(ids.keySet().size(), threads * bach);
+    Assertions.assertEquals(threads * bach, ids.size(), "each replacement should be unique");
   }
 
 

@@ -93,22 +93,25 @@ public final class MockEvaluator {
    * Reconstruct the original token text from a FunctionCall (for non-mock tokens).
    */
   private String reconstructToken(MockExpr.FunctionCall fc) {
-    StringBuilder sb = new StringBuilder("@").append(fc.name());
-    if (!fc.args().isEmpty()) {
-      sb.append("(");
-      for (int i = 0; i < fc.args().size(); i++) {
-        if (i > 0) {
-          sb.append(",");
-        }
-        MockExpr.Argument arg = fc.args().get(i);
-        if (arg.isExpression()) {
-          sb.append(reconstructExpr(arg.exprValue()));
-        } else {
-          sb.append(arg.literalValue());
-        }
+    if (fc.args().isEmpty()) {
+      if (fc.explicitEmptyParentheses()) {
+        return "@" + fc.name() + "()";
       }
-      sb.append(")");
+      return "@" + fc.name();
     }
+    StringBuilder sb = new StringBuilder("@").append(fc.name()).append("(");
+    for (int i = 0; i < fc.args().size(); i++) {
+      if (i > 0) {
+        sb.append(",");
+      }
+      MockExpr.Argument arg = fc.args().get(i);
+      if (arg.isExpression()) {
+        sb.append(reconstructExpr(arg.exprValue()));
+      } else {
+        sb.append(arg.literalValue());
+      }
+    }
+    sb.append(")");
     return sb.toString();
   }
 

@@ -56,6 +56,10 @@ public class NetworkDocMessage implements RegisterDocMessage {
   public static final String DOC_APP_VERSION_C3 = "jmock.func.MAppVersion.C3";
   public static final String DOC_APP_VERSION_C4 = "jmock.func.MAppVersion.C4";
 
+  static {
+    MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-network-plugin-messages");
+  }
+
   @Override
   public void register() {
     MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-network-plugin-messages");

@@ -176,8 +176,9 @@ class FinancialDataGeneratorTest {
 
     // Currency
     String currency = generateRandomCurrency(Locale.GERMANY);
+    // Locales without an explicit map use the ENGLISH currency list (see MCurrency.CURRENCIES)
     assertTrue(
-        Set.of("ENGLISHD", "EUR", "GBP", "JPY", "CAD", "AUD", "CHF", "CNY").contains(currency));
+        Set.of("USD", "EUR", "GBP", "JPY", "CAD", "AUD", "CHF", "CNY").contains(currency));
 
     // Invoice
     String invoice = generateRandomInvoiceNumber(Locale.ITALY);

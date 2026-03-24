@@ -10,6 +10,7 @@ import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.MockFunction;
 import cloud.xcan.jmock.api.i18n.RegisterDocMessage;
 import cloud.xcan.jmock.api.i18n.ThreadLocaleHolder;
+import cloud.xcan.jmock.core.spi.MockFunctionSpiClasses;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Locale;
@@ -20,8 +21,6 @@ import java.util.ServiceLoader;
 public class DefaultEvalEnvironment implements Environment {
 
   private final Map<String, Class<? extends MockFunction>> mockClass = new HashMap<>();
-
-  private final ServiceLoader<MockFunction> mockLoader = ServiceLoader.load(MockFunction.class);
 
   public DefaultEvalEnvironment() {
     this(Locale.getDefault());
@@ -78,16 +77,17 @@ public class DefaultEvalEnvironment implements Environment {
 
   @Override
   public void reloadEnvironment() {
-    mockLoader.reload();
     loadServiceMockRegister();
+    ServiceLoader.load(RegisterDocMessage.class).reload();
     loadServiceMessageRegister();
   }
 
+  /**
+   * Register SPI {@link MockFunction} classes from {@link MockFunctionSpiClasses#RESOURCE_PATH}.
+   */
   private void loadServiceMockRegister() {
-    ServiceLoader<MockFunction> loader = ServiceLoader.load(MockFunction.class);
-    loader.forEach(mock -> {
-      registerMockClass(mock.getClass(), mock.getClass().getSimpleName());
-    });
+    MockFunctionSpiClasses.forEachClass(MockFunctionSpiClasses.resolveClassLoader(),
+        clazz -> registerMockClass(clazz, clazz.getSimpleName()));
   }
 
   private void loadServiceMessageRegister() {

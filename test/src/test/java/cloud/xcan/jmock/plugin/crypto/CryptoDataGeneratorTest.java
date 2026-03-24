@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import cloud.xcan.jmock.api.exception.ParamParseException;
 import java.security.KeyPair;
 import java.util.Base64;
 import java.util.HexFormat;
@@ -60,7 +61,7 @@ class CryptoDataGeneratorTest {
 
   @Test
   void testInvalidECKeySize() {
-    assertThrows(IllegalArgumentException.class, () -> {
+    assertThrows(ParamParseException.class, () -> {
       generateRandomKeyPair("EC", 512);
     });
   }
@@ -134,7 +135,7 @@ class CryptoDataGeneratorTest {
 
   @Test
   void testHexStringOddLength() {
-    assertThrows(IllegalArgumentException.class, () -> {
+    assertThrows(ParamParseException.class, () -> {
       generateRandomHexString(15);
     });
   }

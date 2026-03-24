@@ -6,17 +6,29 @@ import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
 import cloud.xcan.jmock.plugin.MProtocol;
 import cloud.xcan.jmock.plugin.NetworkDocMessage;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class MProtocolMockTest {
 
-  String chinaLastName = MessageResources.getString(NetworkDocMessage.DATA_PROTOCOL);
-  ArrayList<String> china = Lists.newArrayList(chinaLastName.split("\\|"));
+  static ArrayList<String> china;
 
   String str = "jndi|ldap";
   ArrayList<String> dist = Lists.newArrayList(str.split("\\|"));
+
+  @BeforeAll
+  static void registerNetworkBundleAndLoadExpected() {
+    MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-network-plugin-messages");
+    String raw = MessageResources.getString(NetworkDocMessage.DATA_PROTOCOL);
+    china = Arrays.stream(raw.split("\\|", -1))
+        .map(String::trim)
+        .filter(s -> !s.isEmpty())
+        .collect(Collectors.toCollection(ArrayList::new));
+  }
 
   @Test
   public void case1_defaultTest() throws Exception {

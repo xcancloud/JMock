@@ -6,18 +6,26 @@ import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
 import cloud.xcan.jmock.plugin.MAppName;
 import cloud.xcan.jmock.plugin.NetworkDocMessage;
 import java.util.ArrayList;
-import java.util.Locale;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class MAppNameMockTest {
 
-  String chinaLastName = MessageResources.getString(NetworkDocMessage.DATA_APP_NAME);
-  ArrayList<String> china = Lists.newArrayList(chinaLastName.split("\\|"));
+  static ArrayList<String> china;
 
-  String enMessage = MessageResources.getString(NetworkDocMessage.DATA_APP_NAME, Locale.ENGLISH);
-  ArrayList<String> en = Lists.newArrayList(enMessage.split("\\|"));
+  @BeforeAll
+  static void registerNetworkBundleAndLoadExpected() {
+    MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-network-plugin-messages");
+    String zh = MessageResources.getString(NetworkDocMessage.DATA_APP_NAME);
+    china = Arrays.stream(zh.split("\\|", -1))
+        .map(String::trim)
+        .filter(s -> !s.isEmpty())
+        .collect(Collectors.toCollection(ArrayList::new));
+  }
 
   String str = "QQ|微信";
   ArrayList<String> dist = Lists.newArrayList(str.split("\\|"));

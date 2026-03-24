@@ -50,6 +50,10 @@ public class ArticleDocMessage implements RegisterDocMessage {
   public final static String DOC_TANGPOETRY_C2 = "jmock.func.MTangPoetry.C2";
   public final static String DOC_TANGPOETRY_C3 = "jmock.func.MTangPoetry.C3";
 
+  static {
+    MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-article-plugin-messages");
+  }
+
   @Override
   public void register() {
     MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-article-plugin-messages");

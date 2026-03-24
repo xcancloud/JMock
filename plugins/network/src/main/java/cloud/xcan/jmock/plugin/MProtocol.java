@@ -12,9 +12,11 @@ import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
 import cloud.xcan.jmock.api.i18n.MessageResources;
 import cloud.xcan.jmock.api.support.utils.RandomUtils;
+import java.util.Arrays;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * @author Bao Zhang
@@ -25,6 +27,9 @@ import org.apache.commons.lang3.ObjectUtils;
 @JMockFunctionRegister(descI18nKey = DOC_PROTOCOL_DESC,
     categoryI18nKey = {DOC_CATEGORY_NETWORK}, order = 907)
 public class MProtocol extends AbstractMockFunction {
+
+  private static final String DEFAULT_PROTOCOL_DICT =
+      "FTP|TFTP|HTTP|SMTP|DHCP|Telnet|DNS|SNMP|TCP|UDP|ARP";
 
   @JMockParameter(descI18nKey = DOC_PROTOCOL_PARAMETER_DICT)
   private String dict;
@@ -45,10 +50,22 @@ public class MProtocol extends AbstractMockFunction {
   public MProtocol(String dict) {
     if (ObjectUtils.isEmpty(dict)) {
       String protocol = MessageResources.getString(NetworkDocMessage.DATA_PROTOCOL);
-      this.dictArray = protocol.split("\\|");
+      if (StringUtils.isBlank(protocol)) {
+        protocol = DEFAULT_PROTOCOL_DICT;
+      }
+      this.dictArray = normalizeDict(protocol);
     } else {
-      this.dictArray = dict.split("\\|");
+      this.dictArray = normalizeDict(dict);
     }
+  }
+
+  private static String[] normalizeDict(String pipeSeparated) {
+    String[] raw = pipeSeparated.split("\\|", -1);
+    String[] filtered = Arrays.stream(raw)
+        .map(String::trim)
+        .filter(s -> !s.isEmpty())
+        .toArray(String[]::new);
+    return filtered.length > 0 ? filtered : DEFAULT_PROTOCOL_DICT.split("\\|");
   }
 
   @Override

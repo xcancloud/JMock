@@ -238,8 +238,10 @@ public class MHtml extends AbstractMockFunction {
 
   public static String generateRandomTitle() {
     String[] prefixes = {"Home", "About", "Services", "Products", "Contact", "Blog", "Support",
-        "Documentation"};
-    String[] suffixes = {"Page", "Portal", "Dashboard", "Hub", "Center", "System"};
+        "Documentation", "News", "Help", "Login", "Register", "Settings", "Profile", "Account",
+        "Pricing", "Careers", "FAQ"};
+    String[] suffixes = {"Page", "Portal", "Dashboard", "Hub", "Center", "System", "Console",
+        "Panel", "Guide", "Zone", "Site", "App", "Workspace", "Overview"};
 
     return prefixes[JMockRandom.nextInt(prefixes.length)] + " " +
         suffixes[JMockRandom.nextInt(suffixes.length)];

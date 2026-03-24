@@ -19,9 +19,13 @@ public sealed interface MockExpr {
   /**
    * A function call expression, e.g., @Email() or @String(6). Arguments can themselves be MockExpr
    * (supporting nesting like @Repeat(@Email(), 3)).
+   *
+   * @param explicitEmptyParentheses when {@code args} is empty: {@code true} if the source had
+   *                                 {@code ()} (e.g. {@code @Foo()}), {@code false} for a bare
+   *                                 {@code @Foo} token. Ignored when {@code args} is non-empty.
    */
   record FunctionCall(String name, java.util.List<Argument> args,
-                      int start, int end) implements MockExpr {
+                      boolean explicitEmptyParentheses, int start, int end) implements MockExpr {
 
   }
 

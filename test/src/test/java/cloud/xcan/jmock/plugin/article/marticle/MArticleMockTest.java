@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import cloud.xcan.jmock.api.exception.ParamParseException;
 import cloud.xcan.jmock.plugin.MArticle;
 import java.util.Locale;
 import org.junit.jupiter.api.BeforeEach;
@@ -63,10 +64,10 @@ public class MArticleMockTest {
 
   @Test
   void invalidParametersShouldThrowException() {
-    assertThrows(IllegalArgumentException.class,
+    assertThrows(ParamParseException.class,
         () -> enGenerator.generateArticle(0, 100));
 
-    assertThrows(IllegalArgumentException.class,
+    assertThrows(ParamParseException.class,
         () -> enGenerator.generateArticle(3, -10));
   }
 

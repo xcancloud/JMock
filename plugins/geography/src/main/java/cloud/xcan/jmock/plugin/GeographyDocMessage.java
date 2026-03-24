@@ -50,14 +50,17 @@ public class GeographyDocMessage implements RegisterDocMessage {
   public static final String DOC_COORDINATES_PARAMETER_SCALE = "jmock.func.MCoordinates.parameter.scale";
   public static final String DOC_COORDINATES_C1 = "jmock.func.MCoordinates.C1";
   public static final String DOC_COORDINATES_C2 = "jmock.func.MCoordinates.C2";
+  public static final String DOC_COORDINATES_C3 = "jmock.func.MCoordinates.C3";
 
   public static final String DOC_LATITUDE_DESC = "jmock.func.MLatitude.description";
   public static final String DOC_LATITUDE_C1 = "jmock.func.MLatitude.C1";
   public static final String DOC_LATITUDE_C2 = "jmock.func.MLatitude.C2";
+  public static final String DOC_LATITUDE_C3 = "jmock.func.MLatitude.C3";
 
   public static final String DOC_LONGITUDE_DESC = "jmock.func.MLongitude.description";
   public static final String DOC_LONGITUDE_C1 = "jmock.func.MLongitude.C1";
   public static final String DOC_LONGITUDE_C2 = "jmock.func.MLongitude.C2";
+  public static final String DOC_LONGITUDE_C3 = "jmock.func.MLongitude.C3";
 
   @Override
   public void register() {

@@ -41,7 +41,7 @@ public class MockEvaluatorTest {
   @Test
   public void unknownFunction_returnsOriginalToken() {
     MockExpr.FunctionCall fc = new MockExpr.FunctionCall("Unknown",
-        Collections.emptyList(), 0, 9);
+        Collections.emptyList(), false, 0, 9);
     Object result = evaluator.evaluate(fc, registry);
     // reconstructed token: @Unknown
     Assertions.assertEquals("@Unknown", result.toString());
@@ -53,7 +53,7 @@ public class MockEvaluatorTest {
   public void knownFunction_noArgs_returnsMockResult() {
     registry.register("ConstantStr", ConstantStrMock.class);
     MockExpr.FunctionCall fc = new MockExpr.FunctionCall("ConstantStr",
-        Collections.emptyList(), 0, 14);
+        Collections.emptyList(), false, 0, 14);
     Object result = evaluator.evaluate(fc, registry);
     Assertions.assertEquals("CONSTANT", result);
   }
@@ -64,7 +64,7 @@ public class MockEvaluatorTest {
   public void knownFunction_returningNull_returnsNullNotString() {
     registry.register("NullReturn", NullReturnMock.class);
     MockExpr.FunctionCall fc = new MockExpr.FunctionCall("NullReturn",
-        Collections.emptyList(), 0, 11);
+        Collections.emptyList(), false, 0, 11);
     Object result = evaluator.evaluate(fc, registry);
     Assertions.assertNull(result, "Evaluator must return actual null, not the String \"null\"");
   }
@@ -78,7 +78,7 @@ public class MockEvaluatorTest {
         MockExpr.Argument.literal("0", "hello"),
         MockExpr.Argument.literal("1", "world")
     );
-    MockExpr.FunctionCall fc = new MockExpr.FunctionCall("EchoFirst", args, 0, 20);
+    MockExpr.FunctionCall fc = new MockExpr.FunctionCall("EchoFirst", args, false, 0, 20);
     Object result = evaluator.evaluate(fc, registry);
     Assertions.assertEquals("hello", result);
   }
@@ -89,7 +89,7 @@ public class MockEvaluatorTest {
   public void arrayExpr_evaluatesItemNTimes() {
     registry.register("Counter", CounterMock.class);
     MockExpr.FunctionCall inner = new MockExpr.FunctionCall("Counter",
-        Collections.emptyList(), 0, 9);
+        Collections.emptyList(), false, 0, 9);
     CounterMock.COUNTER.set(0);
     MockExpr.ArrayExpr ae = new MockExpr.ArrayExpr(inner, 3, 0, 20);
     Object result = evaluator.evaluate(ae, registry);

@@ -22,6 +22,10 @@ public class LocaleDocMessage implements RegisterDocMessage {
   public static final String DOC_TIMEZONE_C1 = "jmock.func.MTimeZone.C1";
   public static final String DOC_TIMEZONE_C2 = "jmock.func.MTimeZone.C2";
 
+  static {
+    MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-locale-plugin-messages");
+  }
+
   @Override
   public void register() {
     MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-locale-plugin-messages");

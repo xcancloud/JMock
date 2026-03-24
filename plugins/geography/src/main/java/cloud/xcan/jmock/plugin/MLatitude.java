@@ -11,6 +11,7 @@ import static cloud.xcan.jmock.plugin.GeographyDocMessage.DOC_COORDINATES_PARAME
 import static cloud.xcan.jmock.plugin.GeographyDocMessage.DOC_COORDINATES_PARAMETER_SCALE;
 import static cloud.xcan.jmock.plugin.GeographyDocMessage.DOC_LATITUDE_C1;
 import static cloud.xcan.jmock.plugin.GeographyDocMessage.DOC_LATITUDE_C2;
+import static cloud.xcan.jmock.plugin.GeographyDocMessage.DOC_LATITUDE_C3;
 import static cloud.xcan.jmock.plugin.GeographyDocMessage.DOC_LATITUDE_DESC;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
@@ -68,6 +69,13 @@ public class MLatitude extends AbstractMockFunction {
     this(DEFAULT_MIN_LAT_VALUE, DEFAULT_MAX_LAT_VALUE, DEFAULT_SCALE_VALUE, null);
   }
 
+  @JMockConstructor(descI18nKey = DOC_LATITUDE_C3,
+      example = "@Latitude(2:8)",
+      exampleValues = {"40.336546", "null"})
+  public MLatitude(String nullWeight) {
+    this(DEFAULT_MIN_LAT_VALUE, DEFAULT_MAX_LAT_VALUE, DEFAULT_SCALE_VALUE, nullWeight);
+  }
+
   @JMockConstructor(descI18nKey = DOC_LATITUDE_C2,
       example = "@Latitude(30,60,5,1:2)",
       exampleValues = {"40.336546"})
@@ -82,7 +90,7 @@ public class MLatitude extends AbstractMockFunction {
       ParamParseException.throw0(PARAM_NOT_NULL_T, new Object[]{"maxLat"});
     }
     if (maxLat > DEFAULT_MAX_LAT_VALUE) {
-      ParamParseException.throw0(PARAM_MAX_T, new Object[]{"minLat", DEFAULT_MAX_LAT_VALUE});
+      ParamParseException.throw0(PARAM_MAX_T, new Object[]{"maxLat", DEFAULT_MAX_LAT_VALUE});
     }
     if (ObjectUtils.isEmpty(scale) || scale < MIN_SCALE_VALUE) {
       scale = DEFAULT_SCALE_VALUE;

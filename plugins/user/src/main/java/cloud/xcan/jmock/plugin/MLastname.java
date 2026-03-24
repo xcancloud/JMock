@@ -19,6 +19,7 @@ import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
 import cloud.xcan.jmock.api.exception.ParamParseException;
 import cloud.xcan.jmock.api.i18n.MessageResources;
 import cloud.xcan.jmock.api.support.utils.RandomUtils;
+import java.util.Arrays;
 import java.util.Locale;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,6 +33,12 @@ import lombok.Setter;
 @JMockFunctionRegister(descI18nKey = DOC_LASTNAME_DESC,
     categoryI18nKey = {DOC_CATEGORY_USER}, order = 804)
 public class MLastname extends AbstractMockFunction {
+
+  private static final String DEFAULT_LASTNAMES = "李|王|张|刘|陈";
+
+  static {
+    MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-user-plugin-messages");
+  }
 
   @JMockParameter(descI18nKey = DOC_LASTNAME_PARAMETER_DICT)
   private String dict;
@@ -51,7 +58,7 @@ public class MLastname extends AbstractMockFunction {
       example = "@Lastname(en)", exampleValues = {"Sun", "Zhang"})
   public MLastname(Locale locale) {
     String lastName = MessageResources.getString(UserDocMessage.DATA_LASTNAME, locale);
-    this.dictArray = lastName.split("\\|");
+    this.dictArray = normalizePipeDict(lastName, DEFAULT_LASTNAMES);
   }
 
   @JMockConstructor(descI18nKey = DOC_LASTNAME_C3,
@@ -60,7 +67,31 @@ public class MLastname extends AbstractMockFunction {
     if (isEmpty(dict)) {
       ParamParseException.throw0(PARAM_NOT_BLANK_T, new Object[]{"dict"});
     }
-    this.dictArray = dict.split("\\|");
+    String[] arr = normalizePipeDict(dict, null);
+    if (arr.length == 0) {
+      ParamParseException.throw0(PARAM_NOT_BLANK_T, new Object[]{"dict"});
+    }
+    this.dictArray = arr;
+  }
+
+  private static String[] normalizePipeDict(String pipeSeparated, String fallbackPipe) {
+    if (pipeSeparated == null) {
+      pipeSeparated = "";
+    }
+    String[] filtered = Arrays.stream(pipeSeparated.split("\\|", -1))
+        .map(String::trim)
+        .filter(s -> !s.isEmpty())
+        .toArray(String[]::new);
+    if (filtered.length > 0) {
+      return filtered;
+    }
+    if (fallbackPipe != null && !fallbackPipe.isEmpty()) {
+      return Arrays.stream(fallbackPipe.split("\\|"))
+          .map(String::trim)
+          .filter(s -> !s.isEmpty())
+          .toArray(String[]::new);
+    }
+    return new String[0];
   }
 
   @Override

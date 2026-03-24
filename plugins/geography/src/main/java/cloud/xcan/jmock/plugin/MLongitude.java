@@ -11,6 +11,7 @@ import static cloud.xcan.jmock.plugin.GeographyDocMessage.DOC_COORDINATES_PARAME
 import static cloud.xcan.jmock.plugin.GeographyDocMessage.DOC_COORDINATES_PARAMETER_SCALE;
 import static cloud.xcan.jmock.plugin.GeographyDocMessage.DOC_LONGITUDE_C1;
 import static cloud.xcan.jmock.plugin.GeographyDocMessage.DOC_LONGITUDE_C2;
+import static cloud.xcan.jmock.plugin.GeographyDocMessage.DOC_LONGITUDE_C3;
 import static cloud.xcan.jmock.plugin.GeographyDocMessage.DOC_LONGITUDE_DESC;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
@@ -71,6 +72,13 @@ public class MLongitude extends AbstractMockFunction {
     this(DEFAULT_MIN_LNG_VALUE, DEFAULT_MAX_LNG_VALUE, DEFAULT_SCALE_VALUE, null);
   }
 
+  @JMockConstructor(descI18nKey = DOC_LONGITUDE_C3,
+      example = "@Longitude(2:8)",
+      exampleValues = {"90.232121", "null"})
+  public MLongitude(String nullWeight) {
+    this(DEFAULT_MIN_LNG_VALUE, DEFAULT_MAX_LNG_VALUE, DEFAULT_SCALE_VALUE, nullWeight);
+  }
+
   @JMockConstructor(descI18nKey = DOC_LONGITUDE_C2,
       example = "@Longitude(30,60,5,1:2)",
       exampleValues = {"40.336546"})
@@ -85,7 +93,7 @@ public class MLongitude extends AbstractMockFunction {
       ParamParseException.throw0(PARAM_NOT_NULL_T, new Object[]{"maxLng"});
     }
     if (maxLng > DEFAULT_MAX_LNG_VALUE) {
-      ParamParseException.throw0(PARAM_MAX_T, new Object[]{"minLat", DEFAULT_MAX_LNG_VALUE});
+      ParamParseException.throw0(PARAM_MAX_T, new Object[]{"maxLng", DEFAULT_MAX_LNG_VALUE});
     }
     if (ObjectUtils.isEmpty(scale) || scale < MIN_SCALE_VALUE) {
       scale = DEFAULT_SCALE_VALUE;
