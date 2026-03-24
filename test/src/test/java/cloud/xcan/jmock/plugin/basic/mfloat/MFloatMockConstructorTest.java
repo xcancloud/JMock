@@ -77,7 +77,7 @@ public class MFloatMockConstructorTest {
     Assertions.assertEquals(Float.MAX_VALUE, mock.getMax(), 0);
     Assertions.assertEquals(2, mock.getScale());
     Assertions.assertNotNull(mock.getNullSampler());
-    Assertions.assertEquals(1.0/9, mock.getNullSampler().getNullProbability(), 0.01);
+    Assertions.assertEquals(1.0 / 9, mock.getNullSampler().getNullProbability(), 0.01);
   }
 
   /**

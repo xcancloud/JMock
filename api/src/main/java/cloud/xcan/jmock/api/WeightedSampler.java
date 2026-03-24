@@ -3,8 +3,8 @@ package cloud.xcan.jmock.api;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * Thread-safe weighted sampler that determines whether to return null
- * based on a configured weight ratio.
+ * Thread-safe weighted sampler that determines whether to return null based on a configured weight
+ * ratio.
  * <p>
  * Weight format: "nullCount:nonNullCount", e.g., "1:9" means 10% null probability.
  */

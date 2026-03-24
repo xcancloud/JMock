@@ -1,10 +1,10 @@
 package cloud.xcan.jmock.plugin;
 
-import static cloud.xcan.angus.spec.utils.ObjectUtils.nullSafe;
-import static cloud.xcan.angus.spec.utils.ObjectUtils.stringSafe;
 import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARAM_MIN_T;
 import static cloud.xcan.jmock.api.i18n.MessageResources.getString;
+import static cloud.xcan.jmock.api.support.utils.TypeUtils.nullSafe;
+import static cloud.xcan.jmock.api.support.utils.TypeUtils.stringSafe;
 import static cloud.xcan.jmock.plugin.ArticleDocMessage.DOC_ARTICLE_C1;
 import static cloud.xcan.jmock.plugin.ArticleDocMessage.DOC_ARTICLE_C2;
 import static cloud.xcan.jmock.plugin.ArticleDocMessage.DOC_ARTICLE_C3;

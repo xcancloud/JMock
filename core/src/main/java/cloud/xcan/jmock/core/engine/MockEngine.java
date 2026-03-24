@@ -9,8 +9,7 @@ import java.util.List;
 /**
  * Unified entry point for the JMock 2.0 engine.
  * <p>
- * Replaces direct use of Replacer/Extractor/Environment with a single
- * composable, thread-safe API.
+ * Replaces direct use of Replacer/Extractor/Environment with a single composable, thread-safe API.
  *
  * <pre>{@code
  * // Simple template rendering

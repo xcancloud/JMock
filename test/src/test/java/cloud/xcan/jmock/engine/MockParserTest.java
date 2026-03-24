@@ -2,10 +2,9 @@ package cloud.xcan.jmock.engine;
 
 import cloud.xcan.jmock.core.engine.MockExpr;
 import cloud.xcan.jmock.core.engine.MockParser;
+import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.util.List;
 
 /**
  * Unit tests for {@link MockParser}.

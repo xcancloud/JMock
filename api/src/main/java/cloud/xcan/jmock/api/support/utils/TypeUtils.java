@@ -1,8 +1,11 @@
 package cloud.xcan.jmock.api.support.utils;
 
+import static java.util.Objects.isNull;
+
 import java.lang.reflect.Array;
 import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.GenericDeclaration;
+import java.lang.reflect.Modifier;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
@@ -13,6 +16,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 import org.apache.commons.lang3.ArrayUtils;
@@ -1866,6 +1870,74 @@ public class TypeUtils {
    */
   public static <T> Typed<T> wrap(final Type type) {
     return () -> type;
+  }
+
+  public static <K, T> boolean mapEquals(Map<K, T> map1, Map<K, T> map2) {
+    if (map1 == null && map2 == null) {
+      return true;
+    }
+    if ((map1 == null && map2.isEmpty()) || (map2 == null && map1.isEmpty())) {
+      return true;
+    }
+    if (map1 == null || map2 == null) {
+      return false;
+    }
+    for (Entry<K, T> entry : map1.entrySet()) {
+      K key = entry.getKey();
+      T value1 = entry.getValue();
+      T value2 = map2.get(key);
+      if (!Objects.equals(value1, value2)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  /**
+   * Is the class abstract? (This includes interfaces.)
+   * <p>
+   * Utility method used by few other places in the code. Tests if the class has the abstract
+   * modifier and is not an array class. For some reason, array classes have the abstract modifier
+   * set in HotSpot JVM, and we don't want to treat array classes as abstract.
+   *
+   * @param clazz the inspected class
+   * @return true if the class is abstract and is not an array type.
+   */
+  public static boolean isAbstractClass(final Class<?> clazz) {
+    return Modifier.isAbstract(clazz.getModifiers()) && !clazz.isArray();
+  }
+
+  /**
+   * @param actual actual value
+   * @param safe   value
+   * @return actual value, if it's not null, or safe value if the actual value is null.
+   */
+  public static <T> T nullSafe(T actual, T safe) {
+    return isNull(actual) ? safe : actual;
+  }
+
+  /**
+   * @param value string value
+   * @return value, if it's not null, or return "" if the value is null.
+   */
+  public static String stringSafe(String value) {
+    return isNull(value) ? "" : value;
+  }
+
+  /**
+   * @param value object value
+   * @return value, if it's not null, or return "" if the value is null.
+   */
+  public static String stringSafe(Object value) {
+    return isNull(value) ? "" : value.toString();
+  }
+
+  /**
+   * @param value integer value
+   * @return value, if it's not null, or return safe if the value is null.
+   */
+  public static String stringSafe(String value, String safe) {
+    return isNull(value) ? safe : value;
   }
 
   /**

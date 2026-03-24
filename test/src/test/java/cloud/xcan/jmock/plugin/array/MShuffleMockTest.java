@@ -1,12 +1,11 @@
 package cloud.xcan.jmock.plugin.array;
 
 import cloud.xcan.jmock.plugin.MShuffle;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit tests for {@link MShuffle}.

@@ -15,11 +15,11 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Default SPI-based function registry.
  * <p>
- * Uses {@link ServiceLoader} to auto-discover MockFunction implementations at startup.
- * Backed by {@link ConcurrentHashMap} for lock-free concurrent reads.
+ * Uses {@link ServiceLoader} to auto-discover MockFunction implementations at startup. Backed by
+ * {@link ConcurrentHashMap} for lock-free concurrent reads.
  * <p>
- * Note: This class has NO compile-time dependency on any plugin module.
- * Plugins are discovered purely at runtime via SPI.
+ * Note: This class has NO compile-time dependency on any plugin module. Plugins are discovered
+ * purely at runtime via SPI.
  *
  * @since 2.0.0
  */

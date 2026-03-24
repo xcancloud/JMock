@@ -1,14 +1,12 @@
 package cloud.xcan.jmock.core.parser;
 
-import static cloud.xcan.angus.spec.utils.ObjectUtils.isEmpty;
 import static cloud.xcan.jmock.api.TokenChars.FUNC_IDENTIFIER;
 import static cloud.xcan.jmock.api.i18n.MessageResources.getString;
 import static java.util.Objects.nonNull;
+import static org.apache.commons.lang3.ObjectUtils.isEmpty;
 import static org.apache.commons.lang3.ObjectUtils.isNotEmpty;
 
-import cloud.xcan.angus.spec.experimental.Assert;
-import cloud.xcan.angus.spec.locale.SupportedLanguage;
-import cloud.xcan.angus.spec.utils.JsonUtils;
+import cloud.xcan.jmock.api.SupportedLanguage;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
@@ -17,6 +15,7 @@ import cloud.xcan.jmock.core.environment.Environment;
 import cloud.xcan.jmock.core.parser.docs.model.MockConstructor;
 import cloud.xcan.jmock.core.parser.docs.model.MockFunction;
 import cloud.xcan.jmock.core.parser.docs.model.MockParameter;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import java.io.FileOutputStream;
@@ -30,6 +29,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -101,7 +101,10 @@ public class MockFunctionDocParser {
         // Parsing constructors information
         List<MockConstructor> mockConstructors = new ArrayList<>();
         java.lang.reflect.Constructor<?>[] constructors = entry.getValue().getConstructors();
-        Assert.assertNotEmpty(constructors, "Mock function constructor is required");
+        if (isEmpty(constructors)) {
+          throw new IllegalStateException("Mock function constructor is required");
+        }
+
         for (Constructor<?> constructor : constructors) {
           constructor.setAccessible(false);
           JMockConstructor constructAnnotation = constructor.getAnnotation(JMockConstructor.class);
@@ -152,7 +155,7 @@ public class MockFunctionDocParser {
   }
 
   public List<MockFunction> load(SupportedLanguage language) {
-    return caches.get(language.getValue(), key -> parse(language) /* Create and cache */);
+    return caches.get(language.name(), key -> parse(language) /* Create and cache */);
   }
 
   public List<MockFunction> reload(SupportedLanguage language) {
@@ -164,11 +167,12 @@ public class MockFunctionDocParser {
   public static void main(String[] args) throws IOException {
     MockFunctionDocParser generator = new MockFunctionDocParser();
     List<MockFunction> mockFunctions = generator.parse(SupportedLanguage.en);
-    String absolutePath = MockFunctionDocParser.class.getClassLoader().getResource("").getPath();
+    String absolutePath = Objects.requireNonNull(
+        MockFunctionDocParser.class.getClassLoader().getResource("")).getPath();
     String filePath = absolutePath + "JMockFunction.json";
     System.out.println(filePath);
     FileOutputStream fos = new FileOutputStream(filePath);
-    fos.write(JsonUtils.toJson(mockFunctions).getBytes());
+    fos.write(new ObjectMapper().writeValueAsString(mockFunctions).getBytes());
     fos.close();
   }
 }

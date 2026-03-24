@@ -36,7 +36,8 @@ class CompanyDataGeneratorTest {
     for (int i = 0; i < 100; i++) {
       names.add(company.mock());
     }
-    assertTrue(names.size() >= 50, "Should generate at least 50 distinct Chinese company names, got: " + names.size());
+    assertTrue(names.size() >= 50,
+        "Should generate at least 50 distinct Chinese company names, got: " + names.size());
   }
 
   @RepeatedTest(20)
@@ -125,7 +126,9 @@ class CompanyDataGeneratorTest {
       enTitles.add(enJob.mock());
     }
 
-    assertTrue(cnTitles.size() >= 10, "Should generate a variety of Chinese job titles, got: " + cnTitles.size());
-    assertTrue(enTitles.size() >= 10, "Should generate a variety of English job titles, got: " + enTitles.size());
+    assertTrue(cnTitles.size() >= 10,
+        "Should generate a variety of Chinese job titles, got: " + cnTitles.size());
+    assertTrue(enTitles.size() >= 10,
+        "Should generate a variety of English job titles, got: " + enTitles.size());
   }
 }

@@ -3,6 +3,7 @@ package cloud.xcan.jmock.plugin;
 import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_CATEGORY_CODE;
 import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_MARKDOWN_C1;
 import static cloud.xcan.jmock.plugin.CodeDocMessage.DOC_MARKDOWN_DESC;
+
 import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
@@ -685,12 +686,14 @@ public class MMarkdown extends AbstractMockFunction {
 
     int rows = 5 + JMockRandom.nextInt(6);
     for (int i = 0; i < rows; i++) {
-      String param = "`config." + PROGRAMMING_TERMS[JMockRandom.nextInt(PROGRAMMING_TERMS.length)] + "`";
+      String param =
+          "`config." + PROGRAMMING_TERMS[JMockRandom.nextInt(PROGRAMMING_TERMS.length)] + "`";
       String type = JMockRandom.nextBoolean() ? "string" : "integer";
       String defaultValue =
           JMockRandom.nextBoolean() ? "`null`" : (JMockRandom.nextBoolean() ? "`0`" : "`\"\"`");
-      String description = ADJECTIVES[JMockRandom.nextInt(ADJECTIVES.length)] + " configuration for " +
-          PROGRAMMING_TERMS[JMockRandom.nextInt(PROGRAMMING_TERMS.length)];
+      String description =
+          ADJECTIVES[JMockRandom.nextInt(ADJECTIVES.length)] + " configuration for " +
+              PROGRAMMING_TERMS[JMockRandom.nextInt(PROGRAMMING_TERMS.length)];
       String required = JMockRandom.nextBoolean() ? "Yes" : "No";
 
       table.append("| ").append(param).append(" | ")
@@ -707,16 +710,14 @@ public class MMarkdown extends AbstractMockFunction {
     StringBuilder table = new StringBuilder();
 
     int columns = 3;
-    int rows = 3 + random.nextInt(4);
+    int rows = 3 + JMockRandom.nextInt(4);
 
     table.append("|");
     for (int i = 0; i < columns; i++) {
       table.append(" Header ").append(i + 1).append(" |");
     }
     table.append("\n|");
-    for (int i = 0; i < columns; i++) {
-      table.append("---|");
-    }
+    table.append("---|".repeat(columns));
     table.append("\n");
 
     for (int i = 0; i < rows; i++) {
@@ -726,11 +727,11 @@ public class MMarkdown extends AbstractMockFunction {
         if (i == 0 && j == 0) {
           cellContent = "**Key**";
         } else if (j == 0) {
-          cellContent = PROGRAMMING_TERMS[random.nextInt(PROGRAMMING_TERMS.length)];
+          cellContent = PROGRAMMING_TERMS[JMockRandom.nextInt(PROGRAMMING_TERMS.length)];
         } else if (j == 1) {
-          cellContent = ADJECTIVES[random.nextInt(ADJECTIVES.length)];
+          cellContent = ADJECTIVES[JMockRandom.nextInt(ADJECTIVES.length)];
         } else {
-          cellContent = VERBS[random.nextInt(VERBS.length)];
+          cellContent = VERBS[JMockRandom.nextInt(VERBS.length)];
         }
         table.append(" ").append(cellContent).append(" |");
       }
@@ -745,7 +746,7 @@ public class MMarkdown extends AbstractMockFunction {
 
   public static String generateCallout() {
     String[] calloutTypes = {"info", "warning", "tip", "danger"};
-    String type = calloutTypes[random.nextInt(calloutTypes.length)];
+    String type = calloutTypes[JMockRandom.nextInt(calloutTypes.length)];
     return "> [!" + type + "]\n> " + generateParagraph(1, 2);
   }
 

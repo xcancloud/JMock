@@ -1,10 +1,9 @@
 package cloud.xcan.jmock.plugin.array;
 
 import cloud.xcan.jmock.plugin.MRepeat;
+import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.util.List;
 
 /**
  * Unit tests for {@link MRepeat}.

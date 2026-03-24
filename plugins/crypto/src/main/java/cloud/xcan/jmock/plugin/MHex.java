@@ -9,10 +9,10 @@ import static cloud.xcan.jmock.plugin.CryptoDocMessage.DOC_HEX_PARAMETER_LENGTH;
 
 import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.JMockRandom;
-import cloud.xcan.jmock.api.exception.ParamParseException;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
 import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
+import cloud.xcan.jmock.api.exception.ParamParseException;
 import java.util.HexFormat;
 
 @JMockFunctionRegister(descI18nKey = DOC_HEX_DESC,

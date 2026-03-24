@@ -7,8 +7,8 @@ import static cloud.xcan.jmock.api.support.utils.EncryptionUtils.SHA384_VERSION;
 
 import cloud.xcan.jmock.AbstractBenchmark;
 import cloud.xcan.jmock.api.FunctionToken;
-import cloud.xcan.jmock.plugin.MSha;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
+import cloud.xcan.jmock.plugin.MSha;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.runner.Runner;

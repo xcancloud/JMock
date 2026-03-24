@@ -27,13 +27,6 @@
 
       <dependency>
         <groupId>cloud.xcan.jmock</groupId>
-        <artifactId>xcan-jmock.support</artifactId>
-        <version>${project.version}</version>
-        <scope>compile</scope>
-      </dependency>
-
-      <dependency>
-        <groupId>cloud.xcan.jmock</groupId>
         <artifactId>xcan-jmock.core</artifactId>
         <version>${project.version}</version>
         <scope>compile</scope>

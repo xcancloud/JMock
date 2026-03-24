@@ -2,8 +2,8 @@ package cloud.xcan.jmock.function;
 
 import cloud.xcan.jmock.AbstractBenchmark;
 import cloud.xcan.jmock.api.FunctionToken;
-import cloud.xcan.jmock.plugin.MMd5;
 import cloud.xcan.jmock.core.parser.SimpleMockFunctionTokenParser;
+import cloud.xcan.jmock.plugin.MMd5;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.runner.Runner;

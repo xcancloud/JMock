@@ -40,7 +40,8 @@ public class MEnumMockTest {
       }
     }
     // With 2:1 weight, DocGenerator should appear roughly 2/3 of the time
-    Assertions.assertTrue(aCount > 100, "DocGenerator should appear frequently with 2:1 weight, got: " + aCount);
+    Assertions.assertTrue(aCount > 100,
+        "DocGenerator should appear frequently with 2:1 weight, got: " + aCount);
   }
 
   @Test

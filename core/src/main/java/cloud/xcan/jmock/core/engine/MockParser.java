@@ -211,5 +211,6 @@ public final class MockParser {
   }
 
   private record ParseResult(MockExpr expr, int endPos) {
+
   }
 }

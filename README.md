@@ -65,10 +65,11 @@ generation.
 1. **Add Maven Dependency**
 
 ```xml
+
 <dependency>
-   <groupId>cloud.xcan.jmock</groupId>
-   <artifactId>xcan-jmock.core</artifactId>
-   <version>1.0.0</version>
+  <groupId>cloud.xcan.jmock</groupId>
+  <artifactId>xcan-jmock.core</artifactId>
+  <version>1.0.0</version>
 </dependency>
 ```
 
@@ -84,12 +85,14 @@ String content = """
       "address": "@Address()",
       "hobbies": [ "reading", "hiking",  "cooking" ]
     }""";
-    
+
 // Process mock functions
 String result = new DefaultMockTextReplacer().replace(content);
 
 // Output result
-System.out.println(result);
+System.out.
+
+println(result);
 ```
 
 ***Output:***
@@ -100,6 +103,10 @@ System.out.println(result);
   "email": "9alJWYsUGJuJZtGuXT@yahoo.com.cn",
   "phone": "15292153757",
   "address": "ul. Akademika Pavlova, 12к3, Moskva",
-  "hobbies": [ "reading", "hiking",  "cooking" ]
+  "hobbies": [
+    "reading",
+    "hiking",
+    "cooking"
+  ]
 }
 ```

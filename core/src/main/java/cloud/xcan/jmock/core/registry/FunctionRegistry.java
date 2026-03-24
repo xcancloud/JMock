@@ -7,8 +7,8 @@ import java.util.Optional;
 /**
  * Registry for looking up MockFunction implementations by name or alias.
  * <p>
- * Replaces the old {@code Environment} interface with a cleaner, more focused API.
- * Uses ConcurrentHashMap internally for thread safety without synchronized methods.
+ * Replaces the old {@code Environment} interface with a cleaner, more focused API. Uses
+ * ConcurrentHashMap internally for thread safety without synchronized methods.
  *
  * @since 2.0.0
  */

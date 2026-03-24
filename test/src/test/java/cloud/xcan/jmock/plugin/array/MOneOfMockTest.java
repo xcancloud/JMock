@@ -1,11 +1,10 @@
 package cloud.xcan.jmock.plugin.array;
 
 import cloud.xcan.jmock.plugin.MOneOf;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 import java.util.HashSet;
 import java.util.Set;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit tests for {@link MOneOf}.
@@ -55,9 +54,14 @@ public class MOneOfMockTest {
     boolean sawNo = false;
     for (int i = 0; i < 100; i++) {
       String result = mock.mock().toString();
-      if ("yes".equals(result)) sawYes = true;
-      else if ("no".equals(result)) sawNo = true;
-      if (sawYes && sawNo) break;
+      if ("yes".equals(result)) {
+        sawYes = true;
+      } else if ("no".equals(result)) {
+        sawNo = true;
+      }
+      if (sawYes && sawNo) {
+        break;
+      }
     }
     Assertions.assertTrue(sawYes, "Should see 'yes'");
     Assertions.assertTrue(sawNo, "Should see 'no'");

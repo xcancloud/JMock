@@ -6,8 +6,8 @@ import java.util.concurrent.ThreadLocalRandom;
 /**
  * Shared random source for all JMock functions.
  * <p>
- * Uses {@link ThreadLocalRandom} by default for high-throughput performance.
- * Call {@link #secure()} to obtain a cryptographically strong instance when needed.
+ * Uses {@link ThreadLocalRandom} by default for high-throughput performance. Call {@link #secure()}
+ * to obtain a cryptographically strong instance when needed.
  */
 public final class JMockRandom {
 
@@ -17,16 +17,16 @@ public final class JMockRandom {
   }
 
   /**
-   * Returns a high-performance, thread-local random generator.
-   * Suitable for the vast majority of mock data generation scenarios.
+   * Returns a high-performance, thread-local random generator. Suitable for the vast majority of
+   * mock data generation scenarios.
    */
   public static ThreadLocalRandom current() {
     return ThreadLocalRandom.current();
   }
 
   /**
-   * Returns a cryptographically secure random generator.
-   * Use only when security-quality randomness is required (e.g., key generation).
+   * Returns a cryptographically secure random generator. Use only when security-quality randomness
+   * is required (e.g., key generation).
    */
   public static SecureRandom secure() {
     if (secureInstance == null) {

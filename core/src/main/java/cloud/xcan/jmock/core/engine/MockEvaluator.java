@@ -116,7 +116,8 @@ public final class MockEvaluator {
     return switch (expr) {
       case MockExpr.TextSegment ts -> ts.text();
       case MockExpr.FunctionCall fc -> reconstructToken(fc);
-      case MockExpr.ArrayExpr ae -> "@Repeat(" + reconstructExpr(ae.itemExpr()) + "," + ae.count() + ")";
+      case MockExpr.ArrayExpr ae ->
+          "@Repeat(" + reconstructExpr(ae.itemExpr()) + "," + ae.count() + ")";
     };
   }
 }

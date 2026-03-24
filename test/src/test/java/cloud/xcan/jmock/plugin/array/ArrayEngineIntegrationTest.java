@@ -1,18 +1,16 @@
 package cloud.xcan.jmock.plugin.array;
 
 import cloud.xcan.jmock.core.engine.MockEngine;
+import java.util.List;
+import java.util.Set;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-import java.util.Set;
-
 /**
- * Integration tests for array-plugin functions via the full {@link MockEngine}.
- * Verifies:
- *  1. JSON array output (rendered as ["a","b","c"] or [1,2,3])
- *  2. Function nesting via @Repeat(@SomeFunc(), N) → ArrayExpr
+ * Integration tests for array-plugin functions via the full {@link MockEngine}. Verifies: 1. JSON
+ * array output (rendered as ["a","b","c"] or [1,2,3]) 2. Function nesting via @Repeat(@SomeFunc(),
+ * N) → ArrayExpr
  */
 public class ArrayEngineIntegrationTest {
 

@@ -1,6 +1,6 @@
 package cloud.xcan.jmock.api;
 
-import static cloud.xcan.angus.spec.utils.ObjectUtils.mapEquals;
+import static cloud.xcan.jmock.api.support.utils.TypeUtils.mapEquals;
 import static org.apache.commons.lang3.ObjectUtils.isNotEmpty;
 
 import java.util.HashMap;

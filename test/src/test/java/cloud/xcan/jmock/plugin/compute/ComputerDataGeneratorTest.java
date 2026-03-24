@@ -62,7 +62,8 @@ public class ComputerDataGeneratorTest {
     String cpu = new MCpuModel().mock();
     assertNotNull(cpu);
     assertTrue(cpu.length() >= 5, "CPU model too short: " + cpu);
-    assertTrue(cpu.startsWith("Intel ") || cpu.startsWith("AMD ") || cpu.contains("Apple") || cpu.startsWith("M"),
+    assertTrue(cpu.startsWith("Intel ") || cpu.startsWith("AMD ") || cpu.contains("Apple")
+            || cpu.startsWith("M"),
         "CPU should have known manufacturer prefix: " + cpu);
   }
 
@@ -183,7 +184,8 @@ public class ComputerDataGeneratorTest {
     for (int i = 0; i < 100; i++) {
       frameworks.add(gen.mock());
     }
-    assertTrue(frameworks.size() >= 5, "Should cover multiple frameworks, got: " + frameworks.size());
+    assertTrue(frameworks.size() >= 5,
+        "Should cover multiple frameworks, got: " + frameworks.size());
   }
 
   @RepeatedTest(20)
@@ -258,6 +260,7 @@ public class ComputerDataGeneratorTest {
     for (int i = 0; i < 100; i++) {
       vulns.add(gen.mock());
     }
-    assertTrue(vulns.size() >= 5, "Should cover multiple vulnerability types, got: " + vulns.size());
+    assertTrue(vulns.size() >= 5,
+        "Should cover multiple vulnerability types, got: " + vulns.size());
   }
 }

@@ -35,5 +35,3 @@ public @interface JMockParameter {
   boolean required() default false;
 
 }
-
-}

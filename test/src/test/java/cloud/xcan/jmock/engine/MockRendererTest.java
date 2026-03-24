@@ -3,13 +3,12 @@ package cloud.xcan.jmock.engine;
 import cloud.xcan.jmock.core.engine.MockExpr;
 import cloud.xcan.jmock.core.engine.MockRenderer;
 import cloud.xcan.jmock.core.registry.FunctionRegistry;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit tests for {@link MockRenderer}.
@@ -106,6 +105,7 @@ public class MockRendererTest {
   }
 
   private static class StubRegistry implements FunctionRegistry {
+
     private final java.util.Map<String, Class<? extends cloud.xcan.jmock.api.MockFunction>> map =
         new java.util.HashMap<>();
 
@@ -130,7 +130,9 @@ public class MockRendererTest {
     }
 
     @Override
-    public java.util.Collection<String> registeredNames() { return map.keySet(); }
+    public java.util.Collection<String> registeredNames() {
+      return map.keySet();
+    }
 
     @Override
     public java.util.Collection<Class<? extends cloud.xcan.jmock.api.MockFunction>> registeredClasses() {
@@ -138,15 +140,23 @@ public class MockRendererTest {
     }
 
     @Override
-    public void reload() {}
+    public void reload() {
+    }
 
     @Override
-    public void clear() { map.clear(); }
+    public void clear() {
+      map.clear();
+    }
   }
 
   public static class QuotedStrMock extends cloud.xcan.jmock.api.AbstractMockFunction {
-    public QuotedStrMock() {}
+
+    public QuotedStrMock() {
+    }
+
     @Override
-    public Object mock() { return "say \"hi\""; }
+    public Object mock() {
+      return "say \"hi\"";
+    }
   }
 }

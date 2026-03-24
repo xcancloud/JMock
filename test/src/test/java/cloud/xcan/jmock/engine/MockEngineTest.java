@@ -1,17 +1,16 @@
 package cloud.xcan.jmock.engine;
 
 import cloud.xcan.jmock.core.engine.MockEngine;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 /**
- * Integration tests for {@link MockEngine} using the default SPI registry.
- * These tests require plugin JARs to be on the classpath (provided by xcan-jmock.all-plugin).
+ * Integration tests for {@link MockEngine} using the default SPI registry. These tests require
+ * plugin JARs to be on the classpath (provided by xcan-jmock.all-plugin).
  */
 public class MockEngineTest {
 
@@ -62,7 +61,8 @@ public class MockEngineTest {
     Assertions.assertTrue(result.startsWith("id="), "Should start with 'id=': " + result);
     Assertions.assertTrue(result.endsWith(",ok"), "Should end with ',ok': " + result);
     String middle = result.substring(3, result.length() - 3);
-    Assertions.assertDoesNotThrow(() -> Long.parseLong(middle), "Middle should be numeric: " + middle);
+    Assertions.assertDoesNotThrow(() -> Long.parseLong(middle),
+        "Middle should be numeric: " + middle);
   }
 
   @Test
@@ -78,7 +78,8 @@ public class MockEngineTest {
     Object result = engine.evaluate("@Integer(1,100)");
     Assertions.assertNotNull(result);
     // raw result is a Number
-    Assertions.assertInstanceOf(Number.class, result, "Expected Number but got: " + result.getClass());
+    Assertions.assertInstanceOf(Number.class, result,
+        "Expected Number but got: " + result.getClass());
   }
 
   @Test
@@ -102,7 +103,9 @@ public class MockEngineTest {
       } else {
         sawValue = true;
       }
-      if (sawNull && sawValue) break;
+      if (sawNull && sawValue) {
+        break;
+      }
     }
     Assertions.assertTrue(sawNull || sawValue, "Should return something");
   }

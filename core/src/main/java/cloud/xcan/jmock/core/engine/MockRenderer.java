@@ -7,9 +7,8 @@ import java.util.StringJoiner;
 /**
  * Single-pass renderer that walks the AST list and builds the final output string.
  * <p>
- * Replaces the old O(n*m) offset-tracking approach in DefaultMockExpressionReplacer
- * with an O(n) StringBuilder assembly. Thread-safe when used with a thread-safe
- * FunctionRegistry.
+ * Replaces the old O(n*m) offset-tracking approach in DefaultMockExpressionReplacer with an O(n)
+ * StringBuilder assembly. Thread-safe when used with a thread-safe FunctionRegistry.
  *
  * @since 2.0.0
  */
@@ -45,8 +44,8 @@ public final class MockRenderer {
   }
 
   /**
-   * Render a list of AST nodes, returning the raw evaluated objects.
-   * Useful when the caller wants typed results instead of stringified output.
+   * Render a list of AST nodes, returning the raw evaluated objects. Useful when the caller wants
+   * typed results instead of stringified output.
    *
    * @param nodes    the parsed AST
    * @param registry the function registry
@@ -62,8 +61,8 @@ public final class MockRenderer {
   }
 
   /**
-   * Format a result value for string rendering.
-   * Lists (from ArrayExpr) are rendered as JSON-style arrays.
+   * Format a result value for string rendering. Lists (from ArrayExpr) are rendered as JSON-style
+   * arrays.
    */
   @SuppressWarnings("unchecked")
   private String formatResult(Object result) {

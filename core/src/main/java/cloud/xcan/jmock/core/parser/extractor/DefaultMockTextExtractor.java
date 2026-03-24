@@ -1,11 +1,11 @@
 package cloud.xcan.jmock.core.parser.extractor;
 
-import static cloud.xcan.angus.spec.utils.ObjectUtils.isEmpty;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARSER_FUNC_NAME_EMPTY;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARSER_FUNC_NAME_INVALID;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARSER_FUNC_NAME_START_NOT_UPPERCASE;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARSER_PARAMETER_NAME_INVALID;
 import static cloud.xcan.jmock.api.i18n.JMockMessage.PARSER_TEXT_IS_EMPTY;
+import static org.apache.commons.lang3.ObjectUtils.isEmpty;
 
 import cloud.xcan.jmock.api.FunctionToken;
 import cloud.xcan.jmock.api.TokenChars;

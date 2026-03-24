@@ -4,18 +4,17 @@ import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.core.engine.MockEvaluator;
 import cloud.xcan.jmock.core.engine.MockExpr;
 import cloud.xcan.jmock.core.registry.FunctionRegistry;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
- * Unit tests for {@link MockEvaluator}.
- * Uses a hand-crafted stub registry to isolate the evaluator.
+ * Unit tests for {@link MockEvaluator}. Uses a hand-crafted stub registry to isolate the
+ * evaluator.
  */
 public class MockEvaluatorTest {
 
@@ -105,6 +104,7 @@ public class MockEvaluatorTest {
   // ----- Stub registry -----
 
   static class StubRegistry implements FunctionRegistry {
+
     private final java.util.Map<String, Class<? extends cloud.xcan.jmock.api.MockFunction>> map =
         new java.util.HashMap<>();
 
@@ -139,7 +139,8 @@ public class MockEvaluatorTest {
     }
 
     @Override
-    public void reload() {}
+    public void reload() {
+    }
 
     @Override
     public void clear() {
@@ -150,28 +151,51 @@ public class MockEvaluatorTest {
   // ----- Mock function stubs -----
 
   public static class ConstantStrMock extends AbstractMockFunction {
-    public ConstantStrMock() {}
+
+    public ConstantStrMock() {
+    }
+
     @Override
-    public Object mock() { return "CONSTANT"; }
+    public Object mock() {
+      return "CONSTANT";
+    }
   }
 
   public static class NullReturnMock extends AbstractMockFunction {
-    public NullReturnMock() {}
+
+    public NullReturnMock() {
+    }
+
     @Override
-    public Object mock() { return null; }
+    public Object mock() {
+      return null;
+    }
   }
 
   public static class EchoFirstArgMock extends AbstractMockFunction {
+
     private final String first;
-    public EchoFirstArgMock(String first, String second) { this.first = first; }
+
+    public EchoFirstArgMock(String first, String second) {
+      this.first = first;
+    }
+
     @Override
-    public Object mock() { return first; }
+    public Object mock() {
+      return first;
+    }
   }
 
   public static class CounterMock extends AbstractMockFunction {
+
     static final AtomicInteger COUNTER = new AtomicInteger(0);
-    public CounterMock() {}
+
+    public CounterMock() {
+    }
+
     @Override
-    public Object mock() { return COUNTER.incrementAndGet(); }
+    public Object mock() {
+      return COUNTER.incrementAndGet();
+    }
   }
 }

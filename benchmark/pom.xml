@@ -12,7 +12,7 @@
   </parent>
 
   <artifactId>xcan-jmock.benchmark</artifactId>
-  <name>JMock :: Micro Benchmark</name>
+  <name>JMock :: Benchmark</name>
   <packaging>jar</packaging>
 
   <dependencies>

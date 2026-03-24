@@ -1,7 +1,7 @@
 package cloud.xcan.jmock.core.exception;
 
-import static cloud.xcan.angus.spec.utils.ObjectUtils.isEmpty;
 import static cloud.xcan.jmock.api.i18n.ThreadLocaleHolder.getLocale;
+import static org.apache.commons.lang3.ObjectUtils.isEmpty;
 
 import cloud.xcan.jmock.api.i18n.MessageResources;
 

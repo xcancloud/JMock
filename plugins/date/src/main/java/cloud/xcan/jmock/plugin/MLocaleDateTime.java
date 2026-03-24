@@ -1,6 +1,6 @@
 package cloud.xcan.jmock.plugin;
 
-import static cloud.xcan.angus.spec.utils.ObjectUtils.nullSafe;
+import static cloud.xcan.jmock.api.support.utils.TypeUtils.nullSafe;
 import static cloud.xcan.jmock.plugin.DateDocMessage.DOC_CATEGORY_DATE;
 import static cloud.xcan.jmock.plugin.DateDocMessage.DOC_LOCALE_DATE_PARAMETER_ZONEID;
 import static cloud.xcan.jmock.plugin.DateDocMessage.DOC_LOCALE_DATE_TIME_C1;
