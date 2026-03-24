@@ -1,6 +1,5 @@
 package cloud.xcan.jmock.plugin;
 
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
 import static cloud.xcan.jmock.api.i18n.MessageResources.getString;
 import static cloud.xcan.jmock.plugin.CompanyDocMessage.DATA_COMPANY_TYPES;
 import static cloud.xcan.jmock.plugin.CompanyDocMessage.DATA_COMPANY_WORDS;
@@ -13,7 +12,6 @@ import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
-import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
@@ -26,9 +24,6 @@ public class MCompany extends AbstractMockFunction {
   private final String[] companyWords;
   private final boolean isChinese;
 
-  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE)
-  private final Locale locale;
-
   @JMockConstructor(descI18nKey = DOC_COMPANY_C1,
       example = "@Company()",
       exampleValues = {"云信达咨询公司", "东方有限公司"})
@@ -40,7 +35,6 @@ public class MCompany extends AbstractMockFunction {
       example = "@Company(en)",
       exampleValues = {"Alpha Gamma Digital Corp.", "Gamma Apex Strategic Holdings"})
   public MCompany(Locale locale) {
-    this.locale = locale;
     this.isChinese = locale.equals(Locale.CHINA);
     this.companyTypes = getString(DATA_COMPANY_TYPES, locale).split("\\|");
     this.companyWords = getString(DATA_COMPANY_WORDS, locale).split("\\|");

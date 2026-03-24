@@ -1,6 +1,5 @@
 package cloud.xcan.jmock.plugin;
 
-import static cloud.xcan.jmock.api.i18n.JMockFuncDocMessage.DOC_PARAMETER_LOCALE;
 import static cloud.xcan.jmock.api.i18n.MessageResources.getString;
 import static cloud.xcan.jmock.plugin.CompanyDocMessage.DATA_DEPARTMENTS;
 import static cloud.xcan.jmock.plugin.CompanyDocMessage.DOC_CATEGORY_COMPANY;
@@ -12,7 +11,6 @@ import cloud.xcan.jmock.api.AbstractMockFunction;
 import cloud.xcan.jmock.api.JMockRandom;
 import cloud.xcan.jmock.api.docs.annotation.JMockConstructor;
 import cloud.xcan.jmock.api.docs.annotation.JMockFunctionRegister;
-import cloud.xcan.jmock.api.docs.annotation.JMockParameter;
 import java.util.Locale;
 
 @JMockFunctionRegister(descI18nKey = DOC_DEPARTMENT_DESC,
@@ -20,9 +18,6 @@ import java.util.Locale;
 public class MDepartment extends AbstractMockFunction {
 
   private final String[] departments;
-
-  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE)
-  private final Locale locale;
 
   @JMockConstructor(descI18nKey = DOC_DEPARTMENT_C1,
       example = "@Department()",
@@ -35,7 +30,6 @@ public class MDepartment extends AbstractMockFunction {
       example = "@Department(en)",
       exampleValues = {"Finance", "Sales"})
   public MDepartment(Locale locale) {
-    this.locale = locale;
     this.departments = getString(DATA_DEPARTMENTS, locale).split("\\|");
   }
 

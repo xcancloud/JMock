@@ -14,7 +14,7 @@ public class MRepeatMockTest {
   public void case1_staticStringRepeated() {
     MRepeat mock = new MRepeat("hello", 3);
     Object result = mock.mock();
-    Assertions.assertInstanceOf(List.class, result);
+    Assertions.assertTrue(result instanceof List);
     List<?> list = (List<?>) result;
     Assertions.assertEquals(3, list.size());
     list.forEach(item -> Assertions.assertEquals("hello", item));

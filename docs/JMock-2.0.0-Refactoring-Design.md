@@ -330,10 +330,22 @@ JSON Spec 中也将包含 `since` 字段，官网可据此标注新增函数徽�
 ```java
 // 新增 AST 节点类型
 sealed interface MockExpr {
-    record Literal(String text) implements MockExpr {}
-    record FunctionCall(String name, List<MockExpr> args) implements MockExpr {}
-    record ArrayExpr(MockExpr itemExpr, int count) implements MockExpr {}
-    record PipeExpr(MockExpr source, MockExpr transform) implements MockExpr {}  // 预留
+
+  record Literal(String text) implements MockExpr {
+
+  }
+
+  record FunctionCall(String name, List<MockExpr> args) implements MockExpr {
+
+  }
+
+  record ArrayExpr(MockExpr itemExpr, int count) implements MockExpr {
+
+  }
+
+  record PipeExpr(MockExpr source, MockExpr transform) implements MockExpr {
+
+  }  // 预留
 }
 ```
 
@@ -347,29 +359,30 @@ sealed interface MockExpr {
 ### 4.4 内置数组函数实现
 
 ```java
+
 @JMockFunctionRegister(descI18nKey = "func.repeat.desc",
     categoryI18nKey = {"Array"}, order = 1, since = "2.0.0")
 public class MRepeat<T> extends AbstractMockFunction {
 
-    private final MockFunction<T> innerFunction;
-    private final int count;
+  private final MockFunction<T> innerFunction;
+  private final int count;
 
-    @JMockConstructor(descI18nKey = "func.repeat.c1",
-        example = "@Repeat(@Email(), 3)",
-        exampleValues = {"[\"a@x.com\",\"b@y.com\",\"c@z.org\"]"})
-    public MRepeat(MockFunction<T> innerFunction, int count) {
-        this.innerFunction = innerFunction;
-        this.count = count;
-    }
+  @JMockConstructor(descI18nKey = "func.repeat.c1",
+      example = "@Repeat(@Email(), 3)",
+      exampleValues = {"[\"a@x.com\",\"b@y.com\",\"c@z.org\"]"})
+  public MRepeat(MockFunction<T> innerFunction, int count) {
+    this.innerFunction = innerFunction;
+    this.count = count;
+  }
 
-    @Override
-    public List<T> mock() {
-        List<T> result = new ArrayList<>(count);
-        for (int i = 0; i < count; i++) {
-            result.add(innerFunction.mock());
-        }
-        return result;
+  @Override
+  public List<T> mock() {
+    List<T> result = new ArrayList<>(count);
+    for (int i = 0; i < count; i++) {
+      result.add(innerFunction.mock());
     }
+    return result;
+  }
 }
 ```
 
@@ -606,14 +619,15 @@ JMock/
 // jmock-api
 @FunctionalInterface
 public interface MockFunction<T> {
-    T mock();
 
-    /**
-     * 返回值类型声明（用于文档和序列化推断）
-     */
-    default Class<T> returnType() {
-        return (Class<T>) Object.class;
-    }
+  T mock();
+
+  /**
+   * 返回值类型声明（用于文档和序列化推断）
+   */
+  default Class<T> returnType() {
+    return (Class<T>) Object.class;
+  }
 }
 ```
 
@@ -622,16 +636,18 @@ public interface MockFunction<T> {
 ```java
 // jmock-api — 替代散落的反射读取
 public record MockFunctionMetadata(
-    String name,
-    String[] aliases,
-    String description,
-    String category,
-    String since,
-    boolean deprecated,
-    Class<?> returnType,
-    List<ParameterMeta> parameters,
-    List<ConstructorMeta> constructors
-) {}
+        String name,
+        String[] aliases,
+        String description,
+        String category,
+        String since,
+        boolean deprecated,
+        Class<?> returnType,
+        List<ParameterMeta> parameters,
+        List<ConstructorMeta> constructors
+    ) {
+
+}
 ```
 
 ### 7.3 `FunctionRegistry`（替代 Environment）
@@ -639,17 +655,23 @@ public record MockFunctionMetadata(
 ```java
 // jmock-core
 public interface FunctionRegistry {
-    void register(Class<? extends MockFunction<?>> clazz);
-    void register(String alias, Class<? extends MockFunction<?>> clazz);
-    Optional<Class<? extends MockFunction<?>>> lookup(String name);
-    Collection<MockFunctionMetadata> allMetadata();
-    Stream<MockFunctionMetadata> search(String keyword);
+
+  void register(Class<? extends MockFunction<?>> clazz);
+
+  void register(String alias, Class<? extends MockFunction<?>> clazz);
+
+  Optional<Class<? extends MockFunction<?>>> lookup(String name);
+
+  Collection<MockFunctionMetadata> allMetadata();
+
+  Stream<MockFunctionMetadata> search(String keyword);
 }
 
 // 默认实现
 public class DefaultFunctionRegistry implements FunctionRegistry {
-    private final ConcurrentHashMap<String, Class<? extends MockFunction<?>>> registry;
-    // SPI 自动加载 + 手动注册均支持
+
+  private final ConcurrentHashMap<String, Class<? extends MockFunction<?>>> registry;
+  // SPI 自动加载 + 手动注册均支持
 }
 ```
 
@@ -658,12 +680,26 @@ public class DefaultFunctionRegistry implements FunctionRegistry {
 ```java
 // jmock-core
 public sealed interface MockExpr {
-    record TextSegment(String text, int start, int end) implements MockExpr {}
-    record FunctionCall(String name, List<Argument> args, int start, int end) implements MockExpr {}
-    record ArrayExpr(MockExpr itemExpr, int count, int start, int end) implements MockExpr {}
-    record PipeExpr(MockExpr source, MockExpr transform, int start, int end) implements MockExpr {}
 
-    record Argument(String name, MockExpr value) {}
+  record TextSegment(String text, int start, int end) implements MockExpr {
+
+  }
+
+  record FunctionCall(String name, List<Argument> args, int start, int end) implements MockExpr {
+
+  }
+
+  record ArrayExpr(MockExpr itemExpr, int count, int start, int end) implements MockExpr {
+
+  }
+
+  record PipeExpr(MockExpr source, MockExpr transform, int start, int end) implements MockExpr {
+
+  }
+
+  record Argument(String name, MockExpr value) {
+
+  }
 }
 ```
 
@@ -672,26 +708,27 @@ public sealed interface MockExpr {
 ```java
 // jmock-core — 取代直接使用 Replacer/Extractor
 public class MockEngine {
-    private final FunctionRegistry registry;
-    private final MockLexer lexer;
-    private final MockParser parser;
-    private final MockEvaluator evaluator;
 
-    public static MockEngine defaultEngine() {
-        return new MockEngine(new DefaultFunctionRegistry());
-    }
+  private final FunctionRegistry registry;
+  private final MockLexer lexer;
+  private final MockParser parser;
+  private final MockEvaluator evaluator;
 
-    /** 模板文本替换 */
-    public String render(String template) { ... }
+  public static MockEngine defaultEngine() {
+    return new MockEngine(new DefaultFunctionRegistry());
+  }
 
-    /** 直接执行单个表达式 */
-    public <T> T evaluate(String expression) { ... }
+  /** 模板文本替换 */
+  public String render(String template) { ...}
 
-    /** 批量生成：同一模板生成 N 条记录 */
-    public List<String> renderBatch(String template, int count) { ... }
+  /** 直接执行单个表达式 */
+  public <T> T evaluate(String expression) { ...}
 
-    /** 导出函数目录为 JSON */
-    public String exportFunctionSpec(Locale locale) { ... }
+  /** 批量生成：同一模板生成 N 条记录 */
+  public List<String> renderBatch(String template, int count) { ...}
+
+  /** 导出函数目录为 JSON */
+  public String exportFunctionSpec(Locale locale) { ...}
 }
 ```
 
@@ -712,19 +749,20 @@ List<String> records = MockEngine.defaultEngine().renderBatch(template, 1000);
 
 ```java
 // v1.0.0 问题：双重 synchronized + HashMap
-public synchronized String replace(...) { ... }
+public synchronized String replace(...) { ...}
 
 // v2.0.0 方案
 public class MockEvaluator {
-    // 无状态解析：每次 render 创建独立的 context
-    public String evaluate(List<MockExpr> ast, FunctionRegistry registry) {
-        EvalContext ctx = new EvalContext(registry);
-        StringBuilder result = new StringBuilder(template.length());
-        for (MockExpr expr : ast) {
-            result.append(ctx.eval(expr));
-        }
-        return result.toString();
+
+  // 无状态解析：每次 render 创建独立的 context
+  public String evaluate(List<MockExpr> ast, FunctionRegistry registry) {
+    EvalContext ctx = new EvalContext(registry);
+    StringBuilder result = new StringBuilder(template.length());
+    for (MockExpr expr : ast) {
+      result.append(ctx.eval(expr));
     }
+    return result.toString();
+  }
 }
 
 // FunctionToken → MockFunction 缓存使用 ConcurrentHashMap
@@ -738,32 +776,33 @@ public class MockEvaluator {
 // v2.0.0：引入参数绑定器
 
 public class ParameterBinder {
-    /**
-     * 支持：
-     * 1. 位置参数 → 按声明顺序绑定
-     * 2. 命名参数 → 按名称绑定
-     * 3. 可选参数 → @DefaultValue 注解
-     * 4. MockExpr 参数 → 嵌套函数（数组场景）
-     */
-    public Object[] bind(ConstructorMeta meta, List<Argument> args) { ... }
+
+  /**
+   * 支持：
+   * 1. 位置参数 → 按声明顺序绑定
+   * 2. 命名参数 → 按名称绑定
+   * 3. 可选参数 → @DefaultValue 注解
+   * 4. MockExpr 参数 → 嵌套函数（数组场景）
+   */
+  public Object[] bind(ConstructorMeta meta, List<Argument> args) { ...}
 }
 
 // 函数声明方式改进
 public class MString extends AbstractMockFunction<String> {
 
-    @JMockParameter(descI18nKey = "...", defaultValue = "6")
-    private int length;
+  @JMockParameter(descI18nKey = "...", defaultValue = "6")
+  private int length;
 
-    // 新增 @DefaultValue，无需大量构造器重载
-    public MString(
-        @DefaultValue("6") int length,
-        @DefaultValue("") String chars,
-        @DefaultValue("") String nullWeight
-    ) {
-        this.length = length;
-        this.chars = chars;
-        this.nullWeight = nullWeight;
-    }
+  // 新增 @DefaultValue，无需大量构造器重载
+  public MString(
+      @DefaultValue("6") int length,
+      @DefaultValue("") String chars,
+      @DefaultValue("") String nullWeight
+  ) {
+    this.length = length;
+    this.chars = chars;
+    this.nullWeight = nullWeight;
+  }
 }
 ```
 

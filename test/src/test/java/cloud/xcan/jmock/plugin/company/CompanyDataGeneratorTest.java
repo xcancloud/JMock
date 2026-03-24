@@ -9,6 +9,7 @@ import cloud.xcan.jmock.plugin.MDepartment;
 import cloud.xcan.jmock.plugin.MIndustry;
 import cloud.xcan.jmock.plugin.MJob;
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.Set;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
@@ -24,7 +25,7 @@ class CompanyDataGeneratorTest {
 
   @RepeatedTest(20)
   void testGenerateRandomCompanyName_EN() {
-    String name = new MCompany("en").mock();
+    String name = new MCompany(Locale.ENGLISH).mock();
     assertNotNull(name);
     assertFalse(name.isEmpty());
   }
@@ -49,7 +50,7 @@ class CompanyDataGeneratorTest {
 
   @RepeatedTest(20)
   void testGenerateRandomIndustryCategory_EN() {
-    String category = new MIndustry("en").mock();
+    String category = new MIndustry(Locale.ENGLISH).mock();
     assertNotNull(category);
     assertFalse(category.isEmpty());
   }
@@ -59,7 +60,7 @@ class CompanyDataGeneratorTest {
     Set<String> cnCategories = new HashSet<>();
     Set<String> enCategories = new HashSet<>();
     MIndustry cnIndustry = new MIndustry();
-    MIndustry enIndustry = new MIndustry("en");
+    MIndustry enIndustry = new MIndustry(Locale.ENGLISH);
 
     for (int i = 0; i < 50; i++) {
       cnCategories.add(cnIndustry.mock());
@@ -79,7 +80,7 @@ class CompanyDataGeneratorTest {
 
   @RepeatedTest(20)
   void testGenerateRandomDepartmentName_EN() {
-    String dept = new MDepartment("en").mock();
+    String dept = new MDepartment(Locale.ENGLISH).mock();
     assertNotNull(dept);
     assertFalse(dept.isEmpty());
   }
@@ -89,7 +90,7 @@ class CompanyDataGeneratorTest {
     Set<String> cnDepts = new HashSet<>();
     Set<String> enDepts = new HashSet<>();
     MDepartment cnDept = new MDepartment();
-    MDepartment enDept = new MDepartment("en");
+    MDepartment enDept = new MDepartment(Locale.ENGLISH);
 
     for (int i = 0; i < 50; i++) {
       cnDepts.add(cnDept.mock());
@@ -109,7 +110,7 @@ class CompanyDataGeneratorTest {
 
   @RepeatedTest(20)
   void testGenerateRandomJobTitle_EN() {
-    String title = new MJob("en").mock();
+    String title = new MJob(Locale.ENGLISH).mock();
     assertNotNull(title);
     assertFalse(title.isEmpty());
   }
@@ -119,7 +120,7 @@ class CompanyDataGeneratorTest {
     Set<String> cnTitles = new HashSet<>();
     Set<String> enTitles = new HashSet<>();
     MJob cnJob = new MJob();
-    MJob enJob = new MJob("en");
+    MJob enJob = new MJob(Locale.ENGLISH);
 
     for (int i = 0; i < 50; i++) {
       cnTitles.add(cnJob.mock());

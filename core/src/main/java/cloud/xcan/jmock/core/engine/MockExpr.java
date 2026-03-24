@@ -27,6 +27,7 @@ public sealed interface MockExpr {
 
   /**
    * An array expression — wraps a function call to produce multiple values. Generated when
+   *
    * @Repeat(innerFunc, count) is parsed.
    */
   record ArrayExpr(MockExpr itemExpr, int count, int start, int end) implements MockExpr {

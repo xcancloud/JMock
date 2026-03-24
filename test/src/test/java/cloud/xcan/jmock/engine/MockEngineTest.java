@@ -78,7 +78,7 @@ public class MockEngineTest {
     Object result = engine.evaluate("@Integer(1,100)");
     Assertions.assertNotNull(result);
     // raw result is a Number
-    Assertions.assertInstanceOf(Number.class, result,
+    Assertions.assertTrue(result instanceof Number,
         "Expected Number but got: " + result.getClass());
   }
 
