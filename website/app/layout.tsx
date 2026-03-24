@@ -1,4 +1,5 @@
 import type {Metadata} from 'next';
+import Link from 'next/link';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -18,19 +19,19 @@ export default function RootLayout({
         <header className="border-b bg-white/80 backdrop-blur sticky top-0 z-50">
             <nav
                 className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-                <a href="/" className="text-xl font-bold text-primary-700">
+                <Link href="/" className="text-xl font-bold text-primary-700">
                     JMock
-                </a>
+                </Link>
                 <div className="flex gap-6 text-sm font-medium text-slate-600">
-                    <a href="/docs/getting-started" className="hover:text-primary-600">
+                    <Link href="/docs/getting-started" className="hover:text-primary-600">
                         Docs
-                    </a>
-                    <a href="/docs/functions" className="hover:text-primary-600">
+                    </Link>
+                    <Link href="/docs/functions" className="hover:text-primary-600">
                         Functions
-                    </a>
-                    <a href="/playground" className="hover:text-primary-600">
+                    </Link>
+                    <Link href="/playground" className="hover:text-primary-600">
                         Playground
-                    </a>
+                    </Link>
                     <a
                         href="https://github.com/xcan-cloud/JMock"
                         target="_blank"

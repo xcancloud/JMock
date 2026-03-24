@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import {useState} from 'react';
 import type {MockFunctionDef} from '@/lib/types';
 
@@ -65,7 +66,7 @@ export default function FunctionCatalog({functions, categories}: Props) {
             {/* Function Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {filtered.map((fn) => (
-                    <a
+                    <Link
                         key={fn.name}
                         href={`/docs/functions/${fn.name}`}
                         className="block p-4 bg-white border rounded-lg hover:shadow-md hover:border-primary-200 transition"
@@ -88,7 +89,7 @@ export default function FunctionCatalog({functions, categories}: Props) {
                 </span>
                             ))}
                         </div>
-                    </a>
+                    </Link>
                 ))}
             </div>
 

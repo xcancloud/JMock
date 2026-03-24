@@ -7,6 +7,9 @@ log.dir_IS_UNDEFINED
 temp
 .DS_Store
 REF.md
+node_modules/
+.next/
+out/
 
 ### STS ###
 .apt_generated

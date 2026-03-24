@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import type {MockFunctionDef} from '@/lib/types';
 
 interface Props {
@@ -112,12 +113,12 @@ export default function FunctionDetail({fn}: Props) {
             )}
 
             {/* Back link */}
-            <a
+            <Link
                 href="/docs/functions"
                 className="text-sm text-primary-600 hover:text-primary-700 font-medium"
             >
                 ← Back to Function Reference
-            </a>
+            </Link>
         </div>
     );
 }

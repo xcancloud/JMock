@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import {getCategories, loadFunctionSpec} from '@/lib/loadFunctions';
 
 const FEATURES = [
@@ -26,18 +27,18 @@ export default function HomePage() {
                     functions.
                 </p>
                 <div className="mt-8 flex gap-4 justify-center">
-                    <a
+                    <Link
                         href="/docs/getting-started"
                         className="px-6 py-3 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition"
                     >
                         Get Started
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                         href="/playground"
                         className="px-6 py-3 bg-slate-100 text-slate-700 rounded-lg font-medium hover:bg-slate-200 transition"
                     >
                         Try Online
-                    </a>
+                    </Link>
                 </div>
             </section>
 
@@ -92,13 +93,13 @@ export default function HomePage() {
                     <h2 className="text-2xl font-bold text-center mb-8">Function Categories</h2>
                     <div className="flex flex-wrap justify-center gap-3">
                         {categories.map((cat) => (
-                            <a
+                            <Link
                                 key={cat}
                                 href={`/docs/functions?category=${encodeURIComponent(cat)}`}
                                 className="px-4 py-2 bg-white border rounded-full text-sm font-medium text-slate-600 hover:bg-primary-50 hover:text-primary-700 hover:border-primary-200 transition"
                             >
                                 {cat}
-                            </a>
+                            </Link>
                         ))}
                     </div>
                 </section>
