@@ -1,1239 +1,1239 @@
 [ {
   "clazz" : "cloud.xcan.jmock.plugin.MString",
   "name" : "@String()",
-  "description" : "Generate random strings",
-  "tags" : [ "Data Types" ],
+  "description" : "生成随机字符串",
+  "tags" : [ "数据类型" ],
   "constructors" : [ {
     "instance" : "@String(arg0,arg1,arg2,arg3,arg4)",
-    "description" : "Full parameter constructor, see complete parameter documentation",
+    "description" : "完整参数构造器，具体请查看完整参数说明",
     "parameters" : [ ],
     "example" : "@String(1,,,ABCDE,\"1:2\")",
     "exampleValues" : [ "A", "null", "B", "C", "null" ]
   }, {
     "instance" : "@String(arg0,arg1)",
-    "description" : "Generate random string within specified length range",
+    "description" : "生成指定长度范围的随机字符",
     "parameters" : [ ],
     "example" : "@String(2,6)",
     "exampleValues" : [ "ht8ut", "cy" ]
   }, {
     "instance" : "@String(arg0,arg1,arg2)",
-    "description" : "Generate fixed-length string from custom character set with null ratio",
+    "description" : "在用户指定字符集内生成固定长度字符串，并指定null值占比",
     "parameters" : [ ],
     "example" : "@String(3,\"1:2\",abcdef123456)",
     "exampleValues" : [ "ec2", "f36", "c3a" ]
   }, {
     "instance" : "@String()",
-    "description" : "Generate 6-character fixed-length random string",
+    "description" : "生成6位固定长度的随机字符",
     "parameters" : null,
     "example" : "@String()",
     "exampleValues" : [ "ceja7d" ]
   }, {
     "instance" : "@String(arg0)",
-    "description" : "Generate fixed-length string",
+    "description" : "生成固定长度字符串",
     "parameters" : [ ],
     "example" : "@String(2)",
     "exampleValues" : [ "uy", "h8" ]
   }, {
     "instance" : "@String(arg0,arg1)",
-    "description" : "Generate variable-length string within specified range with null ratio",
+    "description" : "生产固定范围长度的字符串，并指定null值占比",
     "parameters" : [ ],
     "example" : "@String(3,\"1:2\")",
     "exampleValues" : [ "ec2", "null", "c3a" ]
   } ],
   "parameters" : [ {
     "name" : "length",
-    "description" : "String length, default 6, max length 2^31-1 characters"
+    "description" : "字符串长度，默认 6，最大长度 2^31-1 个字符"
   }, {
     "name" : "min",
-    "description" : "Minimum length, default 0 (returns empty string \"\") when not specified. If length is specified, this parameter is ignored"
+    "description" : "最小长度，不指定时默认长度 0（返回空串\"\"），如果同时指定了 length 当前参数不生效"
   }, {
     "name" : "max",
-    "description" : "Maximum length, max limit 2^31-1 characters. If length is specified, this parameter is ignored"
+    "description" : "最大长度，最大长度上限 2^31-1 个字符，如果同时指定了 length 当前参数不生效"
   }, {
     "name" : "chars",
-    "description" : "Character set for string generation. Default: 52 letters (a-z A-Z) and 10 digits (0-9). Max 2^31-1 characters, e.g.: 123456ABCDEF"
+    "description" : "用于生成字符串的字符集元素，不指定时默认从 52 英文字母（a-z A-Z）和 10 个阿拉伯数字（0-9）中随机选择指定长度字符串，最大 2^31-1 个字符数，如：123456ABCDEF"
   }, {
     "name" : "nullSampler",
-    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null"
   } ],
   "order" : 101
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MLong",
   "name" : "@Long()",
-  "description" : "Generate random long values (8 bytes)",
-  "tags" : [ "Data Types" ],
+  "description" : "用于生成任意长整型（8字节）数值",
+  "tags" : [ "数据类型" ],
   "constructors" : [ {
     "instance" : "@Long(arg0,arg1,arg2)",
-    "description" : "Generate random long between min and max with null ratio",
+    "description" : "完整参数构造器，生成一个值范围为 min ～ max 随机长整数，并指定null值占比",
     "parameters" : [ ],
     "example" : "@Long(-10000L,100000L,)",
     "exampleValues" : [ "198", "594", "-17865", "9876", "37092" ]
   }, {
     "instance" : "@Long(arg0,arg1)",
-    "description" : "Generate random long between min and max",
+    "description" : "生成一个值范围为 min ～ max 随机长整数",
     "parameters" : [ ],
     "example" : "@Long(1L,10000000000L)",
     "exampleValues" : [ "1109", "34008978", "87256252199901" ]
   }, {
     "instance" : "@Long(arg0)",
-    "description" : "Generate random long between 0 and 9223372036854775807 with null ratio",
+    "description" : "生成一个值范围为 0 ～ 9223372036854775807 随机长整数，并指定null值占比",
     "parameters" : [ ],
     "example" : "@Long(\"1:2\")",
     "exampleValues" : [ "98089", "null", "28907625479" ]
   }, {
     "instance" : "@Long()",
-    "description" : "Generate random long between 0 and 9223372036854775807",
+    "description" : "生成一个值范围为 0 ～ 9223372036854775807 随机长整数",
     "parameters" : null,
     "example" : "@Long()",
     "exampleValues" : [ "2567071027" ]
   } ],
   "parameters" : [ {
     "name" : "min",
-    "description" : "Minimum value, default 0L (L indicates long type)"
+    "description" : "最小值，不指定默认最小 0L，其中字符`L`表示值为长整形参数值"
   }, {
     "name" : "max",
-    "description" : "Maximum value, default 9223372036854775807L"
+    "description" : "最大值，不指定时默认最大 9223372036854775807L"
   }, {
     "name" : "nullSampler",
-    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null"
   } ],
   "order" : 102
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MInteger",
   "name" : "@Integer()",
-  "description" : "Generate random integer values (4 bytes)",
-  "tags" : [ "Data Types" ],
+  "description" : "用于生成任意整型（4字节）数值",
+  "tags" : [ "数据类型" ],
   "constructors" : [ {
     "instance" : "@Integer(arg0,arg1,arg2)",
-    "description" : "Generate random integer between min and max with null ratio",
+    "description" : "完整参数构造器，生成一个值范围为 min ～ max 随机整数，并指定null值占比",
     "parameters" : [ ],
     "example" : "@Integer(-100000,100000,\"1:3\")",
     "exampleValues" : [ "-7811", "null", "78732", "12909", "76028" ]
   }, {
     "instance" : "@Integer(arg0,arg1)",
-    "description" : "Generate random integer between min and max",
+    "description" : "生成一个值范围为 min ～ max 随机整数",
     "parameters" : [ ],
     "example" : "@Integer(100,200)",
     "exampleValues" : [ "162", "133", "191" ]
   }, {
     "instance" : "@Integer(arg0)",
-    "description" : "Generate random integer between 0 and 2147483647 with null ratio",
+    "description" : "生成一个值范围为 0 ～ 2147483647 随机整数，并指定null值占比",
     "parameters" : [ ],
     "example" : "@Integer(\"1:2\")",
     "exampleValues" : [ "8760182", "237", "null" ]
   }, {
     "instance" : "@Integer()",
-    "description" : "Generate random integer between 0 and 2147483647",
+    "description" : "生成一个值范围为 0 ～ 2147483647 随机整数",
     "parameters" : null,
     "example" : "@Integer()",
     "exampleValues" : [ "666", "8888" ]
   } ],
   "parameters" : [ {
     "name" : "min",
-    "description" : "Minimum value, default 0"
+    "description" : "最小值，不指定默认最小 0"
   }, {
     "name" : "max",
-    "description" : "Maximum value, default 2147483647"
+    "description" : "最大值，不指定时默认最大 2147483647"
   }, {
     "name" : "nullSampler",
-    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null"
   } ],
   "order" : 102
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MDouble",
   "name" : "@Double()",
-  "description" : "Generate random double values (8 bytes)",
-  "tags" : [ "Data Types" ],
+  "description" : "生成任意任意双精度浮点数（8字节）",
+  "tags" : [ "数据类型" ],
   "constructors" : [ {
     "instance" : "@Double(arg0,arg1,arg2,arg3)",
-    "description" : "Full parameter constructor, see complete parameter documentation",
+    "description" : "完整参数构造器，具体请查看完整参数说明",
     "parameters" : [ ],
     "example" : "@Double(88,99999,4,\"1:2\")",
     "exampleValues" : [ "888.9087", "null", "666.9087" ]
   }, {
     "instance" : "@Double(arg0,arg1,arg2)",
-    "description" : "Generate random double between min and max with specified precision",
+    "description" : "生成一个值范围为 min ～ max 且精度为 scale 随机双精度浮点型数值",
     "parameters" : [ ],
     "example" : "@Double(88,99999,4,\"1:2\")",
     "exampleValues" : [ "888.9087", "null", "666.9087" ]
   }, {
     "instance" : "@Double(arg0,arg1)",
-    "description" : "Generate random double between min and max",
+    "description" : "生成一个值范围为 min ～ max 随机长整数",
     "parameters" : [ ],
     "example" : "@Double(88,999999)",
     "exampleValues" : [ "99.99", "899.99", "7865.09" ]
   }, {
     "instance" : "@Double()",
-    "description" : "Generate random double between 0 and 1.79769313486231570e+308",
+    "description" : "生成一个值范围为 0 ～ 9223372036854775807 随机长整数",
     "parameters" : null,
     "example" : "@Double()",
     "exampleValues" : [ "78.99" ]
   }, {
     "instance" : "@Double(arg0)",
-    "description" : "Generate random double between 0 and 1.79769313486231570e+308 with specified precision",
+    "description" : "生成一个值范围为 0 ～ 3.40282346638528860e+38 精度为 scale 随机双精度浮点型数值",
     "parameters" : [ ],
     "example" : "@Double(3)",
     "exampleValues" : [ "7.987", "89.909", "85.231" ]
   }, {
     "instance" : "@Double(arg0)",
-    "description" : "Generate random double between 0 and 1.79769313486231570e+308 with null ratio",
+    "description" : "生成一个值范围为 0 ～ 9223372036854775807 随机长整数，并指定null值占比",
     "parameters" : [ ],
     "example" : "@Double(\"1:2\")",
     "exampleValues" : [ "89.90", "null", "999.90" ]
   } ],
   "parameters" : [ {
     "name" : "min",
-    "description" : "Minimum value, default 0D (D indicates double type)"
+    "description" : "最小值，不指定默认最小 0D，其中字符`D`表示值为双精度浮点型参数值"
   }, {
     "name" : "max",
-    "description" : "Maximum value, default 1.79769313486231570e+308"
+    "description" : "最大值，不指定时默认最大 1.79769313486231570e+308"
   }, {
     "name" : "scale",
-    "description" : "Precision digits, default 2"
+    "description" : "精度位，不指定时默认为 2"
   }, {
     "name" : "nullSampler",
-    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null"
   } ],
   "order" : 103
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MFloat",
   "name" : "@Float()",
-  "description" : "Generate random float values (4 bytes)",
-  "tags" : [ "Data Types" ],
+  "description" : "生成任意浮点型（4字节）数值",
+  "tags" : [ "数据类型" ],
   "constructors" : [ {
     "instance" : "@Float(arg0,arg1,arg2,arg3)",
-    "description" : "Full parameter constructor, see complete parameter documentation",
+    "description" : "完整参数构造器，具体请查看完整参数说明",
     "parameters" : [ ],
     "example" : "@Float(0,10,5,1:2)",
     "exampleValues" : [ "1.22222" ]
   }, {
     "instance" : "@Float(arg0,arg1,arg2)",
-    "description" : "Generate random float between min and max with specified precision",
+    "description" : "生成一个值范围为 min ～ max 且精度为 scale 随机浮点型数值",
     "parameters" : [ ],
     "example" : "@Float(5,15,2)",
     "exampleValues" : [ "5.22" ]
   }, {
     "instance" : "@Float(arg0)",
-    "description" : "Generate random float between 0 and 3.40282346638528860e+38 with specified precision",
+    "description" : "生成一个值范围为 0 ～ 3.40282346638528860e+38 精度为 scale 随机浮点型数值",
     "parameters" : [ ],
     "example" : "@Float(5)",
     "exampleValues" : [ "87901.01127", "3092290435.18326" ]
   }, {
     "instance" : "@Float()",
-    "description" : "Generate random float between 0 and 3.40282346638528860e+38",
+    "description" : "生成一个值范围为 0 ～ 3.40282346638528860e+38 随机浮点型数值",
     "parameters" : null,
     "example" : "@Float()",
     "exampleValues" : [ "1.2222222" ]
   }, {
     "instance" : "@Float(arg0)",
-    "description" : "Generate random float between 0 and 3.40282346638528860e+38 with null ratio",
+    "description" : "生成一个值范围为 0 ～ 3.40282346638528860e+38 随机浮点型数值，并指定null值占比",
     "parameters" : [ ],
     "example" : "@Float(1:2)",
     "exampleValues" : [ "1.2222222" ]
   }, {
     "instance" : "@Float(arg0,arg1)",
-    "description" : "Generate random float between min and max",
+    "description" : "生成一个值范围为 min ～ max 随机浮点型数值",
     "parameters" : [ ],
     "example" : "@Float(5,15)",
     "exampleValues" : [ "5.2222222" ]
   } ],
   "parameters" : [ {
     "name" : "min",
-    "description" : "Minimum value, default 0.0"
+    "description" : "最小值，不指定默认最小 0"
   }, {
     "name" : "max",
-    "description" : "Maximum value, default 3.40282346638528860e+38"
+    "description" : "最大值，不指定时默认最大 3.40282346638528860e+38"
   }, {
     "name" : "scale",
-    "description" : "Precision digits, default 2"
+    "description" : "精度位，不指定时默认为 2"
   }, {
     "name" : "nullSampler",
-    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null"
   } ],
   "order" : 103
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MEnum",
   "name" : "@Enum()",
-  "description" : "Generate random constant values",
-  "tags" : [ "Data Types" ],
+  "description" : "用于随机生成固定常量",
+  "tags" : [ "数据类型" ],
   "constructors" : [ {
     "instance" : "@Enum(arg0,arg1,arg2)",
-    "description" : "Generate enum values with specified ratios and null ratio",
+    "description" : "生成指定字典的常量值，并指定每个常量值的占比和null值占比。",
     "parameters" : [ ],
     "example" : "@Enum(HIGH|WIDTH,1:1,1:2)",
     "exampleValues" : [ "HIGH", "WIDTH", "null" ]
   }, {
     "instance" : "@Enum(arg0,arg1)",
-    "description" : "Generate enum values with specified ratios",
+    "description" : "生成指定字典的常量值，并指定每个常量值的占比。",
     "parameters" : [ ],
     "example" : "@Enum(HIGH|WIDTH,1:1)",
     "exampleValues" : [ "HIGH", "WIDTH" ]
   }, {
     "instance" : "@Enum(arg0)",
-    "description" : "Generate enum values with equal ratios",
+    "description" : "默认，生成指定字典的常量值，每个常量值占比相同，即为1:1。",
     "parameters" : [ ],
     "example" : "@Enum(HIGH|WIDTH)",
     "exampleValues" : [ "HIGH" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Enum values separated by \"|\" (required)"
+    "description" : "用于生成枚举常量的值，多个值通过“|”分隔，不能为空。"
   }, {
     "name" : "valueWeight",
-    "description" : "Value generation ratios, default equal ratios"
+    "description" : "值的生成比例，不指定默认：“1:1:1....”。"
   }, {
     "name" : "nullSampler",
-    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null"
   } ],
   "order" : 104
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MBool",
   "name" : "@Bool()",
-  "description" : "Generate boolean values",
-  "tags" : [ "Data Types" ],
+  "description" : "生成布尔类型值",
+  "tags" : [ "数据类型" ],
   "constructors" : [ {
     "instance" : "@Bool(arg0,arg1,arg2)",
-    "description" : "Full parameter constructor, see complete parameter documentation",
+    "description" : "完整参数构造器，具体请查看完整参数说明。",
     "parameters" : [ ],
     "example" : "@Bool(2:1,1:5,1|0)",
     "exampleValues" : [ "1", "null", "0" ]
   }, {
     "instance" : "@Bool(arg0,arg1)",
-    "description" : "Generate true/false/null with specified true and null ratios",
+    "description" : "生成true、false、null，其中true占比为trueWeight，null占比为nullWeight",
     "parameters" : [ ],
     "example" : "@Bool(2:1,1:5)",
     "exampleValues" : [ "true", "null", "false" ]
   }, {
     "instance" : "@Bool(arg0)",
-    "description" : "Generate true/false/null with specified null ratio",
+    "description" : "生成true、false、null，其中null按指定占比生成",
     "parameters" : [ ],
     "example" : "@Bool(2:1)",
     "exampleValues" : [ "true", "true", "false" ]
   }, {
     "instance" : "@Bool()",
-    "description" : "Generate true/false with 2:1 ratio",
+    "description" : "生成true或false，比例2：1",
     "parameters" : null,
     "example" : "@Bool()",
     "exampleValues" : [ "true", "false" ]
   } ],
   "parameters" : [ {
     "name" : "trueWeight",
-    "description" : "True ratio, e.g. \"2:1\" means 2 true per 3 values on average"
+    "description" : "为真比例，如值：“2:1” ，表示生成随机 Bool 值 3 次平均 2 次为 true，一次为 false，默认：2:1"
   }, {
     "name" : "nullSampler",
-    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null"
   }, {
     "name" : "dict",
-    "description" : "Boolean dictionary values separated by \"|\", first=true, second=false. Default: true|false"
+    "description" : "用于生成布尔值的字典，字典值通过|分隔，只能有两个值，且第一个对应true，第二个对应false，例如：1|0,男|女，不指定时默认 true 和 false"
   } ],
   "order" : 105
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MRegExp",
   "name" : "@RegExp()",
-  "description" : "Generate values based on regex pattern",
-  "tags" : [ "Data Types" ],
+  "description" : "根据正则表达式生成随机值",
+  "tags" : [ "数据类型" ],
   "constructors" : [ {
     "instance" : "@RegExp(arg0,arg1)",
-    "description" : "Generate value based on regex pattern with null ratio",
+    "description" : "根据正则表达式生成随机值，并指定null值占比",
     "parameters" : [ ],
     "example" : "@RegExp([a-z][a-z][0-9],1:2)",
     "exampleValues" : [ "kK8", "null" ]
   }, {
     "instance" : "@RegExp(arg0)",
-    "description" : "Generate value based on regex pattern",
+    "description" : "根据正则表达式生成随机值",
     "parameters" : [ ],
     "example" : "@RegExp([a-z][a-z][0-9])",
     "exampleValues" : [ "kK8", "Cs9" ]
   } ],
   "parameters" : [ {
     "name" : "regexp",
-    "description" : "Regular expression for value generation"
+    "description" : "用于生成数据的正则表达式"
   }, {
     "name" : "nullSampler",
-    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null"
   } ],
   "order" : 110
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MRepeat",
   "name" : "@Repeat()",
-  "description" : "Generate an array by repeating a value N times",
-  "tags" : [ "Array" ],
+  "description" : "生成重复值数组",
+  "tags" : [ "数组" ],
   "constructors" : [ {
     "instance" : "@Repeat(arg0,arg1)",
-    "description" : "Repeat a value N times",
+    "description" : "重复值N次",
     "parameters" : [ ],
     "example" : "@Repeat(hello,3)",
     "exampleValues" : [ "[\"hello\",\"hello\",\"hello\"]" ]
   }, {
     "instance" : "@Repeat(arg0)",
-    "description" : "Repeat a value once",
+    "description" : "重复值1次",
     "parameters" : [ ],
     "example" : "@Repeat(hello)",
     "exampleValues" : [ "[\"hello\"]" ]
   } ],
   "parameters" : [ {
     "name" : "value",
-    "description" : "The value to repeat"
+    "description" : "要重复的值"
   }, {
     "name" : "count",
-    "description" : "Number of repetitions, default 1"
+    "description" : "重复次数，默认1"
   } ],
   "order" : 121
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MSequence",
   "name" : "@Sequence()",
-  "description" : "Generate an arithmetic sequence array",
-  "tags" : [ "Array" ],
+  "description" : "生成等差数列数组",
+  "tags" : [ "数组" ],
   "constructors" : [ {
     "instance" : "@Sequence(arg0)",
-    "description" : "Generate sequence from 0 to count-1",
+    "description" : "从0开始生成序列",
     "parameters" : [ ],
     "example" : "@Sequence(5)",
     "exampleValues" : [ "[0,1,2,3,4]" ]
   }, {
     "instance" : "@Sequence(arg0,arg1)",
-    "description" : "Generate arithmetic sequence with start and count (step=1)",
+    "description" : "指定起始值和个数生成等差数列(步长=1)",
     "parameters" : [ ],
     "example" : "@Sequence(0,2,4)",
     "exampleValues" : [ "[0,2,4,6]" ]
   }, {
     "instance" : "@Sequence(arg0,arg1,arg2)",
-    "description" : "Generate arithmetic sequence with start, step, and count",
+    "description" : "指定起始值、步长和个数生成等差数列",
     "parameters" : [ ],
     "example" : "@Sequence(1,1,5)",
     "exampleValues" : [ "[1,2,3,4,5]" ]
   } ],
   "parameters" : [ {
     "name" : "start",
-    "description" : "Start value, default 0"
+    "description" : "起始值，默认0"
   }, {
     "name" : "step",
-    "description" : "Step value, default 1"
+    "description" : "步长，默认1"
   }, {
     "name" : "count",
-    "description" : "Number of elements to generate"
+    "description" : "生成元素个数"
   } ],
   "order" : 122
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MShuffle",
   "name" : "@Shuffle()",
-  "description" : "Randomly shuffle input items",
-  "tags" : [ "Array" ],
+  "description" : "随机打乱输入元素",
+  "tags" : [ "数组" ],
   "constructors" : [ {
     "instance" : "@Shuffle(arg0)",
-    "description" : "Shuffle the given items",
+    "description" : "打乱给定元素",
     "parameters" : [ ],
     "example" : "@Shuffle(a|b|c|d)",
     "exampleValues" : [ "[\"c\",\"a\",\"d\",\"b\"]" ]
   } ],
   "parameters" : [ {
     "name" : "items",
-    "description" : "Pipe-separated list of items to shuffle, e.g. a|b|c"
+    "description" : "用管道符分隔的元素列表，如 a|b|c"
   } ],
   "order" : 123
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MSample",
   "name" : "@Sample()",
-  "description" : "Sample N unique items from input list without replacement",
-  "tags" : [ "Array" ],
+  "description" : "从输入列表中不重复抽样N个元素",
+  "tags" : [ "数组" ],
   "constructors" : [ {
     "instance" : "@Sample(arg0,arg1)",
-    "description" : "Sample N items from the given list",
+    "description" : "从列表中抽样N个元素",
     "parameters" : [ ],
     "example" : "@Sample(a|b|c|d|e,3)",
     "exampleValues" : [ "[\"c\",\"a\",\"e\"]" ]
   } ],
   "parameters" : [ {
     "name" : "items",
-    "description" : "Pipe-separated list of items, e.g. a|b|c|d|e"
+    "description" : "用管道符分隔的元素列表，如 a|b|c|d|e"
   }, {
     "name" : "count",
-    "description" : "Number of items to sample"
+    "description" : "抽样个数"
   } ],
   "order" : 124
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MOneOf",
   "name" : "@OneOf()",
-  "description" : "Randomly select one item from input list",
-  "tags" : [ "Array" ],
+  "description" : "从输入列表中随机选择一个元素",
+  "tags" : [ "数组" ],
   "constructors" : [ {
     "instance" : "@OneOf(arg0)",
-    "description" : "Select one random item from the list",
+    "description" : "从列表中随机选择一个",
     "parameters" : [ ],
     "example" : "@OneOf(apple|banana|cherry)",
     "exampleValues" : [ "banana" ]
   } ],
   "parameters" : [ {
     "name" : "items",
-    "description" : "Pipe-separated list of items, e.g. apple|banana|cherry"
+    "description" : "用管道符分隔的元素列表，如 apple|banana|cherry"
   } ],
   "order" : 125
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MTimestamp",
   "name" : "@Timestamp()",
-  "description" : "Generate current timestamp",
-  "tags" : [ "Date and Time" ],
+  "description" : "生成当前时间对应的时间戳",
+  "tags" : [ "日期与时间" ],
   "constructors" : [ {
     "instance" : "@Timestamp()",
-    "description" : "Generate current system timestamp",
+    "description" : "生成当前操作系统的时间戳",
     "parameters" : null,
     "example" : "@Timestamp()",
     "exampleValues" : [ "1653432546438" ]
   }, {
     "instance" : "@Timestamp(arg0)",
-    "description" : "Generate specified timestamp type",
+    "description" : "生成指定类型的当前操作系统时间戳",
     "parameters" : [ ],
     "example" : "@Timestamp()",
     "exampleValues" : [ "1653432546438" ]
   } ],
   "parameters" : [ {
     "name" : "unix",
-    "description" : "Generate Unix timestamp (seconds since 1970), default false (milliseconds)"
+    "description" : "false，生成包含毫秒值的系统时间戳，设置成 true 时生成 Unix 时间戳，即自1970年1月1日00:00:00 UTC以来经过的秒数"
   } ],
   "order" : 201
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MLocaleTime",
   "name" : "@LocaleTime()",
-  "description" : "Generate localized current time",
-  "tags" : [ "Date and Time" ],
+  "description" : "生成本地化的当前时间",
+  "tags" : [ "日期与时间" ],
   "constructors" : [ {
     "instance" : "@LocaleTime(arg0,arg1,arg2)",
-    "description" : "Generate random time with specified format and timezone",
+    "description" : "生成随机时间，格式为format，时区为zoneId",
     "parameters" : [ ],
     "example" : "@LocaleDate(HH:mm:ss,Asia/Tokyo)",
     "exampleValues" : [ "07:08:21", "07:08:21" ]
   }, {
     "instance" : "@LocaleTime(arg0,arg1)",
-    "description" : "Generate random time with specified format",
+    "description" : "生成随机时间，格式为format，时区为Asia/Shanghai",
     "parameters" : [ ],
     "example" : "@LocaleTime(a HH:mm:ss)",
     "exampleValues" : [ "下午 23:34:25", "下午 23:34:25" ]
   }, {
     "instance" : "@LocaleTime(arg0)",
-    "description" : "Generate current time with specified format",
+    "description" : "生成当前时间，格式为format，时区为Asia/Shanghai",
     "parameters" : [ ],
     "example" : "@LocaleTime(a HH:mm:ss)",
     "exampleValues" : [ "下午 23:34:25", "下午 23:34:25" ]
   }, {
     "instance" : "@LocaleTime()",
-    "description" : "Generate current time (HH:mm:ss, Asia/Shanghai)",
+    "description" : "生成当前时间，格式为HH:mm:ss，时区为Asia/Shanghai",
     "parameters" : null,
     "example" : "@LocaleTime()",
     "exampleValues" : [ "23:32:13", "23:32:13" ]
   } ],
   "parameters" : [ {
     "name" : "format",
-    "description" : "Time format pattern, default \"HH:mm:ss\""
+    "description" : "日期格式化模版，默认格式 “HH:mm:ss”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现"
   }, {
     "name" : "zoneId",
-    "description" : "Timezone ID, default \"Asia/Shanghai\""
+    "description" : "时区 ID，默认值 “Asia/Shanghai”，详情请查看 Java [ZoneId](https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html)"
   }, {
     "name" : "random",
-    "description" : "Generate random time within day, default false"
+    "description" : "生成一天内随机时间，默认 false"
   } ],
   "order" : 202
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MLocaleDate",
   "name" : "@LocaleDate()",
-  "description" : "Generate localized current date",
-  "tags" : [ "Date and Time" ],
+  "description" : "生成本地化的当前日期",
+  "tags" : [ "日期与时间" ],
   "constructors" : [ {
     "instance" : "@LocaleDate(arg0,arg1,arg2)",
-    "description" : "Generate random date with specified format and timezone",
+    "description" : "生成随机日期，格式为format，时区为zoneId",
     "parameters" : [ ],
     "example" : "@LocaleDate(yyyy-MM-dd,Asia/Shanghai)",
     "exampleValues" : [ "2022-01-01", "2022-01-01" ]
   }, {
     "instance" : "@LocaleDate(arg0,arg1)",
-    "description" : "Generate random date with specified format",
+    "description" : "生成随机日期，格式为format,时区为Asia/Shanghai",
     "parameters" : [ ],
     "example" : "@LocaleDate(yyyy yy y MM M dd d)",
     "exampleValues" : [ "2022 22 2022 05 5 12 12", "2022 22 2022 05 5 12 12" ]
   }, {
     "instance" : "@LocaleDate(arg0)",
-    "description" : "Generate current date with specified format",
+    "description" : "生成当前日期，格式为format,时区为Asia/Shanghai",
     "parameters" : [ ],
     "example" : "@LocaleDate(yyyy yy y MM M dd d)",
     "exampleValues" : [ "2022 22 2022 05 5 12 12", "2022 22 2022 05 5 12 12" ]
   }, {
     "instance" : "@LocaleDate()",
-    "description" : "Generate current date (yyyy-MM-dd, Asia/Shanghai)",
+    "description" : "生成当前日期，格式为yyyy-MM-dd，时区为Asia/Shanghai",
     "parameters" : null,
     "example" : "@LocaleDate()",
     "exampleValues" : [ "2022-01-01", "2022-01-01" ]
   } ],
   "parameters" : [ {
     "name" : "format",
-    "description" : "Date format pattern, default \"yyyy-MM-dd\""
+    "description" : "日期格式化模版，默认格式 “yyyy-MM-dd”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现"
   }, {
     "name" : "zoneId",
-    "description" : "Timezone ID, default \"Asia/Shanghai\""
+    "description" : "时区 ID，默认值 “Asia/Shanghai”，详情请查看 Java [ZoneId](https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html)"
   }, {
     "name" : "random",
-    "description" : "Generate random dates ±10 years, default false"
+    "description" : "生成过去10年和未来10年的随机日期，默认 false"
   } ],
   "order" : 203
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MLocaleDateTime",
   "name" : "@LocaleDateTime()",
-  "description" : "Generate localized current datetime",
-  "tags" : [ "Date and Time" ],
+  "description" : "生成本地化的当前日期时间",
+  "tags" : [ "日期与时间" ],
   "constructors" : [ {
     "instance" : "@LocaleDateTime(arg0,arg1,arg2)",
-    "description" : "Generate random datetime with specified format and timezone",
+    "description" : "生成随机日期和时间，格式为format，时区为zoneId",
     "parameters" : [ ],
     "example" : "@LocaleDateTime(yyyy-MM-dd HH:mm:ss,Asia/Shanghai)",
     "exampleValues" : [ "2022-01-01 23:34:25", "2022-01-01 23:34:25" ]
   }, {
     "instance" : "@LocaleDateTime(arg0,arg1)",
-    "description" : "Generate random datetime with specified format",
+    "description" : "生成随机日期和时间，格式为format，时区为Asia/Shanghai",
     "parameters" : [ ],
     "example" : "@LocaleDateTime(yy-MM-dd a HH:mm:ss)",
     "exampleValues" : [ "22-05-12 下午 23:40:22", "22-05-12 下午 23:40:22" ]
   }, {
     "instance" : "@LocaleDateTime(arg0)",
-    "description" : "Generate current datetime with specified format",
+    "description" : "生成当前日期和时间，格式为format，时区为Asia/Shanghai",
     "parameters" : [ ],
     "example" : "@LocaleDateTime(yy-MM-dd a HH:mm:ss)",
     "exampleValues" : [ "22-05-12 下午 23:40:22", "22-05-12 下午 23:40:22" ]
   }, {
     "instance" : "@LocaleDateTime()",
-    "description" : "Generate current datetime (yyyy-MM-dd HH:mm:ss, Asia/Shanghai)",
+    "description" : "生成当前日期和时间，格式为yyyy-MM-dd HH:mm:ss，时区为Asia/Shanghai",
     "parameters" : null,
     "example" : "@LocaleDateTime()",
     "exampleValues" : [ "2022-01-01 23:34:25", "2022-01-01 23:34:25" ]
   } ],
   "parameters" : [ {
     "name" : "format",
-    "description" : "Datetime format pattern, default \"yyyy-MM-dd HH:mm:ss\""
+    "description" : "日期格式化模版，默认格式 “yyyy-MM-dd HH:mm:ss”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现"
   }, {
     "name" : "zoneId",
-    "description" : "Timezone ID, default \"Asia/Shanghai\""
+    "description" : "时区 ID，默认值 “Asia/Shanghai”，详情请查看 Java [ZoneId](https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html)"
   }, {
     "name" : "random",
-    "description" : "Generate random datetime ±10 years, default false"
+    "description" : "生成过去10年和未来10年随机日期时间，默认 false"
   } ],
   "order" : 204
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MMonth",
   "name" : "@Month()",
-  "description" : "Generate random month names",
-  "tags" : [ "Date and Time" ],
+  "description" : "生成随机月份",
+  "tags" : [ "日期与时间" ],
   "constructors" : [ {
     "instance" : "@Month()",
-    "description" : "Generate Chinese month name",
+    "description" : "默认生成随机中文月份",
     "parameters" : null,
     "example" : "@Month()",
     "exampleValues" : [ "一月" ]
   }, {
     "instance" : "@Month(arg0)",
-    "description" : "Generate month name in specified locale",
+    "description" : "生成一个月份，语言使用指定的locale",
     "parameters" : [ ],
     "example" : "@Month()",
     "exampleValues" : [ "January" ]
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
   } ],
   "order" : 272
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MWeek",
   "name" : "@Week()",
-  "description" : "Generate random week names",
-  "tags" : [ "Date and Time" ],
+  "description" : "生成随机星期",
+  "tags" : [ "日期与时间" ],
   "constructors" : [ {
     "instance" : "@Week()",
-    "description" : "Generate Chinese week name",
+    "description" : "默认生成随机中文星期",
     "parameters" : null,
     "example" : "@Week()",
     "exampleValues" : [ "星期二" ]
   }, {
     "instance" : "@Week(arg0)",
-    "description" : "Generate week name in specified locale",
+    "description" : "生成一个星期，语言使用指定的locale",
     "parameters" : [ ],
     "example" : "@Week()",
     "exampleValues" : [ "Tuesday" ]
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
   } ],
   "order" : 273
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MGuid",
   "name" : "@Guid()",
-  "description" : "Generate GUID-based IDs",
-  "tags" : [ "ID Generation" ],
+  "description" : "基于GUID算法生成ID标识",
+  "tags" : [ "ID生成" ],
   "constructors" : [ {
     "instance" : "@Guid()",
-    "description" : "Generate GUID without separators",
+    "description" : "基于GUID算法生成没有分隔符ID",
     "parameters" : null,
     "example" : "@Guid()",
     "exampleValues" : [ "JIDLOIFIUDASNVHDLODGHYGONLKDHKP" ]
   }, {
     "instance" : "@Guid(arg0)",
-    "description" : "Generate GUID with separators",
+    "description" : "基于GUID算法生成包含\"-\"分隔符的ID",
     "parameters" : [ ],
     "example" : "@Guid(true)",
     "exampleValues" : [ "JIDLO-IFIUD-ASNVH-DLODG-HYGON-LKDHKP" ]
   } ],
   "parameters" : [ {
     "name" : "withoutSeparator",
-    "description" : "Include separators (\"-\"), default true"
+    "description" : "布尔值，控制是否包含分割符号\"-\"，true 展示分割符，false 不展示分割符，默认 true"
   } ],
   "order" : 301
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MUuid",
   "name" : "@Uuid()",
-  "description" : "Generate UUID-based IDs",
-  "tags" : [ "ID Generation" ],
+  "description" : "基于UUID算法生成ID标识",
+  "tags" : [ "ID生成" ],
   "constructors" : [ {
     "instance" : "@Uuid()",
-    "description" : "Generate UUID without separators",
+    "description" : "基于UUID算法生成没有分隔符ID",
     "parameters" : null,
     "example" : "@Uuid()",
     "exampleValues" : [ "JIDLOIFIUDASNVHDLODGHYGONLKDHKP" ]
   }, {
     "instance" : "@Uuid(arg0)",
-    "description" : "Generate UUID with separators",
+    "description" : "基于UUID算法生成包含\"-\"分隔符的ID",
     "parameters" : [ ],
     "example" : "@Uuid(true)",
     "exampleValues" : [ "JIDLO-IFIUD-ASNVH-DLODG-HYGON-LKDHKP" ]
   } ],
   "parameters" : [ {
     "name" : "withoutSeparator",
-    "description" : "Include separators (\"-\"), default true"
+    "description" : "布尔值，控制是否包含分割符号\"-\"，true 展示分割符，false 不展示分割符，默认 true"
   } ],
   "order" : 302
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MIncId",
   "name" : "@IncId()",
-  "description" : "Generate incremental IDs (node-unique)",
-  "tags" : [ "ID Generation" ],
+  "description" : "基于自增生成ID标识（单节点不重复）",
+  "tags" : [ "ID生成" ],
   "constructors" : [ {
     "instance" : "@IncId()",
-    "description" : "Generate incremental ID (start=1, step=1)",
+    "description" : "生成一个自增ID，初始化值为1，自增步长为1",
     "parameters" : null,
     "example" : "@IncId()",
     "exampleValues" : [ "1" ]
   }, {
     "instance" : "@IncId(arg0,arg1)",
-    "description" : "Generate incremental ID with specified start and step",
+    "description" : "生成一个自增ID，初始化值为init，自增步长为step",
     "parameters" : [ ],
     "example" : "@IncId(5,2)",
     "exampleValues" : [ "5" ]
   } ],
   "parameters" : [ {
     "name" : "init",
-    "description" : "Initial value, default 1"
+    "description" : "初始化值，默认从 1 开始"
   }, {
     "name" : "step",
-    "description" : "Increment step, default 1"
+    "description" : "自增步长，默认每次加 1"
   } ],
   "order" : 303
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MSnowId",
   "name" : "@SnowId()",
-  "description" : "Generate Snowflake-based IDs (distributed unique)",
-  "tags" : [ "ID Generation" ],
+  "description" : "基于SnowFlake算法生成ID标识（分布式不重复）",
+  "tags" : [ "ID生成" ],
   "constructors" : [ {
     "instance" : "@SnowId()",
-    "description" : "Generate Snowflake ID (dcId=1, mId=1)",
+    "description" : "基于SnowFlake算法生成ID，默认数据中心ID为1、机器ID为1",
     "parameters" : null,
     "example" : "@SnowId()",
     "exampleValues" : [ "16685359784" ]
   }, {
     "instance" : "@SnowId(arg0,arg1)",
-    "description" : "Generate Snowflake ID with specified dcId and mId",
+    "description" : "基于SnowFlake算法生成ID，数据中心ID为指定dcId，机器ID为指定mid",
     "parameters" : [ ],
     "example" : "@SnowId(1,1)",
     "exampleValues" : [ "16685359784" ]
   } ],
   "parameters" : [ {
     "name" : "dcId",
-    "description" : "Datacenter ID, default 1"
+    "description" : "数据中心 ID 标识，默认 1"
   }, {
     "name" : "mId",
-    "description" : "Machine ID, default 1"
+    "description" : "机器 ID 标识，默认 1，多节点分布式压测时根据压测节点自动设置机器 ID"
   } ],
   "order" : 304
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MWord",
   "name" : "@Word()",
-  "description" : "Generate words",
-  "tags" : [ "Text Information" ],
+  "description" : "生成单词",
+  "tags" : [ "文本文案" ],
   "constructors" : [ {
     "instance" : "@Word(arg0)",
-    "description" : "Generate word using specified dictionary",
+    "description" : "生成一个单词，字典使用指定的dict",
     "parameters" : [ ],
     "example" : "@Word(开开心心|快快乐乐|红红火火))",
     "exampleValues" : [ "开开心心", "快快乐乐" ]
   }, {
     "instance" : "@Word(arg0)",
-    "description" : "Generate word in specified locale",
+    "description" : "生成一个单词，语言使用指定的locale",
     "parameters" : [ ],
     "example" : "@Word(en)",
     "exampleValues" : [ "along", "designer" ]
   }, {
     "instance" : "@Word()",
-    "description" : "Generate word (Chinese)",
+    "description" : "生成一个单词，语言默认中文，字典使用默认，默认支持 100 个词",
     "parameters" : null,
     "example" : "@Word()",
     "exampleValues" : [ "弯弯曲曲", "千家万户" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Custom value dictionary, multiple values separated by '|'"
+    "description" : "自定义值字典，多个值以“|”分割"
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
   } ],
   "order" : 401
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MTitle",
   "name" : "@Title()",
-  "description" : "Generate titles",
-  "tags" : [ "Text Information" ],
+  "description" : "生成标题",
+  "tags" : [ "文本文案" ],
   "constructors" : [ {
     "instance" : "@Title(arg0)",
-    "description" : "Generate title using specified dictionary",
+    "description" : "生成一个标题，字典使用指定的dict",
     "parameters" : [ ],
     "example" : "@Title(做好疫情防护|乌俄局势)",
     "exampleValues" : [ "做好疫情防护" ]
   }, {
     "instance" : "@Title(arg0)",
-    "description" : "Generate title in specified locale",
+    "description" : "生成一个标题，语言使用指定的locale",
     "parameters" : [ ],
     "example" : "@Title(en)",
     "exampleValues" : [ "Do a good job in epidemic prevention" ]
   }, {
     "instance" : "@Title()",
-    "description" : "Generate title (Chinese, 2-20 characters)",
+    "description" : "生成一个标题，语言默认中文，字典使用默认，单个标题 2-20 个字符，默认支持 100 个标题",
     "parameters" : null,
     "example" : "@Title()",
     "exampleValues" : [ "做好疫情防护" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Custom value dictionary, multiple values separated by '|'"
+    "description" : "自定义值字典，多个值以“|”分割"
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
   } ],
   "order" : 402
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MSentence",
   "name" : "@Sentence()",
-  "description" : "Generate sentences",
-  "tags" : [ "Text Information" ],
+  "description" : "生成句子",
+  "tags" : [ "文本文案" ],
   "constructors" : [ {
     "instance" : "@Sentence(arg0)",
-    "description" : "Generate sentence using specified dictionary",
+    "description" : "生成一个句子，字典使用指定的dict",
     "parameters" : [ ],
     "example" : "@Sentence(好好学习|天天向上)",
     "exampleValues" : [ "天天向上" ]
   }, {
     "instance" : "@Sentence(arg0)",
-    "description" : "Generate sentence in specified locale",
+    "description" : "生成一个句子，语言使用指定的locale",
     "parameters" : [ ],
     "example" : "@Sentence(zh_CN)",
     "exampleValues" : [ "好好学习" ]
   }, {
     "instance" : "@Sentence()",
-    "description" : "Generate sentence (Chinese, 5-100 characters)",
+    "description" : "生成一个句子，语言默认中文，字典使用默认，默认句子长度 5-100 个字符，默认支持 50 个语句",
     "parameters" : null,
     "example" : "@Sentence()",
     "exampleValues" : [ "好好学习" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Custom value dictionary, multiple values separated by '|'"
+    "description" : "自定义值字典，多个值以“|”分割"
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
   } ],
   "order" : 403
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MTangPoetry",
   "name" : "@TangPoetry()",
-  "description" : "Generate Tang poetry",
-  "tags" : [ "Text Information" ],
+  "description" : "生成唐诗",
+  "tags" : [ "文本文案" ],
   "constructors" : [ {
     "instance" : "@TangPoetry(arg0)",
-    "description" : "Generate Tang poem using specified dictionary",
+    "description" : "生成一个唐诗，字典使用指定的dict",
     "parameters" : [ ],
     "example" : "@TangPoetry(唐诗1|唐诗2)",
     "exampleValues" : [ "唐诗1", "唐诗2" ]
   }, {
     "instance" : "@TangPoetry(arg0)",
-    "description" : "Generate Tang poem in specified locale",
+    "description" : "生成一个唐诗，语言使用指定的locale",
     "parameters" : [ ],
     "example" : "@TangPoetry(en)",
     "exampleValues" : [ "Qiu Wei\nAFTER MISSING THE RECLUSE \nON THE WESTERN MOUNTAIN\nTo your hermitage here on the top of the mountain \nI have climbed, without stopping, these ten miles. \nI have knocked at your door, and no one answered; \nI have peeped into your room, at your seat beside the table. \nPerhaps you are out riding in your canopied chair, \nOr fishing, more likely, in some autumn pool. \nSorry though I am to be missing you, \nYou have become my meditation -- \nThe beauty of your grasses, fresh with rain, \nAnd close beside your window the music of your pines. \nI take into my being all that I see and hear, \nSoothing my senses, quieting my heart; \nAnd though there be neither host nor guest, \nHave I not reasoned a visit complete? \n...After enough, I have gone down the mountain. \nWhy should I wait for you any longer? ", "Wang Wei\nAT PARTING\nI dismount from my horse and I offer you wine, \nAnd I ask you where you are going and why. \nAnd you answer: \"I am discontent \nAnd would rest at the foot of the southern mountain. \nSo give me leave and ask me no questions. \nWhite clouds pass there without end.\" " ]
   }, {
     "instance" : "@TangPoetry()",
-    "description" : "Generate Tang poem (Chinese)",
+    "description" : "生成一个唐诗，语言默认中文，字典使用默认，默认支持 100 首",
     "parameters" : null,
     "example" : "@TangPoetry()",
     "exampleValues" : [ "柳宗元\n晨诣超师院读禅经\n汲井漱寒齿，清心拂尘服，\n闲持贝叶书，步出东斋读。\n真源了无取，忘迹世所逐；\n遗言冀可冥，缮性何由熟？\n道人庭宇静，苔色连深竹；\n日出雾露余，青松如膏沐。\n澹然离言说，悟悦心自足。", "韦应物\n兵卫森画戟，宴寝凝清香。\n海上风雨至，逍遥池阁凉。\n烦疴近消散，嘉宾复满堂。\n自惭居处崇，未睹斯民康。\n理会是非遣，性达形迹忘。\n鲜肥属时禁，蔬果幸见尝。\n俯饮一杯酒，仰聆金玉章。\n神欢体自轻，意欲凌风翔。\n吴中盛文史，群彦今汪洋。\n方知大藩地，岂曰财赋强。" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Custom value dictionary, multiple values separated by '|'"
+    "description" : "自定义值字典，多个值以“|”分割"
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
   } ],
   "order" : 404
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MParagraph",
   "name" : "@Paragraph()",
-  "description" : "Generate paragraphs",
-  "tags" : [ "Text Information" ],
+  "description" : "生成段落",
+  "tags" : [ "文本文案" ],
   "constructors" : [ {
     "instance" : "@Paragraph(arg0)",
-    "description" : "Generate paragraph using specified dictionary",
+    "description" : "生成一个段落，字典使用指定的dict",
     "parameters" : [ ],
     "example" : "@Paragraph(段落1|段落2)",
     "exampleValues" : [ "段落1", "段落2" ]
   }, {
     "instance" : "@Paragraph(arg0)",
-    "description" : "Generate paragraph in specified locale",
+    "description" : "生成一个段落，语言使用指定的locale",
     "parameters" : [ ],
     "example" : "@Paragraph(en)",
     "exampleValues" : [ "At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. The time is gone, the promise is still there, the people are gone, like the arrow from the mstring, even if it is far to the horizon, the tender words are still there. If the affection is deep, I am not afraid of the long-term, having you in my heart is enough to comfort a lonely soul. The cymbals were pale that day, the white dew was frost, and the autumn breeze brought coolness. Xia came quietly, and went quietly. The autumn models came with graceful and graceful steps, lovingly sending the back of Xia Yuan, accompanied by fallen leaves, waiting for the arrival of the next season. Looking at the withered leaves, knowing that some departures are unobstructed, and the empty heart will be filled with the tranquility of the autumn light, so the parting time and time will be warmed by the next meeting.", "accidentally met and met. You are over there. I am here. A virtual thread connects us together. We could have become friends, communicate, talk, and sigh. However, we have been indulged in real life for too long. In this masked society, we have lost the most precious and simplest relationship between people-trust!" ]
   }, {
     "instance" : "@Paragraph()",
-    "description" : "Generate paragraph (Chinese, 200-1000 characters)",
+    "description" : "生成一个段落，语言默认中文，字典使用默认，默认段落长度 200-1000 个字符，默认支持 100 个段落",
     "parameters" : null,
     "example" : "@Paragraph()",
     "exampleValues" : [ "喜欢读诗，不管它是中国的还是外国的，也不管它是古代的还是现代的都爱读。从风格上来说不管它是豪放的还纤柔的，也不管它是浪漫的还是写实的我也同样爱读。因为我认为诗是大自然灵魂精神的体现，诗是社会的律动，诗是人思想意识真情实感的流露。喜欢诗，喜欢读诗，时间一长，也就喜欢练习写诗。古体诗，格律诗，词曲到新诗都学习过，也写过；虽然写得不好，可还是也写了，尝试了。", "夜，宛若一副带着点点诗意的画卷，铺展开来。不知道从何时起，喜欢独处，喜欢一个人坐着，纵然对着夜色，是无数的孤独，也深觉挺好。孤独何妨呢?不被打扰，也是一种美丽的享受。无聊时候，敲几行贴心的小字，沉迷夜色的清然与优柔之中。静坐的时光，总有往昔的故事，如同电影一样心头回放，那些曾经的人，那些渐远渐无书的你我，而如今形同陌路了，唯有残留的往事，像是爬满心房的藤蔓，无休无止。" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Custom value dictionary, multiple values separated by '|'"
+    "description" : "自定义值字典，多个值以“|”分割"
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
   } ],
   "order" : 405
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MArticle",
   "name" : "@Article()",
-  "description" : "Generate articles",
-  "tags" : [ "Text Information" ],
+  "description" : "生成文章",
+  "tags" : [ "文本文案" ],
   "constructors" : [ {
     "instance" : "@Article(arg0,arg1,arg2)",
-    "description" : "Generate article with specified paragraphs/word count/content",
+    "description" : "基于指定段落、字数和内容生成文章",
     "parameters" : [ ],
     "example" : "@Paragraph(2|200|At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting.)",
     "exampleValues" : [ "At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting.\n\nAt this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting." ]
   }, {
     "instance" : "@Article(arg0,arg1,arg2)",
-    "description" : "Generate article with specified paragraphs/word count/language",
+    "description" : "基于指定段落、字数和语言生成文章",
     "parameters" : [ ],
     "example" : "@Article(2|200|en)",
     "exampleValues" : [ "At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting.  I am here. The time is gone, the promise is still there, the people are gone, like the arrow from the mstring, even if it is far to the horizon, the tender words are still there.  The autumn models came with graceful and graceful steps, lovingly sending the back of Xia Yuan, accompanied by fallen leaves, waiting for the arrival of the next season.\n\nXia came quietly, and went quietly.  Xia came quietly, and went quietly. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting." ]
   }, {
     "instance" : "@Article(arg0)",
-    "description" : "Generate article in specified language (3 paragraphs, ≤800 words)",
+    "description" : "生成指定语言默认3个段落，长度800字内中文文章",
     "parameters" : [ ],
     "example" : "@Article(en)",
     "exampleValues" : [ "The time is gone, the promise is still there, the people are gone, like the arrow from the mstring, even if it is far to the horizon, the tender words are still there.  You are over there. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting.  I am here.\n\nAt this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting.  Looking at the withered leaves, knowing that some departures are unobstructed, and the empty heart will be filled with the tranquility of the autumn light, so the parting time and time will be warmed by the next meeting.  We could have become friends, communicate, talk, and sigh.\n\nIf the affection is deep, I am not afraid of the long-term, having you in my heart is enough to comfort a lonely soul.  You are over there.  Accidentally met and met.  If the affection is deep, I am not afraid of the long-term, having you in my heart is enough to comfort a lonely soul." ]
   }, {
     "instance" : "@Article()",
-    "description" : "Generate Chinese article (3 paragraphs, ≤800 words)",
+    "description" : "生成默认3个段落，长度800字内中文文章",
     "parameters" : null,
     "example" : "@Article()",
     "exampleValues" : [ "有时我们是主角，有时我们是配角，但无论角色如何，我们都在努力地活着，追求着自己的梦想。 未来会怎样？ 有时我们是主角，有时我们是配角，但无论角色如何，我们都在努力地活着，追求着自己的梦想。 静坐的时光，总有往昔的故事，如同电影一样心头回放，那些曾经的人，那些渐远渐无书的你我，而如今形同陌路了，唯有残留的往事，像是爬满心房的藤蔓，无休无止。 科技的发展改变了我们的生活方式。\n\n从风格上来说不管它是豪放的还纤柔的，也不管它是浪漫的还是写实的我也同样爱读。 静坐的时光，总有往昔的故事，如同电影一样心头回放，那些曾经的人，那些渐远渐无书的你我，而如今形同陌路了，唯有残留的往事，像是爬满心房的藤蔓，无休无止。 从风格上来说不管它是豪放的还纤柔的，也不管它是浪漫的还是写实的我也同样爱读。 喜欢诗，喜欢读诗，时间一长，也就喜欢练习写诗。\n\n不被打扰，也是一种美丽的享受。 喜欢诗，喜欢读诗，时间一长，也就喜欢练习写诗。 孤独何妨呢? 从互联网到人工智能，从智能手机到智能家居，科技正在以前所未有的速度改变着我们的世界。 春天来了，万物复苏。" ]
   } ],
   "parameters" : [ {
     "name" : "paragraphCount",
-    "description" : "Number of paragraphs"
+    "description" : "生成段落数"
   }, {
     "name" : "wordCount",
-    "description" : "Maximum word count"
+    "description" : "最大字数"
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
   } ],
   "order" : 406
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MCountry",
   "name" : "@Country()",
-  "description" : "Generate countries (ISO 3166-1 standard)",
-  "tags" : [ "Geographic Information" ],
+  "description" : "生成国家（基于 ISO 3166-1 标准）",
+  "tags" : [ "地理信息" ],
   "constructors" : [ {
     "instance" : "@Country(arg0)",
-    "description" : "Generate country using specified dictionary",
+    "description" : "生成一个国家，字典使用指定的dict",
     "parameters" : [ ],
     "example" : "@Country(中国,俄罗斯)",
     "exampleValues" : [ "中国" ]
   }, {
     "instance" : "@Country(arg0)",
-    "description" : "Generate country in specified locale",
+    "description" : "生成一个国家，语言使用指定的locale",
     "parameters" : [ ],
     "example" : "@Country(zh_CN)",
     "exampleValues" : [ "中国" ]
   }, {
     "instance" : "@Country()",
-    "description" : "Generate country (Chinese)",
+    "description" : "生成一个国家，语言默认中文，字典使用默认",
     "parameters" : null,
     "example" : "@Country()",
     "exampleValues" : [ "中国" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Custom value dictionary, multiple values separated by '|'"
+    "description" : "自定义值字典，多个值以“|”分割"
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
   } ],
   "order" : 501
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MProvince",
   "name" : "@Province()",
-  "description" : "Generate provinces",
-  "tags" : [ "Geographic Information" ],
+  "description" : "生成省份",
+  "tags" : [ "地理信息" ],
   "constructors" : [ {
     "instance" : "@Province(arg0)",
-    "description" : "Generate province using specified dictionary",
+    "description" : "生成一个省份，字典使用指定的dict",
     "parameters" : [ ],
     "example" : "@Province(山西,河北,北京,上海)",
     "exampleValues" : [ "北京", "上海" ]
   }, {
     "instance" : "@Province(arg0)",
-    "description" : "Generate province in specified locale",
+    "description" : "生成一个省份，语言使用指定的locale",
     "parameters" : [ ],
     "example" : "@Province(en)",
     "exampleValues" : [ "U.S.", "U.K." ]
   }, {
     "instance" : "@Province()",
-    "description" : "Generate province (Chinese)",
+    "description" : "生成一个省份，语言默认中文，字典使用默认",
     "parameters" : null,
     "example" : "@Province()",
     "exampleValues" : [ "山东", "河北" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Custom value dictionary, multiple values separated by '|'"
+    "description" : "自定义值字典，多个值以“|”分割"
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
   } ],
   "order" : 502
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MCity",
   "name" : "@City()",
-  "description" : "Generate cities",
-  "tags" : [ "Geographic Information" ],
+  "description" : "生成城市",
+  "tags" : [ "地理信息" ],
   "constructors" : [ {
     "instance" : "@City(arg0)",
-    "description" : "Generate city using specified dictionary",
+    "description" : "生成一个城市，字典使用指定的dict",
     "parameters" : [ ],
     "example" : "@Word(北京|深圳|上海))",
     "exampleValues" : [ "深圳", "上海" ]
   }, {
     "instance" : "@City(arg0)",
-    "description" : "Generate city in specified locale",
+    "description" : "生成一个城市，语言使用指定的locale",
     "parameters" : [ ],
     "example" : "@City(en)",
     "exampleValues" : [ "Chicago", "New York" ]
   }, {
     "instance" : "@City()",
-    "description" : "Generate city (Chinese)",
+    "description" : "生成一个城市，语言默认中文，字典使用默认",
     "parameters" : null,
     "example" : "",
     "exampleValues" : [ "北京", "上海" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Custom value dictionary, multiple values separated by '|'"
+    "description" : "自定义值字典，多个值以“|”分割"
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
   } ],
   "order" : 503
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MAddress",
   "name" : "@Address()",
-  "description" : "Generate addresses",
-  "tags" : [ "Geographic Information" ],
+  "description" : "生成地址",
+  "tags" : [ "地理信息" ],
   "constructors" : [ {
     "instance" : "@Address(arg0)",
-    "description" : "Generate address using specified dictionary",
+    "description" : "生成一个地址，字典使用指定的dict",
     "parameters" : [ ],
     "example" : "@Address(地址1|地址2|地址3))",
     "exampleValues" : [ "地址3", "地址1" ]
   }, {
     "instance" : "@Address(arg0)",
-    "description" : "Generate address in specified locale",
+    "description" : "生成一个地址，语言使用指定的locale",
     "parameters" : [ ],
     "example" : "@Address(en)",
     "exampleValues" : [ "1112 Hermitage Rd NW, Edmonton, AB T5A 4M4", "Gangwon-do, Yeongweol, Yeongwol-eup, Hasong-ri, 217-2" ]
   }, {
     "instance" : "@Address()",
-    "description" : "Generate address (Chinese)",
+    "description" : "生成一个地址，语言默认中文，字典使用默认",
     "parameters" : null,
     "example" : "@Address()",
     "exampleValues" : [ "恩施土家族苗族自治州利川市", "上海市浦东新区迎宾大道6000号" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Custom value dictionary, multiple values separated by '|'"
+    "description" : "自定义值字典，多个值以“|”分割"
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
   } ],
   "order" : 504
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MLatitude",
   "name" : "@Latitude()",
-  "description" : "Generate latitude values",
-  "tags" : [ "Geographic Information" ],
+  "description" : "生成随机纬度坐标值",
+  "tags" : [ "地理信息" ],
   "constructors" : [ {
     "instance" : "@Latitude(arg0,arg1,arg2,arg3)",
-    "description" : "Generate latitude with specified parameters",
+    "description" : "生成一个纬度坐标值，按指定的minLat、maxLat、scale、nullWeight条件生成纬度坐标值",
     "parameters" : [ ],
     "example" : "@Latitude(30,60,5,1:2)",
     "exampleValues" : [ "40.336546" ]
   }, {
     "instance" : "@Latitude(arg0)",
-    "description" : "Generate latitude with default bounds and nullWeight (e.g. 2:8)",
+    "description" : "默认纬度范围与精度，仅通过 nullWeight（如 2:8）控制空值比例",
     "parameters" : [ ],
     "example" : "@Latitude(2:8)",
     "exampleValues" : [ "40.336546", "null" ]
   }, {
     "instance" : "@Latitude()",
-    "description" : "Generate random latitude",
+    "description" : "生成一个纬度坐标值，默认的范围随机的纬度坐标值，如：39.910981",
     "parameters" : null,
     "example" : "@Latitude()",
     "exampleValues" : [ "90.232121" ]
   } ],
   "parameters" : [ {
     "name" : "minLat",
-    "description" : "Min latitude (-90)"
+    "description" : "最小纬度，最小值 -90"
   }, {
     "name" : "maxLat",
-    "description" : "Max latitude (+90)"
+    "description" : "最大纬度，最大值 +90"
   }, {
     "name" : "scale",
-    "description" : "Decimal precision"
+    "description" : "精度，即小数点后保留的位数（int类型）"
   }, {
     "name" : "nullSampler",
-    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null"
   } ],
   "order" : 511
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MLongitude",
   "name" : "@Longitude()",
-  "description" : "Generate longitude values",
-  "tags" : [ "Geographic Information" ],
+  "description" : "生成随机经度坐标值",
+  "tags" : [ "地理信息" ],
   "constructors" : [ {
     "instance" : "@Longitude(arg0,arg1,arg2,arg3)",
-    "description" : "Generate longitude with specified parameters",
+    "description" : "生成一个经度坐标值，按指定的minLng、maxLng、scale、nullWeight条件生成经度坐标值",
     "parameters" : [ ],
     "example" : "@Longitude(30,60,5,1:2)",
     "exampleValues" : [ "40.336546" ]
   }, {
     "instance" : "@Longitude(arg0)",
-    "description" : "Generate longitude with default bounds and nullWeight (e.g. 2:8)",
+    "description" : "默认经度范围与精度，仅通过 nullWeight（如 2:8）控制空值比例",
     "parameters" : [ ],
     "example" : "@Longitude(2:8)",
     "exampleValues" : [ "90.232121", "null" ]
   }, {
     "instance" : "@Longitude()",
-    "description" : "Generate random longitude",
+    "description" : "生成一个经度坐标值，默认的范围随机的经度坐标值，如：116.41366",
     "parameters" : null,
     "example" : "@Longitude()",
     "exampleValues" : [ "90.232121" ]
   } ],
   "parameters" : [ {
     "name" : "minLng",
-    "description" : "Min longitude (-180)"
+    "description" : "最小经度，最小值 -180 （double类型）"
   }, {
     "name" : "maxLng",
-    "description" : "Max longitude (+180)"
+    "description" : "最大经度，最大值 +180"
   }, {
     "name" : "scale",
-    "description" : "Decimal precision"
+    "description" : "精度，即小数点后保留的位数（int类型）"
   }, {
     "name" : "nullSampler",
-    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null"
   } ],
   "order" : 512
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MCoordinates",
   "name" : "@Coordinates()",
-  "description" : "Generate random coordinates (format: longitude,latitude)",
-  "tags" : [ "Geographic Information" ],
+  "description" : "生成随机经纬度坐标值，格式：(经度,纬度)",
+  "tags" : [ "地理信息" ],
   "constructors" : [ {
     "instance" : "@Coordinates(arg0,arg1,arg2,arg3,arg4,arg5)",
-    "description" : "Generate coordinates with specified parameters",
+    "description" : "生成一个经纬度坐标值，按指定的minLng、maxLng、minLat、maxLat、scale、nullWeight条件生成经纬度坐标",
     "parameters" : [ ],
     "example" : "@Coordinates(30,60,100,160,5,1:2)",
     "exampleValues" : [ "40.336546,110.232121" ]
   }, {
     "instance" : "@Coordinates(arg0)",
-    "description" : "Generate coordinates with default bounds and nullWeight (e.g. 2:8)",
+    "description" : "默认经纬度范围与精度，仅通过 nullWeight（如 2:8）控制空值比例",
     "parameters" : [ ],
     "example" : "@Coordinates(2:8)",
     "exampleValues" : [ "20.336546,90.232121", "null" ]
   }, {
     "instance" : "@Coordinates()",
-    "description" : "Generate random coordinates",
+    "description" : "生成一个经纬度坐标值，默认的范围随机的经纬度坐标",
     "parameters" : null,
     "example" : "@Coordinates()",
     "exampleValues" : [ "20.336546,90.232121" ]
   } ],
   "parameters" : [ {
     "name" : "minLng",
-    "description" : "Min longitude (-180)"
+    "description" : "最小经度，最小值 -180 （double类型）"
   }, {
     "name" : "maxLng",
-    "description" : "Max longitude (+180)"
+    "description" : "最大经度，最大值 +180"
   }, {
     "name" : "minLat",
-    "description" : "Min latitude (-90)"
+    "description" : "最小纬度，最小值 -90"
   }, {
     "name" : "maxLat",
-    "description" : "Max latitude (+90)"
+    "description" : "最大纬度，最大值 +90"
   }, {
     "name" : "scale",
-    "description" : "Decimal precision"
+    "description" : "精度，即小数点后保留的位数（int类型）"
   }, {
     "name" : "nullSampler",
-    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null"
   } ],
   "order" : 513
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MZip",
   "name" : "@Zip()",
-  "description" : "Generate postal codes",
-  "tags" : [ "Geographic Information" ],
+  "description" : "生成邮政编码",
+  "tags" : [ "地理信息" ],
   "constructors" : [ {
     "instance" : "@Zip(arg0)",
-    "description" : "Generate postal code using specified dictionary",
+    "description" : "生成一个邮政编码，字典使用指定的dict",
     "parameters" : [ ],
     "example" : "@Zip(101407|101406|101405)",
     "exampleValues" : [ "101407", "101405", "101406" ]
   }, {
     "instance" : "@Zip(arg0)",
-    "description" : "Generate postal code in specified locale",
+    "description" : "生成一个邮政编码，语言使用指定的locale",
     "parameters" : [ ],
     "example" : "@Zip(en)",
     "exampleValues" : [ "EC1A 1HQ", "1ASA 9AA", "1BSA 4AB" ]
   }, {
     "instance" : "@Zip()",
-    "description" : "Generate postal code (Chinese)",
+    "description" : "生成一个邮政编码，语言默认中文，字典使用默认",
     "parameters" : null,
     "example" : "@Zip()",
     "exampleValues" : [ "252863", "252665", "1252866" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Postal code dictionary, default includes Chinese and UK formats"
+    "description" : "邮政编码字典，不指定时将使用默认字典\n- 中国区域默认（30 个）：252867|252866|252865|252864|252863|252862|252861|252800|252666|252665|252662|252661|252660|252659|252658|252657|252656|252655|252654|252653|102208|102206|102205|102204|102202|102200|101414|101413|101412|101411\n- 英国区域默认（20 个）：AGA 9AA|1AHA 4ZZ|1AJA 9AA|1ALA 5BQ|1ANA B10|1APA B10|1AQA 5BQ|1ARA B10|1ASA 9AA|1AUA 4ZZ|1AWA B10|1AXA B10|1BAA 4ZZ|1BBA 1HQ|1BDA B10|1BFA B10|1BHA 1HQ|1BRA 5BQ|1BSA 4AB|EC1A 1HQ"
   } ],
   "order" : 520
 }, {
@@ -1383,7 +1383,7 @@
     "description" : ""
   }, {
     "name" : "locale",
-    "description" : "Custom value dictionary, multiple values separated by '|'"
+    "description" : "自定义值字典，多个值以“|”分割"
   } ],
   "order" : 801
 }, {
@@ -1465,7 +1465,7 @@
     "description" : ""
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
   } ],
   "order" : 803
 }, {
@@ -1497,7 +1497,7 @@
     "description" : ""
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
   } ],
   "order" : 804
 }, {
@@ -1520,7 +1520,7 @@
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
   } ],
   "order" : 805
 }, {
@@ -1543,7 +1543,7 @@
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
   } ],
   "order" : 805
 }, {
@@ -1616,7 +1616,7 @@
     "description" : ""
   }, {
     "name" : "locale",
-    "description" : "Custom value dictionary, multiple values separated by '|'"
+    "description" : "自定义值字典，多个值以“|”分割"
   } ],
   "order" : 807
 }, {
@@ -1648,7 +1648,7 @@
     "description" : ""
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
   } ],
   "order" : 808
 }, {
@@ -1671,7 +1671,7 @@
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Custom value dictionary, multiple values separated by '|'"
+    "description" : "自定义值字典，多个值以“|”分割"
   } ],
   "order" : 901
 }, {
@@ -1884,11 +1884,11 @@
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MBrand",
   "name" : "@Brand()",
-  "description" : "Generate car brand",
-  "tags" : [ "Car" ],
+  "description" : "生成汽车品牌",
+  "tags" : [ "汽车" ],
   "constructors" : [ {
     "instance" : "@Brand()",
-    "description" : "Generate a default random car brand",
+    "description" : "生成默认随机汽车品牌",
     "parameters" : null,
     "example" : "@Brand()",
     "exampleValues" : [ "Peugeot", "Nissan", "Chery" ]
@@ -1898,11 +1898,11 @@
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MDrivetrain",
   "name" : "@Drivetrain()",
-  "description" : "Generate drivetrain",
-  "tags" : [ "Car" ],
+  "description" : "生成动力系统",
+  "tags" : [ "汽车" ],
   "constructors" : [ {
     "instance" : "@Drivetrain()",
-    "description" : "Generate a default random drivetrain type",
+    "description" : "生成默认随机动力系统类型",
     "parameters" : null,
     "example" : "@Drivetrain()",
     "exampleValues" : [ "AWD (All-Wheel Drive)", "RWD (Rear-Wheel Drive)", "FWD (Front-Wheel Drive)" ]
@@ -1912,11 +1912,11 @@
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MEngine",
   "name" : "@Engine()",
-  "description" : "Generate car engine",
-  "tags" : [ "Car" ],
+  "description" : "生成汽车引擎",
+  "tags" : [ "汽车" ],
   "constructors" : [ {
     "instance" : "@Engine()",
-    "description" : "Generate a default random car engine type",
+    "description" : "生成默认随机汽车引擎类型",
     "parameters" : null,
     "example" : "@Engine()",
     "exampleValues" : [ "2.2L Diesel", "3.5L V6 Turbo", "1.5L I4 Turbo" ]
@@ -1926,11 +1926,11 @@
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MHorsepower",
   "name" : "@Horsepower()",
-  "description" : "Generate car horsepower",
-  "tags" : [ "Car" ],
+  "description" : "生成汽车马力",
+  "tags" : [ "汽车" ],
   "constructors" : [ {
     "instance" : "@Horsepower()",
-    "description" : "Generate a default random car horsepower value",
+    "description" : "生成默认随机汽车马力值",
     "parameters" : null,
     "example" : "@Horsepower()",
     "exampleValues" : [ "723 HP", "71 HP", "982 HP" ]
@@ -1940,11 +1940,11 @@
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MPlate",
   "name" : "@Plate()",
-  "description" : "Generate license plate",
-  "tags" : [ "Car" ],
+  "description" : "生成车牌号",
+  "tags" : [ "汽车" ],
   "constructors" : [ {
     "instance" : "@Plate()",
-    "description" : "Generate a default random license plate",
+    "description" : "生成默认随机车牌号",
     "parameters" : null,
     "example" : "@Plate()",
     "exampleValues" : [ "渝G ZKK97", "甘J FKH92", "ABCDEFGHJKLMNPQRSTUVWXYZ0123456789773" ]
@@ -1954,11 +1954,11 @@
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MVehicle",
   "name" : "@Vehicle()",
-  "description" : "Generate vehicle",
-  "tags" : [ "Car" ],
+  "description" : "生成车牌号",
+  "tags" : [ "汽车" ],
   "constructors" : [ {
     "instance" : "@Vehicle()",
-    "description" : "Generate a default random license plate",
+    "description" : "生成默认随机车牌号",
     "parameters" : null,
     "example" : "@Vehicle()",
     "exampleValues" : [ "Coupe", "SUV", "Station Wagon" ]
@@ -1968,34 +1968,34 @@
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MCodeSnippet",
   "name" : "@CodeSnippet()",
-  "description" : "Generate code",
-  "tags" : [ "Code" ],
+  "description" : "生成代码",
+  "tags" : [ "代码" ],
   "constructors" : [ {
     "instance" : "@CodeSnippet()",
-    "description" : "Generate a JAVA code snippet",
+    "description" : "生成JAVA代码片段",
     "parameters" : null,
     "example" : "@CodeSnippet()",
     "exampleValues" : [ "public class MathUtils {\n    /**\n     * Calculate the square of a number\n     */\n    public static int updateResult(int userCount) {\n        int newCount = userCount * userCount;\n        return newCount;\n    }\n\n    public static void main(String[] args) {\n        int result = updateResult(3);\n        System.out.println(\"Square of \" + 3 + \" is \" + result);\n    }\n}" ]
   }, {
     "instance" : "@CodeSnippet(arg0)",
-    "description" : "Generate a specified programming language code snippet",
+    "description" : "生成指定编程语言代码片段",
     "parameters" : [ ],
     "example" : "@CodeSnippet(PYTHON)",
     "exampleValues" : [ "def calculateResult(currentTotal):\n    \"\"\"Calculate the square of a number\"\"\"\n    data = currentTotal ** 2\n    return data\n\n# Function call\nresult = calculateResult(94)\nprint(f\"Square of 94 is {result}\")" ]
   } ],
   "parameters" : [ {
     "name" : "language",
-    "description" : "Programming language, supported values: PYTHON, JAVA, JAVASCRIPT, TYPESRIPT, CPP, CSHARP, PHP, RUBY, SWIFT, GO"
+    "description" : "编程语言，支持值：PYTHON,JAVA,JAVASCRIPT,TYPESCRIPT,CPP,CSHARP,PHP,RUBY,SWIFT,GO"
   } ],
   "order" : 3001
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MErrorType",
   "name" : "@ErrorType()",
-  "description" : "Generate error",
-  "tags" : [ "Code" ],
+  "description" : "生成错误",
+  "tags" : [ "代码" ],
   "constructors" : [ {
     "instance" : "@ErrorType()",
-    "description" : "Generate a default random exception type",
+    "description" : "生成默认随机异常类型",
     "parameters" : null,
     "example" : "@ErrorType()",
     "exampleValues" : [ "ReferenceError", "IndexOutOfBoundsException" ]
@@ -2005,11 +2005,11 @@
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MHtml",
   "name" : "@Html()",
-  "description" : "Generate HTML content",
-  "tags" : [ "Code" ],
+  "description" : "生成Html内容",
+  "tags" : [ "代码" ],
   "constructors" : [ {
     "instance" : "@Html()",
-    "description" : "Generate default random HTML content",
+    "description" : "生成默认随机Html内容",
     "parameters" : null,
     "example" : "@Html()",
     "exampleValues" : [ "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Blog Hub</title>\n  <style>\n    body {\n      font-family: Georgia, 'Times New Roman', Times, serif;\n      line-height: 1.6;\n      color: #333;\n      max-width: 1200px;\n      margin: 0 auto;\n      padding: 20px;\n      background-color: #f9f9f9;\n    }\n\n    .container {\n      background-color: white;\n      border-radius: 8px;\n      box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n      padding: 20px;\n      margin-bottom: 30px;\n    }\n\n    h1, h2, h3 {\n      color: #f39c12;\n      margin-top: 0;\n    }\n\n    .btn {\n      display: inline-block;\n      padding: 10px 20px;\n      background-color: #d35400;\n      color: white;\n      text-decoration: none;\n      border-radius: 4px;\n      border: none;\n      cursor: pointer;\n      font-weight: bold;\n      transition: background-color 0.3s;\n    }\n\n    .btn:hover {\n      background-color: #c0392b;\n    }\n\n    table {\n      width: 100%;\n      border-collapse: collapse;\n      margin: 20px 0;\n    }\n\n    th, td {\n      border: 1px solid #ddd;\n      padding: 12px;\n      text-align: left;\n    }\n\n    th {\n      background-color: #f2f2f2;\n    }\n\n    .form-group {\n      margin-bottom: 15px;\n    }\n\n    label {\n      display: block;\n      margin-bottom: 5px;\n      font-weight: bold;\n    }\n\n    input, textarea, select {\n      width: 100%;\n      padding: 10px;\n      border: 1px solid #ddd;\n      border-radius: 4px;\n    }\n  </style>\n</head>\n<body>\n<div class=\"container\">\n  <h1>Introduction to Company Mission</h2>\n  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua<code></code>.</p>\n  <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua<strong></strong>. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit<strong></strong>.</p>\n  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris<u></u>. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>\n  <ol>\n    <li>Key element that saves time</li>\n    <li>Important benefit that saves time</li>\n    <li>Critical aspect that saves time</li>\n    <li>Critical benefit that enhances security</li>\n    <li>Primary element that reduces costs</li>\n  </ol>\n  <img src=\"https://picsum.photos/533/425\" alt=\"Landscape\" class=\"responsive-img\">\n  <table>\n    <thead>\n      <tr>\n        <th>Price</th>\n        <th>Date</th>\n        <th>Price</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr>\n        <td>26</td>\n        <td>16</td>\n        <td>Product A</td>\n      </tr>\n      <tr>\n        <td>56</td>\n        <td>100</td>\n        <td>Component D</td>\n      </tr>\n      <tr>\n        <td>44</td>\n        <td>27</td>\n        <td>Component D</td>\n      </tr>\n      <tr>\n        <td>70</td>\n        <td>Service B</td>\n        <td>Component D</td>\n      </tr>\n      <tr>\n        <td>26</td>\n        <td>89</td>\n        <td>Service B</td>\n      </tr>\n      <tr>\n        <td>42</td>\n        <td>Feature E</td>\n        <td>Product A</td>\n      </tr>\n    </tbody>\n  </table>\n  <form>\n    <div class=\"form-group\">\n      <label for=\"field0\">Phone</label>\n      <input type=\"password\" id=\"field0\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"field1\">Message</label>\n      <input type=\"text\" id=\"field1\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"field2\">Message</label>\n      <textarea id=\"field2\" rows=\"4\"></textarea>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"field3\">Message</label>\n      <input type=\"email\" id=\"field3\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"field4\">Message</label>\n      <textarea id=\"field4\" rows=\"4\"></textarea>\n    </div>\n    <button type=\"submit\" class=\"btn\">Save</button>\n  </form>\n</div>\n</body>\n</html>" ]
@@ -2019,11 +2019,11 @@
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MMarkdown",
   "name" : "@Markdown()",
-  "description" : "Generate Markdown content",
-  "tags" : [ "Code" ],
+  "description" : "生成Markdown内容",
+  "tags" : [ "代码" ],
   "constructors" : [ {
     "instance" : "@Markdown()",
-    "description" : "Generate default random Markdown content",
+    "description" : "生成默认随机Markdown内容",
     "parameters" : null,
     "example" : "@Markdown()",
     "exampleValues" : [ "# Kubernetes Project Overview\n![License](https://img.shields.io/badge/license-MIT-blue.svg) ![Version](https://img.shields.io/badge/version-1.0.0-green.svg) ![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)\n## Table of Contents\n\n- [Introduction](#introduction)\n- [Features](#features)\n- [Installation](#installation)\n- [Usage](#usage)\n- [Contributing](#contributing)\n- [License](#license)\n\n## Usage\n\n### Basic Usage\n\nThe modular design allows for selective adoption of components. The architecture is built on proven best practices and industry standards.\n\n```json\nconsole.log('Hello, World!');\n```\n\n### Advanced Features\n\nThe modular design allows for selective adoption of components. Integration with existing systems is straightforward and well-documented. Integration with existing systems is straightforward and well-documented.\n\n| Feature | Description | Status |\n|---------|-------------|--------|\n| optimization | automates interface | \uD83D\uDD04 Planned |\n| loop | transforms function | \uD83D\uDD04 Planned |\n| implementation | transforms class | ✅ Implemented |\n| algorithm | facilitates optimization | ✅ Implemented |\n| abstraction | optimizes implementation | ✅ Implemented |\n| function | facilitates function | \uD83D\uDD04 Planned |\n| implementation | enhances class | \uD83D\uDD04 Planned |\n| implementation | simplifies interface | \uD83D\uDD04 Planned |\n\n\n### Common Patterns\n\nExtensive customization options allow tailoring to specific use cases.\n\n```xml\nconsole.log('Hello, World!');\n```\n\nIntegration with existing systems is straightforward and well-documented.\n\n\n## Installation\n\nBefore you begin, ensure you have the following prerequisites:\n\n1. - [ ] facilitates interface\n2. lightweight implementation\n3. interface:\n  - conditional\n\n\n### Installation Steps\n\n#### Step 1\n\nIntegration with existing systems is straightforward and well-documented.\n\n```yaml\nserver:\n  port: 8080\n\ndatabase:\n  host: localhost\n  name: example\n```\n\n#### Step 2\n\nPerformance benchmarks demonstrate significant improvements over alternatives. The modular design allows for selective adoption of components.\n\n```json\nconsole.log('Hello, World!');\n```\n\n#### Step 3\n\nCompatibility with multiple platforms extends the potential use cases.\n\n```javascript\nconst express = require('express');\nconst app = express();\n\napp.get('/', (req, res) => {\n    res.send('Hello World!');\n});\n\napp.listen(3000);\n```\n\n---\n## Configuration\n\n### Configuration Options\n\nThe following options can be specified in the configuration file:\n\n| Parameter | Type | Default | Description | Required |\n|---|---|---|---|---|\n| `config.interface` | string | `\"\"` | modular configuration for loop | Yes |\n| `config.conditional` | string | `null` | high-performance configuration for interface | No |\n| `config.optimization` | integer | `null` | lightweight configuration for algorithm | Yes |\n| `config.optimization` | string | `null` | flexible configuration for algorithm | Yes |\n| `config.variable` | integer | `null` | secure configuration for interface | Yes |\n| `config.variable` | integer | `0` | high-performance configuration for loop | No |\n| `config.interface` | integer | `null` | powerful configuration for loop | No |\n\n\n### Example Configuration\n\n```yaml\nserver:\n  port: 8080\n\ndatabase:\n  host: localhost\n  name: example\n```\n\n\n## Examples\n\n### Example 1\n\nIntegration with existing systems is straightforward and well-documented.\n\n```typescript\nconsole.log('Hello, World!');\n```\n\n**Explanation:**\n\nThis project provides a comprehensive solution for modern development challenges.\n\n### Example 2\n\nExtensive customization options allow tailoring to specific use cases.\n\n```shell\ncurl -O https://example.com/install.sh\nchmod +x install.sh\n./install.sh\n```\n\n**Explanation:**\n\nExtensive customization options allow tailoring to specific use cases.\n\n### Example 3\n\nCompatibility with multiple platforms extends the potential use cases. With its intuitive `optimization`, you can achieve significant productivity gains.\n\n```shell\ncurl -O https://example.com/install.sh\nchmod +x install.sh\n./install.sh\n```\n\n**Explanation:**\n\nExtensive customization options allow tailoring to specific use cases.\n\n---\n## Examples\n\n### Example 1\n\nCommunity support and active development ensure long-term viability.\n\n```yaml\nserver:\n  port: 8080\n\ndatabase:\n  host: localhost\n  name: example\n```\n\n**Explanation:**\n\nPerformance benchmarks demonstrate significant improvements over alternatives. Performance benchmarks demonstrate significant improvements over alternatives. Performance benchmarks demonstrate significant improvements over alternatives.\n\n### Example 2\n\nWith its intuitive `implementation`, you can achieve significant productivity gains.\n\n```python\ndef main():\n    print(\"Hello, World!\")\n\nif __name__ == \"__main__\":\n    main()\n```\n\n**Explanation:**\n\nWith its intuitive design, you can achieve significant productivity gains. The architecture is built on proven best practices and industry standards.\n\n### Example 3\n\nPerformance benchmarks demonstrate significant improvements over alternatives. Compatibility with multiple platforms extends the potential use cases.\n\n```dockerfile\nconsole.log('Hello, World!');\n```\n\n**Explanation:**\n\nSecurity considerations are at the forefront of the `abstraction` philosophy.\n\n\n## Features\n\nWith its intuitive `algorithm`, you can achieve significant productivity gains. Extensive customization options allow tailoring to specific use cases. The architecture is built on proven best practices and industry standards. With its intuitive `function`, you can achieve significant productivity gains.\n\n- powerful class\n- abstraction:\n  - function\n- high-performance abstraction\n- secure conditional\n- optimization:\n    - conditional\n\n## Advanced Topics\n\nThis project provides a comprehensive solution for modern development challenges. Security considerations are at the forefront of the design philosophy. The architecture is built on proven best practices and industry standards.\n\n> [!danger]\n> With its intuitive design, you can achieve significant productivity gains.\n\n1. flexible interface\n2. intuitive abstraction\n3. function:\n    - variable" ]
@@ -2033,11 +2033,11 @@
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MProgrammingLanguage",
   "name" : "@ProgrammingLanguage()",
-  "description" : "Generate programming language",
-  "tags" : [ "Code" ],
+  "description" : "生成编程语言",
+  "tags" : [ "代码" ],
   "constructors" : [ {
     "instance" : "@ProgrammingLanguage()",
-    "description" : "Generate default random programming language",
+    "description" : "生成默认随机编程语言",
     "parameters" : null,
     "example" : "@ProgrammingLanguage()",
     "exampleValues" : [ "Kotlin", "Scala", "JavaScript" ]
@@ -2047,11 +2047,11 @@
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MBrowser",
   "name" : "@Browser()",
-  "description" : "Generate browser",
-  "tags" : [ "Computer" ],
+  "description" : "生成浏览器",
+  "tags" : [ "计算机" ],
   "constructors" : [ {
     "instance" : "@Browser()",
-    "description" : "Generate default random browser",
+    "description" : "生成默认随机浏览器",
     "parameters" : null,
     "example" : "@Browser()",
     "exampleValues" : [ "Firefox 119", "Opera 119" ]
@@ -2061,11 +2061,11 @@
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MCloudService",
   "name" : "@CloudService()",
-  "description" : "Generate cloud service",
-  "tags" : [ "Computer" ],
+  "description" : "生成云服务",
+  "tags" : [ "计算机" ],
   "constructors" : [ {
     "instance" : "@CloudService()",
-    "description" : "Generate default random cloud service",
+    "description" : "生成默认随机云服务",
     "parameters" : null,
     "example" : "@MCloudService()",
     "exampleValues" : [ "Google Kubernetes Engine", "IBM Cloud Object Storage" ]
@@ -2075,11 +2075,11 @@
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MOs",
   "name" : "@Os()",
-  "description" : "Generate operating system",
-  "tags" : [ "Computer" ],
+  "description" : "生成操作系统",
+  "tags" : [ "计算机" ],
   "constructors" : [ {
     "instance" : "@Os()",
-    "description" : "Generate default random operating system",
+    "description" : "生成默认随机操作系统",
     "parameters" : null,
     "example" : "@Os()",
     "exampleValues" : [ "iOS 16", "Windows Server 2022" ]
@@ -2089,11 +2089,11 @@
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MRam",
   "name" : "@Ram()",
-  "description" : "Generate memory",
-  "tags" : [ "Computer" ],
+  "description" : "生成内存",
+  "tags" : [ "计算机" ],
   "constructors" : [ {
     "instance" : "@Ram()",
-    "description" : "Generate default random memory",
+    "description" : "生成默认随机内存",
     "parameters" : null,
     "example" : "@Ram()",
     "exampleValues" : [ "128GB DDR5 2933MHz", "32GB DDR4 5600MHz" ]
@@ -2103,11 +2103,11 @@
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MCpuModel",
   "name" : "@CpuModel()",
-  "description" : "Generate CPU model",
-  "tags" : [ "Computer" ],
+  "description" : "生成CPU型号",
+  "tags" : [ "计算机" ],
   "constructors" : [ {
     "instance" : "@CpuModel()",
-    "description" : "Generate default random CPU model",
+    "description" : "生成默认随机CPU型号",
     "parameters" : null,
     "example" : "@MCloudService()",
     "exampleValues" : [ "Intel Xeon W-1390P", "Intel Core i9-13900K" ]
@@ -2117,11 +2117,11 @@
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MDatabase",
   "name" : "@Database()",
-  "description" : "Generate database",
-  "tags" : [ "Computer" ],
+  "description" : "生成数据库",
+  "tags" : [ "计算机" ],
   "constructors" : [ {
     "instance" : "@Database()",
-    "description" : "Generate default random database",
+    "description" : "生成默认随机数据库",
     "parameters" : null,
     "example" : "@Database()",
     "exampleValues" : [ "MariaDB", "Amazon DynamoDB" ]
@@ -2131,11 +2131,11 @@
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MDevice",
   "name" : "@Device()",
-  "description" : "Generate device name",
-  "tags" : [ "Computer" ],
+  "description" : "生成设备名",
+  "tags" : [ "计算机" ],
   "constructors" : [ {
     "instance" : "@Device()",
-    "description" : "Generate default random device name",
+    "description" : "生成默认随机设备名",
     "parameters" : null,
     "example" : "@Device()",
     "exampleValues" : [ "Mainframe", "Server" ]
@@ -2145,11 +2145,11 @@
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MFileName",
   "name" : "@FileName()",
-  "description" : "Generate file name",
-  "tags" : [ "Computer" ],
+  "description" : "生成文件名",
+  "tags" : [ "计算机" ],
   "constructors" : [ {
     "instance" : "@FileName()",
-    "description" : "Generate default random file name",
+    "description" : "生成默认随机文件名",
     "parameters" : null,
     "example" : "@FileName()",
     "exampleValues" : [ "presentation_jan.xml", "report.pptx" ]
@@ -2159,11 +2159,11 @@
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MFilePath",
   "name" : "@FilePath()",
-  "description" : "Generate file path",
-  "tags" : [ "Computer" ],
+  "description" : "生成文件路径",
+  "tags" : [ "计算机" ],
   "constructors" : [ {
     "instance" : "@FilePath()",
-    "description" : "Generate default random file path",
+    "description" : "生成默认随机文件路径",
     "parameters" : null,
     "example" : "@FilePath()",
     "exampleValues" : [ "F:\\Media\\Photos\\report_jan.exe", "/tmp/archive_jan.pdf" ]
@@ -2173,11 +2173,11 @@
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MFramework",
   "name" : "@Framework()",
-  "description" : "Generate framework",
-  "tags" : [ "Computer" ],
+  "description" : "生成框架",
+  "tags" : [ "计算机" ],
   "constructors" : [ {
     "instance" : "@Framework()",
-    "description" : "Generate default random framework name",
+    "description" : "生成默认随机框架名称",
     "parameters" : null,
     "example" : "@Framework()",
     "exampleValues" : [ "React Native", "Ruby on Rails" ]
@@ -2187,11 +2187,11 @@
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MGpuModel",
   "name" : "@GpuModel()",
-  "description" : "Generate GPU model",
-  "tags" : [ "Computer" ],
+  "description" : "生成GPU型号",
+  "tags" : [ "计算机" ],
   "constructors" : [ {
     "instance" : "@GpuModel()",
-    "description" : "Generate default random GPU model",
+    "description" : "生成默认随机GPU型号",
     "parameters" : null,
     "example" : "@GpuModel()",
     "exampleValues" : [ "NVIDIA RTX 4080", "NVIDIA Quadro RTX 6000" ]
@@ -2201,11 +2201,11 @@
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MHttpStatus",
   "name" : "@HttpStatus()",
-  "description" : "Generate HTTP status code",
-  "tags" : [ "Computer" ],
+  "description" : "生成Http状态码",
+  "tags" : [ "计算机" ],
   "constructors" : [ {
     "instance" : "@HttpStatus()",
-    "description" : "Generate default random HTTP status code",
+    "description" : "生成默认随机Http状态码",
     "parameters" : null,
     "example" : "@HttpStatus()",
     "exampleValues" : [ "302 Found", "500 Internal Server Error" ]
@@ -2215,11 +2215,11 @@
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MVulnerability",
   "name" : "@Vulnerability()",
-  "description" : "Generate vulnerability",
-  "tags" : [ "Computer" ],
+  "description" : "生成漏洞",
+  "tags" : [ "计算机" ],
   "constructors" : [ {
     "instance" : "@Vulnerability()",
-    "description" : "Generate default random vulnerability",
+    "description" : "生成默认随机漏洞",
     "parameters" : null,
     "example" : "@Vulnerability()",
     "exampleValues" : [ "XML External Entity (XXE)", "Security Misconfiguration" ]
@@ -2229,234 +2229,234 @@
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MBase64",
   "name" : "@Base64()",
-  "description" : "Generate Base64 string",
-  "tags" : [ "Cipher" ],
+  "description" : "生成Base64字符串",
+  "tags" : [ "密文" ],
   "constructors" : [ {
     "instance" : "@Base64()",
-    "description" : "Generate default random string with 128 characters",
+    "description" : "生成默认128字符长度随机字符串",
     "parameters" : null,
     "example" : "@Base64()",
     "exampleValues" : [ "pWJCBBEyFi4THaYWOcLtlj+aWJ5w/v9SazFHbi+D/XQdY1AoFDkaF/hJlHS1tjITELoz5ROb7WS98Tio4IO796mezlxjdCT4c+Hdp5adjZNRK2FT3QZ0jKeOwM263KIT", "wddMreXApGyczv6Glsti22HtOABU69E1KacyRidg6l6AAD2fvPezQeN+jEUOyk9zwTgyA/WXsTUpw5f4C9TMS09V4rvm/ikQD3OQilYpo0g6MIblEToYBXnWS4ybnoMh" ]
   }, {
     "instance" : "@Base64(arg0)",
-    "description" : "Generate random string with specified character length",
+    "description" : "生成指定字符长度随机字符串",
     "parameters" : [ ],
     "example" : "@Base64(32)",
     "exampleValues" : [ "XII3JC7y4gQvCXLB7V08uKDvBORyDiVI", "LQqpeYt1sl3rlYPaLYQZUsKtALZj8Yt7" ]
   } ],
   "parameters" : [ {
     "name" : "length",
-    "description" : "String length"
+    "description" : "字符串长度"
   } ],
   "order" : 6001
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MHash",
   "name" : "@Hash()",
-  "description" : "Generate hash value",
-  "tags" : [ "Cipher" ],
+  "description" : "生成哈希值",
+  "tags" : [ "密文" ],
   "constructors" : [ {
     "instance" : "@Hash()",
-    "description" : "Generate default random MD5 hash value",
+    "description" : "生成默认MD5随机哈希值",
     "parameters" : null,
     "example" : "@Hash()",
     "exampleValues" : [ "4cf8e6d87f05b4f979ff8775d1f78fb8", "46a7f33aab52baef179770517bedeb2b" ]
   }, {
     "instance" : "@Hash(arg0)",
-    "description" : "Generate random hash value with specified algorithm",
+    "description" : "生成指定算法随机哈希值",
     "parameters" : [ ],
     "example" : "@Hash(SHA-256)",
     "exampleValues" : [ "191d55ca8427b35fffc964461ee430e15ea738f67885ad65162cdafc866da558", "6c9cd1dadcf6c447ef4b80a9e28d358350958f9c2b8e4ca4fcffefa2c6c8185a" ]
   } ],
   "parameters" : [ {
     "name" : "algorithm",
-    "description" : "Hash algorithm, e.g., MD5, SHA-256, etc."
+    "description" : "哈希算法，如：MD5、SHA-256等"
   } ],
   "order" : 6002
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MHex",
   "name" : "@Hex()",
-  "description" : "Generate hexadecimal value",
-  "tags" : [ "Cipher" ],
+  "description" : "生成16进制值",
+  "tags" : [ "密文" ],
   "constructors" : [ {
     "instance" : "@Hex()",
-    "description" : "Generate default 8-character long hexadecimal value",
+    "description" : "生成默认8个字符长度16进制值",
     "parameters" : null,
     "example" : "@Hex()",
     "exampleValues" : [ "6c1aecc9", "45075b35" ]
   }, {
     "instance" : "@Hex(arg0)",
-    "description" : "Generate hexadecimal value with specified character length",
+    "description" : "生成指定字符长度16进制值",
     "parameters" : [ ],
     "example" : "@Hex(32)",
     "exampleValues" : [ "a45e50145cdee6c45141682ab3c2bce8", "c97e1952909460ccaf410a089ef1b41c" ]
   } ],
   "parameters" : [ {
     "name" : "length",
-    "description" : "Hexadecimal value length"
+    "description" : "16进制值长度"
   } ],
   "order" : 6003
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MKeyPair",
   "name" : "@KeyPair()",
-  "description" : "Generate key pair",
-  "tags" : [ "Cipher" ],
+  "description" : "生成密钥对",
+  "tags" : [ "密文" ],
   "constructors" : [ {
     "instance" : "@KeyPair()",
-    "description" : "Generate default RSA algorithm key pair with size 526",
+    "description" : "生成默认RSA算法526大小Key的随机密钥对",
     "parameters" : null,
     "example" : "@KeyPair()",
     "exampleValues" : [ "Public Key:\n-----BEGIN PUBLIC KEY-----\nMF0wDQYJKoZIhvcNAQEBBQADTAAwSQJCINq6aF16xfELo/7qNjGxYCiBjMWvGCSi\nuIWuel3qr/6y5tEaSF28kt9kuXUH+WRSiBRkjMlh+2Msi0BQPamOR6F5AgMBAAE=\n-----END PUBLIC KEY-----\n\nPrivate Key:\n-----BEGIN PRIVATE KEY-----\nMIIBWQIBADANBgkqhkiG9w0BAQEFAASCAUMwggE/AgEAAkIg2rpoXXrF8Quj/uo2\nMbFgKIGMxa8YJKK4ha56Xeqv/rLm0RpIXbyS32S5dQf5ZFKIFGSMyWH7YyyLQFA9\nqY5HoXkCAwEAAQJCCBBHEhhnaq+nsL9/EoANzdEDQt6+A8nyGiHNWgE0+a8kYlGd\ngqIU54IkjxvCW+j2alI045v2O4g0g2YYVwjkxnuRAiFSJDI3zxKV2kjM8iMv4E2K\nutyrI/U/7J1TVCHFJAYjJN0CIWZkr1aLQ/YAIGBOmqBegGjRHbpy5UzDoyKN6yFl\nj4mHTQIhMQYdWqWhyAIRdRAG5CoQ3X2M+i9pzg8gDn2l8g0ABLWZAiFH7IOphAvJ\n+g7D95LwAVGrzvBV7q0Y/fdSp2O5wtBPp6UCIU4MJyqLslRHwBgg/bFbp+oH8YjR\nm8UhZPMtr2RsE1i52g==\n-----END PRIVATE KEY-----" ]
   }, {
     "instance" : "@KeyPair(arg0,arg1)",
-    "description" : "Generate random key pair with specified algorithm and key size",
+    "description" : "生成指定算法和Key大小的随机密钥对",
     "parameters" : [ ],
     "example" : "@KeyPair(EC,256)",
     "exampleValues" : [ "Public Key:\n-----BEGIN PUBLIC KEY-----\nMF0wDQYJKoZIhvcNAQEBBQADTAAwSQJCNFUTq6yj/nhluxtj+sRNFl2L/AGuDNUs\nhw8gdRcQBPShH0Q+wlxjLLESu2EXHpvtCgRVUajCV240WRy9hhis5HdPAgMBAAE=\n-----END PUBLIC KEY-----\n\nPrivate Key:\n-----BEGIN PRIVATE KEY-----\nMIIBWQIBADANBgkqhkiG9w0BAQEFAASCAUMwggE/AgEAAkI0VROrrKP+eGW7G2P6\nxE0WXYv8Aa4M1SyHDyB1FxAE9KEfRD7CXGMssRK7YRcem+0KBFVRqMJXbjRZHL2G\nGKzkd08CAwEAAQJCB0mjvCAGFG1iyVwmn6jPjWJImLcJLGtRUJuYKwYjqnUAjLYC\n/7JjZpZ8z+6QBxXV9tz5ynIAccbRkxpCnqEQC/QlAiF+BDX++1uoOnLvfQHb0mN0\n4R47FXCCJv1SmHVjUpVv55UCIWpP55219mvomEuXyaXAi8PQkzULNZCTbnRvndil\nZOpaUwIhNthIU9g79QSzPy4N4Ak6BgVwLdDP7aVgfVEjTf4EUfbdAiFMWpkyFwcl\n10bSO/Dyn8iB2aJwXV2aOZkB/Uwz1g4VlssCIX2TEF/qTyy4PAGQUwNeGIWo4h6a\nyOf7XXnOoEYUPaP2gw==\n-----END PRIVATE KEY-----" ]
   } ],
   "parameters" : [ {
     "name" : "algorithm",
-    "description" : "Generation algorithm, e.g., RSA, EC, DSA"
+    "description" : "生成算法，如：RSA, EC, DSA"
   }, {
     "name" : "keySize",
-    "description" : "Key size, e.g., 2048 RSA, 256 EC"
+    "description" : "Key大小，如：2048 RSA, 256 EC"
   } ],
   "order" : 6004
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MSymmetricKey",
   "name" : "@SymmetricKey()",
-  "description" : "Generate symmetric encryption key",
-  "tags" : [ "Cipher" ],
+  "description" : "生成对称加密Key",
+  "tags" : [ "密文" ],
   "constructors" : [ {
     "instance" : "@SymmetricKey()",
-    "description" : "Generate default AES algorithm encryption key",
+    "description" : "生成默认AES算法加密Key",
     "parameters" : null,
     "example" : "@SymmetricKey()",
     "exampleValues" : [ "wCnChNn+2WSH6saSatASL+3Bo3HcW8uEz8jHqM7TtQs=", "/IWyWbP42jcWFB47zmLCfWVGK6nnRkrBM/dJqnRt+bU=" ]
   }, {
     "instance" : "@SymmetricKey(arg0)",
-    "description" : "Generate encryption key with specified algorithm",
+    "description" : "生成指定算法加密Key",
     "parameters" : [ ],
     "example" : "@SymmetricKey(AES)",
     "exampleValues" : [ "wiuUG5/rfxB1r9VtxfgO1jy1TLyAmo5xFBm7iOPosAs=", "zHexV+cHC3O9T70eU2FEgSsFTfOmOsD/lJfGQOj90Aw=" ]
   } ],
   "parameters" : [ {
     "name" : "algorithm",
-    "description" : "Generation algorithm, e.g., RSA, EC, DSA"
+    "description" : "生成算法，如：RSA, EC, DSA"
   } ],
   "order" : 6005
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MAmount",
   "name" : "@Amount()",
-  "description" : "Generate random amount",
-  "tags" : [ "Financial" ],
+  "description" : "生成随机金额",
+  "tags" : [ "财务" ],
   "constructors" : [ {
     "instance" : "@Amount()",
-    "description" : "Generate default localized amount for China",
+    "description" : "生成默认中国本地化金额值",
     "parameters" : null,
     "example" : "@Amount()",
     "exampleValues" : [ "¥532,009.41", "¥795,734.08" ]
   }, {
     "instance" : "@Amount(arg0)",
-    "description" : "Generate amount for specified locale",
+    "description" : "生成指定区域金额值",
     "parameters" : [ ],
     "example" : "@Amount(en)",
     "exampleValues" : [ "¤249,495.63", "¤965,859.18" ]
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
   } ],
   "order" : 7001
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MBudgetCategory",
   "name" : "@BudgetCategory()",
-  "description" : "Generate budget category",
-  "tags" : [ "Financial" ],
+  "description" : "生成预算分类",
+  "tags" : [ "财务" ],
   "constructors" : [ {
     "instance" : "@BudgetCategory()",
-    "description" : "Generate default Chinese budget category",
+    "description" : "生成默认中文预算分类",
     "parameters" : null,
     "example" : "@BudgetCategory()",
     "exampleValues" : [ "市场营销", "差旅报销" ]
   }, {
     "instance" : "@BudgetCategory(arg0)",
-    "description" : "Generate budget category in specified language",
+    "description" : "生成指定语言预算分类",
     "parameters" : [ ],
     "example" : "@BudgetCategory(en)",
     "exampleValues" : [ "Taxes", "Travel & Reimbursement" ]
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
   } ],
   "order" : 7002
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MCurrency",
   "name" : "@Currency()",
-  "description" : "Generate currency",
-  "tags" : [ "Financial" ],
+  "description" : "生成货币",
+  "tags" : [ "财务" ],
   "constructors" : [ {
     "instance" : "@Currency()",
-    "description" : "Generate default localized currency for China",
+    "description" : "生成默认中国本地化货币",
     "parameters" : null,
     "example" : "@MCurrency()",
     "exampleValues" : [ "EUR", "EUR" ]
   }, {
     "instance" : "@Currency(arg0)",
-    "description" : "Generate currency for specified locale",
+    "description" : "生成指定区域货币",
     "parameters" : [ ],
     "example" : "@MCurrency(en)",
     "exampleValues" : [ "CNY", "CAD" ]
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
   } ],
   "order" : 7003
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MInvoiceNumber",
   "name" : "@InvoiceNumber()",
-  "description" : "Generate invoice number",
-  "tags" : [ "Financial" ],
+  "description" : "生成发票编号",
+  "tags" : [ "财务" ],
   "constructors" : [ {
     "instance" : "@InvoiceNumber()",
-    "description" : "Generate default localized invoice number for China",
+    "description" : "生成默认中国本地化发票编号",
     "parameters" : null,
     "example" : "@InvoiceNumber()",
     "exampleValues" : [ "FP-202506-63498", "FP-202506-75545" ]
   }, {
     "instance" : "@InvoiceNumber(arg0)",
-    "description" : "Generate invoice number for specified locale",
+    "description" : "生成指定区域发票编号",
     "parameters" : [ ],
     "example" : "@InvoiceNumber(en)",
     "exampleValues" : [ "INV-202506-18877", "INV-202506-81864" ]
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
   } ],
   "order" : 7004
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MTaxCode",
   "name" : "@TaxCode()",
-  "description" : "Generate tax code",
-  "tags" : [ "Financial" ],
+  "description" : "生成税码",
+  "tags" : [ "财务" ],
   "constructors" : [ {
     "instance" : "@TaxCode()",
-    "description" : "Generate default localized tax code for China",
+    "description" : "生成默认中国本地化税码",
     "parameters" : null,
     "example" : "@TaxCode()",
     "exampleValues" : [ "11010RU5G000", "11010LJR5000", "110109LGN000" ]
   }, {
     "instance" : "@TaxCode(arg0)",
-    "description" : "Generate tax code for specified locale",
+    "description" : "生成指定区域税码",
     "parameters" : [ ],
     "example" : "@TaxCode(en)",
     "exampleValues" : [ "XX-LNDL6HY7", "L4B-ZK85QS" ]
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
   } ],
   "order" : 7005
 } ]

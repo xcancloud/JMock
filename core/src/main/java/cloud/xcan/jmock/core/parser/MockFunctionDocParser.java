@@ -15,11 +15,8 @@ import cloud.xcan.jmock.core.environment.Environment;
 import cloud.xcan.jmock.core.parser.docs.model.MockConstructor;
 import cloud.xcan.jmock.core.parser.docs.model.MockFunction;
 import cloud.xcan.jmock.core.parser.docs.model.MockParameter;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Parameter;
@@ -29,7 +26,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -164,15 +160,4 @@ public class MockFunctionDocParser {
     return docs;
   }
 
-  public static void main(String[] args) throws IOException {
-    MockFunctionDocParser generator = new MockFunctionDocParser();
-    List<MockFunction> mockFunctions = generator.parse(SupportedLanguage.en);
-    String absolutePath = Objects.requireNonNull(
-        MockFunctionDocParser.class.getClassLoader().getResource("")).getPath();
-    String filePath = absolutePath + "JMockFunction.json";
-    System.out.println(filePath);
-    FileOutputStream fos = new FileOutputStream(filePath);
-    fos.write(new ObjectMapper().writeValueAsString(mockFunctions).getBytes());
-    fos.close();
-  }
 }

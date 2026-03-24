@@ -3,6 +3,7 @@ package cloud.xcan.jmock.plugin.array;
 import cloud.xcan.jmock.core.engine.MockEngine;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -146,5 +147,127 @@ public class ArrayEngineIntegrationTest {
     List<String> results = engine.renderBatch("@Sequence(0,1,3)", 10);
     Assertions.assertEquals(10, results.size());
     results.forEach(r -> Assertions.assertEquals("[0,1,2]", r));
+  }
+
+  /**
+   * Complex-structure demo: double-nested {@code @Repeat} (matrix-shaped {@link List}),
+   * then a long template mixing nested arrays, {@code Sample}, {@code Sequence}, and scalars.
+   * Output is printed to {@code System.out} for manual inspection in the IDE test runner.
+   */
+  @Test
+  public void complexStructuredData_example_printsToConsole() {
+    String nestedRepeatExpr = "@Repeat(@Repeat(@Integer(10,99),3),2)";
+    Object matrix = engine.evaluate(nestedRepeatExpr);
+    String matrixRendered = engine.render(nestedRepeatExpr);
+
+    System.out.println("========== 1) 双层 Repeat：evaluate() 原始结构 ==========");
+    System.out.println("expression : " + nestedRepeatExpr);
+    System.out.println("raw object : " + matrix);
+    System.out.println("raw class  : " + matrix.getClass().getName());
+    if (matrix instanceof List<?> outer) {
+      System.out.println("outer size : " + outer.size());
+      for (int i = 0; i < outer.size(); i++) {
+        Object row = outer.get(i);
+        System.out.println(
+            "  row[" + i + "] " + row + " → " + row.getClass().getSimpleName());
+      }
+    }
+    System.out.println("render     : " + matrixRendered);
+
+    String template =
+        "ctx=nested-demo | matrix="
+            + nestedRepeatExpr
+            + " | tags=@Repeat(@OneOf(red|green|blue),4)"
+            + " | sample=@Sample(north|south|east|west,2)"
+            + " | seq=@Sequence(1,1,5)"
+            + " | id=@Integer(10000,99999)";
+    String fullRendered = engine.render(template);
+
+    System.out.println("========== 2) 混合模板：render 整段（含多种数组与标量）==========");
+    System.out.println(fullRendered);
+    System.out.println("========== 3) 结构摘要（按 '|' 分段）==========");
+    for (String segment : fullRendered.split("\\|")) {
+      System.out.println("  • " + segment.trim());
+    }
+
+    Assertions.assertNotNull(matrix);
+    Assertions.assertTrue(matrix instanceof List, "matrix should be List");
+    @SuppressWarnings("unchecked")
+    List<Object> rows = (List<Object>) matrix;
+    Assertions.assertEquals(2, rows.size());
+    for (Object row : rows) {
+      Assertions.assertTrue(row instanceof List);
+      Assertions.assertEquals(3, ((List<?>) row).size());
+    }
+    Assertions.assertTrue(matrixRendered.startsWith("[[") && matrixRendered.endsWith("]]"),
+        "nested lists should render as [[..],[..]]: " + matrixRendered);
+
+    Assertions.assertTrue(fullRendered.startsWith("ctx=nested-demo | matrix="));
+    Assertions.assertTrue(fullRendered.contains("| tags=["));
+    Assertions.assertTrue(fullRendered.contains("| sample=["));
+    Assertions.assertTrue(fullRendered.contains("| seq=[1,2,3,4,5]"));
+    Assertions.assertTrue(fullRendered.contains("| id="));
+
+    List<String> tagArrays =
+        java.util.regex.Pattern.compile("tags=(\\[[^]]*])")
+            .matcher(fullRendered)
+            .results()
+            .map(m -> m.group(1))
+            .collect(Collectors.toList());
+    Assertions.assertEquals(1, tagArrays.size());
+    String tagJson = tagArrays.get(0);
+    Assertions.assertEquals(4, tagJson.split(",").length, "tags should have 4 JSON elements");
+  }
+
+  /**
+   * 部门维度外层 {@link List}，每个元素对应一个用户子 {@link List}（姓氏 {@code @Lastname()}），
+   * 另用 {@code @Repeat(@Department())} 生成与行对齐的部门名，控制台打印合并结构。
+   */
+  @Test
+  public void nestedUserListsUnderDepartments_example_printsToConsole() {
+    final int deptCount = 2;
+    final int usersPerDept = 3;
+
+    String usersNestedExpr =
+        "@Repeat(@Repeat(@Lastname()," + usersPerDept + ")," + deptCount + ")";
+    String deptNamesExpr = "@Repeat(@Department()," + deptCount + ")";
+
+    Object usersRaw = engine.evaluate(usersNestedExpr);
+    Object deptRaw = engine.evaluate(deptNamesExpr);
+    String usersJson = engine.render(usersNestedExpr);
+    String deptJson = engine.render(deptNamesExpr);
+
+    System.out.println("========== 部门列表 + 每部门内嵌用户 List ==========");
+    System.out.println("说明: 外层 Repeat = 部门个数；内层 Repeat = 该部门下用户列表");
+    System.out.println("users 表达式: " + usersNestedExpr);
+    System.out.println("dept  表达式: " + deptNamesExpr);
+    System.out.println("部门名 JSON : " + deptJson);
+    System.out.println("用户矩阵 JSON: " + usersJson);
+    System.out.println("evaluate(users) 类型: " + usersRaw.getClass().getName());
+
+    Assertions.assertTrue(usersRaw instanceof List, "users root should be List");
+    @SuppressWarnings("unchecked")
+    List<Object> userRows = (List<Object>) usersRaw;
+    Assertions.assertEquals(deptCount, userRows.size(), "outer list = department slots");
+    for (Object row : userRows) {
+      Assertions.assertTrue(row instanceof List, "each dept slot holds a user list");
+      Assertions.assertEquals(usersPerDept, ((List<?>) row).size());
+    }
+
+    Assertions.assertTrue(deptRaw instanceof List);
+    @SuppressWarnings("unchecked")
+    List<Object> deptNames = (List<Object>) deptRaw;
+    Assertions.assertEquals(deptCount, deptNames.size());
+
+    System.out.println("---------- 按部门索引合并（部门名 → 用户子列表）----------");
+    for (int d = 0; d < deptCount; d++) {
+      Object name = deptNames.get(d);
+      Object users = userRows.get(d);
+      System.out.println("  部门[" + d + "] " + name + " → 用户 " + users);
+    }
+
+    Assertions.assertTrue(usersJson.startsWith("[[") && usersJson.endsWith("]]"),
+        "nested user lists: " + usersJson);
+    Assertions.assertTrue(deptJson.startsWith("[") && deptJson.endsWith("]"));
   }
 }
