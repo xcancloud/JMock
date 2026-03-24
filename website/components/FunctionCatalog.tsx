@@ -2,14 +2,18 @@
 
 import Link from 'next/link';
 import {useState} from 'react';
+import type {Messages} from '@/lib/messages';
 import type {MockFunctionDef} from '@/lib/types';
 
 interface Props {
     functions: MockFunctionDef[];
     categories: string[];
+    /** '' for English routes, '/zh' for Chinese */
+    localePrefix: string;
+    messages: Messages['catalog'];
 }
 
-export default function FunctionCatalog({functions, categories}: Props) {
+export default function FunctionCatalog({functions, categories, localePrefix, messages: c}: Props) {
     const [search, setSearch] = useState('');
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
@@ -31,7 +35,7 @@ export default function FunctionCatalog({functions, categories}: Props) {
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <input
                     type="text"
-                    placeholder="Search functions..."
+                    placeholder={c.searchPlaceholder}
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     className="flex-1 px-4 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-primary-500"
@@ -45,7 +49,7 @@ export default function FunctionCatalog({functions, categories}: Props) {
                                 : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                         }`}
                     >
-                        All
+                        {c.all}
                     </button>
                     {categories.map((cat) => (
                         <button
@@ -68,7 +72,7 @@ export default function FunctionCatalog({functions, categories}: Props) {
                 {filtered.map((fn) => (
                     <Link
                         key={fn.name}
-                        href={`/docs/functions/${fn.name}`}
+                        href={`${localePrefix}/docs/functions/${fn.name}`}
                         className="block p-4 bg-white border rounded-lg hover:shadow-md hover:border-primary-200 transition"
                     >
                         <div className="flex items-center justify-between mb-2">
@@ -76,7 +80,7 @@ export default function FunctionCatalog({functions, categories}: Props) {
                             {fn.since === '2.0.0' && (
                                 <span
                                     className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">
-                  New
+                  {c.newBadge}
                 </span>
                             )}
                         </div>
@@ -94,8 +98,7 @@ export default function FunctionCatalog({functions, categories}: Props) {
             </div>
 
             {filtered.length === 0 && (
-                <p className="text-center text-slate-400 py-12">No functions found matching your
-                    criteria.</p>
+                <p className="text-center text-slate-400 py-12">{c.empty}</p>
             )}
         </div>
     );

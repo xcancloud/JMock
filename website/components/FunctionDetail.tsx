@@ -1,11 +1,14 @@
 import Link from 'next/link';
+import type {Messages} from '@/lib/messages';
 import type {MockFunctionDef} from '@/lib/types';
 
 interface Props {
     fn: MockFunctionDef;
+    localePrefix: string;
+    labels: Messages['detail'];
 }
 
-export default function FunctionDetail({fn}: Props) {
+export default function FunctionDetail({fn, localePrefix, labels: d}: Props) {
     return (
         <div>
             {/* Header */}
@@ -15,13 +18,13 @@ export default function FunctionDetail({fn}: Props) {
                     {fn.since === '2.0.0' && (
                         <span
                             className="text-sm bg-green-100 text-green-700 px-3 py-1 rounded-full font-medium">
-              New in 2.0
+              {d.newIn}
             </span>
                     )}
                     {fn.deprecated && (
                         <span
                             className="text-sm bg-red-100 text-red-700 px-3 py-1 rounded-full font-medium">
-              Deprecated
+              {d.deprecated}
             </span>
                     )}
                 </div>
@@ -33,23 +36,25 @@ export default function FunctionDetail({fn}: Props) {
               {tag}
             </span>
                     ))}
-                    <span className="text-xs text-slate-400">Since {fn.since}</span>
+                    <span className="text-xs text-slate-400">
+                        {d.since} {fn.since}
+                    </span>
                 </div>
             </div>
 
             {/* Parameters */}
             {fn.parameters && fn.parameters.length > 0 && (
                 <section className="mb-8">
-                    <h2 className="text-xl font-semibold mb-4">Parameters</h2>
+                    <h2 className="text-xl font-semibold mb-4">{d.parameters}</h2>
                     <div className="overflow-x-auto">
                         <table className="w-full text-sm border-collapse">
                             <thead>
                             <tr className="bg-slate-50 border-b">
-                                <th className="text-left p-3 font-medium text-slate-600">Name</th>
-                                <th className="text-left p-3 font-medium text-slate-600">Type</th>
-                                <th className="text-left p-3 font-medium text-slate-600">Required</th>
-                                <th className="text-left p-3 font-medium text-slate-600">Default</th>
-                                <th className="text-left p-3 font-medium text-slate-600">Description</th>
+                                <th className="text-left p-3 font-medium text-slate-600">{d.thName}</th>
+                                <th className="text-left p-3 font-medium text-slate-600">{d.thType}</th>
+                                <th className="text-left p-3 font-medium text-slate-600">{d.thRequired}</th>
+                                <th className="text-left p-3 font-medium text-slate-600">{d.thDefault}</th>
+                                <th className="text-left p-3 font-medium text-slate-600">{d.thDescription}</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -71,7 +76,7 @@ export default function FunctionDetail({fn}: Props) {
             {/* Constructors */}
             {fn.constructors && fn.constructors.length > 0 && (
                 <section className="mb-8">
-                    <h2 className="text-xl font-semibold mb-4">Usage</h2>
+                    <h2 className="text-xl font-semibold mb-4">{d.usage}</h2>
                     <div className="space-y-4">
                         {fn.constructors.map((c, idx) => (
                             <div key={idx} className="p-4 bg-white border rounded-lg">
@@ -83,7 +88,7 @@ export default function FunctionDetail({fn}: Props) {
                                 {c.example && (
                                     <div className="mt-3">
                                         <span
-                                            className="text-xs font-medium text-slate-500">Example:</span>
+                                            className="text-xs font-medium text-slate-500">{d.example}</span>
                                         <pre
                                             className="mt-1 bg-slate-900 text-green-400 p-3 rounded text-sm">
                       {c.example}
@@ -93,7 +98,7 @@ export default function FunctionDetail({fn}: Props) {
                                 {c.exampleOutput && c.exampleOutput.length > 0 && (
                                     <div className="mt-2">
                                         <span
-                                            className="text-xs font-medium text-slate-500">Output:</span>
+                                            className="text-xs font-medium text-slate-500">{d.output}</span>
                                         <div className="mt-1 flex flex-wrap gap-2">
                                             {c.exampleOutput.map((val, i) => (
                                                 <code
@@ -114,10 +119,10 @@ export default function FunctionDetail({fn}: Props) {
 
             {/* Back link */}
             <Link
-                href="/docs/functions"
+                href={`${localePrefix}/docs/functions`}
                 className="text-sm text-primary-600 hover:text-primary-700 font-medium"
             >
-                ← Back to Function Reference
+                {d.back}
             </Link>
         </div>
     );

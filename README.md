@@ -24,6 +24,22 @@ generation.
 - **Extensible architecture**:  
   Plugin-based system for custom mock data functions.
 
+## Website
+
+The `website/` directory is a Next.js static site (function reference, getting started, playground).
+
+- **English**: site root, e.g. `/`, `/docs/functions`
+- **中文**: `/zh`, e.g. `/zh/docs/functions`
+- Function descriptions are loaded from `docs/JMockFunction-en.json` and `docs/JMockFunction-zh_CN.json`.
+
+To build locally:
+
+```bash
+cd website && npm ci && npm run build
+```
+
+Output is written to `website/out`. For GitHub Pages project sites, set `NEXT_PUBLIC_BASE_PATH=/YourRepoName` when building (see `website/next.config.js` and `.github/workflows/deploy-github-pages.yml`).
+
 ## Function Expressions
 
 ### Expression Formats
@@ -62,21 +78,29 @@ generation.
 
 ## Usage Example
 
-1. **Add Maven Dependency**
+1. **Add Maven dependencies** (version `2.0.0` matches the parent POM)
 
 ```xml
-
 <dependency>
   <groupId>cloud.xcan.jmock</groupId>
   <artifactId>xcan-jmock.core</artifactId>
-  <version>1.0.0</version>
+  <version>2.0.0</version>
+</dependency>
+
+<!-- Optional: all built-in plugins -->
+<dependency>
+  <groupId>cloud.xcan.jmock</groupId>
+  <artifactId>xcan-jmock.all-plugin</artifactId>
+  <version>2.0.0</version>
+  <scope>runtime</scope>
 </dependency>
 ```
 
-2. **Generate Sample Data**
+2. **Render a template** with `MockEngine` (recommended entry point)
 
 ```java
-// Define template
+import cloud.xcan.jmock.core.engine.MockEngine;
+
 String content = """
     {
       "name": "@Name()",
@@ -86,16 +110,14 @@ String content = """
       "hobbies": [ "reading", "hiking",  "cooking" ]
     }""";
 
-// Process mock functions
-String result = new DefaultMockTextReplacer().replace(content);
-
-// Output result
-System.out.
-
-println(result);
+MockEngine engine = MockEngine.defaultEngine();
+String result = engine.render(content);
+System.out.println(result);
 ```
 
-***Output:***
+For simple text replacement without the full engine pipeline, you can use `DefaultMockTextReplacer` from the core module.
+
+***Sample output:***
 
 ```json
 {
@@ -110,3 +132,7 @@ println(result);
   ]
 }
 ```
+
+## Repository
+
+- **GitHub**: [https://github.com/xcancloud/JMock](https://github.com/xcancloud/JMock)

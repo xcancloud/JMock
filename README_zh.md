@@ -4,16 +4,32 @@
 
 ## 介绍
 
-JMock是基于 Java 语言实现的高性能数据生成和模拟的组件库，生成的数据相比随机数据更加接近业务数据特征。
+JMock 是基于 Java 语言实现的高性能数据生成和模拟的组件库，生成的数据相比随机数据更加接近业务数据特征。
 
 ## 特性
 
-- 高性能数据生成，单线程每秒可以生成 200W+ 用户信息（每个用户信息包括 10 个属性字段，总大小 200+ 字节）
+- 高性能数据生成，单线程每秒可以生成 200 万+ 用户信息（每个用户信息包括 10 个属性字段，总大小 200+ 字节）
 - 灵活的数据规则以及国际化支持，数据更加接近业务数据特征。
-- 支持注解和函数两种方式定义数据生成规则及控制数据生成。其中“注解方式”应用在类属性字段上，“函数方式“应用在脚本文件里（如：txt、json、yml
+- 支持注解和函数两种方式定义数据生成规则及控制数据生成。其中「注解方式」应用在类属性字段上，「函数方式」应用在脚本文件里（如：txt、json、yml
   等）。
 - 对于批量数据支持 JDBC、内存、本地文件系统等持久化存储方式。
 - 支持插件方式扩展 Mock 数据函数。
+
+## 官网
+
+`website/` 目录为 Next.js 静态站点（函数参考、快速开始、演练场等）。
+
+- **英文**：站点根路径，如 `/`、`/docs/functions`
+- **中文**：`/zh` 前缀，如 `/zh/docs/functions`
+- 函数说明数据来自 `docs/JMockFunction-en.json` 与 `docs/JMockFunction-zh_CN.json`。
+
+本地构建：
+
+```bash
+cd website && npm ci && npm run build
+```
+
+产物在 `website/out`。若部署到 GitHub Pages 的项目子路径，构建时需设置 `NEXT_PUBLIC_BASE_PATH=/仓库名`（见 `website/next.config.js` 与 `.github/workflows/deploy-github-pages.yml`）。
 
 ## 函数
 
@@ -49,24 +65,33 @@ JMock是基于 Java 语言实现的高性能数据生成和模拟的组件库，
 
 4. **特殊字符处理**  
    当参数值包含 `@` `,` `|` 时需转义：  
-   *示例：`@String("tom\@domain.com|nick\@domain.com")`*
+   *示例：`@String("tom\@domain.com\|nick\@domain.com")`*
 
 ## 使用示例
 
-1. **引入Maven依赖**
+1. **引入 Maven 依赖**（版本号 `2.0.0` 与父工程一致）
 
 ```xml
 <dependency>
-   <groupId>cloud.xcan.jmock</groupId>
-   <artifactId>xcan-jmock.core</artifactId>
-   <version>1.0.0</version>
+  <groupId>cloud.xcan.jmock</groupId>
+  <artifactId>xcan-jmock.core</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<!-- 可选：聚合全部内置插件 -->
+<dependency>
+  <groupId>cloud.xcan.jmock</groupId>
+  <artifactId>xcan-jmock.all-plugin</artifactId>
+  <version>2.0.0</version>
+  <scope>runtime</scope>
 </dependency>
 ```
 
-2. **生成数据**
+2. **使用 `MockEngine` 渲染模板**（推荐入口）
 
 ```java
-// 定义文本
+import cloud.xcan.jmock.core.engine.MockEngine;
+
 String content = """
     {
       "name": "@Name()",
@@ -75,13 +100,15 @@ String content = """
       "address": "@Address()",
       "hobbies": [ "reading", "hiking",  "cooking" ]
     }""";
-// 解析替换Mock函数
-String result = new DefaultMockTextReplacer().replace(content);
-// 打印最后结果
+
+MockEngine engine = MockEngine.defaultEngine();
+String result = engine.render(content);
 System.out.println(result);
 ```
 
-***输出结果：***
+若仅需对文本做简单占位替换，也可使用 core 模块中的 `DefaultMockTextReplacer`。
+
+***输出结果示例：***
 
 ```json
 {
@@ -89,7 +116,14 @@ System.out.println(result);
   "email": "9alJWYsUGJuJZtGuXT@yahoo.com.cn",
   "phone": "15292153757",
   "address": "ul. Akademika Pavlova, 12к3, Moskva",
-  "hobbies": [ "reading", "hiking",  "cooking" ]
+  "hobbies": [
+    "reading",
+    "hiking",
+    "cooking"
+  ]
 }
 ```
 
+## 仓库
+
+- **GitHub**：[https://github.com/xcancloud/JMock](https://github.com/xcancloud/JMock)

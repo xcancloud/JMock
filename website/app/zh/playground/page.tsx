@@ -1,6 +1,6 @@
 import PlaygroundClient from '@/components/PlaygroundClient';
 import {getMessages} from '@/lib/messages';
 
-export default function PlaygroundPage() {
-    return <PlaygroundClient messages={getMessages('en')}/>;
+export default function ZhPlaygroundPage() {
+    return <PlaygroundClient messages={getMessages('zh')}/>;
 }
