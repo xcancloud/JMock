@@ -51,7 +51,8 @@ public class MockFunctionDocParser {
   public MockFunctionDocParser(Environment environment, long duration, TimeUnit unit) {
     this.environment = environment;
     this.caches = Caffeine.newBuilder()
-        .expireAfterWrite(duration, unit).maximumSize(SupportedLanguage.values().length)
+        .expireAfterWrite(duration, unit)
+        .maximumSize(SupportedLanguage.values().length)
         .build();
   }
 
