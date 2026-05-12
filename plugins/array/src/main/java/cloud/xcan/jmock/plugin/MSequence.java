@@ -29,13 +29,13 @@ import lombok.Setter;
     categoryI18nKey = {DOC_CATEGORY_ARRAY}, order = 122, since = "2.0.0")
 public class MSequence extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_SEQUENCE_PARAMETER_START)
+  @JMockParameter(descI18nKey = DOC_SEQUENCE_PARAMETER_START, type = "Long", defaultValue = "0")
   private long start;
 
-  @JMockParameter(descI18nKey = DOC_SEQUENCE_PARAMETER_STEP)
+  @JMockParameter(descI18nKey = DOC_SEQUENCE_PARAMETER_STEP, type = "Long", defaultValue = "1")
   private long step;
 
-  @JMockParameter(descI18nKey = DOC_SEQUENCE_PARAMETER_COUNT)
+  @JMockParameter(descI18nKey = DOC_SEQUENCE_PARAMETER_COUNT, type = "Integer", required = true)
   private int count;
 
   @JMockConstructor(descI18nKey = DOC_SEQUENCE_C1,

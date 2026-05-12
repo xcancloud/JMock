@@ -29,10 +29,10 @@ import org.apache.commons.lang3.ObjectUtils;
     categoryI18nKey = {DOC_CATEGORY_ARTICLE}, order = 403)
 public class MSentence extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_PARAMETER_DICT)
+  @JMockParameter(descI18nKey = DOC_PARAMETER_DICT, type = "String")
   private String[] dict;
 
-  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE)
+  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE, type = "String", defaultValue = "zh_CN")
   private Locale locale;
 
   /**

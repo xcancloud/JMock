@@ -27,10 +27,10 @@ import lombok.Setter;
     categoryI18nKey = {DOC_CATEGORY_ID}, order = 304)
 public class MSnowId extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_SNOWID_PARAMETER_DCID)
+  @JMockParameter(descI18nKey = DOC_SNOWID_PARAMETER_DCID, type = "Long", defaultValue = "1")
   private long dcId;
 
-  @JMockParameter(descI18nKey = DOC_SNOWID_PARAMETER_MID)
+  @JMockParameter(descI18nKey = DOC_SNOWID_PARAMETER_MID, type = "Long", defaultValue = "1")
   private long mId;
 
   private final static Integer DEFAULT_DC_ID = 1;

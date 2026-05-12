@@ -51,13 +51,13 @@ public class MArticle extends AbstractMockFunction {
   public static final int DEFAULT_PARAGRAPH_COUNT = 3;
   public static final int DEFAULT_WORD_COUNT = 800;
 
-  @JMockParameter(descI18nKey = DOC_ARTICLE_PARAMETER_PARAGRAPH_COUNT)
+  @JMockParameter(descI18nKey = DOC_ARTICLE_PARAMETER_PARAGRAPH_COUNT, type = "Integer", defaultValue = "3")
   private int paragraphCount = DEFAULT_PARAGRAPH_COUNT;
 
-  @JMockParameter(descI18nKey = DOC_ARTICLE_PARAMETER_WORD_COUNT)
+  @JMockParameter(descI18nKey = DOC_ARTICLE_PARAMETER_WORD_COUNT, type = "Integer", defaultValue = "800")
   private int wordCount = DEFAULT_WORD_COUNT;
 
-  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE)
+  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE, type = "String")
   private Locale locale;
 
   private transient String dict;

@@ -32,7 +32,7 @@ import lombok.Setter;
     categoryI18nKey = {DOC_CATEGORY_HASH}, order = 602)
 public class MSha extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_SHA_PARAMETER_VERSION)
+  @JMockParameter(descI18nKey = DOC_SHA_PARAMETER_VERSION, type = "String", defaultValue = "SHA-512")
   private String version;
 
   @JMockConstructor(descI18nKey = DOC_SHA_C1,

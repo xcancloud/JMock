@@ -30,10 +30,10 @@ import lombok.Setter;
     categoryI18nKey = {DOC_CATEGORY_USER}, order = 807)
 public class MGender extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_GENDER_PARAMETER_DICT)
+  @JMockParameter(descI18nKey = DOC_GENDER_PARAMETER_DICT, type = "String")
   private String dict;
 
-  @JMockParameter(descI18nKey = DOC_PARAMETER_DICT)
+  @JMockParameter(descI18nKey = DOC_PARAMETER_DICT, type = "String")
   private String locale;
 
   private String[] dictArray;

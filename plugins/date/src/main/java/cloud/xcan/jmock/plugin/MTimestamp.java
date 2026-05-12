@@ -24,7 +24,7 @@ import lombok.Setter;
     categoryI18nKey = {DOC_CATEGORY_DATE}, order = 201)
 public class MTimestamp extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_TIMESTAMP_PARAMETER_UNIX)
+  @JMockParameter(descI18nKey = DOC_TIMESTAMP_PARAMETER_UNIX, type = "Boolean", defaultValue = "false")
   private Boolean unix;
 
   @JMockConstructor(descI18nKey = DOC_TIMESTAMP_C1,

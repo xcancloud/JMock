@@ -40,10 +40,10 @@ public class MLastname extends AbstractMockFunction {
     MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-user-plugin-messages");
   }
 
-  @JMockParameter(descI18nKey = DOC_LASTNAME_PARAMETER_DICT)
+  @JMockParameter(descI18nKey = DOC_LASTNAME_PARAMETER_DICT, type = "String")
   private String dict;
 
-  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE)
+  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE, type = "String")
   private Locale locale;
 
   private String[] dictArray;

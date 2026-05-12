@@ -27,10 +27,10 @@ import lombok.Setter;
     categoryI18nKey = {DOC_CATEGORY_ARRAY}, order = 124, since = "2.0.0")
 public class MSample extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_SAMPLE_PARAMETER_ITEMS)
+  @JMockParameter(descI18nKey = DOC_SAMPLE_PARAMETER_ITEMS, type = "String", required = true)
   private String items;
 
-  @JMockParameter(descI18nKey = DOC_SAMPLE_PARAMETER_COUNT)
+  @JMockParameter(descI18nKey = DOC_SAMPLE_PARAMETER_COUNT, type = "Integer", required = true)
   private Integer count;
 
   private List<String> itemList;

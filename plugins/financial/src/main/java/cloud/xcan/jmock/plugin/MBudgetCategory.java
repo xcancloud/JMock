@@ -33,7 +33,7 @@ public class MBudgetCategory extends AbstractMockFunction {
       )
   );
 
-  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE)
+  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE, type = "String", defaultValue = "zh_CN")
   private final Locale locale;
 
   @JMockConstructor(descI18nKey = DOC_BUDGET_CATEGORY_C1,

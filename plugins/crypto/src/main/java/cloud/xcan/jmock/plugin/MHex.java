@@ -19,7 +19,7 @@ import java.util.HexFormat;
     categoryI18nKey = {DOC_CATEGORY_CRYPTO}, order = 6003)
 public class MHex extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_HEX_PARAMETER_LENGTH)
+  @JMockParameter(descI18nKey = DOC_HEX_PARAMETER_LENGTH, type = "Integer", defaultValue = "8")
   private final int length;
 
   @JMockConstructor(descI18nKey = DOC_HEX_C1,

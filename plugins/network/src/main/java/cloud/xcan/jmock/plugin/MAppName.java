@@ -32,7 +32,7 @@ public class MAppName extends AbstractMockFunction {
     MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-network-plugin-messages");
   }
 
-  @JMockParameter(descI18nKey = DOC_PARAMETER_DICT)
+  @JMockParameter(descI18nKey = DOC_PARAMETER_DICT, type = "String")
   private String dict;
 
   private transient String[] dictArray;

@@ -31,7 +31,7 @@ public class MProtocol extends AbstractMockFunction {
   private static final String DEFAULT_PROTOCOL_DICT =
       "FTP|TFTP|HTTP|SMTP|DHCP|Telnet|DNS|SNMP|TCP|UDP|ARP";
 
-  @JMockParameter(descI18nKey = DOC_PROTOCOL_PARAMETER_DICT)
+  @JMockParameter(descI18nKey = DOC_PROTOCOL_PARAMETER_DICT, type = "String")
   private String dict;
 
   private transient String[] dictArray;

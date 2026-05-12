@@ -27,10 +27,10 @@ import java.util.Base64;
     categoryI18nKey = {DOC_CATEGORY_CRYPTO}, order = 6004)
 public class MKeyPair extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_KEY_PAIR_PARAMETER_ALGORITHM)
+  @JMockParameter(descI18nKey = DOC_KEY_PAIR_PARAMETER_ALGORITHM, type = "String", defaultValue = "RSA")
   private final String algorithm;
 
-  @JMockParameter(descI18nKey = DOC_KEY_PAIR_PARAMETER_KEY_SIZE)
+  @JMockParameter(descI18nKey = DOC_KEY_PAIR_PARAMETER_KEY_SIZE, type = "Integer", defaultValue = "526")
   private final int keySize;
 
   @JMockConstructor(descI18nKey = DOC_KEY_PAIR_C1,

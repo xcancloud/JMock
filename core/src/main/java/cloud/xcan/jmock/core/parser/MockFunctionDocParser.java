@@ -88,7 +88,10 @@ public class MockFunctionDocParser {
               MockParameter mockParameter = new MockParameter();
               mockParameter.setName(parameter.getName())
                   .setDescription(getString(parameterAnnotation.descI18nKey(),
-                      language.toLocale()));
+                      language.toLocale()))
+                  .setType(parameterAnnotation.type())
+                  .setDefaultValue(parameterAnnotation.defaultValue())
+                  .setRequired(parameterAnnotation.required());
               mockParameters.add(mockParameter);
             }
           }

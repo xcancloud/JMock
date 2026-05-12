@@ -17,7 +17,7 @@ import java.util.Base64;
     categoryI18nKey = {DOC_CATEGORY_CRYPTO}, order = 6001)
 public class MBase64 extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_BASE64_PARAMETER_LENGTH)
+  @JMockParameter(descI18nKey = DOC_BASE64_PARAMETER_LENGTH, type = "Integer", defaultValue = "128")
   private final int length;
 
   @JMockConstructor(descI18nKey = DOC_BASE64_C1,

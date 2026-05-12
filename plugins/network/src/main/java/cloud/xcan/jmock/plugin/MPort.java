@@ -30,10 +30,10 @@ import org.apache.commons.lang3.ObjectUtils;
     categoryI18nKey = {DOC_CATEGORY_NETWORK}, order = 906)
 public class MPort extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_PORT_PARAMETER_MIN)
+  @JMockParameter(descI18nKey = DOC_PORT_PARAMETER_MIN, type = "Integer", defaultValue = "1024")
   private int min;
 
-  @JMockParameter(descI18nKey = DOC_PORT_PARAMETER_MAX)
+  @JMockParameter(descI18nKey = DOC_PORT_PARAMETER_MAX, type = "Integer", defaultValue = "65535")
   private int max;
 
   /**

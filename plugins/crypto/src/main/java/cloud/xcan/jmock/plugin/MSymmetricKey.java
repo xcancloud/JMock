@@ -20,7 +20,7 @@ import javax.crypto.SecretKey;
     categoryI18nKey = {DOC_CATEGORY_CRYPTO}, order = 6005)
 public class MSymmetricKey extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_SYMMETRIC_KEY_PARAMETER_ALGORITHM)
+  @JMockParameter(descI18nKey = DOC_SYMMETRIC_KEY_PARAMETER_ALGORITHM, type = "String", defaultValue = "AES")
   private final String algorithm;
 
   @JMockConstructor(descI18nKey = DOC_SYMMETRIC_KEY_C1,

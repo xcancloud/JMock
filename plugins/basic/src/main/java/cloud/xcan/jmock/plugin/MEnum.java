@@ -36,13 +36,13 @@ import org.apache.commons.lang3.StringUtils;
     categoryI18nKey = {DOC_CATEGORY_BASIC}, order = 104)
 public class MEnum extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_ENUM_PARAMETER_DICT)
+  @JMockParameter(descI18nKey = DOC_ENUM_PARAMETER_DICT, type = "String", required = true)
   private String dict;
 
-  @JMockParameter(descI18nKey = DOC_ENUM_PARAMETER_VALUE_WEIGHT)
+  @JMockParameter(descI18nKey = DOC_ENUM_PARAMETER_VALUE_WEIGHT, type = "String", defaultValue = "1")
   private String valueWeight;
 
-  @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT)
+  @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT, type = "String")
   private WeightedSampler nullSampler;
 
   /**

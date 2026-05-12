@@ -29,10 +29,10 @@ import org.apache.commons.lang3.ObjectUtils;
     categoryI18nKey = {DOC_CATEGORY_USER}, order = 800)
 public class MAge extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_AGE_PARAMETER_MIN)
+  @JMockParameter(descI18nKey = DOC_AGE_PARAMETER_MIN, type = "Integer", defaultValue = "1")
   private int min;
 
-  @JMockParameter(descI18nKey = DOC_AGE_PARAMETER_MAX)
+  @JMockParameter(descI18nKey = DOC_AGE_PARAMETER_MAX, type = "Integer", defaultValue = "100")
   private int max;
 
   /**

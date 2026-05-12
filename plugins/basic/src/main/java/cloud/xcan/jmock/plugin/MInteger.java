@@ -32,13 +32,13 @@ import lombok.Setter;
     categoryI18nKey = {DOC_CATEGORY_BASIC}, order = 102)
 public class MInteger extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_INTEGER_PARAMETER_MIN)
+  @JMockParameter(descI18nKey = DOC_INTEGER_PARAMETER_MIN, type = "Integer", defaultValue = "0")
   private int min;
 
-  @JMockParameter(descI18nKey = DOC_INTEGER_PARAMETER_MAX)
+  @JMockParameter(descI18nKey = DOC_INTEGER_PARAMETER_MAX, type = "Integer", defaultValue = "2147483647")
   private int max;
 
-  @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT)
+  @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT, type = "String")
   private WeightedSampler nullSampler;
 
   /**

@@ -30,7 +30,7 @@ public class MInvoiceNumber extends AbstractMockFunction {
       Locale.ENGLISH, "-"
   );
 
-  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE)
+  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE, type = "String", defaultValue = "zh_CN")
   private final Locale locale;
 
   @JMockConstructor(descI18nKey = DOC_INVOICE_NUMBER_C1,

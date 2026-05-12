@@ -28,7 +28,7 @@ public class MWeek extends AbstractMockFunction {
 
   private String[] dict;
 
-  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE)
+  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE, type = "String", defaultValue = "zh_CN")
   private Locale locale;
 
   final static Locale DEFAULT_LOCALE_VALUE = Locale.CHINA;

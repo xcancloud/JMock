@@ -29,13 +29,13 @@ import org.apache.commons.lang3.StringUtils;
     categoryI18nKey = {DOC_CATEGORY_NETWORK}, order = 902)
 public class MAppVersion extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_APP_VERSION_PARAMETER_PREFIX_DICT)
+  @JMockParameter(descI18nKey = DOC_APP_VERSION_PARAMETER_PREFIX_DICT, type = "String")
   private String prefixDict;
 
-  @JMockParameter(descI18nKey = DOC_APP_VERSION_PARAMETER_RELEASE_STATE_DICT)
+  @JMockParameter(descI18nKey = DOC_APP_VERSION_PARAMETER_RELEASE_STATE_DICT, type = "String")
   private String releaseStateDict;
 
-  @JMockParameter(descI18nKey = DOC_APP_VERSION_PARAMETER_BUILD_STATE_DICT)
+  @JMockParameter(descI18nKey = DOC_APP_VERSION_PARAMETER_BUILD_STATE_DICT, type = "String")
   private String buildStateDict;
 
   private String[] prefixDictArray;

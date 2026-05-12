@@ -34,7 +34,7 @@ public class MTimeZone extends AbstractMockFunction {
     MessageResources.RESOURCE_BUNDLE.add("i18n/jmock-locale-plugin-messages");
   }
 
-  @JMockParameter(descI18nKey = DOC_TIMEZONE_PARAMETER_DICT)
+  @JMockParameter(descI18nKey = DOC_TIMEZONE_PARAMETER_DICT, type = "String")
   private String dict;
 
   private transient String[] dictArray;

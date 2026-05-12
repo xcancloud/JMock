@@ -27,10 +27,10 @@ import lombok.Setter;
     categoryI18nKey = {DOC_CATEGORY_ID}, order = 303)
 public class MIncId extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_INCID_PARAMETER_INIT)
+  @JMockParameter(descI18nKey = DOC_INCID_PARAMETER_INIT, type = "Integer", defaultValue = "1")
   private Integer init;
 
-  @JMockParameter(descI18nKey = DOC_INCID_PARAMETER_STEP)
+  @JMockParameter(descI18nKey = DOC_INCID_PARAMETER_STEP, type = "Integer", defaultValue = "1")
   private int step;
 
   private LongAdder longAdder = new LongAdder();

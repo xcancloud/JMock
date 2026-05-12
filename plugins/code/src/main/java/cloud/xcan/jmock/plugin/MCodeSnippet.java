@@ -58,7 +58,7 @@ public class MCodeSnippet extends AbstractMockFunction {
       Language.GO, true
   );
 
-  @JMockParameter(descI18nKey = DOC_CODE_PARAMETER_LANGUAGE)
+  @JMockParameter(descI18nKey = DOC_CODE_PARAMETER_LANGUAGE, type = "String")
   private final String language;
 
   @JMockConstructor(descI18nKey = DOC_CODE_SNIPPET_C1,

@@ -33,7 +33,7 @@ public class MTaxCode extends AbstractMockFunction {
 
   private static final String ALPHANUM = "ABCDEFGHJKLMNPQRSTUVWXYZ0123456789"; // Excluding confusing chars
 
-  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE)
+  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE, type = "String", defaultValue = "zh_CN")
   private final Locale locale;
 
   @JMockConstructor(descI18nKey = DOC_TAX_CODE_C1,

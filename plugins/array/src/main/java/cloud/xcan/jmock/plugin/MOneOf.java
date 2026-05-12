@@ -25,7 +25,7 @@ import lombok.Setter;
     categoryI18nKey = {DOC_CATEGORY_ARRAY}, order = 125, since = "2.0.0")
 public class MOneOf extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_ONEOF_PARAMETER_ITEMS)
+  @JMockParameter(descI18nKey = DOC_ONEOF_PARAMETER_ITEMS, type = "String", required = true)
   private String items;
 
   private List<String> itemList;

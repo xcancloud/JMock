@@ -28,7 +28,7 @@ import lombok.Setter;
     categoryI18nKey = {DOC_CATEGORY_GEOGRAPHY}, order = 520)
 public class MZip extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_ZIP_PARAMETER_DICT)
+  @JMockParameter(descI18nKey = DOC_ZIP_PARAMETER_DICT, type = "String")
   private String dict;
 
   private transient String[] dictArray;

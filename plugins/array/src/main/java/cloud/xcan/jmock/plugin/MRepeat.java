@@ -27,10 +27,10 @@ import lombok.Setter;
     categoryI18nKey = {DOC_CATEGORY_ARRAY}, order = 121, since = "2.0.0")
 public class MRepeat extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_REPEAT_PARAMETER_VALUE)
+  @JMockParameter(descI18nKey = DOC_REPEAT_PARAMETER_VALUE, type = "String", required = true)
   private String value;
 
-  @JMockParameter(descI18nKey = DOC_REPEAT_PARAMETER_COUNT)
+  @JMockParameter(descI18nKey = DOC_REPEAT_PARAMETER_COUNT, type = "Integer", defaultValue = "1")
   private Integer count;
 
   @JMockConstructor(descI18nKey = DOC_REPEAT_C1,

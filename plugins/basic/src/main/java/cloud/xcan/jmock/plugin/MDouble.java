@@ -34,16 +34,16 @@ import lombok.Setter;
     categoryI18nKey = {DOC_CATEGORY_BASIC}, order = 103)
 public class MDouble extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_DOUBLE_PARAMETER_MIN)
+  @JMockParameter(descI18nKey = DOC_DOUBLE_PARAMETER_MIN, type = "Double", defaultValue = "0")
   private double min;
 
-  @JMockParameter(descI18nKey = DOC_DOUBLE_PARAMETER_MAX)
+  @JMockParameter(descI18nKey = DOC_DOUBLE_PARAMETER_MAX, type = "Double", defaultValue = "1.79769313486231570e+308")
   private double max;
 
-  @JMockParameter(descI18nKey = DOC_DOUBLE_PARAMETER_SCALE)
+  @JMockParameter(descI18nKey = DOC_DOUBLE_PARAMETER_SCALE, type = "Integer", defaultValue = "2")
   private int scale;
 
-  @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT)
+  @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT, type = "String")
   private WeightedSampler nullSampler;
 
   /**

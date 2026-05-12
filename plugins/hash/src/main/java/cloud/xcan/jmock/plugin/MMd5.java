@@ -28,7 +28,7 @@ import lombok.Setter;
     categoryI18nKey = {DOC_CATEGORY_HASH}, order = 601)
 public class MMd5 extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_MD5_PARAMETER_LENGTH)
+  @JMockParameter(descI18nKey = DOC_MD5_PARAMETER_LENGTH, type = "Integer", defaultValue = "32")
   private int length;
 
   @JMockConstructor(descI18nKey = DOC_MD5_C1,

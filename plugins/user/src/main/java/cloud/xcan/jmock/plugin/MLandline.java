@@ -38,7 +38,7 @@ public class MLandline extends AbstractMockFunction {
 
   private String countryCode;
 
-  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE)
+  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE, type = "String")
   private Locale locale;
 
   private String realAreaCode;

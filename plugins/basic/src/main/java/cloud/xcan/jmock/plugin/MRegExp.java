@@ -32,10 +32,10 @@ import org.apache.commons.lang3.StringUtils;
     categoryI18nKey = {DOC_CATEGORY_BASIC}, order = 110)
 public class MRegExp extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_REGEXP_PARAMETER_REGEXP)
+  @JMockParameter(descI18nKey = DOC_REGEXP_PARAMETER_REGEXP, type = "String", required = true)
   private String regexp;
 
-  @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT)
+  @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT, type = "String")
   private WeightedSampler nullSampler;
 
   private static final String DEFAULT_REGEXP_VALUE = "[a-z][a-z][0-9]";

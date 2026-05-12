@@ -25,7 +25,7 @@ public class MCurrency extends AbstractMockFunction {
       Locale.ENGLISH, Arrays.asList("USD", "EUR", "GBP", "JPY", "CAD", "AUD", "CHF", "CNY")
   );
 
-  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE)
+  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE, type = "String", defaultValue = "zh_CN")
   private final Locale locale;
 
   @JMockConstructor(descI18nKey = DOC_CURRENCY_C1,

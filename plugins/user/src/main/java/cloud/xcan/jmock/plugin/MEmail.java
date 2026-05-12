@@ -33,13 +33,13 @@ import org.apache.commons.lang3.StringUtils;
     categoryI18nKey = {DOC_CATEGORY_USER}, order = 806)
 public class MEmail extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_EMAIL_PARAMETER_MIN)
+  @JMockParameter(descI18nKey = DOC_EMAIL_PARAMETER_MIN, type = "Integer", defaultValue = "6")
   private int min;
 
-  @JMockParameter(descI18nKey = DOC_EMAIL_PARAMETER_MAX)
+  @JMockParameter(descI18nKey = DOC_EMAIL_PARAMETER_MAX, type = "Integer", defaultValue = "20")
   private int max;
 
-  @JMockParameter(descI18nKey = DOC_EMAIL_PARAMETER_SUFFIX)
+  @JMockParameter(descI18nKey = DOC_EMAIL_PARAMETER_SUFFIX, type = "String")
   private String suffix;
 
   final static int DEFAULT_MIN_VALUE = 6;

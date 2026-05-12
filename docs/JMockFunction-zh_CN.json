@@ -14,7 +14,10 @@
     "description" : "生成固定长度字符串",
     "parameters" : [ {
       "name" : "length",
-      "description" : "字符串长度，默认 6，最大长度 2^31-1 个字符"
+      "description" : "字符串长度，默认 6，最大长度 2^31-1 个字符",
+      "type" : "Integer",
+      "defaultValue" : "6",
+      "required" : false
     } ],
     "example" : "@String(2)",
     "exampleValues" : [ "uy", "h8" ]
@@ -23,7 +26,10 @@
     "description" : "生产固定范围长度的字符串，并指定null值占比",
     "parameters" : [ {
       "name" : "length",
-      "description" : "字符串长度，默认 6，最大长度 2^31-1 个字符"
+      "description" : "字符串长度，默认 6，最大长度 2^31-1 个字符",
+      "type" : "Integer",
+      "defaultValue" : "6",
+      "required" : false
     } ],
     "example" : "@String(3,\"1:2\")",
     "exampleValues" : [ "ec2", "null", "c3a" ]
@@ -32,10 +38,16 @@
     "description" : "生成指定长度范围的随机字符",
     "parameters" : [ {
       "name" : "min",
-      "description" : "最小长度，不指定时默认长度 0（返回空串\"\"），如果同时指定了 length 当前参数不生效"
+      "description" : "最小长度，不指定时默认长度 0（返回空串\"\"），如果同时指定了 length 当前参数不生效",
+      "type" : "Integer",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "最大长度，最大长度上限 2^31-1 个字符，如果同时指定了 length 当前参数不生效"
+      "description" : "最大长度，最大长度上限 2^31-1 个字符，如果同时指定了 length 当前参数不生效",
+      "type" : "Integer",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@String(2,6)",
     "exampleValues" : [ "ht8ut", "cy" ]
@@ -44,10 +56,16 @@
     "description" : "在用户指定字符集内生成固定长度字符串，并指定null值占比",
     "parameters" : [ {
       "name" : "length",
-      "description" : "字符串长度，默认 6，最大长度 2^31-1 个字符"
+      "description" : "字符串长度，默认 6，最大长度 2^31-1 个字符",
+      "type" : "Integer",
+      "defaultValue" : "6",
+      "required" : false
     }, {
       "name" : "chars",
-      "description" : "用于生成字符串的字符集元素，不指定时默认从 52 英文字母（a-z A-Z）和 10 个阿拉伯数字（0-9）中随机选择指定长度字符串，最大 2^31-1 个字符数，如：123456ABCDEF"
+      "description" : "用于生成字符串的字符集元素，不指定时默认从 52 英文字母（a-z A-Z）和 10 个阿拉伯数字（0-9）中随机选择指定长度字符串，最大 2^31-1 个字符数，如：123456ABCDEF",
+      "type" : "String",
+      "defaultValue" : "a-zA-Z0-9",
+      "required" : false
     } ],
     "example" : "@String(3,\"1:2\",abcdef123456)",
     "exampleValues" : [ "ec2", "f36", "c3a" ]
@@ -56,35 +74,62 @@
     "description" : "完整参数构造器，具体请查看完整参数说明",
     "parameters" : [ {
       "name" : "length",
-      "description" : "字符串长度，默认 6，最大长度 2^31-1 个字符"
+      "description" : "字符串长度，默认 6，最大长度 2^31-1 个字符",
+      "type" : "Integer",
+      "defaultValue" : "6",
+      "required" : false
     }, {
       "name" : "min",
-      "description" : "最小长度，不指定时默认长度 0（返回空串\"\"），如果同时指定了 length 当前参数不生效"
+      "description" : "最小长度，不指定时默认长度 0（返回空串\"\"），如果同时指定了 length 当前参数不生效",
+      "type" : "Integer",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "最大长度，最大长度上限 2^31-1 个字符，如果同时指定了 length 当前参数不生效"
+      "description" : "最大长度，最大长度上限 2^31-1 个字符，如果同时指定了 length 当前参数不生效",
+      "type" : "Integer",
+      "defaultValue" : "",
+      "required" : false
     }, {
       "name" : "chars",
-      "description" : "用于生成字符串的字符集元素，不指定时默认从 52 英文字母（a-z A-Z）和 10 个阿拉伯数字（0-9）中随机选择指定长度字符串，最大 2^31-1 个字符数，如：123456ABCDEF"
+      "description" : "用于生成字符串的字符集元素，不指定时默认从 52 英文字母（a-z A-Z）和 10 个阿拉伯数字（0-9）中随机选择指定长度字符串，最大 2^31-1 个字符数，如：123456ABCDEF",
+      "type" : "String",
+      "defaultValue" : "a-zA-Z0-9",
+      "required" : false
     } ],
     "example" : "@String(1,,,ABCDE,\"1:2\")",
     "exampleValues" : [ "A", "null", "B", "C", "null" ]
   } ],
   "parameters" : [ {
     "name" : "length",
-    "description" : "字符串长度，默认 6，最大长度 2^31-1 个字符"
+    "description" : "字符串长度，默认 6，最大长度 2^31-1 个字符",
+    "type" : "Integer",
+    "defaultValue" : "6",
+    "required" : false
   }, {
     "name" : "min",
-    "description" : "最小长度，不指定时默认长度 0（返回空串\"\"），如果同时指定了 length 当前参数不生效"
+    "description" : "最小长度，不指定时默认长度 0（返回空串\"\"），如果同时指定了 length 当前参数不生效",
+    "type" : "Integer",
+    "defaultValue" : "0",
+    "required" : false
   }, {
     "name" : "max",
-    "description" : "最大长度，最大长度上限 2^31-1 个字符，如果同时指定了 length 当前参数不生效"
+    "description" : "最大长度，最大长度上限 2^31-1 个字符，如果同时指定了 length 当前参数不生效",
+    "type" : "Integer",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "chars",
-    "description" : "用于生成字符串的字符集元素，不指定时默认从 52 英文字母（a-z A-Z）和 10 个阿拉伯数字（0-9）中随机选择指定长度字符串，最大 2^31-1 个字符数，如：123456ABCDEF"
+    "description" : "用于生成字符串的字符集元素，不指定时默认从 52 英文字母（a-z A-Z）和 10 个阿拉伯数字（0-9）中随机选择指定长度字符串，最大 2^31-1 个字符数，如：123456ABCDEF",
+    "type" : "String",
+    "defaultValue" : "a-zA-Z0-9",
+    "required" : false
   }, {
     "name" : "nullSampler",
-    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null"
+    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 101
 }, {
@@ -109,10 +154,16 @@
     "description" : "完整参数构造器，生成一个值范围为 min ～ max 随机长整数，并指定null值占比",
     "parameters" : [ {
       "name" : "min",
-      "description" : "最小值，不指定默认最小 0L，其中字符`L`表示值为长整形参数值"
+      "description" : "最小值，不指定默认最小 0L，其中字符`L`表示值为长整形参数值",
+      "type" : "Long",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "最大值，不指定时默认最大 9223372036854775807L"
+      "description" : "最大值，不指定时默认最大 9223372036854775807L",
+      "type" : "Long",
+      "defaultValue" : "9223372036854775807",
+      "required" : false
     } ],
     "example" : "@Long(-10000L,100000L,)",
     "exampleValues" : [ "198", "594", "-17865", "9876", "37092" ]
@@ -121,23 +172,38 @@
     "description" : "生成一个值范围为 min ～ max 随机长整数",
     "parameters" : [ {
       "name" : "min",
-      "description" : "最小值，不指定默认最小 0L，其中字符`L`表示值为长整形参数值"
+      "description" : "最小值，不指定默认最小 0L，其中字符`L`表示值为长整形参数值",
+      "type" : "Long",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "最大值，不指定时默认最大 9223372036854775807L"
+      "description" : "最大值，不指定时默认最大 9223372036854775807L",
+      "type" : "Long",
+      "defaultValue" : "9223372036854775807",
+      "required" : false
     } ],
     "example" : "@Long(1L,10000000000L)",
     "exampleValues" : [ "1109", "34008978", "87256252199901" ]
   } ],
   "parameters" : [ {
     "name" : "min",
-    "description" : "最小值，不指定默认最小 0L，其中字符`L`表示值为长整形参数值"
+    "description" : "最小值，不指定默认最小 0L，其中字符`L`表示值为长整形参数值",
+    "type" : "Long",
+    "defaultValue" : "0",
+    "required" : false
   }, {
     "name" : "max",
-    "description" : "最大值，不指定时默认最大 9223372036854775807L"
+    "description" : "最大值，不指定时默认最大 9223372036854775807L",
+    "type" : "Long",
+    "defaultValue" : "9223372036854775807",
+    "required" : false
   }, {
     "name" : "nullSampler",
-    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null"
+    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 102
 }, {
@@ -162,10 +228,16 @@
     "description" : "完整参数构造器，生成一个值范围为 min ～ max 随机整数，并指定null值占比",
     "parameters" : [ {
       "name" : "min",
-      "description" : "最小值，不指定默认最小 0"
+      "description" : "最小值，不指定默认最小 0",
+      "type" : "Integer",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "最大值，不指定时默认最大 2147483647"
+      "description" : "最大值，不指定时默认最大 2147483647",
+      "type" : "Integer",
+      "defaultValue" : "2147483647",
+      "required" : false
     } ],
     "example" : "@Integer(-100000,100000,\"1:3\")",
     "exampleValues" : [ "-7811", "null", "78732", "12909", "76028" ]
@@ -174,23 +246,38 @@
     "description" : "生成一个值范围为 min ～ max 随机整数",
     "parameters" : [ {
       "name" : "min",
-      "description" : "最小值，不指定默认最小 0"
+      "description" : "最小值，不指定默认最小 0",
+      "type" : "Integer",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "最大值，不指定时默认最大 2147483647"
+      "description" : "最大值，不指定时默认最大 2147483647",
+      "type" : "Integer",
+      "defaultValue" : "2147483647",
+      "required" : false
     } ],
     "example" : "@Integer(100,200)",
     "exampleValues" : [ "162", "133", "191" ]
   } ],
   "parameters" : [ {
     "name" : "min",
-    "description" : "最小值，不指定默认最小 0"
+    "description" : "最小值，不指定默认最小 0",
+    "type" : "Integer",
+    "defaultValue" : "0",
+    "required" : false
   }, {
     "name" : "max",
-    "description" : "最大值，不指定时默认最大 2147483647"
+    "description" : "最大值，不指定时默认最大 2147483647",
+    "type" : "Integer",
+    "defaultValue" : "2147483647",
+    "required" : false
   }, {
     "name" : "nullSampler",
-    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null"
+    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 102
 }, {
@@ -215,7 +302,10 @@
     "description" : "生成一个值范围为 0 ～ 3.40282346638528860e+38 精度为 scale 随机双精度浮点型数值",
     "parameters" : [ {
       "name" : "scale",
-      "description" : "精度位，不指定时默认为 2"
+      "description" : "精度位，不指定时默认为 2",
+      "type" : "Integer",
+      "defaultValue" : "2",
+      "required" : false
     } ],
     "example" : "@Double(3)",
     "exampleValues" : [ "7.987", "89.909", "85.231" ]
@@ -224,10 +314,16 @@
     "description" : "生成一个值范围为 min ～ max 随机长整数",
     "parameters" : [ {
       "name" : "min",
-      "description" : "最小值，不指定默认最小 0D，其中字符`D`表示值为双精度浮点型参数值"
+      "description" : "最小值，不指定默认最小 0D，其中字符`D`表示值为双精度浮点型参数值",
+      "type" : "Double",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "最大值，不指定时默认最大 1.79769313486231570e+308"
+      "description" : "最大值，不指定时默认最大 1.79769313486231570e+308",
+      "type" : "Double",
+      "defaultValue" : "1.79769313486231570e+308",
+      "required" : false
     } ],
     "example" : "@Double(88,999999)",
     "exampleValues" : [ "99.99", "899.99", "7865.09" ]
@@ -236,13 +332,22 @@
     "description" : "完整参数构造器，具体请查看完整参数说明",
     "parameters" : [ {
       "name" : "min",
-      "description" : "最小值，不指定默认最小 0D，其中字符`D`表示值为双精度浮点型参数值"
+      "description" : "最小值，不指定默认最小 0D，其中字符`D`表示值为双精度浮点型参数值",
+      "type" : "Double",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "最大值，不指定时默认最大 1.79769313486231570e+308"
+      "description" : "最大值，不指定时默认最大 1.79769313486231570e+308",
+      "type" : "Double",
+      "defaultValue" : "1.79769313486231570e+308",
+      "required" : false
     }, {
       "name" : "scale",
-      "description" : "精度位，不指定时默认为 2"
+      "description" : "精度位，不指定时默认为 2",
+      "type" : "Integer",
+      "defaultValue" : "2",
+      "required" : false
     } ],
     "example" : "@Double(88,99999,4,\"1:2\")",
     "exampleValues" : [ "888.9087", "null", "666.9087" ]
@@ -251,29 +356,50 @@
     "description" : "生成一个值范围为 min ～ max 且精度为 scale 随机双精度浮点型数值",
     "parameters" : [ {
       "name" : "min",
-      "description" : "最小值，不指定默认最小 0D，其中字符`D`表示值为双精度浮点型参数值"
+      "description" : "最小值，不指定默认最小 0D，其中字符`D`表示值为双精度浮点型参数值",
+      "type" : "Double",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "最大值，不指定时默认最大 1.79769313486231570e+308"
+      "description" : "最大值，不指定时默认最大 1.79769313486231570e+308",
+      "type" : "Double",
+      "defaultValue" : "1.79769313486231570e+308",
+      "required" : false
     }, {
       "name" : "scale",
-      "description" : "精度位，不指定时默认为 2"
+      "description" : "精度位，不指定时默认为 2",
+      "type" : "Integer",
+      "defaultValue" : "2",
+      "required" : false
     } ],
     "example" : "@Double(88,99999,4,\"1:2\")",
     "exampleValues" : [ "888.9087", "null", "666.9087" ]
   } ],
   "parameters" : [ {
     "name" : "min",
-    "description" : "最小值，不指定默认最小 0D，其中字符`D`表示值为双精度浮点型参数值"
+    "description" : "最小值，不指定默认最小 0D，其中字符`D`表示值为双精度浮点型参数值",
+    "type" : "Double",
+    "defaultValue" : "0",
+    "required" : false
   }, {
     "name" : "max",
-    "description" : "最大值，不指定时默认最大 1.79769313486231570e+308"
+    "description" : "最大值，不指定时默认最大 1.79769313486231570e+308",
+    "type" : "Double",
+    "defaultValue" : "1.79769313486231570e+308",
+    "required" : false
   }, {
     "name" : "scale",
-    "description" : "精度位，不指定时默认为 2"
+    "description" : "精度位，不指定时默认为 2",
+    "type" : "Integer",
+    "defaultValue" : "2",
+    "required" : false
   }, {
     "name" : "nullSampler",
-    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null"
+    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 103
 }, {
@@ -298,7 +424,10 @@
     "description" : "生成一个值范围为 0 ～ 3.40282346638528860e+38 精度为 scale 随机浮点型数值",
     "parameters" : [ {
       "name" : "scale",
-      "description" : "精度位，不指定时默认为 2"
+      "description" : "精度位，不指定时默认为 2",
+      "type" : "Integer",
+      "defaultValue" : "2",
+      "required" : false
     } ],
     "example" : "@Float(5)",
     "exampleValues" : [ "87901.01127", "3092290435.18326" ]
@@ -307,10 +436,16 @@
     "description" : "生成一个值范围为 min ～ max 随机浮点型数值",
     "parameters" : [ {
       "name" : "min",
-      "description" : "最小值，不指定默认最小 0"
+      "description" : "最小值，不指定默认最小 0",
+      "type" : "Float",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "最大值，不指定时默认最大 3.40282346638528860e+38"
+      "description" : "最大值，不指定时默认最大 3.40282346638528860e+38",
+      "type" : "Float",
+      "defaultValue" : "3.40282346638528860e+38",
+      "required" : false
     } ],
     "example" : "@Float(5,15)",
     "exampleValues" : [ "5.2222222" ]
@@ -319,13 +454,22 @@
     "description" : "完整参数构造器，具体请查看完整参数说明",
     "parameters" : [ {
       "name" : "min",
-      "description" : "最小值，不指定默认最小 0"
+      "description" : "最小值，不指定默认最小 0",
+      "type" : "Float",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "最大值，不指定时默认最大 3.40282346638528860e+38"
+      "description" : "最大值，不指定时默认最大 3.40282346638528860e+38",
+      "type" : "Float",
+      "defaultValue" : "3.40282346638528860e+38",
+      "required" : false
     }, {
       "name" : "scale",
-      "description" : "精度位，不指定时默认为 2"
+      "description" : "精度位，不指定时默认为 2",
+      "type" : "Integer",
+      "defaultValue" : "2",
+      "required" : false
     } ],
     "example" : "@Float(0,10,5,1:2)",
     "exampleValues" : [ "1.22222" ]
@@ -334,29 +478,50 @@
     "description" : "生成一个值范围为 min ～ max 且精度为 scale 随机浮点型数值",
     "parameters" : [ {
       "name" : "min",
-      "description" : "最小值，不指定默认最小 0"
+      "description" : "最小值，不指定默认最小 0",
+      "type" : "Float",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "最大值，不指定时默认最大 3.40282346638528860e+38"
+      "description" : "最大值，不指定时默认最大 3.40282346638528860e+38",
+      "type" : "Float",
+      "defaultValue" : "3.40282346638528860e+38",
+      "required" : false
     }, {
       "name" : "scale",
-      "description" : "精度位，不指定时默认为 2"
+      "description" : "精度位，不指定时默认为 2",
+      "type" : "Integer",
+      "defaultValue" : "2",
+      "required" : false
     } ],
     "example" : "@Float(5,15,2)",
     "exampleValues" : [ "5.22" ]
   } ],
   "parameters" : [ {
     "name" : "min",
-    "description" : "最小值，不指定默认最小 0"
+    "description" : "最小值，不指定默认最小 0",
+    "type" : "Float",
+    "defaultValue" : "0",
+    "required" : false
   }, {
     "name" : "max",
-    "description" : "最大值，不指定时默认最大 3.40282346638528860e+38"
+    "description" : "最大值，不指定时默认最大 3.40282346638528860e+38",
+    "type" : "Float",
+    "defaultValue" : "3.40282346638528860e+38",
+    "required" : false
   }, {
     "name" : "scale",
-    "description" : "精度位，不指定时默认为 2"
+    "description" : "精度位，不指定时默认为 2",
+    "type" : "Integer",
+    "defaultValue" : "2",
+    "required" : false
   }, {
     "name" : "nullSampler",
-    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null"
+    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 103
 }, {
@@ -369,7 +534,10 @@
     "description" : "默认，生成指定字典的常量值，每个常量值占比相同，即为1:1。",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "用于生成枚举常量的值，多个值通过“|”分隔，不能为空。"
+      "description" : "用于生成枚举常量的值，多个值通过“|”分隔，不能为空。",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : true
     } ],
     "example" : "@Enum(HIGH|WIDTH)",
     "exampleValues" : [ "HIGH" ]
@@ -378,10 +546,16 @@
     "description" : "生成指定字典的常量值，并指定每个常量值的占比和null值占比。",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "用于生成枚举常量的值，多个值通过“|”分隔，不能为空。"
+      "description" : "用于生成枚举常量的值，多个值通过“|”分隔，不能为空。",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : true
     }, {
       "name" : "valueWeight",
-      "description" : "值的生成比例，不指定默认：“1:1:1....”。"
+      "description" : "值的生成比例，不指定默认：“1:1:1....”。",
+      "type" : "String",
+      "defaultValue" : "1",
+      "required" : false
     } ],
     "example" : "@Enum(HIGH|WIDTH,1:1,1:2)",
     "exampleValues" : [ "HIGH", "WIDTH", "null" ]
@@ -390,23 +564,38 @@
     "description" : "生成指定字典的常量值，并指定每个常量值的占比。",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "用于生成枚举常量的值，多个值通过“|”分隔，不能为空。"
+      "description" : "用于生成枚举常量的值，多个值通过“|”分隔，不能为空。",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : true
     }, {
       "name" : "valueWeight",
-      "description" : "值的生成比例，不指定默认：“1:1:1....”。"
+      "description" : "值的生成比例，不指定默认：“1:1:1....”。",
+      "type" : "String",
+      "defaultValue" : "1",
+      "required" : false
     } ],
     "example" : "@Enum(HIGH|WIDTH,1:1)",
     "exampleValues" : [ "HIGH", "WIDTH" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "用于生成枚举常量的值，多个值通过“|”分隔，不能为空。"
+    "description" : "用于生成枚举常量的值，多个值通过“|”分隔，不能为空。",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : true
   }, {
     "name" : "valueWeight",
-    "description" : "值的生成比例，不指定默认：“1:1:1....”。"
+    "description" : "值的生成比例，不指定默认：“1:1:1....”。",
+    "type" : "String",
+    "defaultValue" : "1",
+    "required" : false
   }, {
     "name" : "nullSampler",
-    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null"
+    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 104
 }, {
@@ -425,7 +614,10 @@
     "description" : "生成true、false、null，其中true占比为trueWeight，null占比为nullWeight",
     "parameters" : [ {
       "name" : "trueWeight",
-      "description" : "为真比例，如值：“2:1” ，表示生成随机 Bool 值 3 次平均 2 次为 true，一次为 false，默认：2:1"
+      "description" : "为真比例，如值：“2:1” ，表示生成随机 Bool 值 3 次平均 2 次为 true，一次为 false，默认：2:1",
+      "type" : "String",
+      "defaultValue" : "2:1",
+      "required" : false
     } ],
     "example" : "@Bool(2:1,1:5)",
     "exampleValues" : [ "true", "null", "false" ]
@@ -434,7 +626,10 @@
     "description" : "生成true、false、null，其中null按指定占比生成",
     "parameters" : [ {
       "name" : "trueWeight",
-      "description" : "为真比例，如值：“2:1” ，表示生成随机 Bool 值 3 次平均 2 次为 true，一次为 false，默认：2:1"
+      "description" : "为真比例，如值：“2:1” ，表示生成随机 Bool 值 3 次平均 2 次为 true，一次为 false，默认：2:1",
+      "type" : "String",
+      "defaultValue" : "2:1",
+      "required" : false
     } ],
     "example" : "@Bool(2:1)",
     "exampleValues" : [ "true", "true", "false" ]
@@ -443,23 +638,38 @@
     "description" : "完整参数构造器，具体请查看完整参数说明。",
     "parameters" : [ {
       "name" : "trueWeight",
-      "description" : "为真比例，如值：“2:1” ，表示生成随机 Bool 值 3 次平均 2 次为 true，一次为 false，默认：2:1"
+      "description" : "为真比例，如值：“2:1” ，表示生成随机 Bool 值 3 次平均 2 次为 true，一次为 false，默认：2:1",
+      "type" : "String",
+      "defaultValue" : "2:1",
+      "required" : false
     }, {
       "name" : "dict",
-      "description" : "用于生成布尔值的字典，字典值通过|分隔，只能有两个值，且第一个对应true，第二个对应false，例如：1|0,男|女，不指定时默认 true 和 false"
+      "description" : "用于生成布尔值的字典，字典值通过|分隔，只能有两个值，且第一个对应true，第二个对应false，例如：1|0,男|女，不指定时默认 true 和 false",
+      "type" : "String",
+      "defaultValue" : "true|false",
+      "required" : false
     } ],
     "example" : "@Bool(2:1,1:5,1|0)",
     "exampleValues" : [ "1", "null", "0" ]
   } ],
   "parameters" : [ {
     "name" : "trueWeight",
-    "description" : "为真比例，如值：“2:1” ，表示生成随机 Bool 值 3 次平均 2 次为 true，一次为 false，默认：2:1"
+    "description" : "为真比例，如值：“2:1” ，表示生成随机 Bool 值 3 次平均 2 次为 true，一次为 false，默认：2:1",
+    "type" : "String",
+    "defaultValue" : "2:1",
+    "required" : false
   }, {
     "name" : "nullSampler",
-    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null"
+    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "dict",
-    "description" : "用于生成布尔值的字典，字典值通过|分隔，只能有两个值，且第一个对应true，第二个对应false，例如：1|0,男|女，不指定时默认 true 和 false"
+    "description" : "用于生成布尔值的字典，字典值通过|分隔，只能有两个值，且第一个对应true，第二个对应false，例如：1|0,男|女，不指定时默认 true 和 false",
+    "type" : "String",
+    "defaultValue" : "true|false",
+    "required" : false
   } ],
   "order" : 105
 }, {
@@ -472,7 +682,10 @@
     "description" : "根据正则表达式生成随机值，并指定null值占比",
     "parameters" : [ {
       "name" : "regexp",
-      "description" : "用于生成数据的正则表达式"
+      "description" : "用于生成数据的正则表达式",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : true
     } ],
     "example" : "@RegExp([a-z][a-z][0-9],1:2)",
     "exampleValues" : [ "kK8", "null" ]
@@ -481,17 +694,26 @@
     "description" : "根据正则表达式生成随机值",
     "parameters" : [ {
       "name" : "regexp",
-      "description" : "用于生成数据的正则表达式"
+      "description" : "用于生成数据的正则表达式",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : true
     } ],
     "example" : "@RegExp([a-z][a-z][0-9])",
     "exampleValues" : [ "kK8", "Cs9" ]
   } ],
   "parameters" : [ {
     "name" : "regexp",
-    "description" : "用于生成数据的正则表达式"
+    "description" : "用于生成数据的正则表达式",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : true
   }, {
     "name" : "nullSampler",
-    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null"
+    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 110
 }, {
@@ -504,7 +726,10 @@
     "description" : "重复值1次",
     "parameters" : [ {
       "name" : "value",
-      "description" : "要重复的值"
+      "description" : "要重复的值",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : true
     } ],
     "example" : "@Repeat(hello)",
     "exampleValues" : [ "[\"hello\"]" ]
@@ -513,20 +738,32 @@
     "description" : "重复值N次",
     "parameters" : [ {
       "name" : "value",
-      "description" : "要重复的值"
+      "description" : "要重复的值",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : true
     }, {
       "name" : "count",
-      "description" : "重复次数，默认1"
+      "description" : "重复次数，默认1",
+      "type" : "Integer",
+      "defaultValue" : "1",
+      "required" : false
     } ],
     "example" : "@Repeat(hello,3)",
     "exampleValues" : [ "[\"hello\",\"hello\",\"hello\"]" ]
   } ],
   "parameters" : [ {
     "name" : "value",
-    "description" : "要重复的值"
+    "description" : "要重复的值",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : true
   }, {
     "name" : "count",
-    "description" : "重复次数，默认1"
+    "description" : "重复次数，默认1",
+    "type" : "Integer",
+    "defaultValue" : "1",
+    "required" : false
   } ],
   "order" : 121
 }, {
@@ -539,7 +776,10 @@
     "description" : "从0开始生成序列",
     "parameters" : [ {
       "name" : "count",
-      "description" : "生成元素个数"
+      "description" : "生成元素个数",
+      "type" : "Integer",
+      "defaultValue" : "",
+      "required" : true
     } ],
     "example" : "@Sequence(5)",
     "exampleValues" : [ "[0,1,2,3,4]" ]
@@ -548,10 +788,16 @@
     "description" : "指定起始值和个数生成等差数列(步长=1)",
     "parameters" : [ {
       "name" : "start",
-      "description" : "起始值，默认0"
+      "description" : "起始值，默认0",
+      "type" : "Long",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "count",
-      "description" : "生成元素个数"
+      "description" : "生成元素个数",
+      "type" : "Integer",
+      "defaultValue" : "",
+      "required" : true
     } ],
     "example" : "@Sequence(0,2,4)",
     "exampleValues" : [ "[0,2,4,6]" ]
@@ -560,26 +806,44 @@
     "description" : "指定起始值、步长和个数生成等差数列",
     "parameters" : [ {
       "name" : "start",
-      "description" : "起始值，默认0"
+      "description" : "起始值，默认0",
+      "type" : "Long",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "step",
-      "description" : "步长，默认1"
+      "description" : "步长，默认1",
+      "type" : "Long",
+      "defaultValue" : "1",
+      "required" : false
     }, {
       "name" : "count",
-      "description" : "生成元素个数"
+      "description" : "生成元素个数",
+      "type" : "Integer",
+      "defaultValue" : "",
+      "required" : true
     } ],
     "example" : "@Sequence(1,1,5)",
     "exampleValues" : [ "[1,2,3,4,5]" ]
   } ],
   "parameters" : [ {
     "name" : "start",
-    "description" : "起始值，默认0"
+    "description" : "起始值，默认0",
+    "type" : "Long",
+    "defaultValue" : "0",
+    "required" : false
   }, {
     "name" : "step",
-    "description" : "步长，默认1"
+    "description" : "步长，默认1",
+    "type" : "Long",
+    "defaultValue" : "1",
+    "required" : false
   }, {
     "name" : "count",
-    "description" : "生成元素个数"
+    "description" : "生成元素个数",
+    "type" : "Integer",
+    "defaultValue" : "",
+    "required" : true
   } ],
   "order" : 122
 }, {
@@ -592,14 +856,20 @@
     "description" : "打乱给定元素",
     "parameters" : [ {
       "name" : "items",
-      "description" : "用管道符分隔的元素列表，如 a|b|c"
+      "description" : "用管道符分隔的元素列表，如 a|b|c",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : true
     } ],
     "example" : "@Shuffle(a|b|c|d)",
     "exampleValues" : [ "[\"c\",\"a\",\"d\",\"b\"]" ]
   } ],
   "parameters" : [ {
     "name" : "items",
-    "description" : "用管道符分隔的元素列表，如 a|b|c"
+    "description" : "用管道符分隔的元素列表，如 a|b|c",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : true
   } ],
   "order" : 123
 }, {
@@ -612,20 +882,32 @@
     "description" : "从列表中抽样N个元素",
     "parameters" : [ {
       "name" : "items",
-      "description" : "用管道符分隔的元素列表，如 a|b|c|d|e"
+      "description" : "用管道符分隔的元素列表，如 a|b|c|d|e",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : true
     }, {
       "name" : "count",
-      "description" : "抽样个数"
+      "description" : "抽样个数",
+      "type" : "Integer",
+      "defaultValue" : "",
+      "required" : true
     } ],
     "example" : "@Sample(a|b|c|d|e,3)",
     "exampleValues" : [ "[\"c\",\"a\",\"e\"]" ]
   } ],
   "parameters" : [ {
     "name" : "items",
-    "description" : "用管道符分隔的元素列表，如 a|b|c|d|e"
+    "description" : "用管道符分隔的元素列表，如 a|b|c|d|e",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : true
   }, {
     "name" : "count",
-    "description" : "抽样个数"
+    "description" : "抽样个数",
+    "type" : "Integer",
+    "defaultValue" : "",
+    "required" : true
   } ],
   "order" : 124
 }, {
@@ -638,14 +920,20 @@
     "description" : "从列表中随机选择一个",
     "parameters" : [ {
       "name" : "items",
-      "description" : "用管道符分隔的元素列表，如 apple|banana|cherry"
+      "description" : "用管道符分隔的元素列表，如 apple|banana|cherry",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : true
     } ],
     "example" : "@OneOf(apple|banana|cherry)",
     "exampleValues" : [ "banana" ]
   } ],
   "parameters" : [ {
     "name" : "items",
-    "description" : "用管道符分隔的元素列表，如 apple|banana|cherry"
+    "description" : "用管道符分隔的元素列表，如 apple|banana|cherry",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : true
   } ],
   "order" : 125
 }, {
@@ -664,14 +952,20 @@
     "description" : "生成指定类型的当前操作系统时间戳",
     "parameters" : [ {
       "name" : "unix",
-      "description" : "false，生成包含毫秒值的系统时间戳，设置成 true 时生成 Unix 时间戳，即自1970年1月1日00:00:00 UTC以来经过的秒数"
+      "description" : "false，生成包含毫秒值的系统时间戳，设置成 true 时生成 Unix 时间戳，即自1970年1月1日00:00:00 UTC以来经过的秒数",
+      "type" : "Boolean",
+      "defaultValue" : "false",
+      "required" : false
     } ],
     "example" : "@Timestamp()",
     "exampleValues" : [ "1653432546438" ]
   } ],
   "parameters" : [ {
     "name" : "unix",
-    "description" : "false，生成包含毫秒值的系统时间戳，设置成 true 时生成 Unix 时间戳，即自1970年1月1日00:00:00 UTC以来经过的秒数"
+    "description" : "false，生成包含毫秒值的系统时间戳，设置成 true 时生成 Unix 时间戳，即自1970年1月1日00:00:00 UTC以来经过的秒数",
+    "type" : "Boolean",
+    "defaultValue" : "false",
+    "required" : false
   } ],
   "order" : 201
 }, {
@@ -690,7 +984,10 @@
     "description" : "生成当前时间，格式为format，时区为Asia/Shanghai",
     "parameters" : [ {
       "name" : "format",
-      "description" : "日期格式化模版，默认格式 “HH:mm:ss”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现"
+      "description" : "日期格式化模版，默认格式 “HH:mm:ss”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现",
+      "type" : "String",
+      "defaultValue" : "HH:mm:ss",
+      "required" : false
     } ],
     "example" : "@LocaleTime(a HH:mm:ss)",
     "exampleValues" : [ "下午 23:34:25", "下午 23:34:25" ]
@@ -699,10 +996,16 @@
     "description" : "生成随机时间，格式为format，时区为Asia/Shanghai",
     "parameters" : [ {
       "name" : "format",
-      "description" : "日期格式化模版，默认格式 “HH:mm:ss”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现"
+      "description" : "日期格式化模版，默认格式 “HH:mm:ss”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现",
+      "type" : "String",
+      "defaultValue" : "HH:mm:ss",
+      "required" : false
     }, {
       "name" : "random",
-      "description" : "生成一天内随机时间，默认 false"
+      "description" : "生成一天内随机时间，默认 false",
+      "type" : "Boolean",
+      "defaultValue" : "false",
+      "required" : false
     } ],
     "example" : "@LocaleTime(a HH:mm:ss)",
     "exampleValues" : [ "下午 23:34:25", "下午 23:34:25" ]
@@ -711,26 +1014,44 @@
     "description" : "生成随机时间，格式为format，时区为zoneId",
     "parameters" : [ {
       "name" : "format",
-      "description" : "日期格式化模版，默认格式 “HH:mm:ss”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现"
+      "description" : "日期格式化模版，默认格式 “HH:mm:ss”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现",
+      "type" : "String",
+      "defaultValue" : "HH:mm:ss",
+      "required" : false
     }, {
       "name" : "zoneId",
-      "description" : "时区 ID，默认值 “Asia/Shanghai”，详情请查看 Java [ZoneId](https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html)"
+      "description" : "时区 ID，默认值 “Asia/Shanghai”，详情请查看 Java [ZoneId](https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html)",
+      "type" : "String",
+      "defaultValue" : "Asia/Shanghai",
+      "required" : false
     }, {
       "name" : "random",
-      "description" : "生成一天内随机时间，默认 false"
+      "description" : "生成一天内随机时间，默认 false",
+      "type" : "Boolean",
+      "defaultValue" : "false",
+      "required" : false
     } ],
     "example" : "@LocaleDate(HH:mm:ss,Asia/Tokyo)",
     "exampleValues" : [ "07:08:21", "07:08:21" ]
   } ],
   "parameters" : [ {
     "name" : "format",
-    "description" : "日期格式化模版，默认格式 “HH:mm:ss”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现"
+    "description" : "日期格式化模版，默认格式 “HH:mm:ss”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现",
+    "type" : "String",
+    "defaultValue" : "HH:mm:ss",
+    "required" : false
   }, {
     "name" : "zoneId",
-    "description" : "时区 ID，默认值 “Asia/Shanghai”，详情请查看 Java [ZoneId](https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html)"
+    "description" : "时区 ID，默认值 “Asia/Shanghai”，详情请查看 Java [ZoneId](https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html)",
+    "type" : "String",
+    "defaultValue" : "Asia/Shanghai",
+    "required" : false
   }, {
     "name" : "random",
-    "description" : "生成一天内随机时间，默认 false"
+    "description" : "生成一天内随机时间，默认 false",
+    "type" : "Boolean",
+    "defaultValue" : "false",
+    "required" : false
   } ],
   "order" : 202
 }, {
@@ -749,7 +1070,10 @@
     "description" : "生成当前日期，格式为format,时区为Asia/Shanghai",
     "parameters" : [ {
       "name" : "format",
-      "description" : "日期格式化模版，默认格式 “yyyy-MM-dd”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现"
+      "description" : "日期格式化模版，默认格式 “yyyy-MM-dd”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现",
+      "type" : "String",
+      "defaultValue" : "yyyy-MM-dd",
+      "required" : false
     } ],
     "example" : "@LocaleDate(yyyy yy y MM M dd d)",
     "exampleValues" : [ "2022 22 2022 05 5 12 12", "2022 22 2022 05 5 12 12" ]
@@ -758,10 +1082,16 @@
     "description" : "生成随机日期，格式为format,时区为Asia/Shanghai",
     "parameters" : [ {
       "name" : "format",
-      "description" : "日期格式化模版，默认格式 “yyyy-MM-dd”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现"
+      "description" : "日期格式化模版，默认格式 “yyyy-MM-dd”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现",
+      "type" : "String",
+      "defaultValue" : "yyyy-MM-dd",
+      "required" : false
     }, {
       "name" : "random",
-      "description" : "生成过去10年和未来10年的随机日期，默认 false"
+      "description" : "生成过去10年和未来10年的随机日期，默认 false",
+      "type" : "Boolean",
+      "defaultValue" : "false",
+      "required" : false
     } ],
     "example" : "@LocaleDate(yyyy yy y MM M dd d)",
     "exampleValues" : [ "2022 22 2022 05 5 12 12", "2022 22 2022 05 5 12 12" ]
@@ -770,26 +1100,44 @@
     "description" : "生成随机日期，格式为format，时区为zoneId",
     "parameters" : [ {
       "name" : "format",
-      "description" : "日期格式化模版，默认格式 “yyyy-MM-dd”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现"
+      "description" : "日期格式化模版，默认格式 “yyyy-MM-dd”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现",
+      "type" : "String",
+      "defaultValue" : "yyyy-MM-dd",
+      "required" : false
     }, {
       "name" : "zoneId",
-      "description" : "时区 ID，默认值 “Asia/Shanghai”，详情请查看 Java [ZoneId](https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html)"
+      "description" : "时区 ID，默认值 “Asia/Shanghai”，详情请查看 Java [ZoneId](https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html)",
+      "type" : "String",
+      "defaultValue" : "Asia/Shanghai",
+      "required" : false
     }, {
       "name" : "random",
-      "description" : "生成过去10年和未来10年的随机日期，默认 false"
+      "description" : "生成过去10年和未来10年的随机日期，默认 false",
+      "type" : "Boolean",
+      "defaultValue" : "false",
+      "required" : false
     } ],
     "example" : "@LocaleDate(yyyy-MM-dd,Asia/Shanghai)",
     "exampleValues" : [ "2022-01-01", "2022-01-01" ]
   } ],
   "parameters" : [ {
     "name" : "format",
-    "description" : "日期格式化模版，默认格式 “yyyy-MM-dd”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现"
+    "description" : "日期格式化模版，默认格式 “yyyy-MM-dd”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现",
+    "type" : "String",
+    "defaultValue" : "yyyy-MM-dd",
+    "required" : false
   }, {
     "name" : "zoneId",
-    "description" : "时区 ID，默认值 “Asia/Shanghai”，详情请查看 Java [ZoneId](https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html)"
+    "description" : "时区 ID，默认值 “Asia/Shanghai”，详情请查看 Java [ZoneId](https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html)",
+    "type" : "String",
+    "defaultValue" : "Asia/Shanghai",
+    "required" : false
   }, {
     "name" : "random",
-    "description" : "生成过去10年和未来10年的随机日期，默认 false"
+    "description" : "生成过去10年和未来10年的随机日期，默认 false",
+    "type" : "Boolean",
+    "defaultValue" : "false",
+    "required" : false
   } ],
   "order" : 203
 }, {
@@ -808,7 +1156,10 @@
     "description" : "生成当前日期和时间，格式为format，时区为Asia/Shanghai",
     "parameters" : [ {
       "name" : "format",
-      "description" : "日期格式化模版，默认格式 “yyyy-MM-dd HH:mm:ss”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现"
+      "description" : "日期格式化模版，默认格式 “yyyy-MM-dd HH:mm:ss”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现",
+      "type" : "String",
+      "defaultValue" : "yyyy-MM-dd HH:mm:ss",
+      "required" : false
     } ],
     "example" : "@LocaleDateTime(yy-MM-dd a HH:mm:ss)",
     "exampleValues" : [ "22-05-12 下午 23:40:22", "22-05-12 下午 23:40:22" ]
@@ -817,10 +1168,16 @@
     "description" : "生成随机日期和时间，格式为format，时区为Asia/Shanghai",
     "parameters" : [ {
       "name" : "format",
-      "description" : "日期格式化模版，默认格式 “yyyy-MM-dd HH:mm:ss”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现"
+      "description" : "日期格式化模版，默认格式 “yyyy-MM-dd HH:mm:ss”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现",
+      "type" : "String",
+      "defaultValue" : "yyyy-MM-dd HH:mm:ss",
+      "required" : false
     }, {
       "name" : "random",
-      "description" : "生成过去10年和未来10年随机日期时间，默认 false"
+      "description" : "生成过去10年和未来10年随机日期时间，默认 false",
+      "type" : "Boolean",
+      "defaultValue" : "false",
+      "required" : false
     } ],
     "example" : "@LocaleDateTime(yy-MM-dd a HH:mm:ss)",
     "exampleValues" : [ "22-05-12 下午 23:40:22", "22-05-12 下午 23:40:22" ]
@@ -829,26 +1186,44 @@
     "description" : "生成随机日期和时间，格式为format，时区为zoneId",
     "parameters" : [ {
       "name" : "format",
-      "description" : "日期格式化模版，默认格式 “yyyy-MM-dd HH:mm:ss”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现"
+      "description" : "日期格式化模版，默认格式 “yyyy-MM-dd HH:mm:ss”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现",
+      "type" : "String",
+      "defaultValue" : "yyyy-MM-dd HH:mm:ss",
+      "required" : false
     }, {
       "name" : "zoneId",
-      "description" : "时区 ID，默认值 “Asia/Shanghai”，详情请查看 Java [ZoneId](https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html)"
+      "description" : "时区 ID，默认值 “Asia/Shanghai”，详情请查看 Java [ZoneId](https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html)",
+      "type" : "String",
+      "defaultValue" : "Asia/Shanghai",
+      "required" : false
     }, {
       "name" : "random",
-      "description" : "生成过去10年和未来10年随机日期时间，默认 false"
+      "description" : "生成过去10年和未来10年随机日期时间，默认 false",
+      "type" : "Boolean",
+      "defaultValue" : "false",
+      "required" : false
     } ],
     "example" : "@LocaleDateTime(yyyy-MM-dd HH:mm:ss,Asia/Shanghai)",
     "exampleValues" : [ "2022-01-01 23:34:25", "2022-01-01 23:34:25" ]
   } ],
   "parameters" : [ {
     "name" : "format",
-    "description" : "日期格式化模版，默认格式 “yyyy-MM-dd HH:mm:ss”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现"
+    "description" : "日期格式化模版，默认格式 “yyyy-MM-dd HH:mm:ss”，详情请查看 Java [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html) 实现",
+    "type" : "String",
+    "defaultValue" : "yyyy-MM-dd HH:mm:ss",
+    "required" : false
   }, {
     "name" : "zoneId",
-    "description" : "时区 ID，默认值 “Asia/Shanghai”，详情请查看 Java [ZoneId](https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html)"
+    "description" : "时区 ID，默认值 “Asia/Shanghai”，详情请查看 Java [ZoneId](https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html)",
+    "type" : "String",
+    "defaultValue" : "Asia/Shanghai",
+    "required" : false
   }, {
     "name" : "random",
-    "description" : "生成过去10年和未来10年随机日期时间，默认 false"
+    "description" : "生成过去10年和未来10年随机日期时间，默认 false",
+    "type" : "Boolean",
+    "defaultValue" : "false",
+    "required" : false
   } ],
   "order" : 204
 }, {
@@ -867,14 +1242,20 @@
     "description" : "生成一个月份，语言使用指定的locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+      "type" : "String",
+      "defaultValue" : "zh_CN",
+      "required" : false
     } ],
     "example" : "@Month()",
     "exampleValues" : [ "January" ]
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+    "type" : "String",
+    "defaultValue" : "zh_CN",
+    "required" : false
   } ],
   "order" : 272
 }, {
@@ -893,14 +1274,20 @@
     "description" : "生成一个星期，语言使用指定的locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+      "type" : "String",
+      "defaultValue" : "zh_CN",
+      "required" : false
     } ],
     "example" : "@Week()",
     "exampleValues" : [ "Tuesday" ]
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+    "type" : "String",
+    "defaultValue" : "zh_CN",
+    "required" : false
   } ],
   "order" : 273
 }, {
@@ -919,14 +1306,20 @@
     "description" : "基于GUID算法生成包含\"-\"分隔符的ID",
     "parameters" : [ {
       "name" : "withoutSeparator",
-      "description" : "布尔值，控制是否包含分割符号\"-\"，true 展示分割符，false 不展示分割符，默认 true"
+      "description" : "布尔值，控制是否包含分割符号\"-\"，true 展示分割符，false 不展示分割符，默认 true",
+      "type" : "Boolean",
+      "defaultValue" : "false",
+      "required" : false
     } ],
     "example" : "@Guid(true)",
     "exampleValues" : [ "JIDLO-IFIUD-ASNVH-DLODG-HYGON-LKDHKP" ]
   } ],
   "parameters" : [ {
     "name" : "withoutSeparator",
-    "description" : "布尔值，控制是否包含分割符号\"-\"，true 展示分割符，false 不展示分割符，默认 true"
+    "description" : "布尔值，控制是否包含分割符号\"-\"，true 展示分割符，false 不展示分割符，默认 true",
+    "type" : "Boolean",
+    "defaultValue" : "false",
+    "required" : false
   } ],
   "order" : 301
 }, {
@@ -945,14 +1338,20 @@
     "description" : "基于UUID算法生成包含\"-\"分隔符的ID",
     "parameters" : [ {
       "name" : "withoutSeparator",
-      "description" : "布尔值，控制是否包含分割符号\"-\"，true 展示分割符，false 不展示分割符，默认 true"
+      "description" : "布尔值，控制是否包含分割符号\"-\"，true 展示分割符，false 不展示分割符，默认 true",
+      "type" : "Boolean",
+      "defaultValue" : "false",
+      "required" : false
     } ],
     "example" : "@Uuid(true)",
     "exampleValues" : [ "JIDLO-IFIUD-ASNVH-DLODG-HYGON-LKDHKP" ]
   } ],
   "parameters" : [ {
     "name" : "withoutSeparator",
-    "description" : "布尔值，控制是否包含分割符号\"-\"，true 展示分割符，false 不展示分割符，默认 true"
+    "description" : "布尔值，控制是否包含分割符号\"-\"，true 展示分割符，false 不展示分割符，默认 true",
+    "type" : "Boolean",
+    "defaultValue" : "false",
+    "required" : false
   } ],
   "order" : 302
 }, {
@@ -971,20 +1370,32 @@
     "description" : "生成一个自增ID，初始化值为init，自增步长为step",
     "parameters" : [ {
       "name" : "init",
-      "description" : "初始化值，默认从 1 开始"
+      "description" : "初始化值，默认从 1 开始",
+      "type" : "Integer",
+      "defaultValue" : "1",
+      "required" : false
     }, {
       "name" : "step",
-      "description" : "自增步长，默认每次加 1"
+      "description" : "自增步长，默认每次加 1",
+      "type" : "Integer",
+      "defaultValue" : "1",
+      "required" : false
     } ],
     "example" : "@IncId(5,2)",
     "exampleValues" : [ "5" ]
   } ],
   "parameters" : [ {
     "name" : "init",
-    "description" : "初始化值，默认从 1 开始"
+    "description" : "初始化值，默认从 1 开始",
+    "type" : "Integer",
+    "defaultValue" : "1",
+    "required" : false
   }, {
     "name" : "step",
-    "description" : "自增步长，默认每次加 1"
+    "description" : "自增步长，默认每次加 1",
+    "type" : "Integer",
+    "defaultValue" : "1",
+    "required" : false
   } ],
   "order" : 303
 }, {
@@ -1003,17 +1414,26 @@
     "description" : "基于SnowFlake算法生成ID，数据中心ID为指定dcId，机器ID为指定mid",
     "parameters" : [ {
       "name" : "dcId",
-      "description" : "数据中心 ID 标识，默认 1"
+      "description" : "数据中心 ID 标识，默认 1",
+      "type" : "Long",
+      "defaultValue" : "1",
+      "required" : false
     } ],
     "example" : "@SnowId(1,1)",
     "exampleValues" : [ "16685359784" ]
   } ],
   "parameters" : [ {
     "name" : "dcId",
-    "description" : "数据中心 ID 标识，默认 1"
+    "description" : "数据中心 ID 标识，默认 1",
+    "type" : "Long",
+    "defaultValue" : "1",
+    "required" : false
   }, {
     "name" : "mId",
-    "description" : "机器 ID 标识，默认 1，多节点分布式压测时根据压测节点自动设置机器 ID"
+    "description" : "机器 ID 标识，默认 1，多节点分布式压测时根据压测节点自动设置机器 ID",
+    "type" : "Long",
+    "defaultValue" : "1",
+    "required" : false
   } ],
   "order" : 304
 }, {
@@ -1032,7 +1452,10 @@
     "description" : "生成一个单词，字典使用指定的dict",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "自定义值字典，多个值以“|”分割"
+      "description" : "自定义值字典，多个值以“|”分割",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Word(开开心心|快快乐乐|红红火火))",
     "exampleValues" : [ "开开心心", "快快乐乐" ]
@@ -1041,17 +1464,26 @@
     "description" : "生成一个单词，语言使用指定的locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Word(en)",
     "exampleValues" : [ "along", "designer" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "自定义值字典，多个值以“|”分割"
+    "description" : "自定义值字典，多个值以“|”分割",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 401
 }, {
@@ -1070,7 +1502,10 @@
     "description" : "生成一个标题，字典使用指定的dict",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "自定义值字典，多个值以“|”分割"
+      "description" : "自定义值字典，多个值以“|”分割",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Title(做好疫情防护|乌俄局势)",
     "exampleValues" : [ "做好疫情防护" ]
@@ -1079,17 +1514,26 @@
     "description" : "生成一个标题，语言使用指定的locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Title(en)",
     "exampleValues" : [ "Do a good job in epidemic prevention" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "自定义值字典，多个值以“|”分割"
+    "description" : "自定义值字典，多个值以“|”分割",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 402
 }, {
@@ -1108,7 +1552,10 @@
     "description" : "生成一个句子，字典使用指定的dict",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "自定义值字典，多个值以“|”分割"
+      "description" : "自定义值字典，多个值以“|”分割",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Sentence(好好学习|天天向上)",
     "exampleValues" : [ "天天向上" ]
@@ -1117,17 +1564,26 @@
     "description" : "生成一个句子，语言使用指定的locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+      "type" : "String",
+      "defaultValue" : "zh_CN",
+      "required" : false
     } ],
     "example" : "@Sentence(zh_CN)",
     "exampleValues" : [ "好好学习" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "自定义值字典，多个值以“|”分割"
+    "description" : "自定义值字典，多个值以“|”分割",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+    "type" : "String",
+    "defaultValue" : "zh_CN",
+    "required" : false
   } ],
   "order" : 403
 }, {
@@ -1146,7 +1602,10 @@
     "description" : "生成一个唐诗，字典使用指定的dict",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "自定义值字典，多个值以“|”分割"
+      "description" : "自定义值字典，多个值以“|”分割",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@TangPoetry(唐诗1|唐诗2)",
     "exampleValues" : [ "唐诗1", "唐诗2" ]
@@ -1155,17 +1614,26 @@
     "description" : "生成一个唐诗，语言使用指定的locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@TangPoetry(en)",
     "exampleValues" : [ "Qiu Wei\nAFTER MISSING THE RECLUSE \nON THE WESTERN MOUNTAIN\nTo your hermitage here on the top of the mountain \nI have climbed, without stopping, these ten miles. \nI have knocked at your door, and no one answered; \nI have peeped into your room, at your seat beside the table. \nPerhaps you are out riding in your canopied chair, \nOr fishing, more likely, in some autumn pool. \nSorry though I am to be missing you, \nYou have become my meditation -- \nThe beauty of your grasses, fresh with rain, \nAnd close beside your window the music of your pines. \nI take into my being all that I see and hear, \nSoothing my senses, quieting my heart; \nAnd though there be neither host nor guest, \nHave I not reasoned a visit complete? \n...After enough, I have gone down the mountain. \nWhy should I wait for you any longer? ", "Wang Wei\nAT PARTING\nI dismount from my horse and I offer you wine, \nAnd I ask you where you are going and why. \nAnd you answer: \"I am discontent \nAnd would rest at the foot of the southern mountain. \nSo give me leave and ask me no questions. \nWhite clouds pass there without end.\" " ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "自定义值字典，多个值以“|”分割"
+    "description" : "自定义值字典，多个值以“|”分割",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 404
 }, {
@@ -1184,7 +1652,10 @@
     "description" : "生成一个段落，字典使用指定的dict",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "自定义值字典，多个值以“|”分割"
+      "description" : "自定义值字典，多个值以“|”分割",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Paragraph(段落1|段落2)",
     "exampleValues" : [ "段落1", "段落2" ]
@@ -1193,17 +1664,26 @@
     "description" : "生成一个段落，语言使用指定的locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Paragraph(en)",
     "exampleValues" : [ "At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. The time is gone, the promise is still there, the people are gone, like the arrow from the mstring, even if it is far to the horizon, the tender words are still there. If the affection is deep, I am not afraid of the long-term, having you in my heart is enough to comfort a lonely soul. The cymbals were pale that day, the white dew was frost, and the autumn breeze brought coolness. Xia came quietly, and went quietly. The autumn models came with graceful and graceful steps, lovingly sending the back of Xia Yuan, accompanied by fallen leaves, waiting for the arrival of the next season. Looking at the withered leaves, knowing that some departures are unobstructed, and the empty heart will be filled with the tranquility of the autumn light, so the parting time and time will be warmed by the next meeting.", "accidentally met and met. You are over there. I am here. A virtual thread connects us together. We could have become friends, communicate, talk, and sigh. However, we have been indulged in real life for too long. In this masked society, we have lost the most precious and simplest relationship between people-trust!" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "自定义值字典，多个值以“|”分割"
+    "description" : "自定义值字典，多个值以“|”分割",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 405
 }, {
@@ -1222,7 +1702,10 @@
     "description" : "生成指定语言默认3个段落，长度800字内中文文章",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Article(en)",
     "exampleValues" : [ "The time is gone, the promise is still there, the people are gone, like the arrow from the mstring, even if it is far to the horizon, the tender words are still there.  You are over there. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting.  I am here.\n\nAt this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting.  Looking at the withered leaves, knowing that some departures are unobstructed, and the empty heart will be filled with the tranquility of the autumn light, so the parting time and time will be warmed by the next meeting.  We could have become friends, communicate, talk, and sigh.\n\nIf the affection is deep, I am not afraid of the long-term, having you in my heart is enough to comfort a lonely soul.  You are over there.  Accidentally met and met.  If the affection is deep, I am not afraid of the long-term, having you in my heart is enough to comfort a lonely soul." ]
@@ -1231,10 +1714,16 @@
     "description" : "基于指定段落、字数和内容生成文章",
     "parameters" : [ {
       "name" : "paragraphCount",
-      "description" : "生成段落数"
+      "description" : "生成段落数",
+      "type" : "Integer",
+      "defaultValue" : "3",
+      "required" : false
     }, {
       "name" : "wordCount",
-      "description" : "最大字数"
+      "description" : "最大字数",
+      "type" : "Integer",
+      "defaultValue" : "800",
+      "required" : false
     } ],
     "example" : "@Paragraph(2|200|At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting.)",
     "exampleValues" : [ "At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting.\n\nAt this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting." ]
@@ -1243,26 +1732,44 @@
     "description" : "基于指定段落、字数和语言生成文章",
     "parameters" : [ {
       "name" : "paragraphCount",
-      "description" : "生成段落数"
+      "description" : "生成段落数",
+      "type" : "Integer",
+      "defaultValue" : "3",
+      "required" : false
     }, {
       "name" : "wordCount",
-      "description" : "最大字数"
+      "description" : "最大字数",
+      "type" : "Integer",
+      "defaultValue" : "800",
+      "required" : false
     }, {
       "name" : "locale",
-      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Article(2|200|en)",
     "exampleValues" : [ "At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting.  I am here. The time is gone, the promise is still there, the people are gone, like the arrow from the mstring, even if it is far to the horizon, the tender words are still there.  The autumn models came with graceful and graceful steps, lovingly sending the back of Xia Yuan, accompanied by fallen leaves, waiting for the arrival of the next season.\n\nXia came quietly, and went quietly.  Xia came quietly, and went quietly. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting." ]
   } ],
   "parameters" : [ {
     "name" : "paragraphCount",
-    "description" : "生成段落数"
+    "description" : "生成段落数",
+    "type" : "Integer",
+    "defaultValue" : "3",
+    "required" : false
   }, {
     "name" : "wordCount",
-    "description" : "最大字数"
+    "description" : "最大字数",
+    "type" : "Integer",
+    "defaultValue" : "800",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 406
 }, {
@@ -1281,7 +1788,10 @@
     "description" : "生成一个国家，字典使用指定的dict",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "自定义值字典，多个值以“|”分割"
+      "description" : "自定义值字典，多个值以“|”分割",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Country(中国,俄罗斯)",
     "exampleValues" : [ "中国" ]
@@ -1290,17 +1800,26 @@
     "description" : "生成一个国家，语言使用指定的locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+      "type" : "String",
+      "defaultValue" : "zh_CN",
+      "required" : false
     } ],
     "example" : "@Country(zh_CN)",
     "exampleValues" : [ "中国" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "自定义值字典，多个值以“|”分割"
+    "description" : "自定义值字典，多个值以“|”分割",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+    "type" : "String",
+    "defaultValue" : "zh_CN",
+    "required" : false
   } ],
   "order" : 501
 }, {
@@ -1319,7 +1838,10 @@
     "description" : "生成一个省份，字典使用指定的dict",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "自定义值字典，多个值以“|”分割"
+      "description" : "自定义值字典，多个值以“|”分割",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Province(山西,河北,北京,上海)",
     "exampleValues" : [ "北京", "上海" ]
@@ -1328,17 +1850,26 @@
     "description" : "生成一个省份，语言使用指定的locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Province(en)",
     "exampleValues" : [ "U.S.", "U.K." ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "自定义值字典，多个值以“|”分割"
+    "description" : "自定义值字典，多个值以“|”分割",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 502
 }, {
@@ -1357,7 +1888,10 @@
     "description" : "生成一个城市，字典使用指定的dict",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "自定义值字典，多个值以“|”分割"
+      "description" : "自定义值字典，多个值以“|”分割",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Word(北京|深圳|上海))",
     "exampleValues" : [ "深圳", "上海" ]
@@ -1366,17 +1900,26 @@
     "description" : "生成一个城市，语言使用指定的locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@City(en)",
     "exampleValues" : [ "Chicago", "New York" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "自定义值字典，多个值以“|”分割"
+    "description" : "自定义值字典，多个值以“|”分割",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 503
 }, {
@@ -1395,7 +1938,10 @@
     "description" : "生成一个地址，字典使用指定的dict",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "自定义值字典，多个值以“|”分割"
+      "description" : "自定义值字典，多个值以“|”分割",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Address(地址1|地址2|地址3))",
     "exampleValues" : [ "地址3", "地址1" ]
@@ -1404,17 +1950,26 @@
     "description" : "生成一个地址，语言使用指定的locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Address(en)",
     "exampleValues" : [ "1112 Hermitage Rd NW, Edmonton, AB T5A 4M4", "Gangwon-do, Yeongweol, Yeongwol-eup, Hasong-ri, 217-2" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "自定义值字典，多个值以“|”分割"
+    "description" : "自定义值字典，多个值以“|”分割",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 504
 }, {
@@ -1439,29 +1994,50 @@
     "description" : "生成一个纬度坐标值，按指定的minLat、maxLat、scale、nullWeight条件生成纬度坐标值",
     "parameters" : [ {
       "name" : "minLat",
-      "description" : "最小纬度，最小值 -90"
+      "description" : "最小纬度，最小值 -90",
+      "type" : "Double",
+      "defaultValue" : "-90",
+      "required" : false
     }, {
       "name" : "maxLat",
-      "description" : "最大纬度，最大值 +90"
+      "description" : "最大纬度，最大值 +90",
+      "type" : "Double",
+      "defaultValue" : "90",
+      "required" : false
     }, {
       "name" : "scale",
-      "description" : "精度，即小数点后保留的位数（int类型）"
+      "description" : "精度，即小数点后保留的位数（int类型）",
+      "type" : "Integer",
+      "defaultValue" : "6",
+      "required" : false
     } ],
     "example" : "@Latitude(30,60,5,1:2)",
     "exampleValues" : [ "40.336546" ]
   } ],
   "parameters" : [ {
     "name" : "minLat",
-    "description" : "最小纬度，最小值 -90"
+    "description" : "最小纬度，最小值 -90",
+    "type" : "Double",
+    "defaultValue" : "-90",
+    "required" : false
   }, {
     "name" : "maxLat",
-    "description" : "最大纬度，最大值 +90"
+    "description" : "最大纬度，最大值 +90",
+    "type" : "Double",
+    "defaultValue" : "90",
+    "required" : false
   }, {
     "name" : "scale",
-    "description" : "精度，即小数点后保留的位数（int类型）"
+    "description" : "精度，即小数点后保留的位数（int类型）",
+    "type" : "Integer",
+    "defaultValue" : "6",
+    "required" : false
   }, {
     "name" : "nullSampler",
-    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null"
+    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 511
 }, {
@@ -1486,29 +2062,50 @@
     "description" : "生成一个经度坐标值，按指定的minLng、maxLng、scale、nullWeight条件生成经度坐标值",
     "parameters" : [ {
       "name" : "minLng",
-      "description" : "最小经度，最小值 -180 （double类型）"
+      "description" : "最小经度，最小值 -180 （double类型）",
+      "type" : "Double",
+      "defaultValue" : "-180",
+      "required" : false
     }, {
       "name" : "maxLng",
-      "description" : "最大经度，最大值 +180"
+      "description" : "最大经度，最大值 +180",
+      "type" : "Double",
+      "defaultValue" : "180",
+      "required" : false
     }, {
       "name" : "scale",
-      "description" : "精度，即小数点后保留的位数（int类型）"
+      "description" : "精度，即小数点后保留的位数（int类型）",
+      "type" : "Integer",
+      "defaultValue" : "6",
+      "required" : false
     } ],
     "example" : "@Longitude(30,60,5,1:2)",
     "exampleValues" : [ "40.336546" ]
   } ],
   "parameters" : [ {
     "name" : "minLng",
-    "description" : "最小经度，最小值 -180 （double类型）"
+    "description" : "最小经度，最小值 -180 （double类型）",
+    "type" : "Double",
+    "defaultValue" : "-180",
+    "required" : false
   }, {
     "name" : "maxLng",
-    "description" : "最大经度，最大值 +180"
+    "description" : "最大经度，最大值 +180",
+    "type" : "Double",
+    "defaultValue" : "180",
+    "required" : false
   }, {
     "name" : "scale",
-    "description" : "精度，即小数点后保留的位数（int类型）"
+    "description" : "精度，即小数点后保留的位数（int类型）",
+    "type" : "Integer",
+    "defaultValue" : "6",
+    "required" : false
   }, {
     "name" : "nullSampler",
-    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null"
+    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 512
 }, {
@@ -1533,41 +2130,74 @@
     "description" : "生成一个经纬度坐标值，按指定的minLng、maxLng、minLat、maxLat、scale、nullWeight条件生成经纬度坐标",
     "parameters" : [ {
       "name" : "minLng",
-      "description" : "最小经度，最小值 -180 （double类型）"
+      "description" : "最小经度，最小值 -180 （double类型）",
+      "type" : "Double",
+      "defaultValue" : "-180",
+      "required" : false
     }, {
       "name" : "maxLng",
-      "description" : "最大经度，最大值 +180"
+      "description" : "最大经度，最大值 +180",
+      "type" : "Double",
+      "defaultValue" : "180",
+      "required" : false
     }, {
       "name" : "minLat",
-      "description" : "最小纬度，最小值 -90"
+      "description" : "最小纬度，最小值 -90",
+      "type" : "Double",
+      "defaultValue" : "-90",
+      "required" : false
     }, {
       "name" : "maxLat",
-      "description" : "最大纬度，最大值 +90"
+      "description" : "最大纬度，最大值 +90",
+      "type" : "Double",
+      "defaultValue" : "90",
+      "required" : false
     }, {
       "name" : "scale",
-      "description" : "精度，即小数点后保留的位数（int类型）"
+      "description" : "精度，即小数点后保留的位数（int类型）",
+      "type" : "Integer",
+      "defaultValue" : "6",
+      "required" : false
     } ],
     "example" : "@Coordinates(30,60,100,160,5,1:2)",
     "exampleValues" : [ "40.336546,110.232121" ]
   } ],
   "parameters" : [ {
     "name" : "minLng",
-    "description" : "最小经度，最小值 -180 （double类型）"
+    "description" : "最小经度，最小值 -180 （double类型）",
+    "type" : "Double",
+    "defaultValue" : "-180",
+    "required" : false
   }, {
     "name" : "maxLng",
-    "description" : "最大经度，最大值 +180"
+    "description" : "最大经度，最大值 +180",
+    "type" : "Double",
+    "defaultValue" : "180",
+    "required" : false
   }, {
     "name" : "minLat",
-    "description" : "最小纬度，最小值 -90"
+    "description" : "最小纬度，最小值 -90",
+    "type" : "Double",
+    "defaultValue" : "-90",
+    "required" : false
   }, {
     "name" : "maxLat",
-    "description" : "最大纬度，最大值 +90"
+    "description" : "最大纬度，最大值 +90",
+    "type" : "Double",
+    "defaultValue" : "90",
+    "required" : false
   }, {
     "name" : "scale",
-    "description" : "精度，即小数点后保留的位数（int类型）"
+    "description" : "精度，即小数点后保留的位数（int类型）",
+    "type" : "Integer",
+    "defaultValue" : "6",
+    "required" : false
   }, {
     "name" : "nullSampler",
-    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null"
+    "description" : "为空(null)比例，如“1:2”表示生成随机值3次平均1次为null",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 513
 }, {
@@ -1592,14 +2222,20 @@
     "description" : "生成一个邮政编码，字典使用指定的dict",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "邮政编码字典，不指定时将使用默认字典\n- 中国区域默认（30 个）：252867|252866|252865|252864|252863|252862|252861|252800|252666|252665|252662|252661|252660|252659|252658|252657|252656|252655|252654|252653|102208|102206|102205|102204|102202|102200|101414|101413|101412|101411\n- 英国区域默认（20 个）：AGA 9AA|1AHA 4ZZ|1AJA 9AA|1ALA 5BQ|1ANA B10|1APA B10|1AQA 5BQ|1ARA B10|1ASA 9AA|1AUA 4ZZ|1AWA B10|1AXA B10|1BAA 4ZZ|1BBA 1HQ|1BDA B10|1BFA B10|1BHA 1HQ|1BRA 5BQ|1BSA 4AB|EC1A 1HQ"
+      "description" : "邮政编码字典，不指定时将使用默认字典\n- 中国区域默认（30 个）：252867|252866|252865|252864|252863|252862|252861|252800|252666|252665|252662|252661|252660|252659|252658|252657|252656|252655|252654|252653|102208|102206|102205|102204|102202|102200|101414|101413|101412|101411\n- 英国区域默认（20 个）：AGA 9AA|1AHA 4ZZ|1AJA 9AA|1ALA 5BQ|1ANA B10|1APA B10|1AQA 5BQ|1ARA B10|1ASA 9AA|1AUA 4ZZ|1AWA B10|1AXA B10|1BAA 4ZZ|1BBA 1HQ|1BDA B10|1BFA B10|1BHA 1HQ|1BRA 5BQ|1BSA 4AB|EC1A 1HQ",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Zip(101407|101406|101405)",
     "exampleValues" : [ "101407", "101405", "101406" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "邮政编码字典，不指定时将使用默认字典\n- 中国区域默认（30 个）：252867|252866|252865|252864|252863|252862|252861|252800|252666|252665|252662|252661|252660|252659|252658|252657|252656|252655|252654|252653|102208|102206|102205|102204|102202|102200|101414|101413|101412|101411\n- 英国区域默认（20 个）：AGA 9AA|1AHA 4ZZ|1AJA 9AA|1ALA 5BQ|1ANA B10|1APA B10|1AQA 5BQ|1ARA B10|1ASA 9AA|1AUA 4ZZ|1AWA B10|1AXA B10|1BAA 4ZZ|1BBA 1HQ|1BDA B10|1BFA B10|1BHA 1HQ|1BRA 5BQ|1BSA 4AB|EC1A 1HQ"
+    "description" : "邮政编码字典，不指定时将使用默认字典\n- 中国区域默认（30 个）：252867|252866|252865|252864|252863|252862|252861|252800|252666|252665|252662|252661|252660|252659|252658|252657|252656|252655|252654|252653|102208|102206|102205|102204|102202|102200|101414|101413|101412|101411\n- 英国区域默认（20 个）：AGA 9AA|1AHA 4ZZ|1AJA 9AA|1ALA 5BQ|1ANA B10|1APA B10|1AQA 5BQ|1ARA B10|1ASA 9AA|1AUA 4ZZ|1AWA B10|1AXA B10|1BAA 4ZZ|1BBA 1HQ|1BDA B10|1BFA B10|1BHA 1HQ|1BRA 5BQ|1BSA 4AB|EC1A 1HQ",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 520
 }, {
@@ -1618,14 +2254,20 @@
     "description" : "生成一个MD5 值，长度使用指定的length",
     "parameters" : [ {
       "name" : "length",
-      "description" : "摘要长度，固定值：16、32，默认 32"
+      "description" : "摘要长度，固定值：16、32，默认 32",
+      "type" : "Integer",
+      "defaultValue" : "32",
+      "required" : false
     } ],
     "example" : "@Md5(16)",
     "exampleValues" : [ "4727EE9395F324CD" ]
   } ],
   "parameters" : [ {
     "name" : "length",
-    "description" : "摘要长度，固定值：16、32，默认 32"
+    "description" : "摘要长度，固定值：16、32，默认 32",
+    "type" : "Integer",
+    "defaultValue" : "32",
+    "required" : false
   } ],
   "order" : 601
 }, {
@@ -1644,14 +2286,20 @@
     "description" : "生成一个随机哈希值，版本使用指定的version",
     "parameters" : [ {
       "name" : "version",
-      "description" : "算法版本，固定值：SHA-1、SHA-224、SHA-256、SHA-384、SHA-512，默认 SHA-512"
+      "description" : "算法版本，固定值：SHA-1、SHA-224、SHA-256、SHA-384、SHA-512，默认 SHA-512",
+      "type" : "String",
+      "defaultValue" : "SHA-512",
+      "required" : false
     } ],
     "example" : "@Sha(SHA-224)",
     "exampleValues" : [ "21bca972707548ae0ffac10d2fed7495e51cb62f48b31e5edd4eb257", "ad7cdf3b66e8d68c22ce4750557e4f7c3af1a199fd11193dfbfa1e41" ]
   } ],
   "parameters" : [ {
     "name" : "version",
-    "description" : "算法版本，固定值：SHA-1、SHA-224、SHA-256、SHA-384、SHA-512，默认 SHA-512"
+    "description" : "算法版本，固定值：SHA-1、SHA-224、SHA-256、SHA-384、SHA-512，默认 SHA-512",
+    "type" : "String",
+    "defaultValue" : "SHA-512",
+    "required" : false
   } ],
   "order" : 602
 }, {
@@ -1670,14 +2318,20 @@
     "description" : "生成一个国际化配置，包括语言和国家区域，连接符使用joiner",
     "parameters" : [ {
       "name" : "joiner",
-      "description" : "国家和语言连接符.支持一个字符,默认使用 \"_\""
+      "description" : "国家和语言连接符.支持一个字符,默认使用 \"_\"",
+      "type" : "String",
+      "defaultValue" : "_",
+      "required" : false
     } ],
     "example" : "@Locale(-)",
     "exampleValues" : [ "zh-CN" ]
   } ],
   "parameters" : [ {
     "name" : "joiner",
-    "description" : "国家和语言连接符.支持一个字符,默认使用 \"_\""
+    "description" : "国家和语言连接符.支持一个字符,默认使用 \"_\"",
+    "type" : "String",
+    "defaultValue" : "_",
+    "required" : false
   } ],
   "order" : 701
 }, {
@@ -1696,14 +2350,20 @@
     "description" : "生成一个国际化时区，区域字典使用dict",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "区域字典，多个区域“|”分割，默认值：Australia/Darwin|Australia/Sydney|America/Argentina/Buenos_Aires|Africa/Cairo|America/Anchorage|America/Sao_Paulo|Asia/Dhaka|Africa/Harare|America/St_Johns|America/Chicago|Asia/Shanghai|Africa/Addis_Ababa|Europe/Paris|America/Indiana/Indianapolis|Asia/Kolkata|Asia/Tokyo|Pacific/Apia|Asia/Yerevan|Pacific/Auckland|Asia/Karachi|America/Phoenix|America/Puerto_Rico|America/Los_Angeles|Pacific/Guadalcanal|Asia/Ho_Chi_Minh"
+      "description" : "区域字典，多个区域“|”分割，默认值：Australia/Darwin|Australia/Sydney|America/Argentina/Buenos_Aires|Africa/Cairo|America/Anchorage|America/Sao_Paulo|Asia/Dhaka|Africa/Harare|America/St_Johns|America/Chicago|Asia/Shanghai|Africa/Addis_Ababa|Europe/Paris|America/Indiana/Indianapolis|Asia/Kolkata|Asia/Tokyo|Pacific/Apia|Asia/Yerevan|Pacific/Auckland|Asia/Karachi|America/Phoenix|America/Puerto_Rico|America/Los_Angeles|Pacific/Guadalcanal|Asia/Ho_Chi_Minh",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@TimeZone(Australia/Darwin|Australia/Sydney|America/Argentina/Buenos_Aires))",
     "exampleValues" : [ "Australia/Darwin", "America/Argentina/Buenos_Aires" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "区域字典，多个区域“|”分割，默认值：Australia/Darwin|Australia/Sydney|America/Argentina/Buenos_Aires|Africa/Cairo|America/Anchorage|America/Sao_Paulo|Asia/Dhaka|Africa/Harare|America/St_Johns|America/Chicago|Asia/Shanghai|Africa/Addis_Ababa|Europe/Paris|America/Indiana/Indianapolis|Asia/Kolkata|Asia/Tokyo|Pacific/Apia|Asia/Yerevan|Pacific/Auckland|Asia/Karachi|America/Phoenix|America/Puerto_Rico|America/Los_Angeles|Pacific/Guadalcanal|Asia/Ho_Chi_Minh"
+    "description" : "区域字典，多个区域“|”分割，默认值：Australia/Darwin|Australia/Sydney|America/Argentina/Buenos_Aires|Africa/Cairo|America/Anchorage|America/Sao_Paulo|Asia/Dhaka|Africa/Harare|America/St_Johns|America/Chicago|Asia/Shanghai|Africa/Addis_Ababa|Europe/Paris|America/Indiana/Indianapolis|Asia/Kolkata|Asia/Tokyo|Pacific/Apia|Asia/Yerevan|Pacific/Auckland|Asia/Karachi|America/Phoenix|America/Puerto_Rico|America/Los_Angeles|Pacific/Guadalcanal|Asia/Ho_Chi_Minh",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 702
 }, {
@@ -1722,20 +2382,32 @@
     "description" : "生成一个用户的年龄，最小值为min，最大值为max",
     "parameters" : [ {
       "name" : "min",
-      "description" : "年龄最大值，默认最小 0 岁，最大 100 岁"
+      "description" : "年龄最大值，默认最小 0 岁，最大 100 岁",
+      "type" : "Integer",
+      "defaultValue" : "1",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "年龄最大值，默认最小 0 岁，最大 100 岁"
+      "description" : "年龄最大值，默认最小 0 岁，最大 100 岁",
+      "type" : "Integer",
+      "defaultValue" : "100",
+      "required" : false
     } ],
     "example" : "@String(1,50)",
     "exampleValues" : [ "25" ]
   } ],
   "parameters" : [ {
     "name" : "min",
-    "description" : "年龄最大值，默认最小 0 岁，最大 100 岁"
+    "description" : "年龄最大值，默认最小 0 岁，最大 100 岁",
+    "type" : "Integer",
+    "defaultValue" : "1",
+    "required" : false
   }, {
     "name" : "max",
-    "description" : "年龄最大值，默认最小 0 岁，最大 100 岁"
+    "description" : "年龄最大值，默认最小 0 岁，最大 100 岁",
+    "type" : "Integer",
+    "defaultValue" : "100",
+    "required" : false
   } ],
   "order" : 800
 }, {
@@ -1754,7 +2426,10 @@
     "description" : "生成一个用户的姓名，字典使用dict",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "名字字典，不指定时将使用 @Firstname() 和 @Lastname() 默认字典组合生成"
+      "description" : "名字字典，不指定时将使用 @Firstname() 和 @Lastname() 默认字典组合生成",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Name(欧阳娜娜|贾玲)",
     "exampleValues" : [ "欧阳娜娜", "贾玲" ]
@@ -1763,17 +2438,26 @@
     "description" : "生成一个用户的姓名，语言使用locale,字典使用默认的",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "自定义值字典，多个值以“|”分割"
+      "description" : "自定义值字典，多个值以“|”分割",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Name(en)",
     "exampleValues" : [ "Chris Jack", "Abra Abel" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "名字字典，不指定时将使用 @Firstname() 和 @Lastname() 默认字典组合生成"
+    "description" : "名字字典，不指定时将使用 @Firstname() 和 @Lastname() 默认字典组合生成",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "自定义值字典，多个值以“|”分割"
+    "description" : "自定义值字典，多个值以“|”分割",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 801
 }, {
@@ -1792,10 +2476,16 @@
     "description" : "生成一个随机密码，长度为指定的min～max个字符，包含大写字母、小写字母、数据",
     "parameters" : [ {
       "name" : "min",
-      "description" : "密码最小长度，默认 6 个字符，最小允许 1 个字符"
+      "description" : "密码最小长度，默认 6 个字符，最小允许 1 个字符",
+      "type" : "Integer",
+      "defaultValue" : "6",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "密码最大长度，默认 20 个字符，最大允许 65535 个字符"
+      "description" : "密码最大长度，默认 20 个字符，最大允许 65535 个字符",
+      "type" : "Integer",
+      "defaultValue" : "20",
+      "required" : false
     } ],
     "example" : "@Passd(5,8)",
     "exampleValues" : [ "llbxB6Z", "qLQlgRz" ]
@@ -1804,16 +2494,28 @@
     "description" : "生成一个随机密码，长度为6～20个字符，包含指定的allowUpperCase、allowLowerCase、allowDigits、allowSpecialChar字符",
     "parameters" : [ {
       "name" : "allowUpperCase",
-      "description" : "布尔值，是否允许大写字母，默认 true"
+      "description" : "布尔值，是否允许大写字母，默认 true",
+      "type" : "Boolean",
+      "defaultValue" : "true",
+      "required" : false
     }, {
       "name" : "allowLowerCase",
-      "description" : "布尔值，是否允许小写字母，默认 true"
+      "description" : "布尔值，是否允许小写字母，默认 true",
+      "type" : "Boolean",
+      "defaultValue" : "true",
+      "required" : false
     }, {
       "name" : "allowDigits",
-      "description" : "布尔值，是否允许数字，默认 true"
+      "description" : "布尔值，是否允许数字，默认 true",
+      "type" : "Boolean",
+      "defaultValue" : "true",
+      "required" : false
     }, {
       "name" : "allowSpecialChar",
-      "description" : "布尔值，是否允许特殊符号，默认 false，特殊字符包括：`-=[];',./~!@#$%^&*()_+{}:\"<>?"
+      "description" : "布尔值，是否允许特殊符号，默认 false，特殊字符包括：`-=[];',./~!@#$%^&*()_+{}:\"<>?",
+      "type" : "Boolean",
+      "defaultValue" : "false",
+      "required" : false
     } ],
     "example" : "@Passd(true,true,true,true)",
     "exampleValues" : [ "H/70~{E:nmB%e", "'KIJbW2DP`\\<s3b+ze" ]
@@ -1822,44 +2524,80 @@
     "description" : "生成一个随机密码，长度为min～max个字符，包含指定的allowUpperCase、allowLowerCase、allowDigits、allowSpecialChar字符",
     "parameters" : [ {
       "name" : "min",
-      "description" : "密码最小长度，默认 6 个字符，最小允许 1 个字符"
+      "description" : "密码最小长度，默认 6 个字符，最小允许 1 个字符",
+      "type" : "Integer",
+      "defaultValue" : "6",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "密码最大长度，默认 20 个字符，最大允许 65535 个字符"
+      "description" : "密码最大长度，默认 20 个字符，最大允许 65535 个字符",
+      "type" : "Integer",
+      "defaultValue" : "20",
+      "required" : false
     }, {
       "name" : "allowUpperCase",
-      "description" : "布尔值，是否允许大写字母，默认 true"
+      "description" : "布尔值，是否允许大写字母，默认 true",
+      "type" : "Boolean",
+      "defaultValue" : "true",
+      "required" : false
     }, {
       "name" : "allowLowerCase",
-      "description" : "布尔值，是否允许小写字母，默认 true"
+      "description" : "布尔值，是否允许小写字母，默认 true",
+      "type" : "Boolean",
+      "defaultValue" : "true",
+      "required" : false
     }, {
       "name" : "allowDigits",
-      "description" : "布尔值，是否允许数字，默认 true"
+      "description" : "布尔值，是否允许数字，默认 true",
+      "type" : "Boolean",
+      "defaultValue" : "true",
+      "required" : false
     }, {
       "name" : "allowSpecialChar",
-      "description" : "布尔值，是否允许特殊符号，默认 false，特殊字符包括：`-=[];',./~!@#$%^&*()_+{}:\"<>?"
+      "description" : "布尔值，是否允许特殊符号，默认 false，特殊字符包括：`-=[];',./~!@#$%^&*()_+{}:\"<>?",
+      "type" : "Boolean",
+      "defaultValue" : "false",
+      "required" : false
     } ],
     "example" : "@Passd(5,8,true,true,true,true)",
     "exampleValues" : [ "H-+:6", "@7^KQf8" ]
   } ],
   "parameters" : [ {
     "name" : "min",
-    "description" : "密码最小长度，默认 6 个字符，最小允许 1 个字符"
+    "description" : "密码最小长度，默认 6 个字符，最小允许 1 个字符",
+    "type" : "Integer",
+    "defaultValue" : "6",
+    "required" : false
   }, {
     "name" : "max",
-    "description" : "密码最大长度，默认 20 个字符，最大允许 65535 个字符"
+    "description" : "密码最大长度，默认 20 个字符，最大允许 65535 个字符",
+    "type" : "Integer",
+    "defaultValue" : "20",
+    "required" : false
   }, {
     "name" : "allowUpperCase",
-    "description" : "布尔值，是否允许大写字母，默认 true"
+    "description" : "布尔值，是否允许大写字母，默认 true",
+    "type" : "Boolean",
+    "defaultValue" : "true",
+    "required" : false
   }, {
     "name" : "allowLowerCase",
-    "description" : "布尔值，是否允许小写字母，默认 true"
+    "description" : "布尔值，是否允许小写字母，默认 true",
+    "type" : "Boolean",
+    "defaultValue" : "true",
+    "required" : false
   }, {
     "name" : "allowDigits",
-    "description" : "布尔值，是否允许数字，默认 true"
+    "description" : "布尔值，是否允许数字，默认 true",
+    "type" : "Boolean",
+    "defaultValue" : "true",
+    "required" : false
   }, {
     "name" : "allowSpecialChar",
-    "description" : "布尔值，是否允许特殊符号，默认 false，特殊字符包括：`-=[];',./~!@#$%^&*()_+{}:\"<>?"
+    "description" : "布尔值，是否允许特殊符号，默认 false，特殊字符包括：`-=[];',./~!@#$%^&*()_+{}:\"<>?",
+    "type" : "Boolean",
+    "defaultValue" : "false",
+    "required" : false
   } ],
   "order" : 802
 }, {
@@ -1878,7 +2616,10 @@
     "description" : "生成一个用户的名字，字典使用dict",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "名字字典，不指定时将使用默认名字,默认名字（50 个）：薇薇|紫沫|韩薇|艾莉|冥雪|雨玄|容夜|倾宇|翼杉|七夜|羽熙|超俊|政贤|阳洛|洛夜|宇成|佑染|政晧|诩浩|相宇|傲然|桂花|建国|淑华|桂兰|淑兰|婷婷|秀珍|凤兰|志强|浩|豪|天|明|鸣|碌|鹏|德|华|博|州|斌|强|晋|杰|宏|睿|瑜|勇|坤"
+      "description" : "名字字典，不指定时将使用默认名字,默认名字（50 个）：薇薇|紫沫|韩薇|艾莉|冥雪|雨玄|容夜|倾宇|翼杉|七夜|羽熙|超俊|政贤|阳洛|洛夜|宇成|佑染|政晧|诩浩|相宇|傲然|桂花|建国|淑华|桂兰|淑兰|婷婷|秀珍|凤兰|志强|浩|豪|天|明|鸣|碌|鹏|德|华|博|州|斌|强|晋|杰|宏|睿|瑜|勇|坤",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Firstname(逍遥|哪哪|曦曦)",
     "exampleValues" : [ "曦曦", "逍遥" ]
@@ -1887,17 +2628,26 @@
     "description" : "生成一个用户的名字，语言使用locale,字典使用默认的",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Firstname(en)",
     "exampleValues" : [ "Aaron", "Alan" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "名字字典，不指定时将使用默认名字,默认名字（50 个）：薇薇|紫沫|韩薇|艾莉|冥雪|雨玄|容夜|倾宇|翼杉|七夜|羽熙|超俊|政贤|阳洛|洛夜|宇成|佑染|政晧|诩浩|相宇|傲然|桂花|建国|淑华|桂兰|淑兰|婷婷|秀珍|凤兰|志强|浩|豪|天|明|鸣|碌|鹏|德|华|博|州|斌|强|晋|杰|宏|睿|瑜|勇|坤"
+    "description" : "名字字典，不指定时将使用默认名字,默认名字（50 个）：薇薇|紫沫|韩薇|艾莉|冥雪|雨玄|容夜|倾宇|翼杉|七夜|羽熙|超俊|政贤|阳洛|洛夜|宇成|佑染|政晧|诩浩|相宇|傲然|桂花|建国|淑华|桂兰|淑兰|婷婷|秀珍|凤兰|志强|浩|豪|天|明|鸣|碌|鹏|德|华|博|州|斌|强|晋|杰|宏|睿|瑜|勇|坤",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 803
 }, {
@@ -1916,7 +2666,10 @@
     "description" : "生成一个用户的姓氏，字典使用dict",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "姓氏字典，不指定时将使用默认姓氏，默认姓氏（50 个）：李|王|张|刘|陈|杨|赵|黄|周|吴|徐|孙|胡|朱|高|林|何|郭|马|罗|梁|宋|郑|谢|韩|唐|冯|于|董|萧|程|曹|袁|邓|许|傅|沈|曾|彭|吕|苏|卢|蒋|蔡|贾|欧阳|太史|端木|上官|司马"
+      "description" : "姓氏字典，不指定时将使用默认姓氏，默认姓氏（50 个）：李|王|张|刘|陈|杨|赵|黄|周|吴|徐|孙|胡|朱|高|林|何|郭|马|罗|梁|宋|郑|谢|韩|唐|冯|于|董|萧|程|曹|袁|邓|许|傅|沈|曾|彭|吕|苏|卢|蒋|蔡|贾|欧阳|太史|端木|上官|司马",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Lastname(李|王|张|刘|陈)",
     "exampleValues" : [ "张", "王" ]
@@ -1925,17 +2678,26 @@
     "description" : "生成一个用户的姓氏，语言使用locale,字典使用默认的",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Lastname(en)",
     "exampleValues" : [ "Sun", "Zhang" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "姓氏字典，不指定时将使用默认姓氏，默认姓氏（50 个）：李|王|张|刘|陈|杨|赵|黄|周|吴|徐|孙|胡|朱|高|林|何|郭|马|罗|梁|宋|郑|谢|韩|唐|冯|于|董|萧|程|曹|袁|邓|许|傅|沈|曾|彭|吕|苏|卢|蒋|蔡|贾|欧阳|太史|端木|上官|司马"
+    "description" : "姓氏字典，不指定时将使用默认姓氏，默认姓氏（50 个）：李|王|张|刘|陈|杨|赵|黄|周|吴|徐|孙|胡|朱|高|林|何|郭|马|罗|梁|宋|郑|谢|韩|唐|冯|于|董|萧|程|曹|袁|邓|许|傅|沈|曾|彭|吕|苏|卢|蒋|蔡|贾|欧阳|太史|端木|上官|司马",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 804
 }, {
@@ -1954,14 +2716,20 @@
     "description" : "生成一个手机号，语言使用locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Mobile(en)",
     "exampleValues" : [ "07790421505", "07866557530" ]
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 805
 }, {
@@ -1980,14 +2748,20 @@
     "description" : "生成一个座机号，语言使用locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@MLandline(en)",
     "exampleValues" : [ "", "" ]
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 805
 }, {
@@ -2006,7 +2780,10 @@
     "description" : "生成一个邮箱，长度为6～20个字符，后缀为默认值",
     "parameters" : [ {
       "name" : "suffix",
-      "description" : "邮箱后缀，多个值以“|”分割，默认值： @xcan.cloud |@hotmail.com |@126.com |@yahoo.com.cn |@yahoo.com |@live.com |@153.com |@qq.com"
+      "description" : "邮箱后缀，多个值以“|”分割，默认值： @xcan.cloud |@hotmail.com |@126.com |@yahoo.com.cn |@yahoo.com |@live.com |@153.com |@qq.com",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Email(@xcan.cloud)",
     "exampleValues" : [ "WF8W5NFeMyrMKAx@xcan.cloud", "CcbZYdmDEtWGEY1@xcan.cloud" ]
@@ -2015,10 +2792,16 @@
     "description" : "生成一个邮箱，长度为min～max个字符，后缀为默认值",
     "parameters" : [ {
       "name" : "min",
-      "description" : "邮箱最小长度，默认 6 个字符，最小 1 个字符"
+      "description" : "邮箱最小长度，默认 6 个字符，最小 1 个字符",
+      "type" : "Integer",
+      "defaultValue" : "6",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "邮箱最大长度，默认 20 个字符，最大 65535 个字符"
+      "description" : "邮箱最大长度，默认 20 个字符，最大 65535 个字符",
+      "type" : "Integer",
+      "defaultValue" : "20",
+      "required" : false
     } ],
     "example" : "@Email(5,10)",
     "exampleValues" : [ "zjs7cb@hotmail.com", "jsGH6sc@yahoo.com" ]
@@ -2027,26 +2810,44 @@
     "description" : "生成一个邮箱，长度为min～max个字符，后缀为指定的suffix",
     "parameters" : [ {
       "name" : "min",
-      "description" : "邮箱最小长度，默认 6 个字符，最小 1 个字符"
+      "description" : "邮箱最小长度，默认 6 个字符，最小 1 个字符",
+      "type" : "Integer",
+      "defaultValue" : "6",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "邮箱最大长度，默认 20 个字符，最大 65535 个字符"
+      "description" : "邮箱最大长度，默认 20 个字符，最大 65535 个字符",
+      "type" : "Integer",
+      "defaultValue" : "20",
+      "required" : false
     }, {
       "name" : "suffix",
-      "description" : "邮箱后缀，多个值以“|”分割，默认值： @xcan.cloud |@hotmail.com |@126.com |@yahoo.com.cn |@yahoo.com |@live.com |@153.com |@qq.com"
+      "description" : "邮箱后缀，多个值以“|”分割，默认值： @xcan.cloud |@hotmail.com |@126.com |@yahoo.com.cn |@yahoo.com |@live.com |@153.com |@qq.com",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Email(5,5,@xcan.cloud)",
     "exampleValues" : [ "4g4Fv@xcan.cloud", "Hv8jh@xcan.cloud" ]
   } ],
   "parameters" : [ {
     "name" : "min",
-    "description" : "邮箱最小长度，默认 6 个字符，最小 1 个字符"
+    "description" : "邮箱最小长度，默认 6 个字符，最小 1 个字符",
+    "type" : "Integer",
+    "defaultValue" : "6",
+    "required" : false
   }, {
     "name" : "max",
-    "description" : "邮箱最大长度，默认 20 个字符，最大 65535 个字符"
+    "description" : "邮箱最大长度，默认 20 个字符，最大 65535 个字符",
+    "type" : "Integer",
+    "defaultValue" : "20",
+    "required" : false
   }, {
     "name" : "suffix",
-    "description" : "邮箱后缀，多个值以“|”分割，默认值： @xcan.cloud |@hotmail.com |@126.com |@yahoo.com.cn |@yahoo.com |@live.com |@153.com |@qq.com"
+    "description" : "邮箱后缀，多个值以“|”分割，默认值： @xcan.cloud |@hotmail.com |@126.com |@yahoo.com.cn |@yahoo.com |@live.com |@153.com |@qq.com",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 806
 }, {
@@ -2065,7 +2866,10 @@
     "description" : "生成一个用户的姓氏，字典使用dict",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "性别字典，默认：中文默认性别：男|女"
+      "description" : "性别字典，默认：中文默认性别：男|女",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Gender(F|M))",
     "exampleValues" : [ "F", "M" ]
@@ -2074,17 +2878,26 @@
     "description" : "生成一个用户的姓氏，语言使用locale,字典使用默认的",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "自定义值字典，多个值以“|”分割"
+      "description" : "自定义值字典，多个值以“|”分割",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Gender(en)",
     "exampleValues" : [ "male", "female" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "性别字典，默认：中文默认性别：男|女"
+    "description" : "性别字典，默认：中文默认性别：男|女",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "自定义值字典，多个值以“|”分割"
+    "description" : "自定义值字典，多个值以“|”分割",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 807
 }, {
@@ -2103,7 +2916,10 @@
     "description" : "生成一个学历，词典为指定的dict",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "学历字典，默认：小学、初中、高中、大专、本科、研究生"
+      "description" : "学历字典，默认：小学、初中、高中、大专、本科、研究生",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Education(本科,硕士)",
     "exampleValues" : [ "本科" ]
@@ -2112,17 +2928,26 @@
     "description" : "生成一个学历，语言为指定的locale，默认词典",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+      "type" : "String",
+      "defaultValue" : "zh_CN",
+      "required" : false
     } ],
     "example" : "@Education(zh_CN)",
     "exampleValues" : [ "本科" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "学历字典，默认：小学、初中、高中、大专、本科、研究生"
+    "description" : "学历字典，默认：小学、初中、高中、大专、本科、研究生",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+    "type" : "String",
+    "defaultValue" : "zh_CN",
+    "required" : false
   } ],
   "order" : 808
 }, {
@@ -2141,14 +2966,20 @@
     "description" : "生成一个应用名称，字典使用指定的dict",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "自定义值字典，多个值以“|”分割"
+      "description" : "自定义值字典，多个值以“|”分割",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@AppName(星链|360|ie))",
     "exampleValues" : [ "360", "星链" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "自定义值字典，多个值以“|”分割"
+    "description" : "自定义值字典，多个值以“|”分割",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 901
 }, {
@@ -2167,7 +2998,10 @@
     "description" : "生成一个应用版本，前缀使用指定的prefixDict，没有发布状态和构建状态",
     "parameters" : [ {
       "name" : "prefixDict",
-      "description" : "版本前缀，如：v，wchat ，默认不指定时无前缀"
+      "description" : "版本前缀，如：v，wchat ，默认不指定时无前缀",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@AppVersion(v|wchat)",
     "exampleValues" : [ "v-74.153.115", "m-223.100.154" ]
@@ -2176,10 +3010,16 @@
     "description" : "生成一个应用版本，前缀使用指定的prefixDict，发布状态字典使用指定的releaseStateDict，没有构建状态",
     "parameters" : [ {
       "name" : "prefixDict",
-      "description" : "版本前缀，如：v，wchat ，默认不指定时无前缀"
+      "description" : "版本前缀，如：v，wchat ，默认不指定时无前缀",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     }, {
       "name" : "releaseStateDict",
-      "description" : "版本发布状态字典，示例：SNAPSHOT、BETA、RELEASE、DEMO、SP、TRIAL、LITE、FREE、ENHANCE"
+      "description" : "版本发布状态字典，示例：SNAPSHOT、BETA、RELEASE、DEMO、SP、TRIAL、LITE、FREE、ENHANCE",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@AppVersion(v|wchat,SNAPSHOT|BETA|RELEASE)",
     "exampleValues" : [ "v-237.22.12-SNAPSHOT", "m-110.126.74-BETA" ]
@@ -2188,26 +3028,44 @@
     "description" : "生成一个应用版本，前缀使用指定的prefixDict，发布状态字典使用指定的releaseStateDict，构建状态字典使用指定的buildStateDict",
     "parameters" : [ {
       "name" : "prefixDict",
-      "description" : "版本前缀，如：v，wchat ，默认不指定时无前缀"
+      "description" : "版本前缀，如：v，wchat ，默认不指定时无前缀",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     }, {
       "name" : "releaseStateDict",
-      "description" : "版本发布状态字典，示例：SNAPSHOT、BETA、RELEASE、DEMO、SP、TRIAL、LITE、FREE、ENHANCE"
+      "description" : "版本发布状态字典，示例：SNAPSHOT、BETA、RELEASE、DEMO、SP、TRIAL、LITE、FREE、ENHANCE",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     }, {
       "name" : "buildStateDict",
-      "description" : "版本构建状态字典，示例：build.1、build.2、build.3"
+      "description" : "版本构建状态字典，示例：build.1、build.2、build.3",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@AppVersion(v|wchat,SNAPSHOT|BETA|RELEASE,build.1|build.2)",
     "exampleValues" : [ "v-78.225.93-BETA+build2", "m-250.204.99-RELEASE+build1" ]
   } ],
   "parameters" : [ {
     "name" : "prefixDict",
-    "description" : "版本前缀，如：v，wchat ，默认不指定时无前缀"
+    "description" : "版本前缀，如：v，wchat ，默认不指定时无前缀",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "releaseStateDict",
-    "description" : "版本发布状态字典，示例：SNAPSHOT、BETA、RELEASE、DEMO、SP、TRIAL、LITE、FREE、ENHANCE"
+    "description" : "版本发布状态字典，示例：SNAPSHOT、BETA、RELEASE、DEMO、SP、TRIAL、LITE、FREE、ENHANCE",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "buildStateDict",
-    "description" : "版本构建状态字典，示例：build.1、build.2、build.3"
+    "description" : "版本构建状态字典，示例：build.1、build.2、build.3",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 902
 }, {
@@ -2268,20 +3126,32 @@
     "description" : "生成一个服务器端口，范围为指定的min~max",
     "parameters" : [ {
       "name" : "min",
-      "description" : "最小端口，不指定时默认 1024，最小 0"
+      "description" : "最小端口，不指定时默认 1024，最小 0",
+      "type" : "Integer",
+      "defaultValue" : "1024",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "最大端口，不指定时默认 65535，最大 65535"
+      "description" : "最大端口，不指定时默认 65535，最大 65535",
+      "type" : "Integer",
+      "defaultValue" : "65535",
+      "required" : false
     } ],
     "example" : "@Port(5000,10000)",
     "exampleValues" : [ "6000" ]
   } ],
   "parameters" : [ {
     "name" : "min",
-    "description" : "最小端口，不指定时默认 1024，最小 0"
+    "description" : "最小端口，不指定时默认 1024，最小 0",
+    "type" : "Integer",
+    "defaultValue" : "1024",
+    "required" : false
   }, {
     "name" : "max",
-    "description" : "最大端口，不指定时默认 65535，最大 65535"
+    "description" : "最大端口，不指定时默认 65535，最大 65535",
+    "type" : "Integer",
+    "defaultValue" : "65535",
+    "required" : false
   } ],
   "order" : 906
 }, {
@@ -2300,14 +3170,20 @@
     "description" : "生成一个协议，使用指定的字典dict",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "协议字典，不指定时默认：FTP|TFTP|HTTP|SMTP|DHCP|Telnet|DNS|SNMP|DNS|TCP|UDP|ARP|DHCP|SIP|RTP|RLP|RAP|L2TP|PPTP|SNMP|TFTP"
+      "description" : "协议字典，不指定时默认：FTP|TFTP|HTTP|SMTP|DHCP|Telnet|DNS|SNMP|DNS|TCP|UDP|ARP|DHCP|SIP|RTP|RLP|RAP|L2TP|PPTP|SNMP|TFTP",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Protocol(FTP|TFTP|HTTP)",
     "exampleValues" : [ "HTTP" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "协议字典，不指定时默认：FTP|TFTP|HTTP|SMTP|DHCP|Telnet|DNS|SNMP|DNS|TCP|UDP|ARP|DHCP|SIP|RTP|RLP|RAP|L2TP|PPTP|SNMP|TFTP"
+    "description" : "协议字典，不指定时默认：FTP|TFTP|HTTP|SMTP|DHCP|Telnet|DNS|SNMP|DNS|TCP|UDP|ARP|DHCP|SIP|RTP|RLP|RAP|L2TP|PPTP|SNMP|TFTP",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 907
 }, {
@@ -2326,7 +3202,10 @@
     "description" : "生成一个学历，语言为指定的locale，默认词典",
     "parameters" : [ {
       "name" : "max",
-      "description" : "最大长度，默认 50 个字符，最大允许 65535 个字符"
+      "description" : "最大长度，默认 50 个字符，最大允许 65535 个字符",
+      "type" : "Integer",
+      "defaultValue" : "50",
+      "required" : false
     } ],
     "example" : "@Url(true)",
     "exampleValues" : [ "http://www.xcan.org:8080/aacj/uics?acc=67&ubc7=8jFc", "http://www.xcan.org:8080/aacj/uics?name=8jkc&gggbssiu=78hbss" ]
@@ -2335,32 +3214,56 @@
     "description" : "生成一个学历，词典为指定的dict",
     "parameters" : [ {
       "name" : "max",
-      "description" : "最大长度，默认 50 个字符，最大允许 65535 个字符"
+      "description" : "最大长度，默认 50 个字符，最大允许 65535 个字符",
+      "type" : "Integer",
+      "defaultValue" : "50",
+      "required" : false
     }, {
       "name" : "protocol",
-      "description" : "协议，固定值：http 或 https，默认 http"
+      "description" : "协议，固定值：http 或 https，默认 http",
+      "type" : "String",
+      "defaultValue" : "http",
+      "required" : false
     }, {
       "name" : "domain",
-      "description" : "域名或 IP，如：www.xcan.org、192.168.1.2，默认 127.0.0.1:8080"
+      "description" : "域名或 IP，如：www.xcan.org、192.168.1.2，默认 127.0.0.1:8080",
+      "type" : "String",
+      "defaultValue" : "127.0.0.1:8080",
+      "required" : false
     }, {
       "name" : "allowQueryParams",
-      "description" : "是否允许生产查询参数，如：http://127.0.0.1:8080/api/v1/user?`name=Tome&gender=male`, 默认 false"
+      "description" : "是否允许生产查询参数，如：http://127.0.0.1:8080/api/v1/user?`name=Tome&gender=male`, 默认 false",
+      "type" : "Boolean",
+      "defaultValue" : "false",
+      "required" : false
     } ],
     "example" : "@Url(https,www.xcan.org,user|name,true)",
     "exampleValues" : [ "https://www.xcan.org:8080/aacj/uics?user=67&name=8jFc", "https://www.xcan.org:8080/aacj/uics?name=8jkc&user=78hbss" ]
   } ],
   "parameters" : [ {
     "name" : "max",
-    "description" : "最大长度，默认 50 个字符，最大允许 65535 个字符"
+    "description" : "最大长度，默认 50 个字符，最大允许 65535 个字符",
+    "type" : "Integer",
+    "defaultValue" : "50",
+    "required" : false
   }, {
     "name" : "protocol",
-    "description" : "协议，固定值：http 或 https，默认 http"
+    "description" : "协议，固定值：http 或 https，默认 http",
+    "type" : "String",
+    "defaultValue" : "http",
+    "required" : false
   }, {
     "name" : "domain",
-    "description" : "域名或 IP，如：www.xcan.org、192.168.1.2，默认 127.0.0.1:8080"
+    "description" : "域名或 IP，如：www.xcan.org、192.168.1.2，默认 127.0.0.1:8080",
+    "type" : "String",
+    "defaultValue" : "127.0.0.1:8080",
+    "required" : false
   }, {
     "name" : "allowQueryParams",
-    "description" : "是否允许生产查询参数，如：http://127.0.0.1:8080/api/v1/user?`name=Tome&gender=male`, 默认 false"
+    "description" : "是否允许生产查询参数，如：http://127.0.0.1:8080/api/v1/user?`name=Tome&gender=male`, 默认 false",
+    "type" : "Boolean",
+    "defaultValue" : "false",
+    "required" : false
   } ],
   "order" : 908
 }, {
@@ -2393,14 +3296,20 @@
     "description" : "生成指定格式随机颜色值",
     "parameters" : [ {
       "name" : "format",
-      "description" : "颜色格式，支持值：rgb、hsl、hwb、lch、cmyk，不指定或者指定不支持格式时默认 rgb"
+      "description" : "颜色格式，支持值：rgb、hsl、hwb、lch、cmyk，不指定或者指定不支持格式时默认 rgb",
+      "type" : "String",
+      "defaultValue" : "rgb",
+      "required" : false
     } ],
     "example" : "@Color(hwb)",
     "exampleValues" : [ "hwb(108, 67%, 45%)", "hwb(133, 2%, 93%)" ]
   } ],
   "parameters" : [ {
     "name" : "format",
-    "description" : "颜色格式，支持值：rgb、hsl、hwb、lch、cmyk，不指定或者指定不支持格式时默认 rgb"
+    "description" : "颜色格式，支持值：rgb、hsl、hwb、lch、cmyk，不指定或者指定不支持格式时默认 rgb",
+    "type" : "String",
+    "defaultValue" : "rgb",
+    "required" : false
   } ],
   "order" : 1002
 }, {
@@ -2503,14 +3412,20 @@
     "description" : "生成指定编程语言代码片段",
     "parameters" : [ {
       "name" : "language",
-      "description" : "编程语言，支持值：PYTHON,JAVA,JAVASCRIPT,TYPESCRIPT,CPP,CSHARP,PHP,RUBY,SWIFT,GO"
+      "description" : "编程语言，支持值：PYTHON,JAVA,JAVASCRIPT,TYPESCRIPT,CPP,CSHARP,PHP,RUBY,SWIFT,GO",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@CodeSnippet(PYTHON)",
     "exampleValues" : [ "def calculateResult(currentTotal):\n    \"\"\"Calculate the square of a number\"\"\"\n    data = currentTotal ** 2\n    return data\n\n# Function call\nresult = calculateResult(94)\nprint(f\"Square of 94 is {result}\")" ]
   } ],
   "parameters" : [ {
     "name" : "language",
-    "description" : "编程语言，支持值：PYTHON,JAVA,JAVASCRIPT,TYPESCRIPT,CPP,CSHARP,PHP,RUBY,SWIFT,GO"
+    "description" : "编程语言，支持值：PYTHON,JAVA,JAVASCRIPT,TYPESCRIPT,CPP,CSHARP,PHP,RUBY,SWIFT,GO",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 3001
 }, {
@@ -2767,14 +3682,20 @@
     "description" : "生成指定字符长度随机字符串",
     "parameters" : [ {
       "name" : "length",
-      "description" : "字符串长度"
+      "description" : "字符串长度",
+      "type" : "Integer",
+      "defaultValue" : "128",
+      "required" : false
     } ],
     "example" : "@Base64(32)",
     "exampleValues" : [ "XII3JC7y4gQvCXLB7V08uKDvBORyDiVI", "LQqpeYt1sl3rlYPaLYQZUsKtALZj8Yt7" ]
   } ],
   "parameters" : [ {
     "name" : "length",
-    "description" : "字符串长度"
+    "description" : "字符串长度",
+    "type" : "Integer",
+    "defaultValue" : "128",
+    "required" : false
   } ],
   "order" : 6001
 }, {
@@ -2793,14 +3714,20 @@
     "description" : "生成指定算法随机哈希值",
     "parameters" : [ {
       "name" : "algorithm",
-      "description" : "哈希算法，如：MD5、SHA-256等"
+      "description" : "哈希算法，如：MD5、SHA-256等",
+      "type" : "String",
+      "defaultValue" : "MD5",
+      "required" : false
     } ],
     "example" : "@Hash(SHA-256)",
     "exampleValues" : [ "191d55ca8427b35fffc964461ee430e15ea738f67885ad65162cdafc866da558", "6c9cd1dadcf6c447ef4b80a9e28d358350958f9c2b8e4ca4fcffefa2c6c8185a" ]
   } ],
   "parameters" : [ {
     "name" : "algorithm",
-    "description" : "哈希算法，如：MD5、SHA-256等"
+    "description" : "哈希算法，如：MD5、SHA-256等",
+    "type" : "String",
+    "defaultValue" : "MD5",
+    "required" : false
   } ],
   "order" : 6002
 }, {
@@ -2819,14 +3746,20 @@
     "description" : "生成指定字符长度16进制值",
     "parameters" : [ {
       "name" : "length",
-      "description" : "16进制值长度"
+      "description" : "16进制值长度",
+      "type" : "Integer",
+      "defaultValue" : "8",
+      "required" : false
     } ],
     "example" : "@Hex(32)",
     "exampleValues" : [ "a45e50145cdee6c45141682ab3c2bce8", "c97e1952909460ccaf410a089ef1b41c" ]
   } ],
   "parameters" : [ {
     "name" : "length",
-    "description" : "16进制值长度"
+    "description" : "16进制值长度",
+    "type" : "Integer",
+    "defaultValue" : "8",
+    "required" : false
   } ],
   "order" : 6003
 }, {
@@ -2845,20 +3778,32 @@
     "description" : "生成指定算法和Key大小的随机密钥对",
     "parameters" : [ {
       "name" : "algorithm",
-      "description" : "生成算法，如：RSA, EC, DSA"
+      "description" : "生成算法，如：RSA, EC, DSA",
+      "type" : "String",
+      "defaultValue" : "RSA",
+      "required" : false
     }, {
       "name" : "keySize",
-      "description" : "Key大小，如：2048 RSA, 256 EC"
+      "description" : "Key大小，如：2048 RSA, 256 EC",
+      "type" : "Integer",
+      "defaultValue" : "526",
+      "required" : false
     } ],
     "example" : "@KeyPair(EC,256)",
     "exampleValues" : [ "Public Key:\n-----BEGIN PUBLIC KEY-----\nMF0wDQYJKoZIhvcNAQEBBQADTAAwSQJCNFUTq6yj/nhluxtj+sRNFl2L/AGuDNUs\nhw8gdRcQBPShH0Q+wlxjLLESu2EXHpvtCgRVUajCV240WRy9hhis5HdPAgMBAAE=\n-----END PUBLIC KEY-----\n\nPrivate Key:\n-----BEGIN PRIVATE KEY-----\nMIIBWQIBADANBgkqhkiG9w0BAQEFAASCAUMwggE/AgEAAkI0VROrrKP+eGW7G2P6\nxE0WXYv8Aa4M1SyHDyB1FxAE9KEfRD7CXGMssRK7YRcem+0KBFVRqMJXbjRZHL2G\nGKzkd08CAwEAAQJCB0mjvCAGFG1iyVwmn6jPjWJImLcJLGtRUJuYKwYjqnUAjLYC\n/7JjZpZ8z+6QBxXV9tz5ynIAccbRkxpCnqEQC/QlAiF+BDX++1uoOnLvfQHb0mN0\n4R47FXCCJv1SmHVjUpVv55UCIWpP55219mvomEuXyaXAi8PQkzULNZCTbnRvndil\nZOpaUwIhNthIU9g79QSzPy4N4Ak6BgVwLdDP7aVgfVEjTf4EUfbdAiFMWpkyFwcl\n10bSO/Dyn8iB2aJwXV2aOZkB/Uwz1g4VlssCIX2TEF/qTyy4PAGQUwNeGIWo4h6a\nyOf7XXnOoEYUPaP2gw==\n-----END PRIVATE KEY-----" ]
   } ],
   "parameters" : [ {
     "name" : "algorithm",
-    "description" : "生成算法，如：RSA, EC, DSA"
+    "description" : "生成算法，如：RSA, EC, DSA",
+    "type" : "String",
+    "defaultValue" : "RSA",
+    "required" : false
   }, {
     "name" : "keySize",
-    "description" : "Key大小，如：2048 RSA, 256 EC"
+    "description" : "Key大小，如：2048 RSA, 256 EC",
+    "type" : "Integer",
+    "defaultValue" : "526",
+    "required" : false
   } ],
   "order" : 6004
 }, {
@@ -2877,14 +3822,20 @@
     "description" : "生成指定算法加密Key",
     "parameters" : [ {
       "name" : "algorithm",
-      "description" : "生成算法，如：RSA, EC, DSA"
+      "description" : "生成算法，如：RSA, EC, DSA",
+      "type" : "String",
+      "defaultValue" : "AES",
+      "required" : false
     } ],
     "example" : "@SymmetricKey(AES)",
     "exampleValues" : [ "wiuUG5/rfxB1r9VtxfgO1jy1TLyAmo5xFBm7iOPosAs=", "zHexV+cHC3O9T70eU2FEgSsFTfOmOsD/lJfGQOj90Aw=" ]
   } ],
   "parameters" : [ {
     "name" : "algorithm",
-    "description" : "生成算法，如：RSA, EC, DSA"
+    "description" : "生成算法，如：RSA, EC, DSA",
+    "type" : "String",
+    "defaultValue" : "AES",
+    "required" : false
   } ],
   "order" : 6005
 }, {
@@ -2903,14 +3854,20 @@
     "description" : "生成指定区域金额值",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+      "type" : "String",
+      "defaultValue" : "zh_CN",
+      "required" : false
     } ],
     "example" : "@Amount(en)",
     "exampleValues" : [ "¤249,495.63", "¤965,859.18" ]
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+    "type" : "String",
+    "defaultValue" : "zh_CN",
+    "required" : false
   } ],
   "order" : 7001
 }, {
@@ -2929,14 +3886,20 @@
     "description" : "生成指定语言预算分类",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+      "type" : "String",
+      "defaultValue" : "zh_CN",
+      "required" : false
     } ],
     "example" : "@BudgetCategory(en)",
     "exampleValues" : [ "Taxes", "Travel & Reimbursement" ]
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+    "type" : "String",
+    "defaultValue" : "zh_CN",
+    "required" : false
   } ],
   "order" : 7002
 }, {
@@ -2955,14 +3918,20 @@
     "description" : "生成指定区域货币",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+      "type" : "String",
+      "defaultValue" : "zh_CN",
+      "required" : false
     } ],
     "example" : "@MCurrency(en)",
     "exampleValues" : [ "CNY", "CAD" ]
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+    "type" : "String",
+    "defaultValue" : "zh_CN",
+    "required" : false
   } ],
   "order" : 7003
 }, {
@@ -2981,14 +3950,20 @@
     "description" : "生成指定区域发票编号",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+      "type" : "String",
+      "defaultValue" : "zh_CN",
+      "required" : false
     } ],
     "example" : "@InvoiceNumber(en)",
     "exampleValues" : [ "INV-202506-18877", "INV-202506-81864" ]
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+    "type" : "String",
+    "defaultValue" : "zh_CN",
+    "required" : false
   } ],
   "order" : 7004
 }, {
@@ -3007,14 +3982,20 @@
     "description" : "生成指定区域税码",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+      "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+      "type" : "String",
+      "defaultValue" : "zh_CN",
+      "required" : false
     } ],
     "example" : "@TaxCode(en)",
     "exampleValues" : [ "XX-LNDL6HY7", "L4B-ZK85QS" ]
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`"
+    "description" : "国际化语言，目前只支持中文（zh_CN）和英文（en）、默认`zh_CN`",
+    "type" : "String",
+    "defaultValue" : "zh_CN",
+    "required" : false
   } ],
   "order" : 7005
 } ]

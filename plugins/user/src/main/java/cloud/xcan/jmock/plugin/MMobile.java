@@ -38,7 +38,7 @@ public class MMobile extends AbstractMockFunction {
 
   private int num;
 
-  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE)
+  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE, type = "String")
   private Locale locale;
 
   private String prefix;

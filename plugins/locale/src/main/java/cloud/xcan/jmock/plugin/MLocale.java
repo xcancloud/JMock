@@ -24,7 +24,7 @@ import org.apache.commons.lang3.StringUtils;
     categoryI18nKey = {DOC_CATEGORY_LOCALE}, order = 701)
 public class MLocale extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_LOCALE_PARAMETER_JOINER)
+  @JMockParameter(descI18nKey = DOC_LOCALE_PARAMETER_JOINER, type = "String", defaultValue = "_")
   private String joiner;
 
   /**

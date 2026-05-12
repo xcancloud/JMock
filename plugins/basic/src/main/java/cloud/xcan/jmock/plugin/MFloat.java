@@ -36,16 +36,16 @@ import lombok.Setter;
     categoryI18nKey = {DOC_CATEGORY_BASIC}, order = 103)
 public class MFloat extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_FLOAT_PARAMETER_MIN)
+  @JMockParameter(descI18nKey = DOC_FLOAT_PARAMETER_MIN, type = "Float", defaultValue = "0")
   private Float min;
 
-  @JMockParameter(descI18nKey = DOC_FLOAT_PARAMETER_MAX)
+  @JMockParameter(descI18nKey = DOC_FLOAT_PARAMETER_MAX, type = "Float", defaultValue = "3.40282346638528860e+38")
   private Float max;
 
-  @JMockParameter(descI18nKey = DOC_FLOAT_PARAMETER_SCALE)
+  @JMockParameter(descI18nKey = DOC_FLOAT_PARAMETER_SCALE, type = "Integer", defaultValue = "2")
   private int scale;
 
-  @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT)
+  @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT, type = "String")
   private WeightedSampler nullSampler;
 
   /**

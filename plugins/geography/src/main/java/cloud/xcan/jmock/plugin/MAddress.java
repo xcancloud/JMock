@@ -29,10 +29,10 @@ import lombok.Setter;
     categoryI18nKey = {DOC_CATEGORY_GEOGRAPHY}, order = 504)
 public class MAddress extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_PARAMETER_DICT)
+  @JMockParameter(descI18nKey = DOC_PARAMETER_DICT, type = "String")
   private String dict;
 
-  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE)
+  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE, type = "String")
   private String locale;
 
   private transient String[] dictArray;

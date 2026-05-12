@@ -38,19 +38,19 @@ import lombok.Setter;
     categoryI18nKey = {DOC_CATEGORY_BASIC}, order = 101)
 public class MString extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_STRING_PARAMETER_LENGTH)
+  @JMockParameter(descI18nKey = DOC_STRING_PARAMETER_LENGTH, type = "Integer", defaultValue = "6")
   private Integer length;
 
-  @JMockParameter(descI18nKey = DOC_STRING_PARAMETER_MIN)
+  @JMockParameter(descI18nKey = DOC_STRING_PARAMETER_MIN, type = "Integer", defaultValue = "0")
   private Integer min;
 
-  @JMockParameter(descI18nKey = DOC_STRING_PARAMETER_MAX)
+  @JMockParameter(descI18nKey = DOC_STRING_PARAMETER_MAX, type = "Integer")
   private Integer max;
 
-  @JMockParameter(descI18nKey = DOC_STRING_PARAMETER_CHARS)
+  @JMockParameter(descI18nKey = DOC_STRING_PARAMETER_CHARS, type = "String", defaultValue = "a-zA-Z0-9")
   private char[] chars;
 
-  @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT)
+  @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT, type = "String")
   private WeightedSampler nullSampler;
 
   private transient boolean isFixedLength = false;

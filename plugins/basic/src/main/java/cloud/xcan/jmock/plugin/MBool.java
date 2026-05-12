@@ -35,13 +35,13 @@ import lombok.Setter;
     categoryI18nKey = {DOC_CATEGORY_BASIC}, order = 105)
 public class MBool extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_BOOL_PARAMETER_TRUE_WEIGHT)
+  @JMockParameter(descI18nKey = DOC_BOOL_PARAMETER_TRUE_WEIGHT, type = "String", defaultValue = "2:1")
   private double trueWeight;
 
-  @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT)
+  @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT, type = "String")
   private WeightedSampler nullSampler;
 
-  @JMockParameter(descI18nKey = DOC_BOOL_PARAMETER_DICT)
+  @JMockParameter(descI18nKey = DOC_BOOL_PARAMETER_DICT, type = "String", defaultValue = "true|false")
   private String dict;
 
   private int count;

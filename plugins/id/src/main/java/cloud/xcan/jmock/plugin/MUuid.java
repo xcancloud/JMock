@@ -24,7 +24,7 @@ import lombok.Setter;
     categoryI18nKey = {DOC_CATEGORY_ID}, order = 302)
 public class MUuid extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_UUID_PARAMETER_FORMAT)
+  @JMockParameter(descI18nKey = DOC_UUID_PARAMETER_FORMAT, type = "Boolean", defaultValue = "false")
   private Boolean withoutSeparator;
 
   /**

@@ -38,13 +38,13 @@ public class MLocaleDateTime extends AbstractMockFunction {
 
   static final DateTimeFormatter DATE_DEFAULT_FORMAT = DateTimeFormatter.ofPattern(DEFAULT_FORMAT);
 
-  @JMockParameter(descI18nKey = DOC_LOCALE_DATE_TIME_PARAMETER_FORMAT)
+  @JMockParameter(descI18nKey = DOC_LOCALE_DATE_TIME_PARAMETER_FORMAT, type = "String", defaultValue = "yyyy-MM-dd HH:mm:ss")
   private String format;
 
-  @JMockParameter(descI18nKey = DOC_LOCALE_DATE_PARAMETER_ZONEID)
+  @JMockParameter(descI18nKey = DOC_LOCALE_DATE_PARAMETER_ZONEID, type = "String", defaultValue = "Asia/Shanghai")
   private ZoneId zoneId;
 
-  @JMockParameter(descI18nKey = DOC_LOCALE_DATE_TIME_PARAMETER_RANDOM)
+  @JMockParameter(descI18nKey = DOC_LOCALE_DATE_TIME_PARAMETER_RANDOM, type = "Boolean", defaultValue = "false")
   private Boolean random;
 
   private DateTimeFormatter df = DATE_DEFAULT_FORMAT;

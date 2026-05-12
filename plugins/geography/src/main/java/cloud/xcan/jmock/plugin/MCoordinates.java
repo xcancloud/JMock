@@ -37,22 +37,22 @@ import org.apache.commons.lang3.ObjectUtils;
     categoryI18nKey = {DOC_CATEGORY_GEOGRAPHY}, order = 513)
 public class MCoordinates extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_COORDINATES_PARAMETER_MIN_LNG)
+  @JMockParameter(descI18nKey = DOC_COORDINATES_PARAMETER_MIN_LNG, type = "Double", defaultValue = "-180")
   private double minLng;
 
-  @JMockParameter(descI18nKey = DOC_COORDINATES_PARAMETER_MAX_LNG)
+  @JMockParameter(descI18nKey = DOC_COORDINATES_PARAMETER_MAX_LNG, type = "Double", defaultValue = "180")
   private double maxLng;
 
-  @JMockParameter(descI18nKey = DOC_COORDINATES_PARAMETER_MIN_LAT)
+  @JMockParameter(descI18nKey = DOC_COORDINATES_PARAMETER_MIN_LAT, type = "Double", defaultValue = "-90")
   private double minLat;
 
-  @JMockParameter(descI18nKey = DOC_COORDINATES_PARAMETER_MAX_LAT)
+  @JMockParameter(descI18nKey = DOC_COORDINATES_PARAMETER_MAX_LAT, type = "Double", defaultValue = "90")
   private double maxLat;
 
-  @JMockParameter(descI18nKey = DOC_COORDINATES_PARAMETER_SCALE)
+  @JMockParameter(descI18nKey = DOC_COORDINATES_PARAMETER_SCALE, type = "Integer", defaultValue = "6")
   private Integer scale;
 
-  @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT)
+  @JMockParameter(descI18nKey = DOC_PARAMETER_NULL_WEIGHT, type = "String")
   private WeightedSampler nullSampler;
 
   private String scalePattern;

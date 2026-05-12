@@ -14,4 +14,10 @@ public class MockParameter {
 
   private String description;
 
+  private String type;
+
+  private String defaultValue;
+
+  private boolean required;
+
 }

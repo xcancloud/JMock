@@ -21,7 +21,7 @@ public class MAmount extends AbstractMockFunction {
   public static final double MIN_AMOUNT = 100.0;
   public static final double MAX_AMOUNT = 1000000.0;
 
-  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE)
+  @JMockParameter(descI18nKey = DOC_PARAMETER_LOCALE, type = "String", defaultValue = "zh_CN")
   private final Locale locale;
 
   @JMockConstructor(descI18nKey = DOC_AMOUNT_C1,

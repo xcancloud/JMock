@@ -35,22 +35,22 @@ import lombok.Setter;
     categoryI18nKey = {DOC_CATEGORY_USER}, order = 802)
 public class MPassword extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_PASSWORD_PARAMETER_MIN)
+  @JMockParameter(descI18nKey = DOC_PASSWORD_PARAMETER_MIN, type = "Integer", defaultValue = "6")
   private int min;
 
-  @JMockParameter(descI18nKey = DOC_PASSWORD_PARAMETER_MAX)
+  @JMockParameter(descI18nKey = DOC_PASSWORD_PARAMETER_MAX, type = "Integer", defaultValue = "20")
   private int max;
 
-  @JMockParameter(descI18nKey = DOC_PASSWORD_PARAMETER_ALLOW_UPPERCASE)
+  @JMockParameter(descI18nKey = DOC_PASSWORD_PARAMETER_ALLOW_UPPERCASE, type = "Boolean", defaultValue = "true")
   private boolean allowUpperCase;
 
-  @JMockParameter(descI18nKey = DOC_PASSWORD_PARAMETER_ALLOW_LOWERCASE)
+  @JMockParameter(descI18nKey = DOC_PASSWORD_PARAMETER_ALLOW_LOWERCASE, type = "Boolean", defaultValue = "true")
   private boolean allowLowerCase;
 
-  @JMockParameter(descI18nKey = DOC_PASSWORD_PARAMETER_ALLOW_DIGITS)
+  @JMockParameter(descI18nKey = DOC_PASSWORD_PARAMETER_ALLOW_DIGITS, type = "Boolean", defaultValue = "true")
   private boolean allowDigits;
 
-  @JMockParameter(descI18nKey = DOC_PASSWORD_PARAMETER_ALLOW_SPECIALCHAR)
+  @JMockParameter(descI18nKey = DOC_PASSWORD_PARAMETER_ALLOW_SPECIALCHAR, type = "Boolean", defaultValue = "false")
   private boolean allowSpecialChar;
 
   private transient char[] chars;

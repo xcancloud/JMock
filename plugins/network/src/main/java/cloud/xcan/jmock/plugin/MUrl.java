@@ -32,16 +32,16 @@ import org.apache.commons.lang3.StringUtils;
     categoryI18nKey = {DOC_CATEGORY_NETWORK}, order = 908)
 public class MUrl extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_URL_PARAMETER_MAX)
+  @JMockParameter(descI18nKey = DOC_URL_PARAMETER_MAX, type = "Integer", defaultValue = "50")
   private Integer max;
 
-  @JMockParameter(descI18nKey = DOC_URL_PARAMETER_PROTOCOL)
+  @JMockParameter(descI18nKey = DOC_URL_PARAMETER_PROTOCOL, type = "String", defaultValue = "http")
   private String protocol;
 
-  @JMockParameter(descI18nKey = DOC_URL_PARAMETER_DOMAIN)
+  @JMockParameter(descI18nKey = DOC_URL_PARAMETER_DOMAIN, type = "String", defaultValue = "127.0.0.1:8080")
   private String domain;
 
-  @JMockParameter(descI18nKey = DOC_URL_PARAMETER_ALLOW_QUERY)
+  @JMockParameter(descI18nKey = DOC_URL_PARAMETER_ALLOW_QUERY, type = "Boolean", defaultValue = "false")
   private boolean allowQueryParams;
 
   private transient String[] dictArray;

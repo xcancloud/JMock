@@ -14,7 +14,10 @@
     "description" : "Generate fixed-length string",
     "parameters" : [ {
       "name" : "length",
-      "description" : "String length, default 6, max length 2^31-1 characters"
+      "description" : "String length, default 6, max length 2^31-1 characters",
+      "type" : "Integer",
+      "defaultValue" : "6",
+      "required" : false
     } ],
     "example" : "@String(2)",
     "exampleValues" : [ "uy", "h8" ]
@@ -23,7 +26,10 @@
     "description" : "Generate variable-length string within specified range with null ratio",
     "parameters" : [ {
       "name" : "length",
-      "description" : "String length, default 6, max length 2^31-1 characters"
+      "description" : "String length, default 6, max length 2^31-1 characters",
+      "type" : "Integer",
+      "defaultValue" : "6",
+      "required" : false
     } ],
     "example" : "@String(3,\"1:2\")",
     "exampleValues" : [ "ec2", "null", "c3a" ]
@@ -32,10 +38,16 @@
     "description" : "Generate random string within specified length range",
     "parameters" : [ {
       "name" : "min",
-      "description" : "Minimum length, default 0 (returns empty string \"\") when not specified. If length is specified, this parameter is ignored"
+      "description" : "Minimum length, default 0 (returns empty string \"\") when not specified. If length is specified, this parameter is ignored",
+      "type" : "Integer",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "Maximum length, max limit 2^31-1 characters. If length is specified, this parameter is ignored"
+      "description" : "Maximum length, max limit 2^31-1 characters. If length is specified, this parameter is ignored",
+      "type" : "Integer",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@String(2,6)",
     "exampleValues" : [ "ht8ut", "cy" ]
@@ -44,10 +56,16 @@
     "description" : "Generate fixed-length string from custom character set with null ratio",
     "parameters" : [ {
       "name" : "length",
-      "description" : "String length, default 6, max length 2^31-1 characters"
+      "description" : "String length, default 6, max length 2^31-1 characters",
+      "type" : "Integer",
+      "defaultValue" : "6",
+      "required" : false
     }, {
       "name" : "chars",
-      "description" : "Character set for string generation. Default: 52 letters (a-z A-Z) and 10 digits (0-9). Max 2^31-1 characters, e.g.: 123456ABCDEF"
+      "description" : "Character set for string generation. Default: 52 letters (a-z A-Z) and 10 digits (0-9). Max 2^31-1 characters, e.g.: 123456ABCDEF",
+      "type" : "String",
+      "defaultValue" : "a-zA-Z0-9",
+      "required" : false
     } ],
     "example" : "@String(3,\"1:2\",abcdef123456)",
     "exampleValues" : [ "ec2", "f36", "c3a" ]
@@ -56,35 +74,62 @@
     "description" : "Full parameter constructor, see complete parameter documentation",
     "parameters" : [ {
       "name" : "length",
-      "description" : "String length, default 6, max length 2^31-1 characters"
+      "description" : "String length, default 6, max length 2^31-1 characters",
+      "type" : "Integer",
+      "defaultValue" : "6",
+      "required" : false
     }, {
       "name" : "min",
-      "description" : "Minimum length, default 0 (returns empty string \"\") when not specified. If length is specified, this parameter is ignored"
+      "description" : "Minimum length, default 0 (returns empty string \"\") when not specified. If length is specified, this parameter is ignored",
+      "type" : "Integer",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "Maximum length, max limit 2^31-1 characters. If length is specified, this parameter is ignored"
+      "description" : "Maximum length, max limit 2^31-1 characters. If length is specified, this parameter is ignored",
+      "type" : "Integer",
+      "defaultValue" : "",
+      "required" : false
     }, {
       "name" : "chars",
-      "description" : "Character set for string generation. Default: 52 letters (a-z A-Z) and 10 digits (0-9). Max 2^31-1 characters, e.g.: 123456ABCDEF"
+      "description" : "Character set for string generation. Default: 52 letters (a-z A-Z) and 10 digits (0-9). Max 2^31-1 characters, e.g.: 123456ABCDEF",
+      "type" : "String",
+      "defaultValue" : "a-zA-Z0-9",
+      "required" : false
     } ],
     "example" : "@String(1,,,ABCDE,\"1:2\")",
     "exampleValues" : [ "A", "null", "B", "C", "null" ]
   } ],
   "parameters" : [ {
     "name" : "length",
-    "description" : "String length, default 6, max length 2^31-1 characters"
+    "description" : "String length, default 6, max length 2^31-1 characters",
+    "type" : "Integer",
+    "defaultValue" : "6",
+    "required" : false
   }, {
     "name" : "min",
-    "description" : "Minimum length, default 0 (returns empty string \"\") when not specified. If length is specified, this parameter is ignored"
+    "description" : "Minimum length, default 0 (returns empty string \"\") when not specified. If length is specified, this parameter is ignored",
+    "type" : "Integer",
+    "defaultValue" : "0",
+    "required" : false
   }, {
     "name" : "max",
-    "description" : "Maximum length, max limit 2^31-1 characters. If length is specified, this parameter is ignored"
+    "description" : "Maximum length, max limit 2^31-1 characters. If length is specified, this parameter is ignored",
+    "type" : "Integer",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "chars",
-    "description" : "Character set for string generation. Default: 52 letters (a-z A-Z) and 10 digits (0-9). Max 2^31-1 characters, e.g.: 123456ABCDEF"
+    "description" : "Character set for string generation. Default: 52 letters (a-z A-Z) and 10 digits (0-9). Max 2^31-1 characters, e.g.: 123456ABCDEF",
+    "type" : "String",
+    "defaultValue" : "a-zA-Z0-9",
+    "required" : false
   }, {
     "name" : "nullSampler",
-    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 101
 }, {
@@ -109,10 +154,16 @@
     "description" : "Generate random long between min and max with null ratio",
     "parameters" : [ {
       "name" : "min",
-      "description" : "Minimum value, default 0L (L indicates long type)"
+      "description" : "Minimum value, default 0L (L indicates long type)",
+      "type" : "Long",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "Maximum value, default 9223372036854775807L"
+      "description" : "Maximum value, default 9223372036854775807L",
+      "type" : "Long",
+      "defaultValue" : "9223372036854775807",
+      "required" : false
     } ],
     "example" : "@Long(-10000L,100000L,)",
     "exampleValues" : [ "198", "594", "-17865", "9876", "37092" ]
@@ -121,23 +172,38 @@
     "description" : "Generate random long between min and max",
     "parameters" : [ {
       "name" : "min",
-      "description" : "Minimum value, default 0L (L indicates long type)"
+      "description" : "Minimum value, default 0L (L indicates long type)",
+      "type" : "Long",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "Maximum value, default 9223372036854775807L"
+      "description" : "Maximum value, default 9223372036854775807L",
+      "type" : "Long",
+      "defaultValue" : "9223372036854775807",
+      "required" : false
     } ],
     "example" : "@Long(1L,10000000000L)",
     "exampleValues" : [ "1109", "34008978", "87256252199901" ]
   } ],
   "parameters" : [ {
     "name" : "min",
-    "description" : "Minimum value, default 0L (L indicates long type)"
+    "description" : "Minimum value, default 0L (L indicates long type)",
+    "type" : "Long",
+    "defaultValue" : "0",
+    "required" : false
   }, {
     "name" : "max",
-    "description" : "Maximum value, default 9223372036854775807L"
+    "description" : "Maximum value, default 9223372036854775807L",
+    "type" : "Long",
+    "defaultValue" : "9223372036854775807",
+    "required" : false
   }, {
     "name" : "nullSampler",
-    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 102
 }, {
@@ -162,10 +228,16 @@
     "description" : "Generate random integer between min and max with null ratio",
     "parameters" : [ {
       "name" : "min",
-      "description" : "Minimum value, default 0"
+      "description" : "Minimum value, default 0",
+      "type" : "Integer",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "Maximum value, default 2147483647"
+      "description" : "Maximum value, default 2147483647",
+      "type" : "Integer",
+      "defaultValue" : "2147483647",
+      "required" : false
     } ],
     "example" : "@Integer(-100000,100000,\"1:3\")",
     "exampleValues" : [ "-7811", "null", "78732", "12909", "76028" ]
@@ -174,23 +246,38 @@
     "description" : "Generate random integer between min and max",
     "parameters" : [ {
       "name" : "min",
-      "description" : "Minimum value, default 0"
+      "description" : "Minimum value, default 0",
+      "type" : "Integer",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "Maximum value, default 2147483647"
+      "description" : "Maximum value, default 2147483647",
+      "type" : "Integer",
+      "defaultValue" : "2147483647",
+      "required" : false
     } ],
     "example" : "@Integer(100,200)",
     "exampleValues" : [ "162", "133", "191" ]
   } ],
   "parameters" : [ {
     "name" : "min",
-    "description" : "Minimum value, default 0"
+    "description" : "Minimum value, default 0",
+    "type" : "Integer",
+    "defaultValue" : "0",
+    "required" : false
   }, {
     "name" : "max",
-    "description" : "Maximum value, default 2147483647"
+    "description" : "Maximum value, default 2147483647",
+    "type" : "Integer",
+    "defaultValue" : "2147483647",
+    "required" : false
   }, {
     "name" : "nullSampler",
-    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 102
 }, {
@@ -215,7 +302,10 @@
     "description" : "Generate random double between 0 and 1.79769313486231570e+308 with specified precision",
     "parameters" : [ {
       "name" : "scale",
-      "description" : "Precision digits, default 2"
+      "description" : "Precision digits, default 2",
+      "type" : "Integer",
+      "defaultValue" : "2",
+      "required" : false
     } ],
     "example" : "@Double(3)",
     "exampleValues" : [ "7.987", "89.909", "85.231" ]
@@ -224,10 +314,16 @@
     "description" : "Generate random double between min and max",
     "parameters" : [ {
       "name" : "min",
-      "description" : "Minimum value, default 0D (D indicates double type)"
+      "description" : "Minimum value, default 0D (D indicates double type)",
+      "type" : "Double",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "Maximum value, default 1.79769313486231570e+308"
+      "description" : "Maximum value, default 1.79769313486231570e+308",
+      "type" : "Double",
+      "defaultValue" : "1.79769313486231570e+308",
+      "required" : false
     } ],
     "example" : "@Double(88,999999)",
     "exampleValues" : [ "99.99", "899.99", "7865.09" ]
@@ -236,13 +332,22 @@
     "description" : "Full parameter constructor, see complete parameter documentation",
     "parameters" : [ {
       "name" : "min",
-      "description" : "Minimum value, default 0D (D indicates double type)"
+      "description" : "Minimum value, default 0D (D indicates double type)",
+      "type" : "Double",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "Maximum value, default 1.79769313486231570e+308"
+      "description" : "Maximum value, default 1.79769313486231570e+308",
+      "type" : "Double",
+      "defaultValue" : "1.79769313486231570e+308",
+      "required" : false
     }, {
       "name" : "scale",
-      "description" : "Precision digits, default 2"
+      "description" : "Precision digits, default 2",
+      "type" : "Integer",
+      "defaultValue" : "2",
+      "required" : false
     } ],
     "example" : "@Double(88,99999,4,\"1:2\")",
     "exampleValues" : [ "888.9087", "null", "666.9087" ]
@@ -251,29 +356,50 @@
     "description" : "Generate random double between min and max with specified precision",
     "parameters" : [ {
       "name" : "min",
-      "description" : "Minimum value, default 0D (D indicates double type)"
+      "description" : "Minimum value, default 0D (D indicates double type)",
+      "type" : "Double",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "Maximum value, default 1.79769313486231570e+308"
+      "description" : "Maximum value, default 1.79769313486231570e+308",
+      "type" : "Double",
+      "defaultValue" : "1.79769313486231570e+308",
+      "required" : false
     }, {
       "name" : "scale",
-      "description" : "Precision digits, default 2"
+      "description" : "Precision digits, default 2",
+      "type" : "Integer",
+      "defaultValue" : "2",
+      "required" : false
     } ],
     "example" : "@Double(88,99999,4,\"1:2\")",
     "exampleValues" : [ "888.9087", "null", "666.9087" ]
   } ],
   "parameters" : [ {
     "name" : "min",
-    "description" : "Minimum value, default 0D (D indicates double type)"
+    "description" : "Minimum value, default 0D (D indicates double type)",
+    "type" : "Double",
+    "defaultValue" : "0",
+    "required" : false
   }, {
     "name" : "max",
-    "description" : "Maximum value, default 1.79769313486231570e+308"
+    "description" : "Maximum value, default 1.79769313486231570e+308",
+    "type" : "Double",
+    "defaultValue" : "1.79769313486231570e+308",
+    "required" : false
   }, {
     "name" : "scale",
-    "description" : "Precision digits, default 2"
+    "description" : "Precision digits, default 2",
+    "type" : "Integer",
+    "defaultValue" : "2",
+    "required" : false
   }, {
     "name" : "nullSampler",
-    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 103
 }, {
@@ -298,7 +424,10 @@
     "description" : "Generate random float between 0 and 3.40282346638528860e+38 with specified precision",
     "parameters" : [ {
       "name" : "scale",
-      "description" : "Precision digits, default 2"
+      "description" : "Precision digits, default 2",
+      "type" : "Integer",
+      "defaultValue" : "2",
+      "required" : false
     } ],
     "example" : "@Float(5)",
     "exampleValues" : [ "87901.01127", "3092290435.18326" ]
@@ -307,10 +436,16 @@
     "description" : "Generate random float between min and max",
     "parameters" : [ {
       "name" : "min",
-      "description" : "Minimum value, default 0.0"
+      "description" : "Minimum value, default 0.0",
+      "type" : "Float",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "Maximum value, default 3.40282346638528860e+38"
+      "description" : "Maximum value, default 3.40282346638528860e+38",
+      "type" : "Float",
+      "defaultValue" : "3.40282346638528860e+38",
+      "required" : false
     } ],
     "example" : "@Float(5,15)",
     "exampleValues" : [ "5.2222222" ]
@@ -319,13 +454,22 @@
     "description" : "Full parameter constructor, see complete parameter documentation",
     "parameters" : [ {
       "name" : "min",
-      "description" : "Minimum value, default 0.0"
+      "description" : "Minimum value, default 0.0",
+      "type" : "Float",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "Maximum value, default 3.40282346638528860e+38"
+      "description" : "Maximum value, default 3.40282346638528860e+38",
+      "type" : "Float",
+      "defaultValue" : "3.40282346638528860e+38",
+      "required" : false
     }, {
       "name" : "scale",
-      "description" : "Precision digits, default 2"
+      "description" : "Precision digits, default 2",
+      "type" : "Integer",
+      "defaultValue" : "2",
+      "required" : false
     } ],
     "example" : "@Float(0,10,5,1:2)",
     "exampleValues" : [ "1.22222" ]
@@ -334,29 +478,50 @@
     "description" : "Generate random float between min and max with specified precision",
     "parameters" : [ {
       "name" : "min",
-      "description" : "Minimum value, default 0.0"
+      "description" : "Minimum value, default 0.0",
+      "type" : "Float",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "Maximum value, default 3.40282346638528860e+38"
+      "description" : "Maximum value, default 3.40282346638528860e+38",
+      "type" : "Float",
+      "defaultValue" : "3.40282346638528860e+38",
+      "required" : false
     }, {
       "name" : "scale",
-      "description" : "Precision digits, default 2"
+      "description" : "Precision digits, default 2",
+      "type" : "Integer",
+      "defaultValue" : "2",
+      "required" : false
     } ],
     "example" : "@Float(5,15,2)",
     "exampleValues" : [ "5.22" ]
   } ],
   "parameters" : [ {
     "name" : "min",
-    "description" : "Minimum value, default 0.0"
+    "description" : "Minimum value, default 0.0",
+    "type" : "Float",
+    "defaultValue" : "0",
+    "required" : false
   }, {
     "name" : "max",
-    "description" : "Maximum value, default 3.40282346638528860e+38"
+    "description" : "Maximum value, default 3.40282346638528860e+38",
+    "type" : "Float",
+    "defaultValue" : "3.40282346638528860e+38",
+    "required" : false
   }, {
     "name" : "scale",
-    "description" : "Precision digits, default 2"
+    "description" : "Precision digits, default 2",
+    "type" : "Integer",
+    "defaultValue" : "2",
+    "required" : false
   }, {
     "name" : "nullSampler",
-    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 103
 }, {
@@ -369,7 +534,10 @@
     "description" : "Generate enum values with equal ratios",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "Enum values separated by \"|\" (required)"
+      "description" : "Enum values separated by \"|\" (required)",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : true
     } ],
     "example" : "@Enum(HIGH|WIDTH)",
     "exampleValues" : [ "HIGH" ]
@@ -378,10 +546,16 @@
     "description" : "Generate enum values with specified ratios and null ratio",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "Enum values separated by \"|\" (required)"
+      "description" : "Enum values separated by \"|\" (required)",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : true
     }, {
       "name" : "valueWeight",
-      "description" : "Value generation ratios, default equal ratios"
+      "description" : "Value generation ratios, default equal ratios",
+      "type" : "String",
+      "defaultValue" : "1",
+      "required" : false
     } ],
     "example" : "@Enum(HIGH|WIDTH,1:1,1:2)",
     "exampleValues" : [ "HIGH", "WIDTH", "null" ]
@@ -390,23 +564,38 @@
     "description" : "Generate enum values with specified ratios",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "Enum values separated by \"|\" (required)"
+      "description" : "Enum values separated by \"|\" (required)",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : true
     }, {
       "name" : "valueWeight",
-      "description" : "Value generation ratios, default equal ratios"
+      "description" : "Value generation ratios, default equal ratios",
+      "type" : "String",
+      "defaultValue" : "1",
+      "required" : false
     } ],
     "example" : "@Enum(HIGH|WIDTH,1:1)",
     "exampleValues" : [ "HIGH", "WIDTH" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Enum values separated by \"|\" (required)"
+    "description" : "Enum values separated by \"|\" (required)",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : true
   }, {
     "name" : "valueWeight",
-    "description" : "Value generation ratios, default equal ratios"
+    "description" : "Value generation ratios, default equal ratios",
+    "type" : "String",
+    "defaultValue" : "1",
+    "required" : false
   }, {
     "name" : "nullSampler",
-    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 104
 }, {
@@ -425,7 +614,10 @@
     "description" : "Generate true/false/null with specified true and null ratios",
     "parameters" : [ {
       "name" : "trueWeight",
-      "description" : "True ratio, e.g. \"2:1\" means 2 true per 3 values on average"
+      "description" : "True ratio, e.g. \"2:1\" means 2 true per 3 values on average",
+      "type" : "String",
+      "defaultValue" : "2:1",
+      "required" : false
     } ],
     "example" : "@Bool(2:1,1:5)",
     "exampleValues" : [ "true", "null", "false" ]
@@ -434,7 +626,10 @@
     "description" : "Generate true/false/null with specified null ratio",
     "parameters" : [ {
       "name" : "trueWeight",
-      "description" : "True ratio, e.g. \"2:1\" means 2 true per 3 values on average"
+      "description" : "True ratio, e.g. \"2:1\" means 2 true per 3 values on average",
+      "type" : "String",
+      "defaultValue" : "2:1",
+      "required" : false
     } ],
     "example" : "@Bool(2:1)",
     "exampleValues" : [ "true", "true", "false" ]
@@ -443,23 +638,38 @@
     "description" : "Full parameter constructor, see complete parameter documentation",
     "parameters" : [ {
       "name" : "trueWeight",
-      "description" : "True ratio, e.g. \"2:1\" means 2 true per 3 values on average"
+      "description" : "True ratio, e.g. \"2:1\" means 2 true per 3 values on average",
+      "type" : "String",
+      "defaultValue" : "2:1",
+      "required" : false
     }, {
       "name" : "dict",
-      "description" : "Boolean dictionary values separated by \"|\", first=true, second=false. Default: true|false"
+      "description" : "Boolean dictionary values separated by \"|\", first=true, second=false. Default: true|false",
+      "type" : "String",
+      "defaultValue" : "true|false",
+      "required" : false
     } ],
     "example" : "@Bool(2:1,1:5,1|0)",
     "exampleValues" : [ "1", "null", "0" ]
   } ],
   "parameters" : [ {
     "name" : "trueWeight",
-    "description" : "True ratio, e.g. \"2:1\" means 2 true per 3 values on average"
+    "description" : "True ratio, e.g. \"2:1\" means 2 true per 3 values on average",
+    "type" : "String",
+    "defaultValue" : "2:1",
+    "required" : false
   }, {
     "name" : "nullSampler",
-    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "dict",
-    "description" : "Boolean dictionary values separated by \"|\", first=true, second=false. Default: true|false"
+    "description" : "Boolean dictionary values separated by \"|\", first=true, second=false. Default: true|false",
+    "type" : "String",
+    "defaultValue" : "true|false",
+    "required" : false
   } ],
   "order" : 105
 }, {
@@ -472,7 +682,10 @@
     "description" : "Generate value based on regex pattern with null ratio",
     "parameters" : [ {
       "name" : "regexp",
-      "description" : "Regular expression for value generation"
+      "description" : "Regular expression for value generation",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : true
     } ],
     "example" : "@RegExp([a-z][a-z][0-9],1:2)",
     "exampleValues" : [ "kK8", "null" ]
@@ -481,17 +694,26 @@
     "description" : "Generate value based on regex pattern",
     "parameters" : [ {
       "name" : "regexp",
-      "description" : "Regular expression for value generation"
+      "description" : "Regular expression for value generation",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : true
     } ],
     "example" : "@RegExp([a-z][a-z][0-9])",
     "exampleValues" : [ "kK8", "Cs9" ]
   } ],
   "parameters" : [ {
     "name" : "regexp",
-    "description" : "Regular expression for value generation"
+    "description" : "Regular expression for value generation",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : true
   }, {
     "name" : "nullSampler",
-    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 110
 }, {
@@ -504,7 +726,10 @@
     "description" : "Repeat a value once",
     "parameters" : [ {
       "name" : "value",
-      "description" : "The value to repeat"
+      "description" : "The value to repeat",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : true
     } ],
     "example" : "@Repeat(hello)",
     "exampleValues" : [ "[\"hello\"]" ]
@@ -513,20 +738,32 @@
     "description" : "Repeat a value N times",
     "parameters" : [ {
       "name" : "value",
-      "description" : "The value to repeat"
+      "description" : "The value to repeat",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : true
     }, {
       "name" : "count",
-      "description" : "Number of repetitions, default 1"
+      "description" : "Number of repetitions, default 1",
+      "type" : "Integer",
+      "defaultValue" : "1",
+      "required" : false
     } ],
     "example" : "@Repeat(hello,3)",
     "exampleValues" : [ "[\"hello\",\"hello\",\"hello\"]" ]
   } ],
   "parameters" : [ {
     "name" : "value",
-    "description" : "The value to repeat"
+    "description" : "The value to repeat",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : true
   }, {
     "name" : "count",
-    "description" : "Number of repetitions, default 1"
+    "description" : "Number of repetitions, default 1",
+    "type" : "Integer",
+    "defaultValue" : "1",
+    "required" : false
   } ],
   "order" : 121
 }, {
@@ -539,7 +776,10 @@
     "description" : "Generate sequence from 0 to count-1",
     "parameters" : [ {
       "name" : "count",
-      "description" : "Number of elements to generate"
+      "description" : "Number of elements to generate",
+      "type" : "Integer",
+      "defaultValue" : "",
+      "required" : true
     } ],
     "example" : "@Sequence(5)",
     "exampleValues" : [ "[0,1,2,3,4]" ]
@@ -548,10 +788,16 @@
     "description" : "Generate arithmetic sequence with start and count (step=1)",
     "parameters" : [ {
       "name" : "start",
-      "description" : "Start value, default 0"
+      "description" : "Start value, default 0",
+      "type" : "Long",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "count",
-      "description" : "Number of elements to generate"
+      "description" : "Number of elements to generate",
+      "type" : "Integer",
+      "defaultValue" : "",
+      "required" : true
     } ],
     "example" : "@Sequence(0,2,4)",
     "exampleValues" : [ "[0,2,4,6]" ]
@@ -560,26 +806,44 @@
     "description" : "Generate arithmetic sequence with start, step, and count",
     "parameters" : [ {
       "name" : "start",
-      "description" : "Start value, default 0"
+      "description" : "Start value, default 0",
+      "type" : "Long",
+      "defaultValue" : "0",
+      "required" : false
     }, {
       "name" : "step",
-      "description" : "Step value, default 1"
+      "description" : "Step value, default 1",
+      "type" : "Long",
+      "defaultValue" : "1",
+      "required" : false
     }, {
       "name" : "count",
-      "description" : "Number of elements to generate"
+      "description" : "Number of elements to generate",
+      "type" : "Integer",
+      "defaultValue" : "",
+      "required" : true
     } ],
     "example" : "@Sequence(1,1,5)",
     "exampleValues" : [ "[1,2,3,4,5]" ]
   } ],
   "parameters" : [ {
     "name" : "start",
-    "description" : "Start value, default 0"
+    "description" : "Start value, default 0",
+    "type" : "Long",
+    "defaultValue" : "0",
+    "required" : false
   }, {
     "name" : "step",
-    "description" : "Step value, default 1"
+    "description" : "Step value, default 1",
+    "type" : "Long",
+    "defaultValue" : "1",
+    "required" : false
   }, {
     "name" : "count",
-    "description" : "Number of elements to generate"
+    "description" : "Number of elements to generate",
+    "type" : "Integer",
+    "defaultValue" : "",
+    "required" : true
   } ],
   "order" : 122
 }, {
@@ -592,14 +856,20 @@
     "description" : "Shuffle the given items",
     "parameters" : [ {
       "name" : "items",
-      "description" : "Pipe-separated list of items to shuffle, e.g. a|b|c"
+      "description" : "Pipe-separated list of items to shuffle, e.g. a|b|c",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : true
     } ],
     "example" : "@Shuffle(a|b|c|d)",
     "exampleValues" : [ "[\"c\",\"a\",\"d\",\"b\"]" ]
   } ],
   "parameters" : [ {
     "name" : "items",
-    "description" : "Pipe-separated list of items to shuffle, e.g. a|b|c"
+    "description" : "Pipe-separated list of items to shuffle, e.g. a|b|c",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : true
   } ],
   "order" : 123
 }, {
@@ -612,20 +882,32 @@
     "description" : "Sample N items from the given list",
     "parameters" : [ {
       "name" : "items",
-      "description" : "Pipe-separated list of items, e.g. a|b|c|d|e"
+      "description" : "Pipe-separated list of items, e.g. a|b|c|d|e",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : true
     }, {
       "name" : "count",
-      "description" : "Number of items to sample"
+      "description" : "Number of items to sample",
+      "type" : "Integer",
+      "defaultValue" : "",
+      "required" : true
     } ],
     "example" : "@Sample(a|b|c|d|e,3)",
     "exampleValues" : [ "[\"c\",\"a\",\"e\"]" ]
   } ],
   "parameters" : [ {
     "name" : "items",
-    "description" : "Pipe-separated list of items, e.g. a|b|c|d|e"
+    "description" : "Pipe-separated list of items, e.g. a|b|c|d|e",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : true
   }, {
     "name" : "count",
-    "description" : "Number of items to sample"
+    "description" : "Number of items to sample",
+    "type" : "Integer",
+    "defaultValue" : "",
+    "required" : true
   } ],
   "order" : 124
 }, {
@@ -638,14 +920,20 @@
     "description" : "Select one random item from the list",
     "parameters" : [ {
       "name" : "items",
-      "description" : "Pipe-separated list of items, e.g. apple|banana|cherry"
+      "description" : "Pipe-separated list of items, e.g. apple|banana|cherry",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : true
     } ],
     "example" : "@OneOf(apple|banana|cherry)",
     "exampleValues" : [ "banana" ]
   } ],
   "parameters" : [ {
     "name" : "items",
-    "description" : "Pipe-separated list of items, e.g. apple|banana|cherry"
+    "description" : "Pipe-separated list of items, e.g. apple|banana|cherry",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : true
   } ],
   "order" : 125
 }, {
@@ -664,14 +952,20 @@
     "description" : "Generate specified timestamp type",
     "parameters" : [ {
       "name" : "unix",
-      "description" : "Generate Unix timestamp (seconds since 1970), default false (milliseconds)"
+      "description" : "Generate Unix timestamp (seconds since 1970), default false (milliseconds)",
+      "type" : "Boolean",
+      "defaultValue" : "false",
+      "required" : false
     } ],
     "example" : "@Timestamp()",
     "exampleValues" : [ "1653432546438" ]
   } ],
   "parameters" : [ {
     "name" : "unix",
-    "description" : "Generate Unix timestamp (seconds since 1970), default false (milliseconds)"
+    "description" : "Generate Unix timestamp (seconds since 1970), default false (milliseconds)",
+    "type" : "Boolean",
+    "defaultValue" : "false",
+    "required" : false
   } ],
   "order" : 201
 }, {
@@ -690,7 +984,10 @@
     "description" : "Generate current time with specified format",
     "parameters" : [ {
       "name" : "format",
-      "description" : "Time format pattern, default \"HH:mm:ss\""
+      "description" : "Time format pattern, default \"HH:mm:ss\"",
+      "type" : "String",
+      "defaultValue" : "HH:mm:ss",
+      "required" : false
     } ],
     "example" : "@LocaleTime(a HH:mm:ss)",
     "exampleValues" : [ "下午 23:34:25", "下午 23:34:25" ]
@@ -699,10 +996,16 @@
     "description" : "Generate random time with specified format",
     "parameters" : [ {
       "name" : "format",
-      "description" : "Time format pattern, default \"HH:mm:ss\""
+      "description" : "Time format pattern, default \"HH:mm:ss\"",
+      "type" : "String",
+      "defaultValue" : "HH:mm:ss",
+      "required" : false
     }, {
       "name" : "random",
-      "description" : "Generate random time within day, default false"
+      "description" : "Generate random time within day, default false",
+      "type" : "Boolean",
+      "defaultValue" : "false",
+      "required" : false
     } ],
     "example" : "@LocaleTime(a HH:mm:ss)",
     "exampleValues" : [ "下午 23:34:25", "下午 23:34:25" ]
@@ -711,26 +1014,44 @@
     "description" : "Generate random time with specified format and timezone",
     "parameters" : [ {
       "name" : "format",
-      "description" : "Time format pattern, default \"HH:mm:ss\""
+      "description" : "Time format pattern, default \"HH:mm:ss\"",
+      "type" : "String",
+      "defaultValue" : "HH:mm:ss",
+      "required" : false
     }, {
       "name" : "zoneId",
-      "description" : "Timezone ID, default \"Asia/Shanghai\""
+      "description" : "Timezone ID, default \"Asia/Shanghai\"",
+      "type" : "String",
+      "defaultValue" : "Asia/Shanghai",
+      "required" : false
     }, {
       "name" : "random",
-      "description" : "Generate random time within day, default false"
+      "description" : "Generate random time within day, default false",
+      "type" : "Boolean",
+      "defaultValue" : "false",
+      "required" : false
     } ],
     "example" : "@LocaleDate(HH:mm:ss,Asia/Tokyo)",
     "exampleValues" : [ "07:08:21", "07:08:21" ]
   } ],
   "parameters" : [ {
     "name" : "format",
-    "description" : "Time format pattern, default \"HH:mm:ss\""
+    "description" : "Time format pattern, default \"HH:mm:ss\"",
+    "type" : "String",
+    "defaultValue" : "HH:mm:ss",
+    "required" : false
   }, {
     "name" : "zoneId",
-    "description" : "Timezone ID, default \"Asia/Shanghai\""
+    "description" : "Timezone ID, default \"Asia/Shanghai\"",
+    "type" : "String",
+    "defaultValue" : "Asia/Shanghai",
+    "required" : false
   }, {
     "name" : "random",
-    "description" : "Generate random time within day, default false"
+    "description" : "Generate random time within day, default false",
+    "type" : "Boolean",
+    "defaultValue" : "false",
+    "required" : false
   } ],
   "order" : 202
 }, {
@@ -749,7 +1070,10 @@
     "description" : "Generate current date with specified format",
     "parameters" : [ {
       "name" : "format",
-      "description" : "Date format pattern, default \"yyyy-MM-dd\""
+      "description" : "Date format pattern, default \"yyyy-MM-dd\"",
+      "type" : "String",
+      "defaultValue" : "yyyy-MM-dd",
+      "required" : false
     } ],
     "example" : "@LocaleDate(yyyy yy y MM M dd d)",
     "exampleValues" : [ "2022 22 2022 05 5 12 12", "2022 22 2022 05 5 12 12" ]
@@ -758,10 +1082,16 @@
     "description" : "Generate random date with specified format",
     "parameters" : [ {
       "name" : "format",
-      "description" : "Date format pattern, default \"yyyy-MM-dd\""
+      "description" : "Date format pattern, default \"yyyy-MM-dd\"",
+      "type" : "String",
+      "defaultValue" : "yyyy-MM-dd",
+      "required" : false
     }, {
       "name" : "random",
-      "description" : "Generate random dates ±10 years, default false"
+      "description" : "Generate random dates ±10 years, default false",
+      "type" : "Boolean",
+      "defaultValue" : "false",
+      "required" : false
     } ],
     "example" : "@LocaleDate(yyyy yy y MM M dd d)",
     "exampleValues" : [ "2022 22 2022 05 5 12 12", "2022 22 2022 05 5 12 12" ]
@@ -770,26 +1100,44 @@
     "description" : "Generate random date with specified format and timezone",
     "parameters" : [ {
       "name" : "format",
-      "description" : "Date format pattern, default \"yyyy-MM-dd\""
+      "description" : "Date format pattern, default \"yyyy-MM-dd\"",
+      "type" : "String",
+      "defaultValue" : "yyyy-MM-dd",
+      "required" : false
     }, {
       "name" : "zoneId",
-      "description" : "Timezone ID, default \"Asia/Shanghai\""
+      "description" : "Timezone ID, default \"Asia/Shanghai\"",
+      "type" : "String",
+      "defaultValue" : "Asia/Shanghai",
+      "required" : false
     }, {
       "name" : "random",
-      "description" : "Generate random dates ±10 years, default false"
+      "description" : "Generate random dates ±10 years, default false",
+      "type" : "Boolean",
+      "defaultValue" : "false",
+      "required" : false
     } ],
     "example" : "@LocaleDate(yyyy-MM-dd,Asia/Shanghai)",
     "exampleValues" : [ "2022-01-01", "2022-01-01" ]
   } ],
   "parameters" : [ {
     "name" : "format",
-    "description" : "Date format pattern, default \"yyyy-MM-dd\""
+    "description" : "Date format pattern, default \"yyyy-MM-dd\"",
+    "type" : "String",
+    "defaultValue" : "yyyy-MM-dd",
+    "required" : false
   }, {
     "name" : "zoneId",
-    "description" : "Timezone ID, default \"Asia/Shanghai\""
+    "description" : "Timezone ID, default \"Asia/Shanghai\"",
+    "type" : "String",
+    "defaultValue" : "Asia/Shanghai",
+    "required" : false
   }, {
     "name" : "random",
-    "description" : "Generate random dates ±10 years, default false"
+    "description" : "Generate random dates ±10 years, default false",
+    "type" : "Boolean",
+    "defaultValue" : "false",
+    "required" : false
   } ],
   "order" : 203
 }, {
@@ -808,7 +1156,10 @@
     "description" : "Generate current datetime with specified format",
     "parameters" : [ {
       "name" : "format",
-      "description" : "Datetime format pattern, default \"yyyy-MM-dd HH:mm:ss\""
+      "description" : "Datetime format pattern, default \"yyyy-MM-dd HH:mm:ss\"",
+      "type" : "String",
+      "defaultValue" : "yyyy-MM-dd HH:mm:ss",
+      "required" : false
     } ],
     "example" : "@LocaleDateTime(yy-MM-dd a HH:mm:ss)",
     "exampleValues" : [ "22-05-12 下午 23:40:22", "22-05-12 下午 23:40:22" ]
@@ -817,10 +1168,16 @@
     "description" : "Generate random datetime with specified format",
     "parameters" : [ {
       "name" : "format",
-      "description" : "Datetime format pattern, default \"yyyy-MM-dd HH:mm:ss\""
+      "description" : "Datetime format pattern, default \"yyyy-MM-dd HH:mm:ss\"",
+      "type" : "String",
+      "defaultValue" : "yyyy-MM-dd HH:mm:ss",
+      "required" : false
     }, {
       "name" : "random",
-      "description" : "Generate random datetime ±10 years, default false"
+      "description" : "Generate random datetime ±10 years, default false",
+      "type" : "Boolean",
+      "defaultValue" : "false",
+      "required" : false
     } ],
     "example" : "@LocaleDateTime(yy-MM-dd a HH:mm:ss)",
     "exampleValues" : [ "22-05-12 下午 23:40:22", "22-05-12 下午 23:40:22" ]
@@ -829,26 +1186,44 @@
     "description" : "Generate random datetime with specified format and timezone",
     "parameters" : [ {
       "name" : "format",
-      "description" : "Datetime format pattern, default \"yyyy-MM-dd HH:mm:ss\""
+      "description" : "Datetime format pattern, default \"yyyy-MM-dd HH:mm:ss\"",
+      "type" : "String",
+      "defaultValue" : "yyyy-MM-dd HH:mm:ss",
+      "required" : false
     }, {
       "name" : "zoneId",
-      "description" : "Timezone ID, default \"Asia/Shanghai\""
+      "description" : "Timezone ID, default \"Asia/Shanghai\"",
+      "type" : "String",
+      "defaultValue" : "Asia/Shanghai",
+      "required" : false
     }, {
       "name" : "random",
-      "description" : "Generate random datetime ±10 years, default false"
+      "description" : "Generate random datetime ±10 years, default false",
+      "type" : "Boolean",
+      "defaultValue" : "false",
+      "required" : false
     } ],
     "example" : "@LocaleDateTime(yyyy-MM-dd HH:mm:ss,Asia/Shanghai)",
     "exampleValues" : [ "2022-01-01 23:34:25", "2022-01-01 23:34:25" ]
   } ],
   "parameters" : [ {
     "name" : "format",
-    "description" : "Datetime format pattern, default \"yyyy-MM-dd HH:mm:ss\""
+    "description" : "Datetime format pattern, default \"yyyy-MM-dd HH:mm:ss\"",
+    "type" : "String",
+    "defaultValue" : "yyyy-MM-dd HH:mm:ss",
+    "required" : false
   }, {
     "name" : "zoneId",
-    "description" : "Timezone ID, default \"Asia/Shanghai\""
+    "description" : "Timezone ID, default \"Asia/Shanghai\"",
+    "type" : "String",
+    "defaultValue" : "Asia/Shanghai",
+    "required" : false
   }, {
     "name" : "random",
-    "description" : "Generate random datetime ±10 years, default false"
+    "description" : "Generate random datetime ±10 years, default false",
+    "type" : "Boolean",
+    "defaultValue" : "false",
+    "required" : false
   } ],
   "order" : 204
 }, {
@@ -867,14 +1242,20 @@
     "description" : "Generate month name in specified locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+      "type" : "String",
+      "defaultValue" : "zh_CN",
+      "required" : false
     } ],
     "example" : "@Month()",
     "exampleValues" : [ "January" ]
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+    "type" : "String",
+    "defaultValue" : "zh_CN",
+    "required" : false
   } ],
   "order" : 272
 }, {
@@ -893,14 +1274,20 @@
     "description" : "Generate week name in specified locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+      "type" : "String",
+      "defaultValue" : "zh_CN",
+      "required" : false
     } ],
     "example" : "@Week()",
     "exampleValues" : [ "Tuesday" ]
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+    "type" : "String",
+    "defaultValue" : "zh_CN",
+    "required" : false
   } ],
   "order" : 273
 }, {
@@ -919,14 +1306,20 @@
     "description" : "Generate GUID with separators",
     "parameters" : [ {
       "name" : "withoutSeparator",
-      "description" : "Include separators (\"-\"), default true"
+      "description" : "Include separators (\"-\"), default true",
+      "type" : "Boolean",
+      "defaultValue" : "false",
+      "required" : false
     } ],
     "example" : "@Guid(true)",
     "exampleValues" : [ "JIDLO-IFIUD-ASNVH-DLODG-HYGON-LKDHKP" ]
   } ],
   "parameters" : [ {
     "name" : "withoutSeparator",
-    "description" : "Include separators (\"-\"), default true"
+    "description" : "Include separators (\"-\"), default true",
+    "type" : "Boolean",
+    "defaultValue" : "false",
+    "required" : false
   } ],
   "order" : 301
 }, {
@@ -945,14 +1338,20 @@
     "description" : "Generate UUID with separators",
     "parameters" : [ {
       "name" : "withoutSeparator",
-      "description" : "Include separators (\"-\"), default true"
+      "description" : "Include separators (\"-\"), default true",
+      "type" : "Boolean",
+      "defaultValue" : "false",
+      "required" : false
     } ],
     "example" : "@Uuid(true)",
     "exampleValues" : [ "JIDLO-IFIUD-ASNVH-DLODG-HYGON-LKDHKP" ]
   } ],
   "parameters" : [ {
     "name" : "withoutSeparator",
-    "description" : "Include separators (\"-\"), default true"
+    "description" : "Include separators (\"-\"), default true",
+    "type" : "Boolean",
+    "defaultValue" : "false",
+    "required" : false
   } ],
   "order" : 302
 }, {
@@ -971,20 +1370,32 @@
     "description" : "Generate incremental ID with specified start and step",
     "parameters" : [ {
       "name" : "init",
-      "description" : "Initial value, default 1"
+      "description" : "Initial value, default 1",
+      "type" : "Integer",
+      "defaultValue" : "1",
+      "required" : false
     }, {
       "name" : "step",
-      "description" : "Increment step, default 1"
+      "description" : "Increment step, default 1",
+      "type" : "Integer",
+      "defaultValue" : "1",
+      "required" : false
     } ],
     "example" : "@IncId(5,2)",
     "exampleValues" : [ "5" ]
   } ],
   "parameters" : [ {
     "name" : "init",
-    "description" : "Initial value, default 1"
+    "description" : "Initial value, default 1",
+    "type" : "Integer",
+    "defaultValue" : "1",
+    "required" : false
   }, {
     "name" : "step",
-    "description" : "Increment step, default 1"
+    "description" : "Increment step, default 1",
+    "type" : "Integer",
+    "defaultValue" : "1",
+    "required" : false
   } ],
   "order" : 303
 }, {
@@ -1003,24 +1414,33 @@
     "description" : "Generate Snowflake ID with specified dcId and mId",
     "parameters" : [ {
       "name" : "dcId",
-      "description" : "Datacenter ID, default 1"
+      "description" : "Datacenter ID, default 1",
+      "type" : "Long",
+      "defaultValue" : "1",
+      "required" : false
     } ],
     "example" : "@SnowId(1,1)",
     "exampleValues" : [ "16685359784" ]
   } ],
   "parameters" : [ {
     "name" : "dcId",
-    "description" : "Datacenter ID, default 1"
+    "description" : "Datacenter ID, default 1",
+    "type" : "Long",
+    "defaultValue" : "1",
+    "required" : false
   }, {
     "name" : "mId",
-    "description" : "Machine ID, default 1"
+    "description" : "Machine ID, default 1",
+    "type" : "Long",
+    "defaultValue" : "1",
+    "required" : false
   } ],
   "order" : 304
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MWord",
   "name" : "@Word()",
   "description" : "Generate words",
-  "tags" : [ "Text Information" ],
+  "tags" : [ "Text" ],
   "constructors" : [ {
     "instance" : "@Word()",
     "description" : "Generate word (Chinese)",
@@ -1032,7 +1452,10 @@
     "description" : "Generate word using specified dictionary",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "Custom value dictionary, multiple values separated by '|'"
+      "description" : "Custom value dictionary, multiple values separated by '|'",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Word(开开心心|快快乐乐|红红火火))",
     "exampleValues" : [ "开开心心", "快快乐乐" ]
@@ -1041,24 +1464,33 @@
     "description" : "Generate word in specified locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Word(en)",
     "exampleValues" : [ "along", "designer" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Custom value dictionary, multiple values separated by '|'"
+    "description" : "Custom value dictionary, multiple values separated by '|'",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 401
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MTitle",
   "name" : "@Title()",
   "description" : "Generate titles",
-  "tags" : [ "Text Information" ],
+  "tags" : [ "Text" ],
   "constructors" : [ {
     "instance" : "@Title()",
     "description" : "Generate title (Chinese, 2-20 characters)",
@@ -1070,7 +1502,10 @@
     "description" : "Generate title using specified dictionary",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "Custom value dictionary, multiple values separated by '|'"
+      "description" : "Custom value dictionary, multiple values separated by '|'",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Title(做好疫情防护|乌俄局势)",
     "exampleValues" : [ "做好疫情防护" ]
@@ -1079,24 +1514,33 @@
     "description" : "Generate title in specified locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Title(en)",
     "exampleValues" : [ "Do a good job in epidemic prevention" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Custom value dictionary, multiple values separated by '|'"
+    "description" : "Custom value dictionary, multiple values separated by '|'",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 402
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MSentence",
   "name" : "@Sentence()",
   "description" : "Generate sentences",
-  "tags" : [ "Text Information" ],
+  "tags" : [ "Text" ],
   "constructors" : [ {
     "instance" : "@Sentence()",
     "description" : "Generate sentence (Chinese, 5-100 characters)",
@@ -1108,7 +1552,10 @@
     "description" : "Generate sentence using specified dictionary",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "Custom value dictionary, multiple values separated by '|'"
+      "description" : "Custom value dictionary, multiple values separated by '|'",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Sentence(好好学习|天天向上)",
     "exampleValues" : [ "天天向上" ]
@@ -1117,24 +1564,33 @@
     "description" : "Generate sentence in specified locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+      "type" : "String",
+      "defaultValue" : "zh_CN",
+      "required" : false
     } ],
     "example" : "@Sentence(zh_CN)",
     "exampleValues" : [ "好好学习" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Custom value dictionary, multiple values separated by '|'"
+    "description" : "Custom value dictionary, multiple values separated by '|'",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+    "type" : "String",
+    "defaultValue" : "zh_CN",
+    "required" : false
   } ],
   "order" : 403
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MTangPoetry",
   "name" : "@TangPoetry()",
   "description" : "Generate Tang poetry",
-  "tags" : [ "Text Information" ],
+  "tags" : [ "Text" ],
   "constructors" : [ {
     "instance" : "@TangPoetry()",
     "description" : "Generate Tang poem (Chinese)",
@@ -1146,7 +1602,10 @@
     "description" : "Generate Tang poem using specified dictionary",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "Custom value dictionary, multiple values separated by '|'"
+      "description" : "Custom value dictionary, multiple values separated by '|'",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@TangPoetry(唐诗1|唐诗2)",
     "exampleValues" : [ "唐诗1", "唐诗2" ]
@@ -1155,24 +1614,33 @@
     "description" : "Generate Tang poem in specified locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@TangPoetry(en)",
     "exampleValues" : [ "Qiu Wei\nAFTER MISSING THE RECLUSE \nON THE WESTERN MOUNTAIN\nTo your hermitage here on the top of the mountain \nI have climbed, without stopping, these ten miles. \nI have knocked at your door, and no one answered; \nI have peeped into your room, at your seat beside the table. \nPerhaps you are out riding in your canopied chair, \nOr fishing, more likely, in some autumn pool. \nSorry though I am to be missing you, \nYou have become my meditation -- \nThe beauty of your grasses, fresh with rain, \nAnd close beside your window the music of your pines. \nI take into my being all that I see and hear, \nSoothing my senses, quieting my heart; \nAnd though there be neither host nor guest, \nHave I not reasoned a visit complete? \n...After enough, I have gone down the mountain. \nWhy should I wait for you any longer? ", "Wang Wei\nAT PARTING\nI dismount from my horse and I offer you wine, \nAnd I ask you where you are going and why. \nAnd you answer: \"I am discontent \nAnd would rest at the foot of the southern mountain. \nSo give me leave and ask me no questions. \nWhite clouds pass there without end.\" " ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Custom value dictionary, multiple values separated by '|'"
+    "description" : "Custom value dictionary, multiple values separated by '|'",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 404
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MParagraph",
   "name" : "@Paragraph()",
   "description" : "Generate paragraphs",
-  "tags" : [ "Text Information" ],
+  "tags" : [ "Text" ],
   "constructors" : [ {
     "instance" : "@Paragraph()",
     "description" : "Generate paragraph (Chinese, 200-1000 characters)",
@@ -1184,7 +1652,10 @@
     "description" : "Generate paragraph using specified dictionary",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "Custom value dictionary, multiple values separated by '|'"
+      "description" : "Custom value dictionary, multiple values separated by '|'",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Paragraph(段落1|段落2)",
     "exampleValues" : [ "段落1", "段落2" ]
@@ -1193,24 +1664,33 @@
     "description" : "Generate paragraph in specified locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Paragraph(en)",
     "exampleValues" : [ "At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. The time is gone, the promise is still there, the people are gone, like the arrow from the mstring, even if it is far to the horizon, the tender words are still there. If the affection is deep, I am not afraid of the long-term, having you in my heart is enough to comfort a lonely soul. The cymbals were pale that day, the white dew was frost, and the autumn breeze brought coolness. Xia came quietly, and went quietly. The autumn models came with graceful and graceful steps, lovingly sending the back of Xia Yuan, accompanied by fallen leaves, waiting for the arrival of the next season. Looking at the withered leaves, knowing that some departures are unobstructed, and the empty heart will be filled with the tranquility of the autumn light, so the parting time and time will be warmed by the next meeting.", "accidentally met and met. You are over there. I am here. A virtual thread connects us together. We could have become friends, communicate, talk, and sigh. However, we have been indulged in real life for too long. In this masked society, we have lost the most precious and simplest relationship between people-trust!" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Custom value dictionary, multiple values separated by '|'"
+    "description" : "Custom value dictionary, multiple values separated by '|'",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 405
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MArticle",
   "name" : "@Article()",
   "description" : "Generate articles",
-  "tags" : [ "Text Information" ],
+  "tags" : [ "Text" ],
   "constructors" : [ {
     "instance" : "@Article()",
     "description" : "Generate Chinese article (3 paragraphs, ≤800 words)",
@@ -1222,7 +1702,10 @@
     "description" : "Generate article in specified language (3 paragraphs, ≤800 words)",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Article(en)",
     "exampleValues" : [ "The time is gone, the promise is still there, the people are gone, like the arrow from the mstring, even if it is far to the horizon, the tender words are still there.  You are over there. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting.  I am here.\n\nAt this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting.  Looking at the withered leaves, knowing that some departures are unobstructed, and the empty heart will be filled with the tranquility of the autumn light, so the parting time and time will be warmed by the next meeting.  We could have become friends, communicate, talk, and sigh.\n\nIf the affection is deep, I am not afraid of the long-term, having you in my heart is enough to comfort a lonely soul.  You are over there.  Accidentally met and met.  If the affection is deep, I am not afraid of the long-term, having you in my heart is enough to comfort a lonely soul." ]
@@ -1231,10 +1714,16 @@
     "description" : "Generate article with specified paragraphs/word count/content",
     "parameters" : [ {
       "name" : "paragraphCount",
-      "description" : "Number of paragraphs"
+      "description" : "Number of paragraphs",
+      "type" : "Integer",
+      "defaultValue" : "3",
+      "required" : false
     }, {
       "name" : "wordCount",
-      "description" : "Maximum word count"
+      "description" : "Maximum word count",
+      "type" : "Integer",
+      "defaultValue" : "800",
+      "required" : false
     } ],
     "example" : "@Paragraph(2|200|At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting.)",
     "exampleValues" : [ "At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting.\n\nAt this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting." ]
@@ -1243,33 +1732,51 @@
     "description" : "Generate article with specified paragraphs/word count/language",
     "parameters" : [ {
       "name" : "paragraphCount",
-      "description" : "Number of paragraphs"
+      "description" : "Number of paragraphs",
+      "type" : "Integer",
+      "defaultValue" : "3",
+      "required" : false
     }, {
       "name" : "wordCount",
-      "description" : "Maximum word count"
+      "description" : "Maximum word count",
+      "type" : "Integer",
+      "defaultValue" : "800",
+      "required" : false
     }, {
       "name" : "locale",
-      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Article(2|200|en)",
     "exampleValues" : [ "At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting.  I am here. The time is gone, the promise is still there, the people are gone, like the arrow from the mstring, even if it is far to the horizon, the tender words are still there.  The autumn models came with graceful and graceful steps, lovingly sending the back of Xia Yuan, accompanied by fallen leaves, waiting for the arrival of the next season.\n\nXia came quietly, and went quietly.  Xia came quietly, and went quietly. At this moment, you are so far away, just like the summer that went away, there is no longer the enthusiasm of the past, it seems that we are all used to such a quiet parting." ]
   } ],
   "parameters" : [ {
     "name" : "paragraphCount",
-    "description" : "Number of paragraphs"
+    "description" : "Number of paragraphs",
+    "type" : "Integer",
+    "defaultValue" : "3",
+    "required" : false
   }, {
     "name" : "wordCount",
-    "description" : "Maximum word count"
+    "description" : "Maximum word count",
+    "type" : "Integer",
+    "defaultValue" : "800",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 406
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MCountry",
   "name" : "@Country()",
   "description" : "Generate countries (ISO 3166-1 standard)",
-  "tags" : [ "Geographic Information" ],
+  "tags" : [ "Geographic" ],
   "constructors" : [ {
     "instance" : "@Country()",
     "description" : "Generate country (Chinese)",
@@ -1281,7 +1788,10 @@
     "description" : "Generate country using specified dictionary",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "Custom value dictionary, multiple values separated by '|'"
+      "description" : "Custom value dictionary, multiple values separated by '|'",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Country(中国,俄罗斯)",
     "exampleValues" : [ "中国" ]
@@ -1290,24 +1800,33 @@
     "description" : "Generate country in specified locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+      "type" : "String",
+      "defaultValue" : "zh_CN",
+      "required" : false
     } ],
     "example" : "@Country(zh_CN)",
     "exampleValues" : [ "中国" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Custom value dictionary, multiple values separated by '|'"
+    "description" : "Custom value dictionary, multiple values separated by '|'",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+    "type" : "String",
+    "defaultValue" : "zh_CN",
+    "required" : false
   } ],
   "order" : 501
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MProvince",
   "name" : "@Province()",
   "description" : "Generate provinces",
-  "tags" : [ "Geographic Information" ],
+  "tags" : [ "Geographic" ],
   "constructors" : [ {
     "instance" : "@Province()",
     "description" : "Generate province (Chinese)",
@@ -1319,7 +1838,10 @@
     "description" : "Generate province using specified dictionary",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "Custom value dictionary, multiple values separated by '|'"
+      "description" : "Custom value dictionary, multiple values separated by '|'",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Province(山西,河北,北京,上海)",
     "exampleValues" : [ "北京", "上海" ]
@@ -1328,24 +1850,33 @@
     "description" : "Generate province in specified locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Province(en)",
     "exampleValues" : [ "U.S.", "U.K." ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Custom value dictionary, multiple values separated by '|'"
+    "description" : "Custom value dictionary, multiple values separated by '|'",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 502
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MCity",
   "name" : "@City()",
   "description" : "Generate cities",
-  "tags" : [ "Geographic Information" ],
+  "tags" : [ "Geographic" ],
   "constructors" : [ {
     "instance" : "@City()",
     "description" : "Generate city (Chinese)",
@@ -1357,7 +1888,10 @@
     "description" : "Generate city using specified dictionary",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "Custom value dictionary, multiple values separated by '|'"
+      "description" : "Custom value dictionary, multiple values separated by '|'",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Word(北京|深圳|上海))",
     "exampleValues" : [ "深圳", "上海" ]
@@ -1366,24 +1900,33 @@
     "description" : "Generate city in specified locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@City(en)",
     "exampleValues" : [ "Chicago", "New York" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Custom value dictionary, multiple values separated by '|'"
+    "description" : "Custom value dictionary, multiple values separated by '|'",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 503
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MAddress",
   "name" : "@Address()",
   "description" : "Generate addresses",
-  "tags" : [ "Geographic Information" ],
+  "tags" : [ "Geographic" ],
   "constructors" : [ {
     "instance" : "@Address()",
     "description" : "Generate address (Chinese)",
@@ -1395,7 +1938,10 @@
     "description" : "Generate address using specified dictionary",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "Custom value dictionary, multiple values separated by '|'"
+      "description" : "Custom value dictionary, multiple values separated by '|'",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Address(地址1|地址2|地址3))",
     "exampleValues" : [ "地址3", "地址1" ]
@@ -1404,24 +1950,33 @@
     "description" : "Generate address in specified locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Address(en)",
     "exampleValues" : [ "1112 Hermitage Rd NW, Edmonton, AB T5A 4M4", "Gangwon-do, Yeongweol, Yeongwol-eup, Hasong-ri, 217-2" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Custom value dictionary, multiple values separated by '|'"
+    "description" : "Custom value dictionary, multiple values separated by '|'",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 504
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MLatitude",
   "name" : "@Latitude()",
   "description" : "Generate latitude values",
-  "tags" : [ "Geographic Information" ],
+  "tags" : [ "Geographic" ],
   "constructors" : [ {
     "instance" : "@Latitude(nullWeight)",
     "description" : "Generate latitude with default bounds and nullWeight (e.g. 2:8)",
@@ -1439,36 +1994,57 @@
     "description" : "Generate latitude with specified parameters",
     "parameters" : [ {
       "name" : "minLat",
-      "description" : "Min latitude (-90)"
+      "description" : "Min latitude (-90)",
+      "type" : "Double",
+      "defaultValue" : "-90",
+      "required" : false
     }, {
       "name" : "maxLat",
-      "description" : "Max latitude (+90)"
+      "description" : "Max latitude (+90)",
+      "type" : "Double",
+      "defaultValue" : "90",
+      "required" : false
     }, {
       "name" : "scale",
-      "description" : "Decimal precision"
+      "description" : "Decimal precision",
+      "type" : "Integer",
+      "defaultValue" : "6",
+      "required" : false
     } ],
     "example" : "@Latitude(30,60,5,1:2)",
     "exampleValues" : [ "40.336546" ]
   } ],
   "parameters" : [ {
     "name" : "minLat",
-    "description" : "Min latitude (-90)"
+    "description" : "Min latitude (-90)",
+    "type" : "Double",
+    "defaultValue" : "-90",
+    "required" : false
   }, {
     "name" : "maxLat",
-    "description" : "Max latitude (+90)"
+    "description" : "Max latitude (+90)",
+    "type" : "Double",
+    "defaultValue" : "90",
+    "required" : false
   }, {
     "name" : "scale",
-    "description" : "Decimal precision"
+    "description" : "Decimal precision",
+    "type" : "Integer",
+    "defaultValue" : "6",
+    "required" : false
   }, {
     "name" : "nullSampler",
-    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 511
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MLongitude",
   "name" : "@Longitude()",
   "description" : "Generate longitude values",
-  "tags" : [ "Geographic Information" ],
+  "tags" : [ "Geographic" ],
   "constructors" : [ {
     "instance" : "@Longitude(nullWeight)",
     "description" : "Generate longitude with default bounds and nullWeight (e.g. 2:8)",
@@ -1486,36 +2062,57 @@
     "description" : "Generate longitude with specified parameters",
     "parameters" : [ {
       "name" : "minLng",
-      "description" : "Min longitude (-180)"
+      "description" : "Min longitude (-180)",
+      "type" : "Double",
+      "defaultValue" : "-180",
+      "required" : false
     }, {
       "name" : "maxLng",
-      "description" : "Max longitude (+180)"
+      "description" : "Max longitude (+180)",
+      "type" : "Double",
+      "defaultValue" : "180",
+      "required" : false
     }, {
       "name" : "scale",
-      "description" : "Decimal precision"
+      "description" : "Decimal precision",
+      "type" : "Integer",
+      "defaultValue" : "6",
+      "required" : false
     } ],
     "example" : "@Longitude(30,60,5,1:2)",
     "exampleValues" : [ "40.336546" ]
   } ],
   "parameters" : [ {
     "name" : "minLng",
-    "description" : "Min longitude (-180)"
+    "description" : "Min longitude (-180)",
+    "type" : "Double",
+    "defaultValue" : "-180",
+    "required" : false
   }, {
     "name" : "maxLng",
-    "description" : "Max longitude (+180)"
+    "description" : "Max longitude (+180)",
+    "type" : "Double",
+    "defaultValue" : "180",
+    "required" : false
   }, {
     "name" : "scale",
-    "description" : "Decimal precision"
+    "description" : "Decimal precision",
+    "type" : "Integer",
+    "defaultValue" : "6",
+    "required" : false
   }, {
     "name" : "nullSampler",
-    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 512
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MCoordinates",
   "name" : "@Coordinates()",
   "description" : "Generate random coordinates (format: longitude,latitude)",
-  "tags" : [ "Geographic Information" ],
+  "tags" : [ "Geographic" ],
   "constructors" : [ {
     "instance" : "@Coordinates(nullWeight)",
     "description" : "Generate coordinates with default bounds and nullWeight (e.g. 2:8)",
@@ -1533,48 +2130,81 @@
     "description" : "Generate coordinates with specified parameters",
     "parameters" : [ {
       "name" : "minLng",
-      "description" : "Min longitude (-180)"
+      "description" : "Min longitude (-180)",
+      "type" : "Double",
+      "defaultValue" : "-180",
+      "required" : false
     }, {
       "name" : "maxLng",
-      "description" : "Max longitude (+180)"
+      "description" : "Max longitude (+180)",
+      "type" : "Double",
+      "defaultValue" : "180",
+      "required" : false
     }, {
       "name" : "minLat",
-      "description" : "Min latitude (-90)"
+      "description" : "Min latitude (-90)",
+      "type" : "Double",
+      "defaultValue" : "-90",
+      "required" : false
     }, {
       "name" : "maxLat",
-      "description" : "Max latitude (+90)"
+      "description" : "Max latitude (+90)",
+      "type" : "Double",
+      "defaultValue" : "90",
+      "required" : false
     }, {
       "name" : "scale",
-      "description" : "Decimal precision"
+      "description" : "Decimal precision",
+      "type" : "Integer",
+      "defaultValue" : "6",
+      "required" : false
     } ],
     "example" : "@Coordinates(30,60,100,160,5,1:2)",
     "exampleValues" : [ "40.336546,110.232121" ]
   } ],
   "parameters" : [ {
     "name" : "minLng",
-    "description" : "Min longitude (-180)"
+    "description" : "Min longitude (-180)",
+    "type" : "Double",
+    "defaultValue" : "-180",
+    "required" : false
   }, {
     "name" : "maxLng",
-    "description" : "Max longitude (+180)"
+    "description" : "Max longitude (+180)",
+    "type" : "Double",
+    "defaultValue" : "180",
+    "required" : false
   }, {
     "name" : "minLat",
-    "description" : "Min latitude (-90)"
+    "description" : "Min latitude (-90)",
+    "type" : "Double",
+    "defaultValue" : "-90",
+    "required" : false
   }, {
     "name" : "maxLat",
-    "description" : "Max latitude (+90)"
+    "description" : "Max latitude (+90)",
+    "type" : "Double",
+    "defaultValue" : "90",
+    "required" : false
   }, {
     "name" : "scale",
-    "description" : "Decimal precision"
+    "description" : "Decimal precision",
+    "type" : "Integer",
+    "defaultValue" : "6",
+    "required" : false
   }, {
     "name" : "nullSampler",
-    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null"
+    "description" : "The null ratio, such as \"1:2\", indicates that generating a random value 3 times with an average of 1 time is null",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 513
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MZip",
   "name" : "@Zip()",
   "description" : "Generate postal codes",
-  "tags" : [ "Geographic Information" ],
+  "tags" : [ "Geographic" ],
   "constructors" : [ {
     "instance" : "@Zip(locale)",
     "description" : "Generate postal code in specified locale",
@@ -1592,14 +2222,20 @@
     "description" : "Generate postal code using specified dictionary",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "Postal code dictionary, default includes Chinese and UK formats"
+      "description" : "Postal code dictionary, default includes Chinese and UK formats",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Zip(101407|101406|101405)",
     "exampleValues" : [ "101407", "101405", "101406" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Postal code dictionary, default includes Chinese and UK formats"
+    "description" : "Postal code dictionary, default includes Chinese and UK formats",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 520
 }, {
@@ -1618,14 +2254,20 @@
     "description" : "Generate MD5 value with specified length",
     "parameters" : [ {
       "name" : "length",
-      "description" : "Digest length (16 or 32), default 32"
+      "description" : "Digest length (16 or 32), default 32",
+      "type" : "Integer",
+      "defaultValue" : "32",
+      "required" : false
     } ],
     "example" : "@Md5(16)",
     "exampleValues" : [ "4727EE9395F324CD" ]
   } ],
   "parameters" : [ {
     "name" : "length",
-    "description" : "Digest length (16 or 32), default 32"
+    "description" : "Digest length (16 or 32), default 32",
+    "type" : "Integer",
+    "defaultValue" : "32",
+    "required" : false
   } ],
   "order" : 601
 }, {
@@ -1644,14 +2286,20 @@
     "description" : "Generate SHA hash with specified version",
     "parameters" : [ {
       "name" : "version",
-      "description" : "Algorithm version (SHA-1, SHA-224, SHA-256, SHA-384, SHA-512), default SHA-512"
+      "description" : "Algorithm version (SHA-1, SHA-224, SHA-256, SHA-384, SHA-512), default SHA-512",
+      "type" : "String",
+      "defaultValue" : "SHA-512",
+      "required" : false
     } ],
     "example" : "@Sha(SHA-224)",
     "exampleValues" : [ "21bca972707548ae0ffac10d2fed7495e51cb62f48b31e5edd4eb257", "ad7cdf3b66e8d68c22ce4750557e4f7c3af1a199fd11193dfbfa1e41" ]
   } ],
   "parameters" : [ {
     "name" : "version",
-    "description" : "Algorithm version (SHA-1, SHA-224, SHA-256, SHA-384, SHA-512), default SHA-512"
+    "description" : "Algorithm version (SHA-1, SHA-224, SHA-256, SHA-384, SHA-512), default SHA-512",
+    "type" : "String",
+    "defaultValue" : "SHA-512",
+    "required" : false
   } ],
   "order" : 602
 }, {
@@ -1670,14 +2318,20 @@
     "description" : "Generate locale string with specified separator",
     "parameters" : [ {
       "name" : "joiner",
-      "description" : "Country/language separator, default \"_\""
+      "description" : "Country/language separator, default \"_\"",
+      "type" : "String",
+      "defaultValue" : "_",
+      "required" : false
     } ],
     "example" : "@Locale(-)",
     "exampleValues" : [ "zh-CN" ]
   } ],
   "parameters" : [ {
     "name" : "joiner",
-    "description" : "Country/language separator, default \"_\""
+    "description" : "Country/language separator, default \"_\"",
+    "type" : "String",
+    "defaultValue" : "_",
+    "required" : false
   } ],
   "order" : 701
 }, {
@@ -1696,21 +2350,27 @@
     "description" : "Generate timezone from specified dictionary",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "Timezone dictionary, default includes major timezones"
+      "description" : "Timezone dictionary, default includes major timezones",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@TimeZone(Australia/Darwin|Australia/Sydney|America/Argentina/Buenos_Aires))",
     "exampleValues" : [ "Australia/Darwin", "America/Argentina/Buenos_Aires" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Timezone dictionary, default includes major timezones"
+    "description" : "Timezone dictionary, default includes major timezones",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 702
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MAge",
   "name" : "@Age()",
   "description" : "Generate ages",
-  "tags" : [ "User Information" ],
+  "tags" : [ "User" ],
   "constructors" : [ {
     "instance" : "@Age()",
     "description" : "Generate random age (0-100)",
@@ -1722,27 +2382,39 @@
     "description" : "Generate age between min and max",
     "parameters" : [ {
       "name" : "min",
-      "description" : "Minimum age, default 0"
+      "description" : "Minimum age, default 0",
+      "type" : "Integer",
+      "defaultValue" : "1",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "Maximum age, default 100"
+      "description" : "Maximum age, default 100",
+      "type" : "Integer",
+      "defaultValue" : "100",
+      "required" : false
     } ],
     "example" : "@String(1,50)",
     "exampleValues" : [ "25" ]
   } ],
   "parameters" : [ {
     "name" : "min",
-    "description" : "Minimum age, default 0"
+    "description" : "Minimum age, default 0",
+    "type" : "Integer",
+    "defaultValue" : "1",
+    "required" : false
   }, {
     "name" : "max",
-    "description" : "Maximum age, default 100"
+    "description" : "Maximum age, default 100",
+    "type" : "Integer",
+    "defaultValue" : "100",
+    "required" : false
   } ],
   "order" : 800
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MName",
   "name" : "@Name()",
   "description" : "Generate full names",
-  "tags" : [ "User Information" ],
+  "tags" : [ "User" ],
   "constructors" : [ {
     "instance" : "@Name()",
     "description" : "Generate Chinese name",
@@ -1754,7 +2426,10 @@
     "description" : "Generate name from specified dictionary",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "Name dictionary, default combines @Firstname() and @Lastname()"
+      "description" : "Name dictionary, default combines @Firstname() and @Lastname()",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Name(欧阳娜娜|贾玲)",
     "exampleValues" : [ "欧阳娜娜", "贾玲" ]
@@ -1763,24 +2438,33 @@
     "description" : "Generate name in specified locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "Custom value dictionary, multiple values separated by '|'"
+      "description" : "Custom value dictionary, multiple values separated by '|'",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Name(en)",
     "exampleValues" : [ "Chris Jack", "Abra Abel" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Name dictionary, default combines @Firstname() and @Lastname()"
+    "description" : "Name dictionary, default combines @Firstname() and @Lastname()",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "Custom value dictionary, multiple values separated by '|'"
+    "description" : "Custom value dictionary, multiple values separated by '|'",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 801
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MPassword",
   "name" : "@Password()",
   "description" : "Generate random passwords",
-  "tags" : [ "User Information" ],
+  "tags" : [ "User" ],
   "constructors" : [ {
     "instance" : "@Password()",
     "description" : "Generate password (6-20 chars, A-Za-z0-9)",
@@ -1792,10 +2476,16 @@
     "description" : "Generate password (min-max length, A-Za-z0-9)",
     "parameters" : [ {
       "name" : "min",
-      "description" : "Min length, default 6"
+      "description" : "Min length, default 6",
+      "type" : "Integer",
+      "defaultValue" : "6",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "Max length, default 20"
+      "description" : "Max length, default 20",
+      "type" : "Integer",
+      "defaultValue" : "20",
+      "required" : false
     } ],
     "example" : "@Passd(5,8)",
     "exampleValues" : [ "llbxB6Z", "qLQlgRz" ]
@@ -1804,16 +2494,28 @@
     "description" : "Generate password (6-20 chars) with specified character sets",
     "parameters" : [ {
       "name" : "allowUpperCase",
-      "description" : "Allow uppercase, default true"
+      "description" : "Allow uppercase, default true",
+      "type" : "Boolean",
+      "defaultValue" : "true",
+      "required" : false
     }, {
       "name" : "allowLowerCase",
-      "description" : "Allow lowercase, default true"
+      "description" : "Allow lowercase, default true",
+      "type" : "Boolean",
+      "defaultValue" : "true",
+      "required" : false
     }, {
       "name" : "allowDigits",
-      "description" : "Allow digits, default true"
+      "description" : "Allow digits, default true",
+      "type" : "Boolean",
+      "defaultValue" : "true",
+      "required" : false
     }, {
       "name" : "allowSpecialChar",
-      "description" : "Allow special chars, default false"
+      "description" : "Allow special chars, default false",
+      "type" : "Boolean",
+      "defaultValue" : "false",
+      "required" : false
     } ],
     "example" : "@Passd(true,true,true,true)",
     "exampleValues" : [ "H/70~{E:nmB%e", "'KIJbW2DP`\\<s3b+ze" ]
@@ -1822,51 +2524,87 @@
     "description" : "Generate password (min-max length) with specified character sets",
     "parameters" : [ {
       "name" : "min",
-      "description" : "Min length, default 6"
+      "description" : "Min length, default 6",
+      "type" : "Integer",
+      "defaultValue" : "6",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "Max length, default 20"
+      "description" : "Max length, default 20",
+      "type" : "Integer",
+      "defaultValue" : "20",
+      "required" : false
     }, {
       "name" : "allowUpperCase",
-      "description" : "Allow uppercase, default true"
+      "description" : "Allow uppercase, default true",
+      "type" : "Boolean",
+      "defaultValue" : "true",
+      "required" : false
     }, {
       "name" : "allowLowerCase",
-      "description" : "Allow lowercase, default true"
+      "description" : "Allow lowercase, default true",
+      "type" : "Boolean",
+      "defaultValue" : "true",
+      "required" : false
     }, {
       "name" : "allowDigits",
-      "description" : "Allow digits, default true"
+      "description" : "Allow digits, default true",
+      "type" : "Boolean",
+      "defaultValue" : "true",
+      "required" : false
     }, {
       "name" : "allowSpecialChar",
-      "description" : "Allow special chars, default false"
+      "description" : "Allow special chars, default false",
+      "type" : "Boolean",
+      "defaultValue" : "false",
+      "required" : false
     } ],
     "example" : "@Passd(5,8,true,true,true,true)",
     "exampleValues" : [ "H-+:6", "@7^KQf8" ]
   } ],
   "parameters" : [ {
     "name" : "min",
-    "description" : "Min length, default 6"
+    "description" : "Min length, default 6",
+    "type" : "Integer",
+    "defaultValue" : "6",
+    "required" : false
   }, {
     "name" : "max",
-    "description" : "Max length, default 20"
+    "description" : "Max length, default 20",
+    "type" : "Integer",
+    "defaultValue" : "20",
+    "required" : false
   }, {
     "name" : "allowUpperCase",
-    "description" : "Allow uppercase, default true"
+    "description" : "Allow uppercase, default true",
+    "type" : "Boolean",
+    "defaultValue" : "true",
+    "required" : false
   }, {
     "name" : "allowLowerCase",
-    "description" : "Allow lowercase, default true"
+    "description" : "Allow lowercase, default true",
+    "type" : "Boolean",
+    "defaultValue" : "true",
+    "required" : false
   }, {
     "name" : "allowDigits",
-    "description" : "Allow digits, default true"
+    "description" : "Allow digits, default true",
+    "type" : "Boolean",
+    "defaultValue" : "true",
+    "required" : false
   }, {
     "name" : "allowSpecialChar",
-    "description" : "Allow special chars, default false"
+    "description" : "Allow special chars, default false",
+    "type" : "Boolean",
+    "defaultValue" : "false",
+    "required" : false
   } ],
   "order" : 802
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MFirstname",
   "name" : "@Firstname()",
   "description" : "Generate first names",
-  "tags" : [ "User Information" ],
+  "tags" : [ "User" ],
   "constructors" : [ {
     "instance" : "@Firstname()",
     "description" : "Generate Chinese first name",
@@ -1878,7 +2616,10 @@
     "description" : "Generate first name from specified dictionary",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "Name dictionary, default Chinese names"
+      "description" : "Name dictionary, default Chinese names",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Firstname(逍遥|哪哪|曦曦)",
     "exampleValues" : [ "曦曦", "逍遥" ]
@@ -1887,24 +2628,33 @@
     "description" : "Generate first name in specified locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Firstname(en)",
     "exampleValues" : [ "Aaron", "Alan" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Name dictionary, default Chinese names"
+    "description" : "Name dictionary, default Chinese names",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 803
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MLastname",
   "name" : "@Lastname()",
   "description" : "Generate last names",
-  "tags" : [ "User Information" ],
+  "tags" : [ "User" ],
   "constructors" : [ {
     "instance" : "@Lastname()",
     "description" : "Generate Chinese last name",
@@ -1916,7 +2666,10 @@
     "description" : "Generate last name from specified dictionary",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "Surname dictionary, default Chinese surnames"
+      "description" : "Surname dictionary, default Chinese surnames",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Lastname(李|王|张|刘|陈)",
     "exampleValues" : [ "张", "王" ]
@@ -1925,24 +2678,33 @@
     "description" : "Generate last name in specified locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Lastname(en)",
     "exampleValues" : [ "Sun", "Zhang" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Surname dictionary, default Chinese surnames"
+    "description" : "Surname dictionary, default Chinese surnames",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 804
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MMobile",
   "name" : "@Mobile()",
   "description" : "Generate mobile numbers",
-  "tags" : [ "User Information" ],
+  "tags" : [ "User" ],
   "constructors" : [ {
     "instance" : "@Mobile()",
     "description" : "Generate Chinese mobile number",
@@ -1954,21 +2716,27 @@
     "description" : "Generate mobile number for specified locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Mobile(en)",
     "exampleValues" : [ "07790421505", "07866557530" ]
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 805
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MLandline",
   "name" : "@Landline()",
   "description" : "Generate landline numbers",
-  "tags" : [ "User Information" ],
+  "tags" : [ "User" ],
   "constructors" : [ {
     "instance" : "@Landline()",
     "description" : "Generate Chinese landline number",
@@ -1980,21 +2748,27 @@
     "description" : "Generate landline number for specified locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@MLandline(en)",
     "exampleValues" : [ "", "" ]
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 805
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MEmail",
   "name" : "@Email()",
   "description" : "Generate email addresses",
-  "tags" : [ "User Information" ],
+  "tags" : [ "User" ],
   "constructors" : [ {
     "instance" : "@Email()",
     "description" : "Generate email (length 6-20)",
@@ -2006,7 +2780,10 @@
     "description" : "Generate email (length 6-20) with default suffixes",
     "parameters" : [ {
       "name" : "suffix",
-      "description" : "Email suffixes separated by \"|\", default common providers"
+      "description" : "Email suffixes separated by \"|\", default common providers",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Email(@xcan.cloud)",
     "exampleValues" : [ "WF8W5NFeMyrMKAx@xcan.cloud", "CcbZYdmDEtWGEY1@xcan.cloud" ]
@@ -2015,10 +2792,16 @@
     "description" : "Generate email (min-max length) with default suffixes",
     "parameters" : [ {
       "name" : "min",
-      "description" : "Min length, default 6"
+      "description" : "Min length, default 6",
+      "type" : "Integer",
+      "defaultValue" : "6",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "Max length, default 20"
+      "description" : "Max length, default 20",
+      "type" : "Integer",
+      "defaultValue" : "20",
+      "required" : false
     } ],
     "example" : "@Email(5,10)",
     "exampleValues" : [ "zjs7cb@hotmail.com", "jsGH6sc@yahoo.com" ]
@@ -2027,33 +2810,51 @@
     "description" : "Generate email (min-max length) with specified suffixes",
     "parameters" : [ {
       "name" : "min",
-      "description" : "Min length, default 6"
+      "description" : "Min length, default 6",
+      "type" : "Integer",
+      "defaultValue" : "6",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "Max length, default 20"
+      "description" : "Max length, default 20",
+      "type" : "Integer",
+      "defaultValue" : "20",
+      "required" : false
     }, {
       "name" : "suffix",
-      "description" : "Email suffixes separated by \"|\", default common providers"
+      "description" : "Email suffixes separated by \"|\", default common providers",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Email(5,5,@xcan.cloud)",
     "exampleValues" : [ "4g4Fv@xcan.cloud", "Hv8jh@xcan.cloud" ]
   } ],
   "parameters" : [ {
     "name" : "min",
-    "description" : "Min length, default 6"
+    "description" : "Min length, default 6",
+    "type" : "Integer",
+    "defaultValue" : "6",
+    "required" : false
   }, {
     "name" : "max",
-    "description" : "Max length, default 20"
+    "description" : "Max length, default 20",
+    "type" : "Integer",
+    "defaultValue" : "20",
+    "required" : false
   }, {
     "name" : "suffix",
-    "description" : "Email suffixes separated by \"|\", default common providers"
+    "description" : "Email suffixes separated by \"|\", default common providers",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 806
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MGender",
   "name" : "@Gender()",
   "description" : "Generate genders",
-  "tags" : [ "User Information" ],
+  "tags" : [ "User" ],
   "constructors" : [ {
     "instance" : "@Gender()",
     "description" : "Generate Chinese gender",
@@ -2065,7 +2866,10 @@
     "description" : "Generate gender from specified dictionary",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "Gender dictionary, default: Male|Female"
+      "description" : "Gender dictionary, default: Male|Female",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Gender(F|M))",
     "exampleValues" : [ "F", "M" ]
@@ -2074,24 +2878,33 @@
     "description" : "Generate gender in specified locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "Custom value dictionary, multiple values separated by '|'"
+      "description" : "Custom value dictionary, multiple values separated by '|'",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Gender(en)",
     "exampleValues" : [ "male", "female" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Gender dictionary, default: Male|Female"
+    "description" : "Gender dictionary, default: Male|Female",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "Custom value dictionary, multiple values separated by '|'"
+    "description" : "Custom value dictionary, multiple values separated by '|'",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 807
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MEducation",
   "name" : "@Education()",
   "description" : "Generate education levels",
-  "tags" : [ "User Information" ],
+  "tags" : [ "User" ],
   "constructors" : [ {
     "instance" : "@Education()",
     "description" : "Generate Chinese education level",
@@ -2103,7 +2916,10 @@
     "description" : "Generate education level from specified dictionary",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "Education dictionary, default Chinese levels"
+      "description" : "Education dictionary, default Chinese levels",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Education(本科,硕士)",
     "exampleValues" : [ "本科" ]
@@ -2112,17 +2928,26 @@
     "description" : "Generate education level in specified locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+      "type" : "String",
+      "defaultValue" : "zh_CN",
+      "required" : false
     } ],
     "example" : "@Education(zh_CN)",
     "exampleValues" : [ "本科" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Education dictionary, default Chinese levels"
+    "description" : "Education dictionary, default Chinese levels",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+    "type" : "String",
+    "defaultValue" : "zh_CN",
+    "required" : false
   } ],
   "order" : 808
 }, {
@@ -2141,14 +2966,20 @@
     "description" : "Generate application name using specified dictionary",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "Custom value dictionary, multiple values separated by '|'"
+      "description" : "Custom value dictionary, multiple values separated by '|'",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@AppName(星链|360|ie))",
     "exampleValues" : [ "360", "星链" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Custom value dictionary, multiple values separated by '|'"
+    "description" : "Custom value dictionary, multiple values separated by '|'",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 901
 }, {
@@ -2167,7 +2998,10 @@
     "description" : "Generate version with specified prefix, no release/build state",
     "parameters" : [ {
       "name" : "prefixDict",
-      "description" : "Version prefix (e.g., \"v\", \"wchat\"), default none"
+      "description" : "Version prefix (e.g., \"v\", \"wchat\"), default none",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@AppVersion(v|wchat)",
     "exampleValues" : [ "v-74.153.115", "m-223.100.154" ]
@@ -2176,10 +3010,16 @@
     "description" : "Generate version with specified prefix and release state",
     "parameters" : [ {
       "name" : "prefixDict",
-      "description" : "Version prefix (e.g., \"v\", \"wchat\"), default none"
+      "description" : "Version prefix (e.g., \"v\", \"wchat\"), default none",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     }, {
       "name" : "releaseStateDict",
-      "description" : "Release state dictionary (e.g., SNAPSHOT, BETA, RELEASE)"
+      "description" : "Release state dictionary (e.g., SNAPSHOT, BETA, RELEASE)",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@AppVersion(v|wchat,SNAPSHOT|BETA|RELEASE)",
     "exampleValues" : [ "v-237.22.12-SNAPSHOT", "m-110.126.74-BETA" ]
@@ -2188,26 +3028,44 @@
     "description" : "Generate version with specified prefix, release state, and build state",
     "parameters" : [ {
       "name" : "prefixDict",
-      "description" : "Version prefix (e.g., \"v\", \"wchat\"), default none"
+      "description" : "Version prefix (e.g., \"v\", \"wchat\"), default none",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     }, {
       "name" : "releaseStateDict",
-      "description" : "Release state dictionary (e.g., SNAPSHOT, BETA, RELEASE)"
+      "description" : "Release state dictionary (e.g., SNAPSHOT, BETA, RELEASE)",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     }, {
       "name" : "buildStateDict",
-      "description" : "Build state dictionary (e.g., build.1, build.2)"
+      "description" : "Build state dictionary (e.g., build.1, build.2)",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@AppVersion(v|wchat,SNAPSHOT|BETA|RELEASE,build.1|build.2)",
     "exampleValues" : [ "v-78.225.93-BETA+build2", "m-250.204.99-RELEASE+build1" ]
   } ],
   "parameters" : [ {
     "name" : "prefixDict",
-    "description" : "Version prefix (e.g., \"v\", \"wchat\"), default none"
+    "description" : "Version prefix (e.g., \"v\", \"wchat\"), default none",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "releaseStateDict",
-    "description" : "Release state dictionary (e.g., SNAPSHOT, BETA, RELEASE)"
+    "description" : "Release state dictionary (e.g., SNAPSHOT, BETA, RELEASE)",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   }, {
     "name" : "buildStateDict",
-    "description" : "Build state dictionary (e.g., build.1, build.2)"
+    "description" : "Build state dictionary (e.g., build.1, build.2)",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 902
 }, {
@@ -2268,20 +3126,32 @@
     "description" : "Generate server port within specified min~max range",
     "parameters" : [ {
       "name" : "min",
-      "description" : "Minimum port, default 1024 (min 0)"
+      "description" : "Minimum port, default 1024 (min 0)",
+      "type" : "Integer",
+      "defaultValue" : "1024",
+      "required" : false
     }, {
       "name" : "max",
-      "description" : "Maximum port, default 65535 (max 65535)"
+      "description" : "Maximum port, default 65535 (max 65535)",
+      "type" : "Integer",
+      "defaultValue" : "65535",
+      "required" : false
     } ],
     "example" : "@Port(5000,10000)",
     "exampleValues" : [ "6000" ]
   } ],
   "parameters" : [ {
     "name" : "min",
-    "description" : "Minimum port, default 1024 (min 0)"
+    "description" : "Minimum port, default 1024 (min 0)",
+    "type" : "Integer",
+    "defaultValue" : "1024",
+    "required" : false
   }, {
     "name" : "max",
-    "description" : "Maximum port, default 65535 (max 65535)"
+    "description" : "Maximum port, default 65535 (max 65535)",
+    "type" : "Integer",
+    "defaultValue" : "65535",
+    "required" : false
   } ],
   "order" : 906
 }, {
@@ -2300,14 +3170,20 @@
     "description" : "Generate protocol using specified dictionary",
     "parameters" : [ {
       "name" : "dict",
-      "description" : "Protocol dictionary, default: FTP|TFTP|HTTP|SMTP|DHCP|Telnet|DNS|SNMP|DNS|TCP|UDP|ARP|DHCP|SIP|RTP|RLP|RAP|L2TP|PPTP|SNMP|TFTP"
+      "description" : "Protocol dictionary, default: FTP|TFTP|HTTP|SMTP|DHCP|Telnet|DNS|SNMP|DNS|TCP|UDP|ARP|DHCP|SIP|RTP|RLP|RAP|L2TP|PPTP|SNMP|TFTP",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@Protocol(FTP|TFTP|HTTP)",
     "exampleValues" : [ "HTTP" ]
   } ],
   "parameters" : [ {
     "name" : "dict",
-    "description" : "Protocol dictionary, default: FTP|TFTP|HTTP|SMTP|DHCP|Telnet|DNS|SNMP|DNS|TCP|UDP|ARP|DHCP|SIP|RTP|RLP|RAP|L2TP|PPTP|SNMP|TFTP"
+    "description" : "Protocol dictionary, default: FTP|TFTP|HTTP|SMTP|DHCP|Telnet|DNS|SNMP|DNS|TCP|UDP|ARP|DHCP|SIP|RTP|RLP|RAP|L2TP|PPTP|SNMP|TFTP",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 907
 }, {
@@ -2326,7 +3202,10 @@
     "description" : "Generate URL with specified domain",
     "parameters" : [ {
       "name" : "max",
-      "description" : "Max length, default 50"
+      "description" : "Max length, default 50",
+      "type" : "Integer",
+      "defaultValue" : "50",
+      "required" : false
     } ],
     "example" : "@Url(true)",
     "exampleValues" : [ "http://www.xcan.org:8080/aacj/uics?acc=67&ubc7=8jFc", "http://www.xcan.org:8080/aacj/uics?name=8jkc&gggbssiu=78hbss" ]
@@ -2335,39 +3214,63 @@
     "description" : "Generate URL with query parameters",
     "parameters" : [ {
       "name" : "max",
-      "description" : "Max length, default 50"
+      "description" : "Max length, default 50",
+      "type" : "Integer",
+      "defaultValue" : "50",
+      "required" : false
     }, {
       "name" : "protocol",
-      "description" : "Protocol (http/https), default http"
+      "description" : "Protocol (http/https), default http",
+      "type" : "String",
+      "defaultValue" : "http",
+      "required" : false
     }, {
       "name" : "domain",
-      "description" : "Domain/IP, default 127.0.0.1:8080"
+      "description" : "Domain/IP, default 127.0.0.1:8080",
+      "type" : "String",
+      "defaultValue" : "127.0.0.1:8080",
+      "required" : false
     }, {
       "name" : "allowQueryParams",
-      "description" : "Generate query parameters, default false"
+      "description" : "Generate query parameters, default false",
+      "type" : "Boolean",
+      "defaultValue" : "false",
+      "required" : false
     } ],
     "example" : "@Url(https,www.xcan.org,user|name,true)",
     "exampleValues" : [ "https://www.xcan.org:8080/aacj/uics?user=67&name=8jFc", "https://www.xcan.org:8080/aacj/uics?name=8jkc&user=78hbss" ]
   } ],
   "parameters" : [ {
     "name" : "max",
-    "description" : "Max length, default 50"
+    "description" : "Max length, default 50",
+    "type" : "Integer",
+    "defaultValue" : "50",
+    "required" : false
   }, {
     "name" : "protocol",
-    "description" : "Protocol (http/https), default http"
+    "description" : "Protocol (http/https), default http",
+    "type" : "String",
+    "defaultValue" : "http",
+    "required" : false
   }, {
     "name" : "domain",
-    "description" : "Domain/IP, default 127.0.0.1:8080"
+    "description" : "Domain/IP, default 127.0.0.1:8080",
+    "type" : "String",
+    "defaultValue" : "127.0.0.1:8080",
+    "required" : false
   }, {
     "name" : "allowQueryParams",
-    "description" : "Generate query parameters, default false"
+    "description" : "Generate query parameters, default false",
+    "type" : "Boolean",
+    "defaultValue" : "false",
+    "required" : false
   } ],
   "order" : 908
 }, {
   "clazz" : "cloud.xcan.jmock.plugin.MEmoji",
   "name" : "@Emoji()",
   "description" : "Generate random emojis",
-  "tags" : [ "Web Resources" ],
+  "tags" : [ "Web" ],
   "constructors" : [ {
     "instance" : "@Emoji()",
     "description" : "Generate random emoji",
@@ -2381,7 +3284,7 @@
   "clazz" : "cloud.xcan.jmock.plugin.MColor",
   "name" : "@Color()",
   "description" : "Generate web color values",
-  "tags" : [ "Web Resources" ],
+  "tags" : [ "Web" ],
   "constructors" : [ {
     "instance" : "@Color()",
     "description" : "Generate random color (default rgb format)",
@@ -2393,14 +3296,20 @@
     "description" : "Generate color in specified format",
     "parameters" : [ {
       "name" : "format",
-      "description" : "Color format (rgb, hsl, hwb, lch, cmyk), default rgb"
+      "description" : "Color format (rgb, hsl, hwb, lch, cmyk), default rgb",
+      "type" : "String",
+      "defaultValue" : "rgb",
+      "required" : false
     } ],
     "example" : "@Color(hwb)",
     "exampleValues" : [ "hwb(108, 67%, 45%)", "hwb(133, 2%, 93%)" ]
   } ],
   "parameters" : [ {
     "name" : "format",
-    "description" : "Color format (rgb, hsl, hwb, lch, cmyk), default rgb"
+    "description" : "Color format (rgb, hsl, hwb, lch, cmyk), default rgb",
+    "type" : "String",
+    "defaultValue" : "rgb",
+    "required" : false
   } ],
   "order" : 1002
 }, {
@@ -2503,14 +3412,20 @@
     "description" : "Generate a specified programming language code snippet",
     "parameters" : [ {
       "name" : "language",
-      "description" : "Programming language, supported values: PYTHON, JAVA, JAVASCRIPT, TYPESRIPT, CPP, CSHARP, PHP, RUBY, SWIFT, GO"
+      "description" : "Programming language, supported values: PYTHON, JAVA, JAVASCRIPT, TYPESRIPT, CPP, CSHARP, PHP, RUBY, SWIFT, GO",
+      "type" : "String",
+      "defaultValue" : "",
+      "required" : false
     } ],
     "example" : "@CodeSnippet(PYTHON)",
     "exampleValues" : [ "def calculateResult(currentTotal):\n    \"\"\"Calculate the square of a number\"\"\"\n    data = currentTotal ** 2\n    return data\n\n# Function call\nresult = calculateResult(94)\nprint(f\"Square of 94 is {result}\")" ]
   } ],
   "parameters" : [ {
     "name" : "language",
-    "description" : "Programming language, supported values: PYTHON, JAVA, JAVASCRIPT, TYPESRIPT, CPP, CSHARP, PHP, RUBY, SWIFT, GO"
+    "description" : "Programming language, supported values: PYTHON, JAVA, JAVASCRIPT, TYPESRIPT, CPP, CSHARP, PHP, RUBY, SWIFT, GO",
+    "type" : "String",
+    "defaultValue" : "",
+    "required" : false
   } ],
   "order" : 3001
 }, {
@@ -2767,14 +3682,20 @@
     "description" : "Generate random string with specified character length",
     "parameters" : [ {
       "name" : "length",
-      "description" : "String length"
+      "description" : "String length",
+      "type" : "Integer",
+      "defaultValue" : "128",
+      "required" : false
     } ],
     "example" : "@Base64(32)",
     "exampleValues" : [ "XII3JC7y4gQvCXLB7V08uKDvBORyDiVI", "LQqpeYt1sl3rlYPaLYQZUsKtALZj8Yt7" ]
   } ],
   "parameters" : [ {
     "name" : "length",
-    "description" : "String length"
+    "description" : "String length",
+    "type" : "Integer",
+    "defaultValue" : "128",
+    "required" : false
   } ],
   "order" : 6001
 }, {
@@ -2793,14 +3714,20 @@
     "description" : "Generate random hash value with specified algorithm",
     "parameters" : [ {
       "name" : "algorithm",
-      "description" : "Hash algorithm, e.g., MD5, SHA-256, etc."
+      "description" : "Hash algorithm, e.g., MD5, SHA-256, etc.",
+      "type" : "String",
+      "defaultValue" : "MD5",
+      "required" : false
     } ],
     "example" : "@Hash(SHA-256)",
     "exampleValues" : [ "191d55ca8427b35fffc964461ee430e15ea738f67885ad65162cdafc866da558", "6c9cd1dadcf6c447ef4b80a9e28d358350958f9c2b8e4ca4fcffefa2c6c8185a" ]
   } ],
   "parameters" : [ {
     "name" : "algorithm",
-    "description" : "Hash algorithm, e.g., MD5, SHA-256, etc."
+    "description" : "Hash algorithm, e.g., MD5, SHA-256, etc.",
+    "type" : "String",
+    "defaultValue" : "MD5",
+    "required" : false
   } ],
   "order" : 6002
 }, {
@@ -2819,14 +3746,20 @@
     "description" : "Generate hexadecimal value with specified character length",
     "parameters" : [ {
       "name" : "length",
-      "description" : "Hexadecimal value length"
+      "description" : "Hexadecimal value length",
+      "type" : "Integer",
+      "defaultValue" : "8",
+      "required" : false
     } ],
     "example" : "@Hex(32)",
     "exampleValues" : [ "a45e50145cdee6c45141682ab3c2bce8", "c97e1952909460ccaf410a089ef1b41c" ]
   } ],
   "parameters" : [ {
     "name" : "length",
-    "description" : "Hexadecimal value length"
+    "description" : "Hexadecimal value length",
+    "type" : "Integer",
+    "defaultValue" : "8",
+    "required" : false
   } ],
   "order" : 6003
 }, {
@@ -2845,20 +3778,32 @@
     "description" : "Generate random key pair with specified algorithm and key size",
     "parameters" : [ {
       "name" : "algorithm",
-      "description" : "Generation algorithm, e.g., RSA, EC, DSA"
+      "description" : "Generation algorithm, e.g., RSA, EC, DSA",
+      "type" : "String",
+      "defaultValue" : "RSA",
+      "required" : false
     }, {
       "name" : "keySize",
-      "description" : "Key size, e.g., 2048 RSA, 256 EC"
+      "description" : "Key size, e.g., 2048 RSA, 256 EC",
+      "type" : "Integer",
+      "defaultValue" : "526",
+      "required" : false
     } ],
     "example" : "@KeyPair(EC,256)",
     "exampleValues" : [ "Public Key:\n-----BEGIN PUBLIC KEY-----\nMF0wDQYJKoZIhvcNAQEBBQADTAAwSQJCNFUTq6yj/nhluxtj+sRNFl2L/AGuDNUs\nhw8gdRcQBPShH0Q+wlxjLLESu2EXHpvtCgRVUajCV240WRy9hhis5HdPAgMBAAE=\n-----END PUBLIC KEY-----\n\nPrivate Key:\n-----BEGIN PRIVATE KEY-----\nMIIBWQIBADANBgkqhkiG9w0BAQEFAASCAUMwggE/AgEAAkI0VROrrKP+eGW7G2P6\nxE0WXYv8Aa4M1SyHDyB1FxAE9KEfRD7CXGMssRK7YRcem+0KBFVRqMJXbjRZHL2G\nGKzkd08CAwEAAQJCB0mjvCAGFG1iyVwmn6jPjWJImLcJLGtRUJuYKwYjqnUAjLYC\n/7JjZpZ8z+6QBxXV9tz5ynIAccbRkxpCnqEQC/QlAiF+BDX++1uoOnLvfQHb0mN0\n4R47FXCCJv1SmHVjUpVv55UCIWpP55219mvomEuXyaXAi8PQkzULNZCTbnRvndil\nZOpaUwIhNthIU9g79QSzPy4N4Ak6BgVwLdDP7aVgfVEjTf4EUfbdAiFMWpkyFwcl\n10bSO/Dyn8iB2aJwXV2aOZkB/Uwz1g4VlssCIX2TEF/qTyy4PAGQUwNeGIWo4h6a\nyOf7XXnOoEYUPaP2gw==\n-----END PRIVATE KEY-----" ]
   } ],
   "parameters" : [ {
     "name" : "algorithm",
-    "description" : "Generation algorithm, e.g., RSA, EC, DSA"
+    "description" : "Generation algorithm, e.g., RSA, EC, DSA",
+    "type" : "String",
+    "defaultValue" : "RSA",
+    "required" : false
   }, {
     "name" : "keySize",
-    "description" : "Key size, e.g., 2048 RSA, 256 EC"
+    "description" : "Key size, e.g., 2048 RSA, 256 EC",
+    "type" : "Integer",
+    "defaultValue" : "526",
+    "required" : false
   } ],
   "order" : 6004
 }, {
@@ -2877,14 +3822,20 @@
     "description" : "Generate encryption key with specified algorithm",
     "parameters" : [ {
       "name" : "algorithm",
-      "description" : "Generation algorithm, e.g., RSA, EC, DSA"
+      "description" : "Generation algorithm, e.g., RSA, EC, DSA",
+      "type" : "String",
+      "defaultValue" : "AES",
+      "required" : false
     } ],
     "example" : "@SymmetricKey(AES)",
     "exampleValues" : [ "wiuUG5/rfxB1r9VtxfgO1jy1TLyAmo5xFBm7iOPosAs=", "zHexV+cHC3O9T70eU2FEgSsFTfOmOsD/lJfGQOj90Aw=" ]
   } ],
   "parameters" : [ {
     "name" : "algorithm",
-    "description" : "Generation algorithm, e.g., RSA, EC, DSA"
+    "description" : "Generation algorithm, e.g., RSA, EC, DSA",
+    "type" : "String",
+    "defaultValue" : "AES",
+    "required" : false
   } ],
   "order" : 6005
 }, {
@@ -2903,14 +3854,20 @@
     "description" : "Generate amount for specified locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+      "type" : "String",
+      "defaultValue" : "zh_CN",
+      "required" : false
     } ],
     "example" : "@Amount(en)",
     "exampleValues" : [ "¤249,495.63", "¤965,859.18" ]
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+    "type" : "String",
+    "defaultValue" : "zh_CN",
+    "required" : false
   } ],
   "order" : 7001
 }, {
@@ -2929,14 +3886,20 @@
     "description" : "Generate budget category in specified language",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+      "type" : "String",
+      "defaultValue" : "zh_CN",
+      "required" : false
     } ],
     "example" : "@BudgetCategory(en)",
     "exampleValues" : [ "Taxes", "Travel & Reimbursement" ]
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+    "type" : "String",
+    "defaultValue" : "zh_CN",
+    "required" : false
   } ],
   "order" : 7002
 }, {
@@ -2955,14 +3918,20 @@
     "description" : "Generate currency for specified locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+      "type" : "String",
+      "defaultValue" : "zh_CN",
+      "required" : false
     } ],
     "example" : "@MCurrency(en)",
     "exampleValues" : [ "CNY", "CAD" ]
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+    "type" : "String",
+    "defaultValue" : "zh_CN",
+    "required" : false
   } ],
   "order" : 7003
 }, {
@@ -2981,14 +3950,20 @@
     "description" : "Generate invoice number for specified locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+      "type" : "String",
+      "defaultValue" : "zh_CN",
+      "required" : false
     } ],
     "example" : "@InvoiceNumber(en)",
     "exampleValues" : [ "INV-202506-18877", "INV-202506-81864" ]
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+    "type" : "String",
+    "defaultValue" : "zh_CN",
+    "required" : false
   } ],
   "order" : 7004
 }, {
@@ -3007,14 +3982,20 @@
     "description" : "Generate tax code for specified locale",
     "parameters" : [ {
       "name" : "locale",
-      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+      "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+      "type" : "String",
+      "defaultValue" : "zh_CN",
+      "required" : false
     } ],
     "example" : "@TaxCode(en)",
     "exampleValues" : [ "XX-LNDL6HY7", "L4B-ZK85QS" ]
   } ],
   "parameters" : [ {
     "name" : "locale",
-    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN"
+    "description" : "Internationalized languages, currently only supporting Chinese (zh_CN) and English (en), default zh_CN",
+    "type" : "String",
+    "defaultValue" : "zh_CN",
+    "required" : false
   } ],
   "order" : 7005
 } ]

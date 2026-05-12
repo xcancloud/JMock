@@ -19,7 +19,7 @@ import java.util.HexFormat;
     categoryI18nKey = {DOC_CATEGORY_CRYPTO}, order = 6002)
 public class MHash extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_HASH_PARAMETER_ALGORITHM)
+  @JMockParameter(descI18nKey = DOC_HASH_PARAMETER_ALGORITHM, type = "String", defaultValue = "MD5")
   private final String algorithm;
 
   @JMockConstructor(descI18nKey = DOC_HASH_C1,

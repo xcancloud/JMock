@@ -24,7 +24,7 @@ import lombok.Setter;
     categoryI18nKey = {DOC_CATEGORY_WEB}, order = 1002)
 public class MColor extends AbstractMockFunction {
 
-  @JMockParameter(descI18nKey = DOC_COLOR_PARAMETER_FORMAT)
+  @JMockParameter(descI18nKey = DOC_COLOR_PARAMETER_FORMAT, type = "String", defaultValue = "rgb")
   private String format;
 
   private static final String[] FORMAT = {"rgb", "hsl", "hwb", "lch", "cmyk"};
