@@ -80,12 +80,16 @@ public final class MockEvaluator {
 
       return ConstructorUtils.invokeConstructor(clz, params);
     } catch (Exception e) {
-      // Try no-arg constructor as fallback
-      try {
-        return ConstructorUtils.invokeConstructor(clz);
-      } catch (Exception ex) {
-        return null;
-      }
+      // Do NOT silently fall back to the no-arg constructor when the user provided
+      // arguments — that hides real configuration errors (wrong arg count, bad weight
+      // format, invalid charset, etc.) behind a fake-looking default output.
+      // Return null so the caller can reconstruct the original token text and the
+      // user can see their expression unchanged instead of misleading random data.
+      Throwable cause = e.getCause() != null ? e.getCause() : e;
+      System.err.println("[JMock] Failed to instantiate @" + name + " with "
+          + args.size() + " arg(s): " + cause.getClass().getSimpleName()
+          + ": " + cause.getMessage());
+      return null;
     }
   }
 

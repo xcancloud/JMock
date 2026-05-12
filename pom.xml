@@ -102,7 +102,7 @@
 
     <commons-lang3.version>3.14.0</commons-lang3.version>
     <commons-codec.version>1.16.0</commons-codec.version>
-    <lombok.version>1.18.30</lombok.version>
+    <lombok.version>1.18.38</lombok.version>
     <testng.version>7.8.0</testng.version>
     <assertj.version>3.24.2</assertj.version>
     <mockito.version>5.8.0</mockito.version>
@@ -318,6 +318,13 @@
               <!-- Preserve constructor/method parameter names at runtime to avoid arg0/arg1 in generated docs -->
               <arg>-parameters</arg>
             </compilerArgs>
+            <annotationProcessorPaths>
+              <path>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+              </path>
+            </annotationProcessorPaths>
           </configuration>
         </plugin>
         <plugin>

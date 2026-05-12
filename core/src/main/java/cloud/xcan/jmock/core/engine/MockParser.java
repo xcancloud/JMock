@@ -68,7 +68,6 @@ public final class MockParser {
           textBuf.setLength(0);
         }
 
-        int funcStart = pos;
         ParseResult result = parseFunctionCall(chars, pos, len);
         nodes.add(result.expr);
         pos = result.endPos;
@@ -138,8 +137,10 @@ public final class MockParser {
     int argIndex = 0;
     StringBuilder argBuf = new StringBuilder();
     boolean inEscape = false;
+    boolean inQuote = false;       // currently inside a "..." literal
+    boolean argQuoted = false;     // current argument contained a quoted segment
 
-    while (pos < len && chars[pos] != TokenChars.FUNC_PARAM_END) {
+    while (pos < len && (inQuote || chars[pos] != TokenChars.FUNC_PARAM_END)) {
       if (inEscape) {
         argBuf.append(chars[pos]);
         inEscape = false;
@@ -149,6 +150,22 @@ public final class MockParser {
 
       if (chars[pos] == escapeChar) {
         inEscape = true;
+        pos++;
+        continue;
+      }
+
+      // Quote handling: strip surrounding double quotes, keep inner content
+      // (including commas, colons, etc.) as a single literal value.
+      if (chars[pos] == '"') {
+        inQuote = !inQuote;
+        argQuoted = true;
+        pos++;
+        continue;
+      }
+
+      // Inside quotes: every char (including ',') is literal content
+      if (inQuote) {
+        argBuf.append(chars[pos]);
         pos++;
         continue;
       }
@@ -174,6 +191,7 @@ public final class MockParser {
         args.add(MockExpr.Argument.literal(String.valueOf(argIndex), argBuf.toString()));
         argBuf.setLength(0);
         argIndex++;
+        argQuoted = false;
         pos++;
         continue;
       }
@@ -182,8 +200,8 @@ public final class MockParser {
       pos++;
     }
 
-    // Last argument
-    if (!argBuf.isEmpty()) {
+    // Last argument: include even if buffer is empty when it was an explicit "" literal
+    if (!argBuf.isEmpty() || argQuoted) {
       args.add(MockExpr.Argument.literal(String.valueOf(argIndex), argBuf.toString()));
     }
 

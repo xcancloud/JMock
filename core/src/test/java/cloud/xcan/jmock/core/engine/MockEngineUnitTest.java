@@ -8,7 +8,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import cloud.xcan.jmock.core.fixtures.MEcho;
 import cloud.xcan.jmock.core.fixtures.MListJson;
 import cloud.xcan.jmock.core.fixtures.MNullFn;
+import cloud.xcan.jmock.core.fixtures.MStrict;
 import cloud.xcan.jmock.core.testsupport.MutableFunctionRegistry;
+import cloud.xcan.jmock.plugin.MString;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
@@ -87,5 +89,17 @@ class MockEngineUnitTest {
     MockEngine engine = new MockEngine(reg, p, r);
     reg.register(MEcho.class);
     assertEquals("z", engine.render("@Echo(z)"));
+  }
+
+  @Test
+  void constructor_withFullArgs() {
+    MutableFunctionRegistry reg = new MutableFunctionRegistry();
+    MockParser p = new MockParser();
+    MockRenderer r = new MockRenderer();
+    MockEngine engine = new MockEngine(reg, p, r);
+    reg.register(MString.class);
+    for (int i = 0; i < 10; i++) {
+      System.out.println(engine.render(engine.render("@String(1,,,ABCDE,\"1:2\")")));
+    }
   }
 }
