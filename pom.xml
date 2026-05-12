@@ -313,6 +313,12 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>${maven-compiler-plugin.version}</version>
+          <configuration>
+            <compilerArgs>
+              <!-- Preserve constructor/method parameter names at runtime to avoid arg0/arg1 in generated docs -->
+              <arg>-parameters</arg>
+            </compilerArgs>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
