@@ -52,7 +52,7 @@ public class MCity extends AbstractMockFunction {
   }
 
   @JMockConstructor(descI18nKey = DOC_CITY_C3,
-      example = "@Word(北京|深圳|上海))",
+      example = "@Word(北京|深圳|上海)",
       exampleValues = {"深圳", "上海"})
   public MCity(String dict) {
     this.dictArray = dict.split("\\|");

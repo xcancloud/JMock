@@ -54,7 +54,7 @@ public class MGender extends AbstractMockFunction {
   }
 
   @JMockConstructor(descI18nKey = DOC_GENDER_C3,
-      example = "@Gender(F|M))",
+      example = "@Gender(F|M)",
       exampleValues = {"F", "M"})
   public MGender(String dict) {
     this.dictArray = dict.split("\\|");

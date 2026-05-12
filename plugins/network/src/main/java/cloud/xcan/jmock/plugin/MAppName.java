@@ -45,7 +45,7 @@ public class MAppName extends AbstractMockFunction {
   }
 
   @JMockConstructor(descI18nKey = DOC_APP_NAME_C2,
-      example = "@AppName(星链|360|ie))",
+      example = "@AppName(星链|360|ie)",
       exampleValues = {"360", "星链"})
   public MAppName(String dict) {
     this.dictArray = normalizeDict(dict);

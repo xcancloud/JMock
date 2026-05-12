@@ -1457,7 +1457,7 @@
       "defaultValue" : "",
       "required" : false
     } ],
-    "example" : "@Word(开开心心|快快乐乐|红红火火))",
+    "example" : "@Word(开开心心|快快乐乐|红红火火)",
     "exampleValues" : [ "开开心心", "快快乐乐" ]
   }, {
     "instance" : "@Word(locale)",
@@ -1893,7 +1893,7 @@
       "defaultValue" : "",
       "required" : false
     } ],
-    "example" : "@Word(北京|深圳|上海))",
+    "example" : "@Word(北京|深圳|上海)",
     "exampleValues" : [ "深圳", "上海" ]
   }, {
     "instance" : "@City(locale)",
@@ -1943,7 +1943,7 @@
       "defaultValue" : "",
       "required" : false
     } ],
-    "example" : "@Address(地址1|地址2|地址3))",
+    "example" : "@Address(地址1|地址2|地址3)",
     "exampleValues" : [ "地址3", "地址1" ]
   }, {
     "instance" : "@Address(locale)",
@@ -2355,7 +2355,7 @@
       "defaultValue" : "",
       "required" : false
     } ],
-    "example" : "@TimeZone(Australia/Darwin|Australia/Sydney|America/Argentina/Buenos_Aires))",
+    "example" : "@TimeZone(Australia/Darwin|Australia/Sydney|America/Argentina/Buenos_Aires)",
     "exampleValues" : [ "Australia/Darwin", "America/Argentina/Buenos_Aires" ]
   } ],
   "parameters" : [ {
@@ -2871,7 +2871,7 @@
       "defaultValue" : "",
       "required" : false
     } ],
-    "example" : "@Gender(F|M))",
+    "example" : "@Gender(F|M)",
     "exampleValues" : [ "F", "M" ]
   }, {
     "instance" : "@Gender(locale)",
@@ -2971,7 +2971,7 @@
       "defaultValue" : "",
       "required" : false
     } ],
-    "example" : "@AppName(星链|360|ie))",
+    "example" : "@AppName(星链|360|ie)",
     "exampleValues" : [ "360", "星链" ]
   } ],
   "parameters" : [ {

@@ -56,7 +56,7 @@ public class MAddress extends AbstractMockFunction {
   }
 
   @JMockConstructor(descI18nKey = DOC_ADDRESS_C3,
-      example = "@Address(地址1|地址2|地址3))",
+      example = "@Address(地址1|地址2|地址3)",
       exampleValues = {"地址3", "地址1"}
   )
   public MAddress(String dict) {

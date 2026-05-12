@@ -53,7 +53,7 @@ public class MWord extends AbstractMockFunction {
   }
 
   @JMockConstructor(descI18nKey = DOC_WORD_C3,
-      example = "@Word(开开心心|快快乐乐|红红火火))",
+      example = "@Word(开开心心|快快乐乐|红红火火)",
       exampleValues = {"开开心心", "快快乐乐"})
   public MWord(String dict) {
     this.dictArray = dict.split("\\|");

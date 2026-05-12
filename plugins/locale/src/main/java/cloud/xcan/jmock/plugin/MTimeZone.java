@@ -48,7 +48,7 @@ public class MTimeZone extends AbstractMockFunction {
   }
 
   @JMockConstructor(descI18nKey = DOC_TIMEZONE_C2,
-      example = "@TimeZone(Australia/Darwin|Australia/Sydney|America/Argentina/Buenos_Aires))",
+      example = "@TimeZone(Australia/Darwin|Australia/Sydney|America/Argentina/Buenos_Aires)",
       exampleValues = {"Australia/Darwin", "America/Argentina/Buenos_Aires"})
   public MTimeZone(String dict) {
     this.dictArray = normalizeDict(dict);
